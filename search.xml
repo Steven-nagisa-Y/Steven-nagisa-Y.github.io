@@ -128,30 +128,9 @@
         <category>code</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>docker</tag>
+        <tag>技术</tag>
         <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p>
-<p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <tags>
-        <tag>link</tag>
       </tags>
   </entry>
   <entry>
@@ -248,6 +227,27 @@
       </categories>
       <tags>
         <tag>essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p>
+<p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <tags>
+        <tag>link</tag>
       </tags>
   </entry>
   <entry>
@@ -1148,7 +1148,7 @@
   </entry>
   <entry>
     <title>Recognizing ORIGINALS</title>
-    <url>/2019/11/#TED#%20Recognizing%20GRIGINALS/</url>
+    <url>/2019/11/Recognizing%20GRIGINALS/</url>
     <content><![CDATA[<h1 id="Recognizing-ORIGINALS"><a href="#Recognizing-ORIGINALS" class="headerlink" title="Recognizing ORIGINALS"></a>Recognizing ORIGINALS</h1><p><code>Keywords: originals</code></p>
 <h3 id="What-are-the-originals"><a href="#What-are-the-originals" class="headerlink" title="What are the originals?"></a>What are the originals?</h3><p>Originals are nonconformists, people who not only have new ideas, but take action to champion them. They are people who stand out and speak up. Originals drive creativity and change in the world.</p>
 <a id="more"></a>
@@ -1185,7 +1185,7 @@
   </entry>
   <entry>
     <title>The Sound of the Universe</title>
-    <url>/2019/11/#TED#%20The%20Sound%20of%20the%20Universe/</url>
+    <url>/2019/11/The%20Sound%20of%20the%20Universe/</url>
     <content><![CDATA[<h2 id="The-Sound-of-the-Universe"><a href="#The-Sound-of-the-Universe" class="headerlink" title="The Sound of the Universe"></a>The Sound of the Universe</h2><h2 id="Keywords-Stars-Music"><a href="#Keywords-Stars-Music" class="headerlink" title="Keywords: Stars | Music"></a><code>Keywords: Stars | Music</code></h2><p>There is a deep connection between music and astronomy. It goes back over 2000 years to Pythagoras<a href="毕达哥拉斯">^1</a>. He said, There is geometry in the humming of the strings, there is music in the spacing of the spheres. </p>
 <hr>
 <a id="more"></a>

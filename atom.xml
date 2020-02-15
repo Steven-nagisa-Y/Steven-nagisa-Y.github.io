@@ -36,40 +36,11 @@
       <category term="code" scheme="https://airocket.tech/categories/code/"/>
     
     
-      <category term="技术" scheme="https://airocket.tech/tags/%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="docker" scheme="https://airocket.tech/tags/docker/"/>
     
+      <category term="技术" scheme="https://airocket.tech/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="总结" scheme="https://airocket.tech/tags/%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本站链接及友链</title>
-    <link href="https://airocket.tech/2020/02/link/"/>
-    <id>https://airocket.tech/2020/02/link/</id>
-    <published>2020-02-14T16:00:00.000Z</published>
-    <updated>2020-02-14T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote><p>更新时间：2020-02-15</p></blockquote><h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p><p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p><p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p><p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p><p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p><hr><a id="more"></a><h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p><p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;本站链接及友链&quot;&gt;&lt;a href=&quot;#本站链接及友链&quot; class=&quot;headerlink&quot; title=&quot;本站链接及友链&quot;&gt;&lt;/a&gt;本站链接及友链&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;更新时间：2020-02-15&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;本站链接及功能：&quot;&gt;&lt;a href=&quot;#本站链接及功能：&quot; class=&quot;headerlink&quot; title=&quot;本站链接及功能：&quot;&gt;&lt;/a&gt;本站链接及功能：&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://airocket.tech&quot;&gt;airocket.tech&lt;/a&gt; - &lt;strong&gt;博客主站&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://h.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;home.airocket.tech&lt;/a&gt; - 自定义浏览器主页&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://url.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;url.airocket.tech&lt;/a&gt; - 链接转发和保存（在开发）&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://dl.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dl.airocket.tech&lt;/a&gt; - 下载站&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://api.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;api.airocket.tech&lt;/a&gt; - 后端api接口地址（在开发）&lt;/p&gt;
-&lt;hr&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="link" scheme="https://airocket.tech/tags/link/"/>
     
   </entry>
   
@@ -100,6 +71,35 @@
     
     
       <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本站链接及友链</title>
+    <link href="https://airocket.tech/2020/02/link/"/>
+    <id>https://airocket.tech/2020/02/link/</id>
+    <published>2020-02-14T16:00:00.000Z</published>
+    <updated>2020-02-14T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote><p>更新时间：2020-02-15</p></blockquote><h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p><p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p><p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p><p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p><p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p><hr><a id="more"></a><h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p><p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;本站链接及友链&quot;&gt;&lt;a href=&quot;#本站链接及友链&quot; class=&quot;headerlink&quot; title=&quot;本站链接及友链&quot;&gt;&lt;/a&gt;本站链接及友链&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;更新时间：2020-02-15&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;本站链接及功能：&quot;&gt;&lt;a href=&quot;#本站链接及功能：&quot; class=&quot;headerlink&quot; title=&quot;本站链接及功能：&quot;&gt;&lt;/a&gt;本站链接及功能：&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://airocket.tech&quot;&gt;airocket.tech&lt;/a&gt; - &lt;strong&gt;博客主站&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://h.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;home.airocket.tech&lt;/a&gt; - 自定义浏览器主页&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://url.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;url.airocket.tech&lt;/a&gt; - 链接转发和保存（在开发）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dl.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;dl.airocket.tech&lt;/a&gt; - 下载站&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://api.airocket.tech&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;api.airocket.tech&lt;/a&gt; - 后端api接口地址（在开发）&lt;/p&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="link" scheme="https://airocket.tech/tags/link/"/>
     
   </entry>
   
@@ -206,8 +206,8 @@
   
   <entry>
     <title>Recognizing ORIGINALS</title>
-    <link href="https://airocket.tech/2019/11/#TED#%20Recognizing%20GRIGINALS/"/>
-    <id>https://airocket.tech/2019/11/#TED#%20Recognizing%20GRIGINALS/</id>
+    <link href="https://airocket.tech/2019/11/Recognizing%20GRIGINALS/"/>
+    <id>https://airocket.tech/2019/11/Recognizing%20GRIGINALS/</id>
     <published>2019-11-19T16:00:00.000Z</published>
     <updated>2019-11-19T16:00:00.000Z</updated>
     
@@ -236,8 +236,8 @@
   
   <entry>
     <title>The Sound of the Universe</title>
-    <link href="https://airocket.tech/2019/11/#TED#%20The%20Sound%20of%20the%20Universe/"/>
-    <id>https://airocket.tech/2019/11/#TED#%20The%20Sound%20of%20the%20Universe/</id>
+    <link href="https://airocket.tech/2019/11/The%20Sound%20of%20the%20Universe/"/>
+    <id>https://airocket.tech/2019/11/The%20Sound%20of%20the%20Universe/</id>
     <published>2019-11-15T16:00:00.000Z</published>
     <updated>2019-11-15T16:00:00.000Z</updated>
     
