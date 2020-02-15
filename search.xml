@@ -421,7 +421,7 @@
 <h4 id="函数的特性"><a href="#函数的特性" class="headerlink" title="函数的特性"></a>函数的特性</h4><ol>
 <li><p>奇偶性:略</p>
 </li>
-<li><p>有界性：函数$f(x)$在$X$上有上界：<br>$$<br>\forall x \in X,\existss B_1,f(x) \leq B_1<br>$$<br>​        函数$f(x)$在$X$上有下界：<br>$$<br>\forall x \in X,\exists B_2,f(x) \geq B_2<br>$$<br>​        函数有界：<br>$$<br>\forall x \in X,\exists M,\mid f(x) \mid \leq M<br>$$</p>
+<li><p>有界性：函数$f(x)$在$X$上有上界：<br>$$<br>\forall x \in X,\exists B_1,f(x) \leq B_1<br>$$<br>​        函数$f(x)$在$X$上有下界：<br>$$<br>\forall x \in X,\exists B_2,f(x) \geq B_2<br>$$<br>​        函数有界：<br>$$<br>\forall x \in X,\exists M,\mid f(x) \mid \leq M<br>$$</p>
 </li>
 <li><p>单调性:略</p>
 </li>
