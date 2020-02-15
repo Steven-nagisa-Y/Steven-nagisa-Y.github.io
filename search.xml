@@ -395,7 +395,8 @@
   <entry>
     <title>高等数学上册 概念公式笔记</title>
     <url>/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/</url>
-    <content><![CDATA[<h1 id="高等数学（上）"><a href="#高等数学（上）" class="headerlink" title="高等数学（上）"></a>高等数学（上）</h1><h2 id="toc"><a href="#toc" class="headerlink" title="[toc]"></a>[toc]</h2><h2 id="1-函数与极限"><a href="#1-函数与极限" class="headerlink" title="1. 函数与极限"></a>1. 函数与极限</h2><h3 id="1-1-集合与函数"><a href="#1-1-集合与函数" class="headerlink" title="1.1 集合与函数"></a>1.1 集合与函数</h3><ol>
+    <content><![CDATA[<h1 id="高等数学（上）"><a href="#高等数学（上）" class="headerlink" title="高等数学（上）"></a>高等数学（上）</h1><p><em>建议使用高清宽屏阅读</em></p>
+<h2 id="toc"><a href="#toc" class="headerlink" title="[toc]"></a>[toc]</h2><h2 id="1-函数与极限"><a href="#1-函数与极限" class="headerlink" title="1. 函数与极限"></a>1. 函数与极限</h2><h3 id="1-1-集合与函数"><a href="#1-1-集合与函数" class="headerlink" title="1.1 集合与函数"></a>1.1 集合与函数</h3><ol>
 <li><p>集合的概念：略</p>
 </li>
 <li><p>集合的运算：</p>
@@ -472,18 +473,8 @@
 <td align="center">$(-\infty,+\infty)$</td>
 <td align="center">$(0,\pi)$</td>
 </tr>
-<tr>
-<td align="center">### 1.2 数列的极限</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">#### 数列</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
 </tbody></table>
-<ol>
+<h3 id="1-2-数列的极限"><a href="#1-2-数列的极限" class="headerlink" title="1.2 数列的极限"></a>1.2 数列的极限</h3><h4 id="数列"><a href="#数列" class="headerlink" title="数列"></a>数列</h4><ol>
 <li>数列${x_n}$的子数列${x_{n_k}}$</li>
 </ol>
 <h4 id="数列的极限"><a href="#数列的极限" class="headerlink" title="数列的极限"></a>数列的极限</h4><ol>
