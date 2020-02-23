@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>终端编译Java源文件含有package的处理方法</title>
+    <url>/2020/02/Java-compile-package/</url>
+    <content><![CDATA[<!--# 终端编译Java源文件含有package的处理方法-->
+
+<blockquote>
+<p> Java源文件不含package时，使用<code>javac</code>编译：</p>
+<p><code>javac test.java</code></p>
+<p>如果源文件含有package应该怎么处理呢？</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.stevenos.utils.DateTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String text;</span><br><span class="line">    text = DateTools.formatTime();</span><br><span class="line">    System.out.println(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>文件2：DateTools.java（位置：<code>~/com/stevenos/utils/DateTools.java</code>）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTools</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">formatTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Date day = <span class="keyword">new</span> Date();</span><br><span class="line">44SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">44<span class="keyword">return</span> sdf.format(day);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h3><p><code>javac -d &lt;dir&gt; &lt;src&gt;</code></p>
+<ol>
+<li><p>首先分别编译每个文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">javac -d . ~/com/stevenos/java/Main.java</span><br><span class="line">javac -d . ~/com/stevenos/utils/DateTools.java</span><br></pre></td></tr></table></figure>
+
+<p><code>.</code> 代表在当前目录下生成文件夹，可以自行更换。</p>
+<p><img src="/img/Java-compile-package.assets/image-20200223095756528.png" alt="image-20200223095756528"></p>
+<p>如果在当前目录生成，可以看到目录下有：</p>
+<ul>
+<li><code>com/stevenos/java/Main.class</code></li>
+<li><code>com/stevenos/utils/DateTime.class</code></li>
+</ul>
+<p>如果目录（包）中有多个文件，可以使用通配符 <code>*</code>：</p>
+<p><img src="/img/Java-compile-package.assets/image-20200223100326158.png" alt="image-20200223100326158"></p>
+</li>
+<li><p>直接运行：</p>
+<p>Java运行主方法。</p>
+<p><code>java com.stevenos.java.Main</code></p>
+<p><img src="/img/Java-compile-package.assets/image-20200223100543259.png" alt="image-20200223100543259"></p>
+</li>
+</ol>
+<h2 id="搞定"><a href="#搞定" class="headerlink" title="搞定"></a>搞定</h2><p>PS.</p>
+<blockquote>
+<p>输出中文时，若非编写时使用GBK编码，可能会出现GBK编码映射错误；</p>
+<p>UTF-8编码的需要加上参数：<code>-encoding UTF-8</code></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>essay</tag>
+        <tag>Java 复习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>惠普 光影精灵5 开箱</title>
     <url>/2020/02/hp-pavilion/</url>
     <content><![CDATA[<!--# 惠普 光影精灵5 开箱-->
@@ -328,27 +384,6 @@
       </tags>
   </entry>
   <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p>
-<p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <tags>
-        <tag>link</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>About Me</title>
     <url>/2020/02/about/</url>
     <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
@@ -442,6 +477,27 @@
       </categories>
       <tags>
         <tag>essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><p><a href="https://airocket.tech">airocket.tech</a> - <strong>博客主站</strong></p>
+<p><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a> - 自定义浏览器主页</p>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <tags>
+        <tag>link</tag>
       </tags>
   </entry>
   <entry>
