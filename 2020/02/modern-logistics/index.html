@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    终端编译Java源文件含有package的处理方法 |  渚
+    现代物流的基本概念 |  渚
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Java-compile-package" class="article article-type-post" itemscope
+  <article id="post-modern-logistics" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  终端编译Java源文件含有package的处理方法
+  现代物流的基本概念
 </h1>
   
 
@@ -53,12 +53,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/Java-compile-package/" class="article-date">
-  <time datetime="2020-02-23T02:00:11.000Z" itemprop="datePublished">2020-02-23</time>
+      <a href="/2020/02/modern-logistics/" class="article-date">
+  <time datetime="2020-02-25T06:28:02.000Z" itemprop="datePublished">2020-02-25</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/code/">code</a>
+    <a class="article-category-link" href="/categories/note/">note</a>
   </div>
 
       
@@ -68,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">286字</span>
+            <span class="post-count">980字</span>
         </span>
     </span>
 
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -104,50 +104,110 @@
       
 
       
-      <!--# 终端编译Java源文件含有package的处理方法-->
-
-<blockquote>
-<p> Java源文件不含package时，使用<code>javac</code>编译：</p>
-<p><code>javac test.java</code></p>
-<p>如果源文件含有package应该怎么处理呢？</p>
+      <h1 id="现代物流学"><a href="#现代物流学" class="headerlink" title="现代物流学"></a>现代物流学</h1><h2 id="第一章：物流的基本概念"><a href="#第一章：物流的基本概念" class="headerlink" title="第一章：物流的基本概念"></a>第一章：物流的基本概念</h2><blockquote>
+<ol>
+<li>物流概念的产生</li>
+<li>物流的定义</li>
+<li>物流的效用</li>
+<li>物流的分类</li>
+<li>物流与社会经济</li>
+<li>现代物流理念及其特征</li>
+</ol>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.stevenos.utils.DateTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String text;</span><br><span class="line">    text = DateTools.formatTime();</span><br><span class="line">    System.out.println(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>文件2：DateTools.java（位置：<code>~/com/stevenos/utils/DateTools.java</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTools</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">formatTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Date day = <span class="keyword">new</span> Date();</span><br><span class="line">44SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">44<span class="keyword">return</span> sdf.format(day);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h3><p><code>javac -d &lt;dir&gt; &lt;src&gt;</code></p>
-<ol>
-<li><p>首先分别编译每个文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -d . ~/com/stevenos/java/Main.java</span><br><span class="line">javac -d . ~/com/stevenos/utils/DateTools.java</span><br></pre></td></tr></table></figure>
-
-<p><code>.</code> 代表在当前目录下生成文件夹，可以自行更换。</p>
-<p><img src="/img/Java-compile-package.assets/image-20200223095756528.png" alt="image-20200223095756528"></p>
-<p>如果在当前目录生成，可以看到目录下有：</p>
-<ul>
-<li><code>com/stevenos/java/Main.class</code></li>
-<li><code>com/stevenos/utils/DateTime.class</code></li>
+<h3 id="物流概念的产生"><a href="#物流概念的产生" class="headerlink" title="物流概念的产生"></a>物流概念的产生</h3><ul>
+<li>发生在社会经济领域中的一种活动</li>
+<li>物质资料生产和流通活动的有机组成部分</li>
+<li>物流涵盖了从原材料的获取到半成品管理和产成品销售的全过程</li>
 </ul>
-<p>如果目录（包）中有多个文件，可以使用通配符 <code>*</code>：</p>
-<p><img src="/img/Java-compile-package.assets/image-20200223100326158.png" alt="image-20200223100326158"></p>
+<h3 id="物流的定义"><a href="#物流的定义" class="headerlink" title="物流的定义"></a>物流的定义</h3><h4 id="不同的定义："><a href="#不同的定义：" class="headerlink" title="不同的定义："></a>不同的定义：</h4><ol>
+<li><p>物流是从生产阶段到消费或利用阶段物资的移动及货物处理活动的管理。</p>
 </li>
-<li><p>直接运行：</p>
-<p>Java运行主方法。</p>
-<p><code>java com.stevenos.java.Main</code></p>
-<p><img src="/img/Java-compile-package.assets/image-20200223100543259.png" alt="image-20200223100543259"></p>
+<li><p>物流是制品从生产地到最终消费者的物理性转移活动。具体是由包装、装卸、运输、保管以及信息等活动组成。</p>
+</li>
+<li><p>物流是将原材料、半成品以及产成品由生产地送达至消费地的所有流通活动。包括用户服务、需求预测、信息联系、物料搬运、订单处理、选址、采购、包装、运输、装卸、废弃物处理以及仓储管理。</p>
+</li>
+<li><p>物流是为满足消费者需求而进行的对原材料、半成品、最终产品及相关信息从起始地到消费地的有效流动与存储的计划、实施与控制的过程。</p>
+</li>
+<li><p>物流是<strong>对从生产阶段到消费或者利用阶段物资的移动及货物的处理活动的管理。</strong></p>
 </li>
 </ol>
-<h2 id="搞定"><a href="#搞定" class="headerlink" title="搞定"></a>搞定</h2><p>PS.</p>
-<blockquote>
-<p>输出中文时，若非编写时使用GBK编码，可能会出现GBK编码映射错误；</p>
-<p>UTF-8编码的需要加上参数：<code>-encoding UTF-8</code></p>
-</blockquote>
-
+<h4 id="物流与营销的关系"><a href="#物流与营销的关系" class="headerlink" title="物流与营销的关系"></a>物流与营销的关系</h4><ul>
+<li>最早的物流定义是由营销组织提出来的。</li>
+<li>物流看作营销的要素之一。</li>
+</ul>
+<h4 id="物流和物流管理的关系"><a href="#物流和物流管理的关系" class="headerlink" title="物流和物流管理的关系"></a>物流和物流管理的关系</h4><h4 id="Logistics-与-PD的关系"><a href="#Logistics-与-PD的关系" class="headerlink" title="Logistics 与 PD的关系"></a>Logistics 与 PD的关系</h4><p>二者的主要区别在于所涵盖范围的变化</p>
+<p>Logistics是将<em>物料采购供应</em>、<em>产品生产制造</em>和<em>产成品销售</em>的存货流动依次对接。</p>
+<h4 id="运输和物流之间的关系"><a href="#运输和物流之间的关系" class="headerlink" title="运输和物流之间的关系"></a>运输和物流之间的关系</h4><p>运输是物流活动的一个核心要素；</p>
+<p>物流中其它要素的变化，都会对运输产生影响；</p>
+<p>运输是现代物流服务的重要物质技术基础；</p>
+<p>运输是社会物流体系的一个有机组成部分；</p>
+<p>交通运输与社会生产的物流结构互相影响。</p>
+<h3 id="物流的作用"><a href="#物流的作用" class="headerlink" title="物流的作用"></a>物流的作用</h3><h4 id="商品的价值"><a href="#商品的价值" class="headerlink" title="商品的价值"></a>商品的价值</h4><ol>
+<li>形式价值  =&gt;  产生于生产过程</li>
+<li>时间价值  =&gt;  产生于存储过程</li>
+<li>空间价值  =&gt;  产生于运输过程</li>
+<li>所有权价值  =&gt;  产生于销售过程</li>
+</ol>
+<hr>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ol>
+<li>服务商流</li>
+<li>保障生产</li>
+<li>方便生活</li>
+</ol>
+<h4 id="效用"><a href="#效用" class="headerlink" title="效用"></a>效用</h4><ol>
+<li>空间效用：供应链上游到下游，通过运输，使物品有空间的位移</li>
+<li>时间效用：仓储设置弥补时间差异</li>
+<li>品种效用：对订单进行处理，对物品进行整合</li>
+<li>批量效用：生产商和供应商是批量的，末端是小批量的</li>
+<li>信息效用</li>
+<li>风险效用</li>
+</ol>
+<h4 id="隔离"><a href="#隔离" class="headerlink" title="隔离"></a>隔离</h4><ol>
+<li>社会：价值无法体现</li>
+<li>空间：生产的场所和消费场所不同</li>
+<li>时间：仓储</li>
+<li>信息：厂商需要市场的消费和流通信息</li>
+<li>功能：标准化的个性化的</li>
+</ol>
+<h3 id="物流活动的分类"><a href="#物流活动的分类" class="headerlink" title="物流活动的分类"></a>物流活动的分类</h3><h4 id="按照发生的领域"><a href="#按照发生的领域" class="headerlink" title="按照发生的领域"></a>按照发生的领域</h4><ol>
+<li>微观</li>
+<li>中观</li>
+<li>宏观</li>
+</ol>
+<h4 id="按照在供应链中的组成部分"><a href="#按照在供应链中的组成部分" class="headerlink" title="按照在供应链中的组成部分"></a>按照在供应链中的组成部分</h4><ol>
+<li>采购物流</li>
+<li>工厂内物流</li>
+<li>生产物流</li>
+<li>销售物流</li>
+<li>返回回收物流</li>
+<li>再生利用和废弃物物流</li>
+</ol>
+<h4 id="按照地域"><a href="#按照地域" class="headerlink" title="按照地域"></a>按照地域</h4><ol>
+<li>国内物流</li>
+<li>国际物流</li>
+<li>地区物流</li>
+</ol>
+<h4 id="按照系统性质"><a href="#按照系统性质" class="headerlink" title="按照系统性质"></a>按照系统性质</h4><ol>
+<li>社会物流</li>
+<li>行业物流</li>
+<li>企业物流</li>
+</ol>
+<h4 id="按照从事物流的主体"><a href="#按照从事物流的主体" class="headerlink" title="按照从事物流的主体"></a>按照从事物流的主体</h4><ol>
+<li>第一方物流：提供方物流</li>
+<li>第二方物流：采购方物流</li>
+<li>第三方物流：物流服务提供商</li>
+<li>第四方物流：物流服务集成商</li>
+</ol>
+<h4 id="其它物流划分"><a href="#其它物流划分" class="headerlink" title="其它物流划分"></a>其它物流划分</h4><ul>
+<li>绿色物流</li>
+<li>虚拟物流</li>
+<li>军事物流</li>
+<li>定制物流</li>
+</ul>
+<p><em>To be continued</em></p>
+<h3 id="物流与社会经济"><a href="#物流与社会经济" class="headerlink" title="物流与社会经济"></a>物流与社会经济</h3><h3 id="现代物流理念及其特征"><a href="#现代物流理念及其特征" class="headerlink" title="现代物流理念及其特征"></a>现代物流理念及其特征</h3>
       
       <!-- reward -->
       
@@ -216,14 +276,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://airocket.tech/2020/02/Java-compile-package/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://airocket.tech/2020/02/modern-logistics/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%A4%8D%E4%B9%A0/" rel="tag">Java 复习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essay/" rel="tag">essay</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essay/" rel="tag">essay</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/" rel="tag">note</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/study/" rel="tag">study</a></li></ul>
 
 
     </footer>
@@ -234,19 +294,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/modern-logistics/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            现代物流的基本概念
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/hp-pavilion/" class="article-nav-link">
+      <a href="/2020/02/Java-compile-package/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">惠普 光影精灵5 开箱</div>
+        <div class="article-nav-title">终端编译Java源文件含有package的处理方法</div>
       </a>
     
   </nav>
