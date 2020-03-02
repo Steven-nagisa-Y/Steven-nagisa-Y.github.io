@@ -5932,7 +5932,7 @@ live2dcanvas {
 }
 .cover-inner {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
 }
@@ -5949,7 +5949,7 @@ live2dcanvas {
 }
 .cover-inner a,
 .cover-inner {
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 .cover-inner video,
@@ -5958,6 +5958,13 @@ live2dcanvas {
 }
 .cover-inner .cover-logo {
   width: 6rem;
+}
+.gif-img {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center center;
 }
 .cover-learn-more {
   position: absolute;
