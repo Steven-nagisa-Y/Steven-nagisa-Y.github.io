@@ -6017,6 +6017,7 @@ live2dcanvas {
     font-size: 2rem;
   }
   .gif-img {
+    height: 100%;
     width: 100%;
   }
   .to_top {
