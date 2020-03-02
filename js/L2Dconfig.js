@@ -4,7 +4,7 @@ L2Dwidget.init({
         "width": 150,
         "height": 300,
         "position": "right",
-        "hOffset": 60,
+        "hOffset": 50,
         "vOffset": 0
     }
 });
