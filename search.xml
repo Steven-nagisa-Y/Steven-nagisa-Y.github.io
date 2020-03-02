@@ -22,8 +22,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>note</tag>
+        <tag>markdown</tag>
         <tag>参考</tag>
       </tags>
   </entry>
@@ -108,7 +108,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#116;&#121;&#112;&#111;&#x72;&#x61;&#x2e;&#105;&#x6f;">&#x69;&#x40;&#116;&#121;&#112;&#111;&#x72;&#x61;&#x2e;&#105;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#x79;&#112;&#111;&#x72;&#x61;&#x2e;&#x69;&#x6f;">&#105;&#x40;&#x74;&#x79;&#112;&#111;&#x72;&#x61;&#x2e;&#x69;&#x6f;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -171,8 +171,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>note</tag>
+        <tag>markdown</tag>
         <tag>Typora</tag>
       </tags>
   </entry>
@@ -287,8 +287,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>note</tag>
         <tag>essay</tag>
+        <tag>note</tag>
         <tag>study</tag>
       </tags>
   </entry>
@@ -718,6 +718,8 @@
 <li>VBScript</li>
 <li>JavaScript</li>
 <li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
 </ul>
 </li>
 <li>摄影技术<ul>
@@ -725,10 +727,11 @@
 </ul>
 </li>
 <li>搞 机 技 术</li>
-<li>哲♂学</li>
+<li>哲 ♂ 学</li>
 </ul>
 <h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
 <li>使命召唤系列</li>
+<li>战地系列</li>
 <li>绝地求生系列（只会手游，端游好难）</li>
 <li>GTA系列</li>
 <li>还有各种小游戏</li>
@@ -737,7 +740,8 @@
 <li>小裙子！ (特别是jk制服格裙)</li>
 <li>听音乐？</li>
 <li>写代码？</li>
-<li>学习一直学不会的前端视觉设计？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
 <li>买新设备体验？（烧钱操作⚠️）</li>
 </ul>
 <h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
@@ -788,6 +792,9 @@
 <h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
 <p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
 ]]></content>
+      <categories>
+        <category>link</category>
+      </categories>
       <tags>
         <tag>link</tag>
       </tags>
