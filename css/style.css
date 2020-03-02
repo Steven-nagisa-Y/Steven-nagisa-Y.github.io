@@ -6017,7 +6017,6 @@ live2dcanvas {
     font-size: 2rem;
   }
   .gif-img {
-    transform: translate(-50%, -70%);
     width: 100%;
   }
   .to_top {
