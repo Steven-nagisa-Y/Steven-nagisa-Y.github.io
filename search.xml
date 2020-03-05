@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>花式字体</title>
+    <url>/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/</url>
+    <content><![CDATA[<h1 id="Markdown-花式字体"><a href="#Markdown-花式字体" class="headerlink" title="Markdown 花式字体"></a>Markdown 花式字体</h1><p><strong>很抱歉，在网页上无法预览字体</strong></p>
+<p><strong>字体预览请点击➡️<a href="https://url.airocket.tech/html/花式字体.html" target="_blank" rel="noopener">  这里  </a></strong></p>
+<a id="more"></a>
+
+<h3 id="常规字体"><a href="#常规字体" class="headerlink" title="常规字体"></a>常规字体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathrm&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+<h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathit&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathnormal&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="手写体"><a href="#手写体" class="headerlink" title="手写体"></a>手写体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathcal&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+<h3 id="花体"><a href="#花体" class="headerlink" title="花体"></a>花体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathscr&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+<h3 id="哥特体"><a href="#哥特体" class="headerlink" title="哥特体"></a>哥特体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathfrak&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+<h3 id="空心体"><a href="#空心体" class="headerlink" title="空心体"></a>空心体</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$\mathbb&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure>
+
+<p>Like this:</p>
+<p>$\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>font</tag>
+        <tag>text</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常见LaTeX数学符号参考（图转）</title>
     <url>/2020/03/Markdown+LaTeX/</url>
     <content><![CDATA[<h1 id="常见LaTeX数学符号参考（图转）"><a href="#常见LaTeX数学符号参考（图转）" class="headerlink" title="常见LaTeX数学符号参考（图转）"></a>常见LaTeX数学符号参考（图转）</h1><blockquote>
@@ -108,7 +153,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#x79;&#112;&#111;&#x72;&#x61;&#x2e;&#x69;&#x6f;">&#105;&#x40;&#x74;&#x79;&#112;&#111;&#x72;&#x61;&#x2e;&#x69;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#x74;&#121;&#112;&#111;&#114;&#97;&#x2e;&#105;&#111;">&#x69;&#x40;&#x74;&#121;&#112;&#111;&#114;&#97;&#x2e;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -287,8 +332,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>essay</tag>
         <tag>note</tag>
+        <tag>essay</tag>
         <tag>study</tag>
       </tags>
   </entry>
@@ -676,106 +721,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
-</blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
-<a id="more"></a>
-
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>燕◾️◾️</strong>  (cn)</p>
-</li>
-<li><p>Birthday: Sep. 21, 2000</p>
-</li>
-<li><p>Style: <strong>Apple</strong> Like</p>
-</li>
-<li><p>University: Wuhan University of Technology <img src="/img/whutlogo.png" alt="whut"></p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Vegas Pro</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列（只会手游，端游好难）</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反花粉联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>你常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>你常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>你的网站服务器在哪？<ul>
-<li>阿里云，杭州</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>本站链接及友链</title>
     <url>/2020/02/link/</url>
     <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
@@ -939,6 +884,106 @@
         <tag>Linux</tag>
         <tag>开发</tag>
         <tag>手册</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+</blockquote>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<a id="more"></a>
+
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>燕◾️◾️</strong>  (cn)</p>
+</li>
+<li><p>Birthday: Sep. 21, 2000</p>
+</li>
+<li><p>Style: <strong>Apple</strong> Like</p>
+</li>
+<li><p>University: Wuhan University of Technology <img src="/img/whutlogo.png" alt="whut"></p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Vegas Pro</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列（只会手游，端游好难）</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反花粉联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>你常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>你常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>你的网站服务器在哪？<ul>
+<li>阿里云，杭州</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
