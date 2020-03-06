@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    终端编译Java源文件含有package的处理方法 |  小渚w
+    小米手环4 开箱 |  小渚w
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Java-compile-package" class="article article-type-post" itemscope
+  <article id="post-Mi-band-4" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  终端编译Java源文件含有package的处理方法
+  小米手环4 开箱
 </h1>
   
 
@@ -52,12 +52,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/Java-compile-package/" class="article-date">
-  <time datetime="2020-02-23T02:00:11.000Z" itemprop="datePublished">2020-02-23</time>
+      <a href="/2020/03/Mi-band-4/" class="article-date">
+  <time datetime="2020-03-06T08:59:29.000Z" itemprop="datePublished">2020-03-06</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/code/">code</a>
+    <a class="article-category-link" href="/categories/%E5%BC%80%E7%AE%B1/">开箱</a>
   </div>
 
       
@@ -67,7 +67,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">286字</span>
+            <span class="post-count">1.1k字</span>
         </span>
     </span>
 
@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -103,49 +103,63 @@
       
 
       
-      <!--# 终端编译Java源文件含有package的处理方法-->
-
-<blockquote>
-<p> Java源文件不含package时，使用<code>javac</code>编译：</p>
-<p><code>javac test.java</code></p>
-<p>如果源文件含有package应该怎么处理呢？</p>
+      <h1 id="小米手环4-开箱"><a href="#小米手环4-开箱" class="headerlink" title="小米手环4 开箱"></a>小米手环4 开箱</h1><blockquote>
+<p>摘自百度百科“小米手环4”：</p>
+<p>小米手环4是小米公司2019年6月11日发布的智能新品，与小米手环3相比，表盘不仅从黑白升级为AMOLED彩屏，显示面积也增加了39.9%；表面覆盖2.5D弧面耐刮强化玻璃，搭配77种表盘主题，可以充分满足个性化需求。</p>
+<p>小米手环4标准版/NFC版，采用真彩屏、50米防水、6轴传感器等，售价169元。共有石墨黑、热力橙、深空蓝、酒红、藕荷粉5种颜色（标准版）。</p>
 </blockquote>
 <a id="more"></a>
 
-<h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.stevenos.utils.DateTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String text;</span><br><span class="line">    text = DateTools.formatTime();</span><br><span class="line">    System.out.println(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="入手原因"><a href="#入手原因" class="headerlink" title="入手原因"></a>入手原因</h2><p>啦啦啦啦啦～</p>
+<p>我又来开箱了！这次入手的是小米手环4 （标准版）深蓝色。小米手环4已经发售了大半年了，我还是忍不住买了下来，观众朋友们就会问了：<strong>Apple Watch</strong>它不香吗？干嘛还再买一个小米手环？</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_121127.jpg" alt="IMG_20200306_121127" style="zoom: 30%;" />
 
-<p>文件2：DateTools.java（位置：<code>~/com/stevenos/utils/DateTools.java</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTools</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">formatTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Date day = <span class="keyword">new</span> Date();</span><br><span class="line">44SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">44<span class="keyword">return</span> sdf.format(day);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实我犹豫许久购买小米手环4的原因也很简单：这段时间一直呆在家里，几乎就不运动，更用不着看时间；手机就在身边，各种以前常用的功能手机就能满足，所以Apple Watch就一直当作<strong>MacBook</strong>解锁器。Apple Watch戴也要耗电，不戴也要耗电（戴着也不用），为了让它能长久地陪伴我，免得充电循环次数太多。小米手环4就可以当作闹钟，久坐提醒，还能有20天左右的续航。我我决定：<strong>把Apple Watch放着吃灰！</strong>购买一个小米手环4 。</p>
+<h2 id="外观"><a href="#外观" class="headerlink" title="外观"></a>外观</h2><img src="/img/Mi-band-4.assets/IMG_20200306_120758.jpg" alt="IMG_20200306_120758" style="zoom:60%;" />
 
 
 
-<h3 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h3><p><code>javac -d &lt;dir&gt; &lt;src&gt;</code></p>
-<ol>
-<li><p>首先分别编译每个文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -d . ~/com/stevenos/java/Main.java</span><br><span class="line">javac -d . ~/com/stevenos/utils/DateTools.java</span><br></pre></td></tr></table></figure>
+<p>哈哈哈哈，先请出小米手环家族的<em>包装盒</em>( ´▽` )ﾉ</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_120941.jpg" alt="IMG_20200306_120941" style="zoom:50%;" />
 
-<p><code>.</code> 代表在当前目录下生成文件夹，可以自行更换。</p>
-<p><img src="/img/Java-compile-package.assets/image-20200223095756528.png" alt="image-20200223095756528"></p>
-<p>如果在当前目录生成，可以看到目录下有：</p>
-<ul>
-<li><code>com/stevenos/java/Main.class</code></li>
-<li><code>com/stevenos/utils/DateTime.class</code></li>
-</ul>
-<p>如果目录（包）中有多个文件，可以使用通配符 <code>*</code>：</p>
-<p><img src="/img/Java-compile-package.assets/image-20200223100326158.png" alt="image-20200223100326158"></p>
-</li>
-<li><p>直接运行：</p>
-<p>Java运行主方法。</p>
-<p><code>java com.stevenos.java.Main</code></p>
-<p><img src="/img/Java-compile-package.assets/image-20200223100543259.png" alt="image-20200223100543259"></p>
-</li>
-</ol>
-<h2 id="搞定"><a href="#搞定" class="headerlink" title="搞定"></a>搞定</h2><p>PS.</p>
+<hr>
+<img src="/img/Mi-band-4.assets/IMG_20200306_120919.jpg" alt="IMG_20200306_120919" style="zoom:50%;" />
+
+
+
+<p>然后直接来打开包装(´･ω･`)</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_121225.jpg" alt="IMG_20200306_121225" style="zoom:50%;" />
+
+<hr>
+<img src="/img/Mi-band-4.assets/IMG_20200306_121355.jpg" alt="IMG_20200306_121355" style="zoom:50%;" />
+
+<p>这次小米手环4的包装和前三代不同，采用了长条形软纸壳包装，个人认为没有前三代的包装好看精致。</p>
+<p>内部空余空间比较多，上部放置着折叠起来的充电器，中部是手环主体和腕带，下部一大块是<strong>一小本说明书！！</strong>这也太没有设计感了。</p>
+<p>这次小米手环4仍然没有采用免拆卸式充电设计，所以没电了还需要取下手环主体充电。</p>
+<h2 id="产品介绍"><a href="#产品介绍" class="headerlink" title="产品介绍"></a>产品介绍</h2><p><img src="/img/Mi-band-4.assets/image-20200306173421463.png" alt="image-20200306173421463"></p>
+<p>这次最大的升级就是屏幕了，小米手环4采用了AMOLED 彩色显示屏，支持触摸。这样就能够支持显示信息、通知、来电以及支付宝手环支付。</p>
+<img src="/img/Mi-band-4.assets/image-20200306173505843.png" alt="image-20200306173505843" style="zoom:50%;" />
+
+<p>小米手环4还内置6轴传感器，能够检测更多的运动方式。同时还有50米防水，无需担心进水问题。</p>
 <blockquote>
-<p>输出中文时，若非编写时使用GBK编码，可能会出现GBK编码映射错误；</p>
-<p>UTF-8编码的需要加上参数：<code>-encoding UTF-8</code></p>
+<p>说到这里我就怀念起我的黑加手环(&gt;﹏&lt;)在泰国清迈某酒店游泳池内进水坏掉了</p>
+<p>上三代小米手环我还没有担心过进水问题</p>
 </blockquote>
+<p>小米手环4 NFC版功能就要多一些：NFC刷卡、小爱同学、智能家庭控制。</p>
+<p>不过我思考了一下，这些功能我的需求不大，遂选择了标准版。</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>手机下载<strong>小米运动</strong>即可开始配对小米手环，小米手环4采用的是蓝牙5.0，所以在传输距离上目前还算满意。如果你以前使用过小米手环，App将尝试恢复数据。</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_133801.jpg" alt="IMG_20200306_133801" style="zoom: 67%;" />
+
+<p>接着<strong>小米运动</strong>App将会对小米手环4的固件和资源库进行升级，可能需要持续几分钟。</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_133817.jpg" alt="IMG_20200306_133817" style="zoom: 67%;" />
+
+
+
+<p>如果一切顺利，那么小米手环就可以成功连接你的手机并开始同步了，并且可以在“<em>我的-我的设备-小米手环4</em>”中设置一些项目了。</p>
+<img src="/img/Mi-band-4.assets/IMG_20200306_174028.jpg" alt="IMG_20200306_174028" style="zoom:67%;" />
+
+<p>对于需要一个智能穿戴设备的小伙伴可以选择小米手环4体验一番。而且小米运动App的适配性挺不错的，几乎能够在目前任何Android手机上运行，不必担心兼容性问题。</p>
+<p>当然我还是主张选择型号配对的设备：比如你使用三星手机，就应当优先考虑三星穿戴设备；如果你使用华为/荣耀，就优先考虑华为/荣耀穿戴设备；如果你使用iPhone，不用多说，<strong>Apple Watch</strong>买起来。</p>
 
       
       <!-- reward -->
@@ -215,14 +229,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://airocket.tech/2020/02/Java-compile-package/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://airocket.tech/2020/03/Mi-band-4/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%A4%8D%E4%B9%A0/" rel="tag">Java 复习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essay/" rel="tag">essay</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%B1%B3/" rel="tag">小米</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/" rel="tag">小米手环</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E7%AE%B1/" rel="tag">开箱</a></li></ul>
 
 
     </footer>
@@ -233,19 +247,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/modern-logistics/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            现代物流的基本概念
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/HP-Pavilion/" class="article-nav-link">
+      <a href="/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">惠普 光影精灵5 开箱</div>
+        <div class="article-nav-title">花式字体</div>
       </a>
     
   </nav>
