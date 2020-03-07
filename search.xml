@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python删除macOS产生的冗余文件</title>
+    <url>/2020/03/python-macos-trashed/</url>
+    <content><![CDATA[<h1 id="利用Python删除磁盘中macOS产生的冗余文件"><a href="#利用Python删除磁盘中macOS产生的冗余文件" class="headerlink" title="利用Python删除磁盘中macOS产生的冗余文件"></a>利用Python删除磁盘中macOS产生的冗余文件</h1><blockquote>
+<p><strong>特别说明：</strong></p>
+<p>请不要在macOS下运行此脚本，因为这些文件对于macOS来说是可能必须的。</p>
+<p>使用此Python脚本或其中部分代码导致的个人文件被删除，本人概不负责。</p>
+<p>请确认你有足够的能力应对各种突发情况，再使用此代码。</p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>由于我的U盘需要经常在各个系统之间拷贝、移动文件，所以其中难免会被创建很多在其他系统平台没用的文件。</p>
+<p>比如<code>Windows</code>下会创建<code>System Volume Information</code>目录</p>
+<p><code>Android</code>平台下会创建<code>.android_secure</code>目录</p>
+<p>相对于上面两个，<code>macOS</code>就比较难搞，不仅根目录下会有<code>.fseventsd  .Spotlight-V100  .Trashes</code>文件夹，各个目录下还会存放<code>.DS_Store</code>目录信息文件，最要命的还是每打开一个文件就会创建一个<code>._&lt;原文件名&gt;.&lt;原扩展名&gt;</code>的一个文件，有时候会误打开甚至把不智能的设备搞死机。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用正则表达式匹配文件目录中的<code>._</code>开头，以及<code>.DS_Store</code>文件，把它们移动到备份文件夹。</p>
+<p>备份的目的就是防止正则表达式匹配到同样以<code>._</code>开头的<strong>正 ♂ 常</strong>文件，需要手动确认后在一键删除。</p>
+<p><img src="/img/python-macos-trashed.assets/hahaha.gif" alt="hahaha"></p>
+<h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># encoding:UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除备份文件夹</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delAll</span><span class="params">(path)</span>:</span></span><br><span class="line">    print(<span class="string">"是否清空备份文件夹？(yes / no)"</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="string">"yes"</span>):</span><br><span class="line">        <span class="keyword">for</span> fileList <span class="keyword">in</span> os.walk(aaa):</span><br><span class="line">            <span class="keyword">for</span> name <span class="keyword">in</span> fileList[<span class="number">2</span>]:</span><br><span class="line">                os.remove(os.path.join(fileList[<span class="number">0</span>], name))</span><br><span class="line">            shutil.rmtree(aaa)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa)):</span><br><span class="line">            print(<span class="string">"删除成功！"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Abort."</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过正则表达式匹配文件名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean</span><span class="params">(path, aaa)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 正则表达式</span></span><br><span class="line">    pattern = <span class="string">"\._"</span></span><br><span class="line">    print(<span class="string">"Selected path: "</span> + path)</span><br><span class="line">    <span class="comment"># 递归查找目录下文件</span></span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            matchObj1 = re.match(pattern, file)</span><br><span class="line">            matchObj2 = re.match(<span class="string">"\.DS_Store$"</span>, file)</span><br><span class="line">            <span class="keyword">if</span> matchObj1:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">            <span class="keyword">if</span> matchObj2:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>):</span><br><span class="line">        print(<span class="string">"No ._file found"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        delAll(path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户输入需要处理的目录</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"===================="</span>)</span><br><span class="line">    print(<span class="string">"请输入需要处理的目录，例如：C:\ "</span>)</span><br><span class="line">    print(<span class="string">"输入 \"0\" 处理当前目录 "</span>)</span><br><span class="line">    src = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建备份文件夹</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkDir</span><span class="params">(aaa)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        os.mkdir(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        print(<span class="string">"备份文件夹创建成功..."</span> + aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># 获取本文件所在目录</span></span><br><span class="line">    currentPath = os.getcwd()</span><br><span class="line">    path = selectPath()</span><br><span class="line">    print(<span class="string">"备份文件夹目录：（不要在处理的目录下！）"</span>)</span><br><span class="line">    aaa = input(<span class="string">"Backup path &gt; "</span>)</span><br><span class="line">    mkDir(aaa)</span><br><span class="line">    aaa = aaa + <span class="string">"\\Mac-trash-file-backup"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (path == <span class="string">"0"</span>):</span><br><span class="line">        clean(currentPath, aaa)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        clean(path, aaa)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>遇到问题下方评论哦</strong></p>
+]]></content>
+      <categories>
+        <category>code</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+        <tag>code</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小米手环4 开箱</title>
     <url>/2020/03/Mi-band-4/</url>
     <content><![CDATA[<h1 id="小米手环4-开箱"><a href="#小米手环4-开箱" class="headerlink" title="小米手环4 开箱"></a>小米手环4 开箱</h1><blockquote>
@@ -224,7 +259,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#x74;&#x79;&#x70;&#x6f;&#x72;&#x61;&#46;&#105;&#111;">&#x69;&#x40;&#x74;&#x79;&#x70;&#x6f;&#x72;&#x61;&#46;&#105;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#x74;&#121;&#112;&#x6f;&#114;&#97;&#x2e;&#x69;&#111;">&#x69;&#x40;&#x74;&#121;&#112;&#x6f;&#114;&#97;&#x2e;&#x69;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -403,8 +438,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>note</tag>
         <tag>essay</tag>
+        <tag>note</tag>
         <tag>study</tag>
       </tags>
   </entry>
