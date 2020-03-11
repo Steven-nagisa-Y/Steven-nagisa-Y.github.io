@@ -89,7 +89,7 @@
 <p>…</p>
 <p>等待进入系统之后，插入之前保存Windows支持软件的U盘，双击<strong>BootCamp.exe</strong>安装Mac专属驱动。</p>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新启动一次之后，就能进入熟悉的Windows 10桌面啦~</p>
-<p><strong>注意！!</strong>由于是外接硬盘运行的系统，Mac内部的硬盘中无引导记录，所以每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘。</p>
+<p><strong>注意！!</strong>由于是外接硬盘运行的系统，建议每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘，虽然我刚刚试了一下可以正常从外界硬盘启动。</p>
 <p><img src="/img/ssd-wtg.assets/WTG.jpg" alt="WTG"></p>
 <h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><p>等我使用几天之后再写一篇随笔在这里吧？</p>
 <p>欢迎关注等待下文链接更新~</p>
