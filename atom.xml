@@ -5,9 +5,9 @@
   <subtitle>小渚w的博客小站</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://airocket.tech/"/>
+  <link href="https://ryzenx.com/"/>
   <updated>2020-03-13T10:19:00.000Z</updated>
-  <id>https://airocket.tech/</id>
+  <id>https://ryzenx.com/</id>
   
   <author>
     <name>Steven Yan</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>外置SSD安装Win2Go使用体验</title>
-    <link href="https://airocket.tech/2020/03/win-on-ssd-report/"/>
-    <id>https://airocket.tech/2020/03/win-on-ssd-report/</id>
+    <link href="https://ryzenx.com/2020/03/win-on-ssd-report/"/>
+    <id>https://ryzenx.com/2020/03/win-on-ssd-report/</id>
     <published>2020-03-13T10:19:00.000Z</published>
     <updated>2020-03-13T10:19:00.000Z</updated>
     
@@ -32,21 +32,21 @@
     </summary>
     
     
-      <category term="技术" scheme="https://airocket.tech/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="Windows To Go" scheme="https://airocket.tech/tags/windows-to-go/"/>
+      <category term="Windows To Go" scheme="https://ryzenx.com/tags/windows-to-go/"/>
     
-      <category term="使用体验" scheme="https://airocket.tech/tags/%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"/>
+      <category term="使用体验" scheme="https://ryzenx.com/tags/%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
     <title>把Windows 10装进外接硬盘里(Windows To Go)</title>
-    <link href="https://airocket.tech/2020/03/ssd-wtg/"/>
-    <id>https://airocket.tech/2020/03/ssd-wtg/</id>
+    <link href="https://ryzenx.com/2020/03/ssd-wtg/"/>
+    <id>https://ryzenx.com/2020/03/ssd-wtg/</id>
     <published>2020-03-11T12:21:14.000Z</published>
     <updated>2020-03-11T12:21:14.000Z</updated>
     
@@ -63,21 +63,21 @@
     </summary>
     
     
-      <category term="技术" scheme="https://airocket.tech/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="windows" scheme="https://airocket.tech/tags/windows/"/>
+      <category term="windows" scheme="https://ryzenx.com/tags/windows/"/>
     
-      <category term="ssd" scheme="https://airocket.tech/tags/ssd/"/>
+      <category term="ssd" scheme="https://ryzenx.com/tags/ssd/"/>
     
   </entry>
   
   <entry>
     <title>Python删除macOS产生的冗余文件</title>
-    <link href="https://airocket.tech/2020/03/python-macos-trashed/"/>
-    <id>https://airocket.tech/2020/03/python-macos-trashed/</id>
+    <link href="https://ryzenx.com/2020/03/python-macos-trashed/"/>
+    <id>https://ryzenx.com/2020/03/python-macos-trashed/</id>
     <published>2020-03-07T09:42:32.000Z</published>
     <updated>2020-03-07T09:42:32.000Z</updated>
     
@@ -95,21 +95,21 @@
     </summary>
     
     
-      <category term="code" scheme="https://airocket.tech/categories/code/"/>
+      <category term="code" scheme="https://ryzenx.com/categories/code/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="code" scheme="https://airocket.tech/tags/code/"/>
+      <category term="code" scheme="https://ryzenx.com/tags/code/"/>
     
-      <category term="Python" scheme="https://airocket.tech/tags/python/"/>
+      <category term="Python" scheme="https://ryzenx.com/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>小米手环4 开箱</title>
-    <link href="https://airocket.tech/2020/03/Mi-band-4/"/>
-    <id>https://airocket.tech/2020/03/Mi-band-4/</id>
+    <link href="https://ryzenx.com/2020/03/Mi-band-4/"/>
+    <id>https://ryzenx.com/2020/03/Mi-band-4/</id>
     <published>2020-03-06T08:59:29.000Z</published>
     <updated>2020-03-06T08:59:29.000Z</updated>
     
@@ -126,21 +126,21 @@
     </summary>
     
     
-      <category term="开箱" scheme="https://airocket.tech/categories/%E5%BC%80%E7%AE%B1/"/>
+      <category term="开箱" scheme="https://ryzenx.com/categories/%E5%BC%80%E7%AE%B1/"/>
     
     
-      <category term="开箱" scheme="https://airocket.tech/tags/%E5%BC%80%E7%AE%B1/"/>
+      <category term="开箱" scheme="https://ryzenx.com/tags/%E5%BC%80%E7%AE%B1/"/>
     
-      <category term="小米手环" scheme="https://airocket.tech/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/"/>
+      <category term="小米手环" scheme="https://ryzenx.com/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/"/>
     
-      <category term="小米" scheme="https://airocket.tech/tags/%E5%B0%8F%E7%B1%B3/"/>
+      <category term="小米" scheme="https://ryzenx.com/tags/%E5%B0%8F%E7%B1%B3/"/>
     
   </entry>
   
   <entry>
     <title>花式字体</title>
-    <link href="https://airocket.tech/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/"/>
-    <id>https://airocket.tech/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/</id>
+    <link href="https://ryzenx.com/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/"/>
+    <id>https://ryzenx.com/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/</id>
     <published>2020-03-04T09:56:46.000Z</published>
     <updated>2020-03-04T09:56:46.000Z</updated>
     
@@ -154,21 +154,21 @@
     </summary>
     
     
-      <category term="code" scheme="https://airocket.tech/categories/code/"/>
+      <category term="code" scheme="https://ryzenx.com/categories/code/"/>
     
     
-      <category term="markdown" scheme="https://airocket.tech/tags/markdown/"/>
+      <category term="markdown" scheme="https://ryzenx.com/tags/markdown/"/>
     
-      <category term="font" scheme="https://airocket.tech/tags/font/"/>
+      <category term="font" scheme="https://ryzenx.com/tags/font/"/>
     
-      <category term="text" scheme="https://airocket.tech/tags/text/"/>
+      <category term="text" scheme="https://ryzenx.com/tags/text/"/>
     
   </entry>
   
   <entry>
     <title>常见LaTeX数学符号参考（图转）</title>
-    <link href="https://airocket.tech/2020/03/Markdown+LaTeX/"/>
-    <id>https://airocket.tech/2020/03/Markdown+LaTeX/</id>
+    <link href="https://ryzenx.com/2020/03/Markdown+LaTeX/"/>
+    <id>https://ryzenx.com/2020/03/Markdown+LaTeX/</id>
     <published>2020-03-01T14:49:23.000Z</published>
     <updated>2020-03-01T14:49:23.000Z</updated>
     
@@ -185,21 +185,21 @@
     </summary>
     
     
-      <category term="note" scheme="https://airocket.tech/categories/note/"/>
+      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
     
     
-      <category term="note" scheme="https://airocket.tech/tags/note/"/>
+      <category term="note" scheme="https://ryzenx.com/tags/note/"/>
     
-      <category term="markdown" scheme="https://airocket.tech/tags/markdown/"/>
+      <category term="markdown" scheme="https://ryzenx.com/tags/markdown/"/>
     
-      <category term="参考" scheme="https://airocket.tech/tags/%E5%8F%82%E8%80%83/"/>
+      <category term="参考" scheme="https://ryzenx.com/tags/%E5%8F%82%E8%80%83/"/>
     
   </entry>
   
   <entry>
     <title>Markdown For Typora</title>
-    <link href="https://airocket.tech/2020/03/Markdown-Reference/"/>
-    <id>https://airocket.tech/2020/03/Markdown-Reference/</id>
+    <link href="https://ryzenx.com/2020/03/Markdown-Reference/"/>
+    <id>https://ryzenx.com/2020/03/Markdown-Reference/</id>
     <published>2020-02-29T16:00:00.000Z</published>
     <updated>2020-02-29T16:00:00.000Z</updated>
     
@@ -212,21 +212,21 @@
     </summary>
     
     
-      <category term="note" scheme="https://airocket.tech/categories/note/"/>
+      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
     
     
-      <category term="note" scheme="https://airocket.tech/tags/note/"/>
+      <category term="note" scheme="https://ryzenx.com/tags/note/"/>
     
-      <category term="markdown" scheme="https://airocket.tech/tags/markdown/"/>
+      <category term="markdown" scheme="https://ryzenx.com/tags/markdown/"/>
     
-      <category term="Typora" scheme="https://airocket.tech/tags/typora/"/>
+      <category term="Typora" scheme="https://ryzenx.com/tags/typora/"/>
     
   </entry>
   
   <entry>
     <title>现代物流的基本概念</title>
-    <link href="https://airocket.tech/2020/02/modern-logistics/"/>
-    <id>https://airocket.tech/2020/02/modern-logistics/</id>
+    <link href="https://ryzenx.com/2020/02/modern-logistics/"/>
+    <id>https://ryzenx.com/2020/02/modern-logistics/</id>
     <published>2020-02-25T06:28:02.000Z</published>
     <updated>2020-02-25T06:28:02.000Z</updated>
     
@@ -248,21 +248,21 @@
     </summary>
     
     
-      <category term="note" scheme="https://airocket.tech/categories/note/"/>
+      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="note" scheme="https://airocket.tech/tags/note/"/>
+      <category term="note" scheme="https://ryzenx.com/tags/note/"/>
     
-      <category term="study" scheme="https://airocket.tech/tags/study/"/>
+      <category term="study" scheme="https://ryzenx.com/tags/study/"/>
     
   </entry>
   
   <entry>
     <title>终端编译Java源文件含有package的处理方法</title>
-    <link href="https://airocket.tech/2020/02/Java-compile-package/"/>
-    <id>https://airocket.tech/2020/02/Java-compile-package/</id>
+    <link href="https://ryzenx.com/2020/02/Java-compile-package/"/>
+    <id>https://ryzenx.com/2020/02/Java-compile-package/</id>
     <published>2020-02-23T02:00:11.000Z</published>
     <updated>2020-02-23T02:00:11.000Z</updated>
     
@@ -281,21 +281,21 @@
     </summary>
     
     
-      <category term="code" scheme="https://airocket.tech/categories/code/"/>
+      <category term="code" scheme="https://ryzenx.com/categories/code/"/>
     
     
-      <category term="Java" scheme="https://airocket.tech/tags/java/"/>
+      <category term="Java" scheme="https://ryzenx.com/tags/java/"/>
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="Java 复习" scheme="https://airocket.tech/tags/java-%E5%A4%8D%E4%B9%A0/"/>
+      <category term="Java 复习" scheme="https://ryzenx.com/tags/java-%E5%A4%8D%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>惠普 光影精灵5 开箱</title>
-    <link href="https://airocket.tech/2020/02/HP-Pavilion/"/>
-    <id>https://airocket.tech/2020/02/HP-Pavilion/</id>
+    <link href="https://ryzenx.com/2020/02/HP-Pavilion/"/>
+    <id>https://ryzenx.com/2020/02/HP-Pavilion/</id>
     <published>2020-02-19T03:35:05.000Z</published>
     <updated>2020-02-19T03:35:05.000Z</updated>
     
@@ -313,21 +313,21 @@
     </summary>
     
     
-      <category term="开箱" scheme="https://airocket.tech/categories/%E5%BC%80%E7%AE%B1/"/>
+      <category term="开箱" scheme="https://ryzenx.com/categories/%E5%BC%80%E7%AE%B1/"/>
     
     
-      <category term="开箱" scheme="https://airocket.tech/tags/%E5%BC%80%E7%AE%B1/"/>
+      <category term="开箱" scheme="https://ryzenx.com/tags/%E5%BC%80%E7%AE%B1/"/>
     
-      <category term="光影精灵" scheme="https://airocket.tech/tags/%E5%85%89%E5%BD%B1%E7%B2%BE%E7%81%B5/"/>
+      <category term="光影精灵" scheme="https://ryzenx.com/tags/%E5%85%89%E5%BD%B1%E7%B2%BE%E7%81%B5/"/>
     
-      <category term="游戏本" scheme="https://airocket.tech/tags/%E6%B8%B8%E6%88%8F%E6%9C%AC/"/>
+      <category term="游戏本" scheme="https://ryzenx.com/tags/%E6%B8%B8%E6%88%8F%E6%9C%AC/"/>
     
   </entry>
   
   <entry>
     <title>realme x2 pro 一个月使用感受</title>
-    <link href="https://airocket.tech/2020/02/realme_x2_pro/"/>
-    <id>https://airocket.tech/2020/02/realme_x2_pro/</id>
+    <link href="https://ryzenx.com/2020/02/realme_x2_pro/"/>
+    <id>https://ryzenx.com/2020/02/realme_x2_pro/</id>
     <published>2020-02-17T10:32:41.000Z</published>
     <updated>2020-02-17T10:32:41.000Z</updated>
     
@@ -346,23 +346,23 @@
     </summary>
     
     
-      <category term="搞机记录" scheme="https://airocket.tech/categories/%E6%90%9E%E6%9C%BA%E8%AE%B0%E5%BD%95/"/>
+      <category term="搞机记录" scheme="https://ryzenx.com/categories/%E6%90%9E%E6%9C%BA%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="realme" scheme="https://airocket.tech/tags/realme/"/>
+      <category term="realme" scheme="https://ryzenx.com/tags/realme/"/>
     
-      <category term="搞 ♂ 机" scheme="https://airocket.tech/tags/%E6%90%9E-%E2%99%82-%E6%9C%BA/"/>
+      <category term="搞 ♂ 机" scheme="https://ryzenx.com/tags/%E6%90%9E-%E2%99%82-%E6%9C%BA/"/>
     
-      <category term="使用感受" scheme="https://airocket.tech/tags/%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97/"/>
+      <category term="使用感受" scheme="https://ryzenx.com/tags/%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97/"/>
     
   </entry>
   
   <entry>
     <title>Docker 入门与实战</title>
-    <link href="https://airocket.tech/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/"/>
-    <id>https://airocket.tech/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</id>
+    <link href="https://ryzenx.com/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/"/>
+    <id>https://ryzenx.com/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</id>
     <published>2020-02-14T16:00:00.000Z</published>
     <updated>2020-02-14T16:00:00.000Z</updated>
     
@@ -376,21 +376,21 @@
     </summary>
     
     
-      <category term="code" scheme="https://airocket.tech/categories/code/"/>
+      <category term="code" scheme="https://ryzenx.com/categories/code/"/>
     
     
-      <category term="技术" scheme="https://airocket.tech/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://ryzenx.com/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="docker" scheme="https://airocket.tech/tags/docker/"/>
+      <category term="docker" scheme="https://ryzenx.com/tags/docker/"/>
     
-      <category term="总结" scheme="https://airocket.tech/tags/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="https://ryzenx.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>About Me</title>
-    <link href="https://airocket.tech/2020/02/about/"/>
-    <id>https://airocket.tech/2020/02/about/</id>
+    <link href="https://ryzenx.com/2020/02/about/"/>
+    <id>https://ryzenx.com/2020/02/about/</id>
     <published>2020-02-14T16:00:00.000Z</published>
     <updated>2020-02-14T16:00:00.000Z</updated>
     
@@ -410,17 +410,17 @@
     </summary>
     
     
-      <category term="about" scheme="https://airocket.tech/categories/about/"/>
+      <category term="about" scheme="https://ryzenx.com/categories/about/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
   </entry>
   
   <entry>
     <title>本站链接及友链</title>
-    <link href="https://airocket.tech/2020/02/link/"/>
-    <id>https://airocket.tech/2020/02/link/</id>
+    <link href="https://ryzenx.com/2020/02/link/"/>
+    <id>https://ryzenx.com/2020/02/link/</id>
     <published>2020-02-14T16:00:00.000Z</published>
     <updated>2020-02-14T16:00:00.000Z</updated>
     
@@ -441,17 +441,17 @@
     </summary>
     
     
-      <category term="link" scheme="https://airocket.tech/categories/link/"/>
+      <category term="link" scheme="https://ryzenx.com/categories/link/"/>
     
     
-      <category term="link" scheme="https://airocket.tech/tags/link/"/>
+      <category term="link" scheme="https://ryzenx.com/tags/link/"/>
     
   </entry>
   
   <entry>
     <title>常用Linux命令手册合集</title>
-    <link href="https://airocket.tech/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/"/>
-    <id>https://airocket.tech/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/</id>
+    <link href="https://ryzenx.com/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/"/>
+    <id>https://ryzenx.com/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/</id>
     <published>2020-02-14T16:00:00.000Z</published>
     <updated>2020-02-14T16:00:00.000Z</updated>
     
@@ -464,21 +464,21 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://airocket.tech/categories/linux/"/>
+      <category term="Linux" scheme="https://ryzenx.com/categories/linux/"/>
     
     
-      <category term="Linux" scheme="https://airocket.tech/tags/linux/"/>
+      <category term="Linux" scheme="https://ryzenx.com/tags/linux/"/>
     
-      <category term="开发" scheme="https://airocket.tech/tags/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://ryzenx.com/tags/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="手册" scheme="https://airocket.tech/tags/%E6%89%8B%E5%86%8C/"/>
+      <category term="手册" scheme="https://ryzenx.com/tags/%E6%89%8B%E5%86%8C/"/>
     
   </entry>
   
   <entry>
     <title>高等数学上册 概念公式笔记</title>
-    <link href="https://airocket.tech/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/"/>
-    <id>https://airocket.tech/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/</id>
+    <link href="https://ryzenx.com/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/"/>
+    <id>https://ryzenx.com/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/</id>
     <published>2020-01-01T16:00:00.000Z</published>
     <updated>2020-01-01T16:00:00.000Z</updated>
     
@@ -491,21 +491,21 @@
     </summary>
     
     
-      <category term="note" scheme="https://airocket.tech/categories/note/"/>
+      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
     
     
-      <category term="总结" scheme="https://airocket.tech/tags/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="https://ryzenx.com/tags/%E6%80%BB%E7%BB%93/"/>
     
-      <category term="高等数学" scheme="https://airocket.tech/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
+      <category term="高等数学" scheme="https://ryzenx.com/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
     
-      <category term="笔记" scheme="https://airocket.tech/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://ryzenx.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Ayer中文说明</title>
-    <link href="https://airocket.tech/2019/12/Ayer%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E/"/>
-    <id>https://airocket.tech/2019/12/Ayer%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E/</id>
+    <link href="https://ryzenx.com/2019/12/Ayer%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E/"/>
+    <id>https://ryzenx.com/2019/12/Ayer%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E/</id>
     <published>2019-12-03T05:26:02.000Z</published>
     <updated>2019-12-03T05:26:02.000Z</updated>
     
@@ -526,17 +526,17 @@
     </summary>
     
     
-      <category term="技术" scheme="https://airocket.tech/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="技术" scheme="https://airocket.tech/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://ryzenx.com/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>Recognizing ORIGINALS</title>
-    <link href="https://airocket.tech/2019/11/Recognizing%20GRIGINALS/"/>
-    <id>https://airocket.tech/2019/11/Recognizing%20GRIGINALS/</id>
+    <link href="https://ryzenx.com/2019/11/Recognizing%20GRIGINALS/"/>
+    <id>https://ryzenx.com/2019/11/Recognizing%20GRIGINALS/</id>
     <published>2019-11-19T16:00:00.000Z</published>
     <updated>2019-11-19T16:00:00.000Z</updated>
     
@@ -550,23 +550,23 @@
     </summary>
     
     
-      <category term="impressions" scheme="https://airocket.tech/categories/impressions/"/>
+      <category term="impressions" scheme="https://ryzenx.com/categories/impressions/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="TED" scheme="https://airocket.tech/tags/ted/"/>
+      <category term="TED" scheme="https://ryzenx.com/tags/ted/"/>
     
-      <category term="universe" scheme="https://airocket.tech/tags/universe/"/>
+      <category term="universe" scheme="https://ryzenx.com/tags/universe/"/>
     
-      <category term="originals" scheme="https://airocket.tech/tags/originals/"/>
+      <category term="originals" scheme="https://ryzenx.com/tags/originals/"/>
     
   </entry>
   
   <entry>
     <title>The Sound of the Universe</title>
-    <link href="https://airocket.tech/2019/11/The%20Sound%20of%20the%20Universe/"/>
-    <id>https://airocket.tech/2019/11/The%20Sound%20of%20the%20Universe/</id>
+    <link href="https://ryzenx.com/2019/11/The%20Sound%20of%20the%20Universe/"/>
+    <id>https://ryzenx.com/2019/11/The%20Sound%20of%20the%20Universe/</id>
     <published>2019-11-15T16:00:00.000Z</published>
     <updated>2019-11-15T16:00:00.000Z</updated>
     
@@ -580,16 +580,16 @@
     </summary>
     
     
-      <category term="impressions" scheme="https://airocket.tech/categories/impressions/"/>
+      <category term="impressions" scheme="https://ryzenx.com/categories/impressions/"/>
     
     
-      <category term="essay" scheme="https://airocket.tech/tags/essay/"/>
+      <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="TED" scheme="https://airocket.tech/tags/ted/"/>
+      <category term="TED" scheme="https://ryzenx.com/tags/ted/"/>
     
-      <category term="universe" scheme="https://airocket.tech/tags/universe/"/>
+      <category term="universe" scheme="https://ryzenx.com/tags/universe/"/>
     
-      <category term="music" scheme="https://airocket.tech/tags/music/"/>
+      <category term="music" scheme="https://ryzenx.com/tags/music/"/>
     
   </entry>
   
