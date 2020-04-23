@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>快充技术的前世今生</title>
+    <url>/2020/04/charge-fast/</url>
+    <content><![CDATA[<p>现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。</p>
+<blockquote>
+<p>2020年了，你还想手机能手动换电池吗？</p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="前世"><a href="#前世" class="headerlink" title="前世"></a>前世</h2><p>1994年8月 Simon 这部完全靠触摸操作的智能手机问世，给手机界开了这样一个先河：<strong>不可拆卸式电池</strong>。虽然 IBM 开了这样一个头，但是当时似乎并没有多少手机采用不可拆卸电池的设计，因为当时电池的比容量很小，为了能让用户使用更长时间，让当时的商务人士不会漏接电话，可替换式电池设计更能满足需求。</p>
+<img src="https://uploader.shimo.im/f/rZwhtFRU1m8pmjzG.jpeg!thumbnail" alt="图片" style="zoom:67%;" />
+
+<center>图片来源：百度百科</center>
+
+<p>人们所熟悉的不可拆卸式电池设计的还是于2007年发布的 iPhone 手机，给手机界真正带来了触控式交互和不可拆卸式电池设计。之后很多手机厂商渐渐地都开始设计了不可拆卸式电池，之后很多年，对于可更换式电池的手机，追求者不在少数。所以就有了这样一件东西——<strong>充电宝。</strong></p>
+<p><img src="https://uploader.shimo.im/f/9JU2OpTS8wi7CjhW.jpg!thumbnail" alt="图片"></p>
+<p>充电宝，其实就是“可更换电池”的另外一种形式，它从容量上从几百毫安时，提升至几万毫安时；功率从5W，提升至了65W。还记得几年前出门不带充电宝，简直就如同随时失踪失连。</p>
+<p>随着电池技术的提升、手机体积的增大，电池的容量不断提升，公众对电量的关注逐渐降低了。但是随之而来的问题是，大容量的电池充电时间会变得很长，于是，快速充电技术应运而生。</p>
+<h2 id="今生"><a href="#今生" class="headerlink" title="今生"></a>今生</h2><center><p style="font-size: 11px">
+  （以下部分内容源于回形针PaperClip-回形针事务所008)
+</p></center>
+
+<h3 id="功率"><a href="#功率" class="headerlink" title="功率"></a>功率</h3><p>在中国，城市内家庭交流电的有效电压是220V，输入功率从77W到330W，而充电器的输出功率却收到多方面的限制：</p>
+<ul>
+<li>首先是充电器的工艺质量，如果电流过大，充电器内部的变压器整流器将产生更多的焦耳热，产生巨大安全隐患。</li>
+<li>其次是充电器的大小，为了转换大功率的电流，充电器的体积必然会加大。</li>
+<li>最后是你的手机电池，它能否承受住高功率的电流输入，决定了你的手机会不会变成一个“定时炸弹”。</li>
+</ul>
+<p><img src="https://uploader.shimo.im/f/lUBIYo6iDCLopabI.jpg!thumbnail" alt="图片"></p>
+<p>为了提升充电功率，多年来出现了不同的充电方案。</p>
+<h3 id="P-U-×-I"><a href="#P-U-×-I" class="headerlink" title="P = U × I"></a>P = U × I</h3><ul>
+<li>小电流高压协议：<ul>
+<li>高通 Quick Charge</li>
+<li>联发科 Pump Express</li>
+<li>德州仪器 TI MaxCharge</li>
+<li>摩托罗拉 Turbo Power</li>
+</ul>
+</li>
+</ul>
+<p>以代表高通 Quick Charge 技术为例。2013 年高通 Quick Charge 1.0 协议随着骁龙600发布，采用了“提升电流”的做法：<strong>I = 1.8A, U = 5V, P = 9W。</strong>因为当时的手机充电器接口通常还是<strong>microUSB</strong>接口，最高通过的电流为2A。</p>
+<p><img src="https://uploader.shimo.im/f/b8EC40vARwIjnG76.png!thumbnail" alt="图片"></p>
+<p>之后2015年高通 Quick Charge 2.0 随着骁龙810发布，电流可选：<strong>1.67A/2.0A/3.0A，</strong>电压可选：<strong>5V/9V/12V</strong>，则最高支持到了36W，但是当时其实并没有普及快充这项快充技术，一是因为快充的充电器价格高昂，而且当时不少手机电池工艺质量不足以承受9V甚至更高的电压。</p>
+<p><img src="https://uploader.shimo.im/f/rA3duuOSlo2T17rH.png!thumbnail" alt="图片"></p>
+<p>2016年，高通随着骁龙820推出了Quick Charge 3.0 技术，考虑到上一代技术在手机上的硬件限制，显著的特点是加入了INOV (Intelligent Negotiation for Optimum Voltage)技术，简单来说，这项技术就是通过与手机“交流”为了不同手机输出不同的电压，范围是 <strong>U = 3.6~20V</strong>，梯度降低到了200mV。而此时 USB Type-C 接口已经普及，所以电流为 <strong>I = 2.6A/4.6A</strong>。最高功率仍然为 <strong>P = 36W</strong>。</p>
+<p><img src="https://uploader.shimo.im/f/Qpl3Xz2ZNQWmouEw.jpeg!thumbnail" alt="图片"></p>
+<p>2017年，高通 Quick Charge 4.0 随着骁龙835发布，随后，高通 Quick Chage 4.0+ 随着骁龙845发布。除了兼容之前的 QC 快充技术外，还特别支持 USB PowerDelivery 3.0 的可编程电源供应技术：电压可以从 3V ~ 11V，步进 20mV；电流从 0A<del>3A，步进 50mA。而 QC 本身的电流提供：<strong>I = 2.6A/4.6A</strong>，电压提供 **U = 3.6V</del>20V<strong>，则理论最高功率达到了接近100W，</strong>P = 4.6A × 20V = 92W。**</p>
+<p><img src="https://uploader.shimo.im/f/8WVldVnexVYvTbm8.jpeg!thumbnail" alt="图片"></p>
+<hr>
+<ul>
+<li>低压大电流协议：<ul>
+<li>OPPO VOOC</li>
+<li>一加 Dash</li>
+<li>华为 SuperCharge</li>
+</ul>
+</li>
+</ul>
+<p>以小电流高压协议的代表 OPPO VOOC 闪充进行简述：</p>
+<p>VOOC 快充 全称为<strong>V</strong>oltage Open L<strong>oo</strong>p Multi-step Constant-Current <strong>C</strong>harging（电压开环多步恒流充电）。</p>
+<p>2014 年 3 月 19 日，OPPO 率先推出 VOOC 闪充，并在 OPPO Find 7 上商用。相对于高通的 Quick Charge 技术，VOOC 快充的主要特点是在保持电压在 <strong>U = 5V</strong> 的基础上，将电流增大到了 <strong>I = 4A</strong>，所以功率达到了** P = 20W**。但是上文提到，microUSB接口只能支持2A的输出电流。于是OPPO将原有的USB线缆进行改造，增粗以减少电阻，承载更大的电流，同时增加了一个触电以识别VOOC快充协议。</p>
+<img src="https://uploader.shimo.im/f/atzXeomvIOotzRnI.jpg!thumbnail" alt="图片" style="zoom:67%;" />
+
+
+<p>相信大家都还记得当年OPPO的广告词：“充电5分钟，通话2小时”。正是凭借这句广告词，OPPO的专利技术 VOOC 闪充进入大家的视线。</p>
+<img src="https://uploader.shimo.im/f/jm8rRxFv6yMrqNal.jpeg!thumbnail" alt="图片" style="zoom:50%;" />
+
+<p>2018 年， SuperVOOC 1.0 由OPPO Find X推出，同时支持的还有 realme X2 Pro，这项技术在前一代的基础上再次增大了电流，使 <strong>I = 5A</strong>，同时提升电压至 <strong>U = 10V</strong>的基础上，使功率一下增加到了 <strong>P = 50W</strong>。之后的2019年，SuperVOOC 2.0 发布，这次直接将电压电流提升至 <strong>I = 6.5A</strong>，电压保持上一代 <strong>U = 10V</strong>，所以最高功率达到了 <strong>P = 65W</strong>，已经和不少笔记本电脑的充电功率相同甚至更高（我手上这台MacBook Air才输入45W）。</p>
+<img src="https://uploader.shimo.im/f/nCCMhd4WZtjBSSd5.jpg!thumbnail" alt="图片" style="zoom:67%;" />
+
+<p>而同时OPPO继续升级了VOOC，并没有功率上的激进。2019年发布 VOOC 2.0，电流 <strong>I = 5V</strong>，电压 <strong>U = 5V</strong>，功率为 <strong>P = 25W</strong>。最新一代的VOOC采用电流 <strong>I = 6A</strong>，电压 <strong>U = 5V</strong>，功率 <strong>P = 30W</strong>的设计，可见VOOC系列还一直沿用着5V低压加大电流的方案。</p>
+<p><img src="https://uploader.shimo.im/f/jw9WgbbtMXQYTCji.png!thumbnail" alt="图片"></p>
+<hr>
+<h3 id="充电时间"><a href="#充电时间" class="headerlink" title="充电时间"></a>充电时间</h3><p>搭载 SuperVOOC 2.0 的 OPPO Ace 2 在各类手机充电时间的排行榜中位列第一，不足半小时即可充满一块 4000mAh的电池。</p>
+<p><img src="https://uploader.shimo.im/f/LXw7987HSn8GrTFL.jpg!thumbnail" alt="图片"></p>
+<center>（图片来自：小白测评）</center>
+
+
+
+<hr>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>内置不可拆卸电池的好处有很多，比如提高手机内部的集成度，能够使手机密闭防水，减少后改版散热等。而且目前电池容量已经很高了，充电技术越来越成熟。</p>
+<p>回到最开始那个问题，2020年了，你还想手机能手动换电池吗？</p>
+<p>想？可以购买诺基亚。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>快充</tag>
+        <tag>技术</tag>
+        <tag>公众号文章</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片等资源文件将迁移到图床</title>
     <url>/2020/03/move2oss/</url>
     <content><![CDATA[<h1 id="关于本站图片等资源文件将迁移到图床的说明"><a href="#关于本站图片等资源文件将迁移到图床的说明" class="headerlink" title="关于本站图片等资源文件将迁移到图床的说明"></a>关于本站图片等资源文件将迁移到图床的说明</h1><p>因为此网站博客是静态博客，需要在本地处理生成文章之后再上传。</p>
@@ -543,7 +634,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#64;&#116;&#x79;&#x70;&#x6f;&#114;&#x61;&#46;&#105;&#111;">&#x69;&#64;&#116;&#x79;&#x70;&#x6f;&#114;&#x61;&#46;&#105;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#x79;&#x70;&#111;&#x72;&#x61;&#x2e;&#x69;&#111;">&#105;&#x40;&#x74;&#x79;&#x70;&#111;&#x72;&#x61;&#x2e;&#x69;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -722,8 +813,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>essay</tag>
         <tag>note</tag>
+        <tag>essay</tag>
         <tag>study</tag>
       </tags>
   </entry>
@@ -977,6 +1068,106 @@
       </tags>
   </entry>
   <entry>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+</blockquote>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<a id="more"></a>
+
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>燕◾️◾️</strong>  (cn)</p>
+</li>
+<li><p>Birthday: Sep. 21, 2000</p>
+</li>
+<li><p>Style: <strong>Apple</strong> Like</p>
+</li>
+<li><p>University: Wuhan University of Technology <img src="/img/whutlogo.png" alt="whut"></p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Vegas Pro</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列（只会手游，端游好难）</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反花粉联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>你常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>你常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>你的网站服务器在哪？<ul>
+<li>阿里云，杭州</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker 入门与实战</title>
     <url>/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -1104,8 +1295,8 @@
         <category>code</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>技术</tag>
+        <tag>docker</tag>
         <tag>总结</tag>
       </tags>
   </entry>
@@ -1131,106 +1322,6 @@
       </categories>
       <tags>
         <tag>link</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
-</blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
-<a id="more"></a>
-
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>燕◾️◾️</strong>  (cn)</p>
-</li>
-<li><p>Birthday: Sep. 21, 2000</p>
-</li>
-<li><p>Style: <strong>Apple</strong> Like</p>
-</li>
-<li><p>University: Wuhan University of Technology <img src="/img/whutlogo.png" alt="whut"></p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Vegas Pro</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列（只会手游，端游好难）</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反花粉联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>你常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>你常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>你的网站服务器在哪？<ul>
-<li>阿里云，杭州</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
