@@ -43,9 +43,9 @@
 <p><img src="https://uploader.shimo.im/f/b8EC40vARwIjnG76.png!thumbnail" alt="图片"></p>
 <p>之后2015年高通 Quick Charge 2.0 随着骁龙810发布，电流可选：<strong>1.67A/2.0A/3.0A，</strong>电压可选：<strong>5V/9V/12V</strong>，则最高支持到了36W，但是当时其实并没有普及快充这项快充技术，一是因为快充的充电器价格高昂，而且当时不少手机电池工艺质量不足以承受9V甚至更高的电压。</p>
 <p><img src="https://uploader.shimo.im/f/rA3duuOSlo2T17rH.png!thumbnail" alt="图片"></p>
-<p>2016年，高通随着骁龙820推出了Quick Charge 3.0 技术，考虑到上一代技术在手机上的硬件限制，显著的特点是加入了INOV (Intelligent Negotiation for Optimum Voltage)技术，简单来说，这项技术就是通过与手机“交流”为了不同手机输出不同的电压，范围是 <strong>U = 3.6~20V</strong>，梯度降低到了200mV。而此时 USB Type-C 接口已经普及，所以电流为 <strong>I = 2.6A/4.6A</strong>。最高功率仍然为 <strong>P = 36W</strong>。</p>
+<p>2016年，高通随着骁龙820推出了Quick Charge 3.0 技术，考虑到上一代技术在手机上的硬件限制，显著的特点是加入了INOV (Intelligent Negotiation for Optimum Voltage)技术，简单来说，这项技术就是通过与手机“交流”为了不同手机输出不同的电压，范围是 <strong>U = 3.6～20V</strong>，梯度降低到了200mV。而此时 USB Type-C 接口已经普及，所以电流为 <strong>I = 2.6A/4.6A</strong>。最高功率仍然为 <strong>P = 36W</strong>。</p>
 <p><img src="https://uploader.shimo.im/f/Qpl3Xz2ZNQWmouEw.jpeg!thumbnail" alt="图片"></p>
-<p>2017年，高通 Quick Charge 4.0 随着骁龙835发布，随后，高通 Quick Chage 4.0+ 随着骁龙845发布。除了兼容之前的 QC 快充技术外，还特别支持 USB PowerDelivery 3.0 的可编程电源供应技术：电压可以从 3V ~ 11V，步进 20mV；电流从 0A<del>3A，步进 50mA。而 QC 本身的电流提供：<strong>I = 2.6A/4.6A</strong>，电压提供 **U = 3.6V</del>20V<strong>，则理论最高功率达到了接近100W，</strong>P = 4.6A × 20V = 92W。**</p>
+<p>2017年，高通 Quick Charge 4.0 随着骁龙835发布，随后，高通 Quick Chage 4.0+ 随着骁龙845发布。除了兼容之前的 QC 快充技术外，还特别支持 USB PowerDelivery 3.0 的可编程电源供应技术：电压可以从 3V ～ 11V，步进 20mV；电流从 0A～3A，步进 50mA。而 QC 本身的电流提供：<strong>I = 2.6A/4.6A</strong>，电压提供 <strong>U = 3.6V～20V</strong>，则理论最高功率达到了接近100W，<strong>P = 4.6A × 20V = 92W。</strong></p>
 <p><img src="https://uploader.shimo.im/f/8WVldVnexVYvTbm8.jpeg!thumbnail" alt="图片"></p>
 <hr>
 <ul>
