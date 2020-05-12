@@ -67,7 +67,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">461字</span>
+            <span class="post-count">470字</span>
         </span>
     </span>
 
@@ -118,7 +118,7 @@
 </li>
 </ul>
 <h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><p>根据个人需要可以换源：<code>sudo vim /etc/apt/sources.list</code></p>
-<p>已知问题：通过代理下载包经常得不到wait for header等很久</p>
+<p>已知问题：通过代理下载包经常wait for header等很久</p>
 <p><code>sudo apt-get update</code></p>
 <h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>项目名称是<strong>shairplay</strong></p>
 <p><code>git clone https:*//github.com/juhovh/shairplay.git &amp;&amp; cd shairplay</code></p>
@@ -131,7 +131,7 @@
 
 
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>如果上几步没有错误就能运行了，程序会在运行时输出日志，建议开个screen运行。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shairplay -a &lt;your_server_name&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 比如我的server_name 就是 RPi</span></span><br></pre></td></tr></table></figure>
 
 <p>在Apple设备播放音乐的时候选择<your_server_name>就好了</p>
 <p><img src="https://oss.ryzenx.com/img/RPi-airplay.jpg" alt=""></p>
@@ -141,8 +141,8 @@
 
 
 <h2 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h2><ul>
-<li><p>开机后<code>shairplay</code>命令提示key没有放到正确的目录</p>
-<p>解决方法：在shairplay源代码中再执行一次：<code>./configure</code></p>
+<li><p>开机后执行<code>shairplay</code>命令提示key没有放到正确的目录</p>
+<p>解决方法：在shairplay源代码目录中再执行一次：<code>./configure</code></p>
 </li>
 <li><p>播放过程中，音乐中断：</p>
 <p>解决办法：点亮屏幕就恢复播放了。是休眠了还是网络原因不得而知。</p>
