@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    About Me |  小渚w
+    (RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器 |  小渚w
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-about" class="article article-type-post" itemscope
+  <article id="post-airplay-on-rpi" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  About Me
+  (RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器
 </h1>
   
 
@@ -52,13 +52,34 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/about/" class="article-date">
-  <time datetime="2020-02-14T16:00:00.000Z" itemprop="datePublished">2020-02-15</time>
+      <a href="/2020/05/airplay-on-rpi/" class="article-date">
+  <time datetime="2020-05-12T09:09:06.000Z" itemprop="datePublished">2020-05-12</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/about/">about</a>
+    <a class="article-category-link" href="/categories/rpi/">RPi</a>
   </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">461字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1分钟</span>
+        </span>
+    </span>
+</div>
 
       
     </div>
@@ -82,95 +103,53 @@
       
 
       
-      <h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+      <h1 id="RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器"><a href="#RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器" class="headerlink" title="(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器"></a>(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器</h1><blockquote>
+<p>Raspberry Pi 4B 内置了Bluetooth 5.0，按道理说可以把它变成一个蓝牙音响的接收器。不过苹果的Bonjour协议是真的好用，可以在局域网内共享音视频播放。</p>
 </blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
 <a id="more"></a>
 
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+<h2 id="准备工作（一堆废话）"><a href="#准备工作（一堆废话）" class="headerlink" title="准备工作（一堆废话）"></a>准备工作（一堆废话）</h2><h3 id="1-联网"><a href="#1-联网" class="headerlink" title="1. 联网"></a>1. 联网</h3><p>确保你的RPi链接上了跟你的Apple设备同一个网络。</p>
+<h3 id="2-连接树莓派"><a href="#2-连接树莓派" class="headerlink" title="2. 连接树莓派"></a>2. 连接树莓派</h3><ul>
+<li><p>ssh 连接：</p>
+<p>​    <code>ssh pi@&lt;ip addr&gt;</code></p>
 </li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>燕◾️◾️</strong>  (cn)</p>
-</li>
-<li><p>Birthday: Sep. 21, 2000</p>
-</li>
-<li><p>Style: <strong>Apple</strong> Like</p>
-</li>
-<li><p>University: Wuhan University of Technology <img src="/img/whutlogo.png" alt="whut"></p>
+<li><p>vnc 连接：</p>
+<p><code>vnc://&lt;ip addr&gt;</code></p>
 </li>
 </ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Vegas Pro</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
+<h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><p>根据个人需要可以换源：<code>sudo vim /etc/apt/sources.list</code></p>
+<p>已知问题：通过代理下载包经常得不到wait for header等很久</p>
+<p><code>sudo apt-get update</code></p>
+<h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>项目名称是<strong>shairplay</strong></p>
+<p><code>git clone https:*//github.com/juhovh/shairplay.git &amp;&amp; cd shairplay</code></p>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install autoconf automake libtool</span><br><span class="line">sudo apt-get -y install libltdl-dev libao-dev libavahi-compat-libdnssd-dev</span><br><span class="line">sudo apt-get -y install avahi-daemon</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="在本地编译并安装"><a href="#在本地编译并安装" class="headerlink" title="在本地编译并安装"></a>在本地编译并安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./autogen.sh</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>如果上几步没有错误就能运行了，程序会在运行时输出日志，建议开个screen运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shairplay -a &lt;your_server_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在Apple设备播放音乐的时候选择<your_server_name>就好了</p>
+<p><img src="https://oss.ryzenx.com/img/RPi-airplay.jpg" alt=""></p>
+<h2 id="按照需求设置开机自启动"><a href="#按照需求设置开机自启动" class="headerlink" title="按照需求设置开机自启动"></a>按照需求设置开机自启动</h2><p>Linux 设置自启动方法有多种，写一个最简单的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改文件rc.local</span></span><br><span class="line">sudo vim /etc/rc.local</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 <span class="built_in">exit</span> 0 之前加命令</span></span><br><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑模式</span></span><br><span class="line">&#123;esc&#125;</span><br><span class="line">:wq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加运行权限</span></span><br><span class="line">sudo chmod +x /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h2><ul>
+<li><p>开机后<code>shairplay</code>命令提示key没有放到正确的目录</p>
+<p>解决方法：在shairplay源代码中再执行一次：<code>./configure</code></p>
 </li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列（只会手游，端游好难）</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反花粉联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>你常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>你常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>你的网站服务器在哪？<ul>
-<li>阿里云，杭州</li>
-</ul>
+<li><p>播放过程中，音乐中断：</p>
+<p>解决办法：点亮屏幕就恢复播放了。是休眠了还是网络原因不得而知。</p>
 </li>
 </ul>
+<h2 id="Enjoy"><a href="#Enjoy" class="headerlink" title="Enjoy!"></a>Enjoy!</h2><p>Raspberry Pi (RPi) 玩法第一节 (#1)</p>
+<p>后续继续更新…</p>
 
       
       <!-- reward -->
@@ -240,14 +219,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/02/about/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/05/airplay-on-rpi/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essay/" rel="tag">essay</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/airplay/" rel="tag">AirPlay</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-pi/" rel="tag">Raspberry Pi</a></li></ul>
 
 
     </footer>
@@ -258,19 +237,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/realme_x2_pro/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            realme x2 pro 一个月使用感受
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/" class="article-nav-link">
+      <a href="/2020/05/linux-tar/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">常用Linux命令手册合集</div>
+        <div class="article-nav-title">Linux tar 命令</div>
       </a>
     
   </nav>
