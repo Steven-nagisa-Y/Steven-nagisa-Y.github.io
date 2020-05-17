@@ -80,9 +80,9 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>note</tag>
         <tag>essay</tag>
         <tag>Chrome</tag>
+        <tag>note</tag>
       </tags>
   </entry>
   <entry>
@@ -620,8 +620,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>快充</tag>
+        <tag>技术</tag>
         <tag>公众号文章</tag>
       </tags>
   </entry>
@@ -1168,7 +1168,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#64;&#x74;&#121;&#x70;&#111;&#x72;&#x61;&#46;&#x69;&#111;">&#x69;&#64;&#x74;&#121;&#x70;&#111;&#x72;&#x61;&#46;&#x69;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#x79;&#112;&#x6f;&#x72;&#x61;&#46;&#105;&#x6f;">&#105;&#x40;&#x74;&#x79;&#112;&#x6f;&#x72;&#x61;&#46;&#105;&#x6f;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -1347,8 +1347,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>note</tag>
         <tag>essay</tag>
+        <tag>note</tag>
         <tag>study</tag>
       </tags>
   </entry>
@@ -1600,107 +1600,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
-</blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
-<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
-<a id="more"></a>
-
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>小渚w</strong>  (cn)</p>
-</li>
-<li><p>(Day) Dream: 变得可爱</p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Premier</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反海🐶联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>spaces or tabs?<ul>
-<li>spaces</li>
-</ul>
-</li>
-<li>where do you put {} after function?<ul>
-<li><code>void func() {...}</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用Linux命令手册合集</title>
     <url>/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<h1 id="常用Linux命令手册合集"><a href="#常用Linux命令手册合集" class="headerlink" title="常用Linux命令手册合集"></a>常用Linux命令手册合集</h1><p>[toc]</p>
@@ -1843,43 +1742,104 @@
       </tags>
   </entry>
   <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
 </blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
-<li><a href="https://ryzenx.com">ryzenx.com</a></li>
-<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
-</ul>
-</li>
-<li>搜索+链接<ul>
-<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
-<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
-<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
-</ul>
-</li>
-<li>图床OSS<ul>
-<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
+<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
 <a id="more"></a>
 
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<hr>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>小渚w</strong>  (cn)</p>
+</li>
+<li><p>(Day) Dream: 变得可爱</p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Premier</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反海🐶联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>spaces or tabs?<ul>
+<li>spaces</li>
+</ul>
+</li>
+<li>where do you put {} after function?<ul>
+<li><code>void func() {...}</code></li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
-        <category>link</category>
+        <category>about</category>
       </categories>
       <tags>
-        <tag>link</tag>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -2013,6 +1973,46 @@
         <tag>技术</tag>
         <tag>docker</tag>
         <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
+<li><strong>博客主站</strong><ul>
+<li><a href="https://ryzenx.com">ryzenx.com</a></li>
+<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
+</ul>
+</li>
+<li>搜索+链接<ul>
+<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
+<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
+<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
+</ul>
+</li>
+<li>图床OSS<ul>
+<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<hr>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <categories>
+        <category>link</category>
+      </categories>
+      <tags>
+        <tag>link</tag>
       </tags>
   </entry>
   <entry>
@@ -2790,10 +2790,10 @@
         <category>impressions</category>
       </categories>
       <tags>
+        <tag>essay</tag>
         <tag>TED</tag>
         <tag>universe</tag>
         <tag>originals</tag>
-        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -2815,9 +2815,9 @@
         <category>impressions</category>
       </categories>
       <tags>
+        <tag>essay</tag>
         <tag>TED</tag>
         <tag>universe</tag>
-        <tag>essay</tag>
         <tag>music</tag>
       </tags>
   </entry>
