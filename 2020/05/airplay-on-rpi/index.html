@@ -134,7 +134,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 比如我的server_name 就是 RPi</span></span><br></pre></td></tr></table></figure>
 
 <p>在Apple设备播放音乐的时候选择<your_server_name>就好了</p>
-<p><img src="https://oss.ryzenx.com/img/RPi-airplay.jpg" alt=""></p>
+<p><img src="https://oss.ryzenx.com/img/2020/RPi-airplay.jpg" alt=""></p>
 <h2 id="按照需求设置开机自启动"><a href="#按照需求设置开机自启动" class="headerlink" title="按照需求设置开机自启动"></a>按照需求设置开机自启动</h2><p>Linux 设置自启动方法有多种，写一个最简单的。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改文件rc.local</span></span><br><span class="line">sudo vim /etc/rc.local</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 <span class="built_in">exit</span> 0 之前加命令</span></span><br><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑模式</span></span><br><span class="line">&#123;esc&#125;</span><br><span class="line">:wq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加运行权限</span></span><br><span class="line">sudo chmod +x /etc/rc.local</span><br></pre></td></tr></table></figure>
 
@@ -237,8 +237,17 @@
   
   <nav class="article-nav">
     
+      <a href="/2020/05/Chrome-10-extensions/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Chrome 十个高效扩展程序
+          
+        </div>
+      </a>
     
-      <a href="/2020/05/NNI%E6%A0%B7%E4%BE%8B%E5%88%86%E6%9E%90/" class="article-nav-link">
+    
+      <a href="/2020/05/NNI-example/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">Microsoft NNI 样例分析</div>
       </a>

@@ -111,7 +111,7 @@
 <a id="more"></a>
 
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的<strong>MacBook Air</strong>是一个很棒的电脑，它是在我14岁生日的那一天到我手中的，至今它还是我听网课的主要工具。若是说<strong>Mac</strong>的价格高，配不上那渣渣一样的配置，我的确没法反驳；但是从事实出发，这台<strong>MacBookAir6,1</strong>足足跟随了我快6年，从 <strong>OS X 10.8 Mountain Lion</strong> 到 <strong>macOS 10.15 Catalina</strong> 从Windows 7 虚拟机到现在Windows 10 LTSC它从来没有崩溃过，也从来没有出现网上那些奇奇怪怪的问题。外观无损，屏幕正常，电池循环162次，装上Windows 10双系统还能流畅玩耍使命召唤9，独立的<strong>macOS</strong>也很棒，小程序开发，写博客样样能行。</p>
-<p><img src="/img/ssd-wtg.assets/image-20200311205914623.png" alt="image-20200311205914623"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205914623.png" alt="image-20200311205914623"></p>
 <p>要说唯一的不足，就是当初没钱，内置的128GB SSD实在是太小了。不久之前我曾想过给这台Mac更换一个硬盘，毕竟固态硬盘也很快会达到寿命，可是那高昂的原装盘价格和难以忍受的改装盘问题让我犹豫了。（也许我有钱之后还会买原装盘呢？）</p>
 <p>外接个SSD装系统不仅减少内置硬盘读写，还能双系统切换，岂不美哉？那就去实现外接硬盘安装Windows To Go的想法。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>硬件材料：</p>
@@ -139,16 +139,16 @@
 <h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><ul>
 <li>在macOS下的启动转换助理app（BootCamp助理）中下载Windows支持软件，并选择下载到U盘中。</li>
 </ul>
-<p><img src="/img/ssd-wtg.assets/image-20200311205837284.png" alt="image-20200311205837284"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205837284.png" alt="image-20200311205837284"></p>
 <ul>
 <li>下载WTG辅助工具：<a href="https://bbs.luobotou.org/thread-761-1-1.html" target="_blank" rel="noopener">Windows To Go 辅助工具|WTG辅助工具 v5.1.2</a>(出处: 萝卜头IT论坛)</li>
 </ul>
-<img src="/img/ssd-wtg.assets/image-20200311205610724.png" alt="image-20200311205610724" style="zoom:67%;" />
+<img src="https://oss.ryzenx.com/img/2020/image-20200311205610724.png" alt="image-20200311205610724" style="zoom:67%;" />
 
 <ul>
 <li>下载Windows 10原版镜像。可以到<a href="http://msdn.itellyou.cn" target="_blank" rel="noopener">MSDN我告诉你</a>下载</li>
 </ul>
-<img src="/img/ssd-wtg.assets/image-20200311210816662.png" alt="image-20200311210816662" style="zoom: 67%;" />
+<img src="https://oss.ryzenx.com/img/2020/image-20200311210816662.png" alt="image-20200311210816662" style="zoom: 67%;" />
 
 
 
@@ -156,22 +156,22 @@
 <li>首先初始化新买的硬盘，使它能够在Windows系统下正常读写，略。</li>
 <li>装载Windows镜像。在Windows 10上无需虚拟光驱，双击即可装载在“此电脑”中：</li>
 </ol>
-<p><img src="/img/ssd-wtg.assets/image-20200311211023714.png" alt="image-20200311211023714"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311211023714.png" alt="image-20200311211023714"></p>
 <ol start="3">
 <li>打开WGT辅助工具，并按照以下图示操作：</li>
 </ol>
-<p><img src="/img/ssd-wtg.assets/step1.png" alt="step1"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/step1.png" alt="step1"></p>
 <center>注意硬盘别选错了，系统版本可以任意选择</center>
 
-<p><img src="/img/ssd-wtg.assets/step2.png" alt="step2"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/step2.png" alt="step2"></p>
 <center>虽然苹果磁盘是GPT分区表，但是外接硬盘必须选择MBR，不然无法启动！！！</center>
 
 <center>选择虚拟硬盘是防止文件修改，同时便于备份</center>
 
-<p><img src="/img/ssd-wtg.assets/step3.png" alt="step3"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/step3.png" alt="step3"></p>
 <center>“虚拟硬盘”和“分区”可以按照需要调整</center>
 
-<p><img src="/img/ssd-wtg.assets/step4.png" alt="step4"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/step4.png" alt="step4"></p>
 <center>点击部署后，再次确认硬盘</center>
 
 <ol start="4">
@@ -179,7 +179,7 @@
 </ol>
 <p>至此，Windows To Go写入已完成。</p>
 <h2 id="接入硬盘"><a href="#接入硬盘" class="headerlink" title="接入硬盘"></a>接入硬盘</h2><p>将Mac关机，把硬盘接入Mac中，点击电源键后<strong>按住 option</strong>按键，等待屏幕显示选择启动磁盘。</p>
-<img src="/img/ssd-wtg.assets/IMG_20200311_213150.jpg" alt="IMG_20200311_213150" style="zoom: 67%;" />
+<img src="https://oss.ryzenx.com/img/2020/IMG_20200311_213150.jpg" alt="IMG_20200311_213150" style="zoom: 67%;" />
 
 <center>要选择<b>EFI Boot启动选项</b></center>
 
@@ -190,7 +190,7 @@
 <p>等待进入系统之后，插入之前保存Windows支持软件的U盘，双击<strong>BootCamp.exe</strong>安装Mac专属驱动。</p>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新启动一次之后，就能进入熟悉的Windows 10桌面啦~</p>
 <p><strong>注意！!</strong>由于是外接硬盘运行的系统，建议每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘，虽然我刚刚试了一下可以正常从外界硬盘启动。</p>
-<p><img src="/img/ssd-wtg.assets/WTG.jpg" alt="WTG"></p>
+<p><img src="https://oss.ryzenx.com/img/2020/WTG.jpg" alt="WTG"></p>
 <h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><p>等我使用几天之后再写一篇随笔在这里吧？</p>
 <p>欢迎关注等待下文链接更新~</p>
 
