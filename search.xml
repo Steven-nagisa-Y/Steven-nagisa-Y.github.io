@@ -1511,11 +1511,9 @@
       </tags>
   </entry>
   <entry>
-    <title>realme x2 pro 一个月使用感受</title>
-    <url>/2020/02/realme_x2_pro/</url>
-    <content><![CDATA[<!--# realme x2 pro 一个月使用感受-->
-
-<blockquote>
+    <title>realme X2 Pro 一个月使用感受</title>
+    <url>/2020/02/realme-x2-pro/</url>
+    <content><![CDATA[<h1 id="realme-X2-Pro-一个月使用感受"><a href="#realme-X2-Pro-一个月使用感受" class="headerlink" title="realme X2 Pro 一个月使用感受"></a>realme X2 Pro 一个月使用感受</h1><blockquote>
 <p>realme介绍：（来自百度百科）</p>
 <p>真我(realme)成立于2018年5月4日，是一家专注于提供优质智能手机和IoT产品的科技品牌。</p>
 <p>realme专注于提供兼具强劲性能与潮流设计的手机产品，凭借”越级”产品和”敢越级”的品牌态度，秉承创新基因，在产品性能、设计、品质和服务方面不断超越自我。</p>
@@ -1599,6 +1597,107 @@
         <tag>realme</tag>
         <tag>搞 ♂ 机</tag>
         <tag>使用感受</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+</blockquote>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
+<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<a id="more"></a>
+
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>小渚w</strong>  (cn)</p>
+</li>
+<li><p>(Day) Dream: 变得可爱</p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Premier</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反海🐶联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>spaces or tabs?<ul>
+<li>spaces</li>
+</ul>
+</li>
+<li>where do you put {} after function?<ul>
+<li><code>void func() {...}</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
       </tags>
   </entry>
   <entry>
@@ -1744,104 +1843,43 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
 </blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
-<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
+<li><strong>博客主站</strong><ul>
+<li><a href="https://ryzenx.com">ryzenx.com</a></li>
+<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
+</ul>
+</li>
+<li>搜索+链接<ul>
+<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
+<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
+<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
+</ul>
+</li>
+<li>图床OSS<ul>
+<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
 <a id="more"></a>
 
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>小渚w</strong>  (cn)</p>
-</li>
-<li><p>(Day) Dream: 变得可爱</p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Premier</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反海🐶联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>spaces or tabs?<ul>
-<li>spaces</li>
-</ul>
-</li>
-<li>where do you put {} after function?<ul>
-<li><code>void func() {...}</code></li>
-</ul>
-</li>
-</ul>
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<hr>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
 ]]></content>
       <categories>
-        <category>about</category>
+        <category>link</category>
       </categories>
       <tags>
-        <tag>essay</tag>
+        <tag>link</tag>
       </tags>
   </entry>
   <entry>
@@ -1975,46 +2013,6 @@
         <tag>技术</tag>
         <tag>docker</tag>
         <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
-<li><a href="https://ryzenx.com">ryzenx.com</a></li>
-<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
-</ul>
-</li>
-<li>搜索+链接<ul>
-<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
-<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
-<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
-</ul>
-</li>
-<li>图床OSS<ul>
-<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<hr>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <categories>
-        <category>link</category>
-      </categories>
-      <tags>
-        <tag>link</tag>
       </tags>
   </entry>
   <entry>
@@ -2763,7 +2761,7 @@
   </entry>
   <entry>
     <title>Recognizing ORIGINALS</title>
-    <url>/2019/11/Recognizing%20GRIGINALS/</url>
+    <url>/2019/11/Recognizing-GRIGINALS/</url>
     <content><![CDATA[<h1 id="Recognizing-ORIGINALS"><a href="#Recognizing-ORIGINALS" class="headerlink" title="Recognizing ORIGINALS"></a>Recognizing ORIGINALS</h1><p><code>Keywords: originals</code></p>
 <h3 id="What-are-the-originals"><a href="#What-are-the-originals" class="headerlink" title="What are the originals?"></a>What are the originals?</h3><p>Originals are nonconformists, people who not only have new ideas, but take action to champion them. They are people who stand out and speak up. Originals drive creativity and change in the world.</p>
 <a id="more"></a>
@@ -2800,7 +2798,7 @@
   </entry>
   <entry>
     <title>The Sound of the Universe</title>
-    <url>/2019/11/The%20Sound%20of%20the%20Universe/</url>
+    <url>/2019/11/The-Sound-of-the-Universe/</url>
     <content><![CDATA[<h2 id="The-Sound-of-the-Universe"><a href="#The-Sound-of-the-Universe" class="headerlink" title="The Sound of the Universe"></a>The Sound of the Universe</h2><h2 id="Keywords-Stars-Music"><a href="#Keywords-Stars-Music" class="headerlink" title="Keywords: Stars | Music"></a><code>Keywords: Stars | Music</code></h2><p>There is a deep connection between music and astronomy. It goes back over 2000 years to Pythagoras<a href="毕达哥拉斯">^1</a>. He said, There is geometry in the humming of the strings, there is music in the spacing of the spheres. </p>
 <hr>
 <a id="more"></a>
