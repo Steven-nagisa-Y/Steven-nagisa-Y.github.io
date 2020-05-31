@@ -110,22 +110,22 @@
 </blockquote>
 <a id="more"></a>
 
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>前往MySQL的官方网站下载安装MySQL Community Server（免费版）</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1-安装"></a>1-安装</h2><p>前往MySQL的官方网站下载安装MySQL Community Server（免费版）</p>
 <p><img src="https://oss.ryzenx.com/img/2020/20200531185157.png" alt=""></p>
 <p>选择<code>DMG Archive</code>或者<code>Compressed TAR Archive</code>均可。这里选择dmg格式的包。</p>
 <p>下载，打开压缩包，双击运行<strong>pkg</strong>安装包。</p>
 <p>如果出现“无法验证开发者”的情况，前往<code>系统偏好设置-&gt;安全性与隐私-&gt;通用-&gt;仍要打开</code></p>
 <p>之后按照提示下一步。</p>
 <p>最后安装完成需要你设置root用户的密码，自行设置密码后牢记。</p>
-<p>建议安装后选择<strong>自动启动MySQL Server服务</strong>，否则请按照<a href="#3.启动与停止">启动与停止</a>启动服务。</p>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h2><p>如果你在Mac上的<strong>终端</strong>上输入<code>mysql</code>后提示<code>command not found</code>，那么请这样做：</p>
+<p>建议安装后选择<strong>自动启动MySQL Server服务</strong>，否则请按照<a href="#3-启动与停止">启动与停止</a>启动服务。</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2-使用"></a>2-使用</h2><p>如果你在Mac上的<strong>终端</strong>上输入<code>mysql</code>后提示<code>command not found</code>，那么请这样做：</p>
 <ul>
 <li>打开终端</li>
 <li>切换目录：<code>cd /usr/local/bin</code></li>
 <li>设置软链：<code>ln -fs /usr/local/mysql/bin/mysql mysql</code></li>
 <li>完成。只需要在终端中输入：<code>mysql -u root -p</code>即可使用MySQL。</li>
 </ul>
-<h2 id="3-启动与停止"><a href="#3-启动与停止" class="headerlink" title="3.启动与停止"></a>3.启动与停止</h2><h3 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/MySQL/support-files/mysql.server start</span><br></pre></td></tr></table></figure>
+<h2 id="3-启动与停止"><a href="#3-启动与停止" class="headerlink" title="3-启动与停止"></a>3-启动与停止</h2><h3 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/MySQL/support-files/mysql.server start</span><br></pre></td></tr></table></figure>
 
 
 
