@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MySQL在macOS上的安装</title>
+    <url>/2020/05/install-mysql-on-macOS/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL在macOS上的安装"><a href="#MySQL在macOS上的安装" class="headerlink" title="MySQL在macOS上的安装"></a>MySQL在macOS上的安装</h1><blockquote>
+<p>System version: macOS Catalina 10.15.5</p>
+<p>MySQL cersion: 8.0.20</p>
+<p>MySQL offical download site: <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>前往MySQL的官方网站下载安装MySQL Community Server（免费版）</p>
+<p><img src="https://oss.ryzenx.com/img/2020/20200531185157.png" alt=""></p>
+<p>选择<code>DMG Archive</code>或者<code>Compressed TAR Archive</code>均可。这里选择dmg格式的包。</p>
+<p>下载，打开压缩包，双击运行<strong>pkg</strong>安装包。</p>
+<p>如果出现“无法验证开发者”的情况，前往<code>系统偏好设置-&gt;安全性与隐私-&gt;通用-&gt;仍要打开</code></p>
+<p>之后按照提示下一步。</p>
+<p>最后安装完成需要你设置root用户的密码，自行设置密码后牢记。</p>
+<p>建议安装后选择<strong>自动启动MySQL Server服务</strong>，否则请按照<a href="#3.启动与停止">启动与停止</a>启动服务。</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h2><p>如果你在Mac上的<strong>终端</strong>上输入<code>mysql</code>后提示<code>command not found</code>，那么请这样做：</p>
+<ul>
+<li>打开终端</li>
+<li>切换目录：<code>cd /usr/local/bin</code></li>
+<li>设置软链：<code>ln -fs /usr/local/mysql/bin/mysql mysql</code></li>
+<li>完成。只需要在终端中输入：<code>mysql -u root -p</code>即可使用MySQL。</li>
+</ul>
+<h2 id="3-启动与停止"><a href="#3-启动与停止" class="headerlink" title="3.启动与停止"></a>3.启动与停止</h2><h3 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /usr/local/MySQL/support-files/mysql.server start</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="停止："><a href="#停止：" class="headerlink" title="停止："></a>停止：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="重启："><a href="#重启：" class="headerlink" title="重启："></a>重启：</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server restart</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="通过系统偏好设置："><a href="#通过系统偏好设置：" class="headerlink" title="通过系统偏好设置："></a>通过系统偏好设置：</h3><p><img src="https://oss.ryzenx.com/img/2020/20200531190500.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Chrome 十个高效扩展程序</title>
     <url>/2020/05/Chrome-10-extensions/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Chrome-十个高效扩展程序"><a href="#Chrome-十个高效扩展程序" class="headerlink" title="Chrome 十个高效扩展程序"></a>Chrome 十个高效扩展程序</h1><blockquote>
@@ -1600,6 +1647,147 @@
       </tags>
   </entry>
   <entry>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+</blockquote>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
+<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<a id="more"></a>
+
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>小渚w</strong>  (cn)</p>
+</li>
+<li><p>(Day) Dream: 变得可爱</p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Premier</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反海🐶联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>spaces or tabs?<ul>
+<li>spaces</li>
+</ul>
+</li>
+<li>where do you put {} after function?<ul>
+<li><code>void func() {...}</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
+<li><strong>博客主站</strong><ul>
+<li><a href="https://ryzenx.com">ryzenx.com</a></li>
+<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
+</ul>
+</li>
+<li>搜索+链接<ul>
+<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
+<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
+<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
+</ul>
+</li>
+<li>图床OSS<ul>
+<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<hr>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <categories>
+        <category>link</category>
+      </categories>
+      <tags>
+        <tag>link</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用Linux命令手册合集</title>
     <url>/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/</url>
     <content><![CDATA[<h1 id="常用Linux命令手册合集"><a href="#常用Linux命令手册合集" class="headerlink" title="常用Linux命令手册合集"></a>常用Linux命令手册合集</h1><p>[toc]</p>
@@ -1742,107 +1930,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
-</blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
-<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
-<a id="more"></a>
-
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>小渚w</strong>  (cn)</p>
-</li>
-<li><p>(Day) Dream: 变得可爱</p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Premier</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反海🐶联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>spaces or tabs?<ul>
-<li>spaces</li>
-</ul>
-</li>
-<li>where do you put {} after function?<ul>
-<li><code>void func() {...}</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker 入门与实战</title>
     <url>/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -1973,46 +2060,6 @@
         <tag>技术</tag>
         <tag>docker</tag>
         <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
-<li><a href="https://ryzenx.com">ryzenx.com</a></li>
-<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
-</ul>
-</li>
-<li>搜索+链接<ul>
-<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
-<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
-<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
-</ul>
-</li>
-<li>图床OSS<ul>
-<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<hr>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <categories>
-        <category>link</category>
-      </categories>
-      <tags>
-        <tag>link</tag>
       </tags>
   </entry>
   <entry>
