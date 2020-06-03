@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JS声明函数的三种方式</title>
+    <url>/2020/06/js-create-function/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript-声明函数的三种方式"><a href="#JavaScript-声明函数的三种方式" class="headerlink" title="JavaScript 声明函数的三种方式"></a>JavaScript 声明函数的三种方式</h1><a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数式声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量式声明</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Funcion构造函数</span></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> <span class="built_in">Function</span>(args) &#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>　　foobar广泛用在示例代码中是怎么回事呢？foobar相信大家都很熟悉，但是foobar广泛用在示例代码中是怎么回事呢，下面就让小编带大家一起了解吧。<br>　　foobar广泛用在示例代码中，其实就是foobar就如同中文的张三李四，大家可能会很惊讶foobar怎么会广泛用在示例代码中呢？但事实就是这样，小编也感到非常惊讶。<br>　　这就是关于foobar广泛用在示例代码中的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！</p>
+<p>常见的代称有：</p>
+<ul>
+<li><p><code>foobar</code>：常常单独使用，如同中文中“某某”</p>
+</li>
+<li><p><code>foo</code>：如同“张三”</p>
+</li>
+<li><p><code>bar</code>：如同“李四”</p>
+</li>
+<li><p><code>baz</code>：如同“王五”</p>
+</li>
+<li><p><code>qux</code>：如同“赵六”</p>
+</li>
+</ul>
+<p>参考<a href="https://cloud.tencent.com/developer/article/1360988" target="_blank" rel="noopener">文章</a></p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+        <tag>JS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL在macOS上的安装</title>
     <url>/2020/05/install-mysql-on-macOS/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL在macOS上的安装"><a href="#MySQL在macOS上的安装" class="headerlink" title="MySQL在macOS上的安装"></a>MySQL在macOS上的安装</h1><blockquote>
@@ -135,7 +171,7 @@
   <entry>
     <title>(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器</title>
     <url>/2020/05/airplay-on-rpi/</url>
-    <content><![CDATA[<h1 id="RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器"><a href="#RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器" class="headerlink" title="(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器"></a>(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器"><a href="#RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器" class="headerlink" title="(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器"></a>(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器</h1><blockquote>
 <p>Raspberry Pi 4B 内置了Bluetooth 5.0，按道理说可以把它变成一个蓝牙音响的接收器。不过苹果的Bonjour协议是真的好用，可以在局域网内共享音视频播放。</p>
 </blockquote>
 <a id="more"></a>
@@ -195,7 +231,7 @@
   <entry>
     <title>Microsoft NNI 样例分析</title>
     <url>/2020/05/NNI-example/</url>
-    <content><![CDATA[<h1 id="NNI-样例分析"><a href="#NNI-样例分析" class="headerlink" title="NNI 样例分析"></a>NNI 样例分析</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NNI-样例分析"><a href="#NNI-样例分析" class="headerlink" title="NNI 样例分析"></a>NNI 样例分析</h1><blockquote>
 <p>NNI (<a href="https://github.com/microsoft/nni" target="_blank" rel="noopener">Neural Network Intelligence</a>) 是微软亚洲研究院开源的自动机器学习工具。</p>
 <p>分析样例：<code>nni/examples/trials/mnist-tfv2</code></p>
 </blockquote>
@@ -261,7 +297,7 @@
   <entry>
     <title>Linux tar 命令</title>
     <url>/2020/05/linux-tar/</url>
-    <content><![CDATA[<h1 id="Linux-tar-命令备忘"><a href="#Linux-tar-命令备忘" class="headerlink" title="Linux tar 命令备忘"></a>Linux tar 命令备忘</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux-tar-命令备忘"><a href="#Linux-tar-命令备忘" class="headerlink" title="Linux tar 命令备忘"></a>Linux tar 命令备忘</h1><blockquote>
 <p>tar</p>
 <p>​    -c: 建立压缩档案<br>​    -x：解压<br>​    -t：查看内容<br>​    -r：向压缩归档文件末尾追加文件<br>​    -u：更新原压缩包中的文件</p>
 </blockquote>
@@ -355,7 +391,7 @@
   <entry>
     <title>小米10青春版开箱</title>
     <url>/2020/05/mi10-lite-room/</url>
-    <content><![CDATA[<h1 id="小米10青春版开箱"><a href="#小米10青春版开箱" class="headerlink" title="小米10青春版开箱"></a>小米10青春版开箱</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="小米10青春版开箱"><a href="#小米10青春版开箱" class="headerlink" title="小米10青春版开箱"></a>小米10青春版开箱</h1><blockquote>
 <p>小米10青春版是小米公司旗下的手机，是“一部专为年轻人打造的5G手机”，搭载高通骁龙765G双模5G平台，支持双卡双待，采用三星AMOLED钻石排列屏，搭载后置4摄，潜望式长焦镜头，最高支持50倍变焦。</p>
 </blockquote>
 <a id="more"></a>
@@ -584,7 +620,7 @@
   <entry>
     <title>快充技术的前世今生</title>
     <url>/2020/04/charge-fast/</url>
-    <content><![CDATA[<p>现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。</p>
 <blockquote>
 <p>2020年了，你还想手机能手动换电池吗？</p>
 </blockquote>
@@ -675,7 +711,7 @@
   <entry>
     <title>图片等资源文件将迁移到图床</title>
     <url>/2020/03/move-to-oss/</url>
-    <content><![CDATA[<h1 id="关于本站图片等资源文件将迁移到图床的说明"><a href="#关于本站图片等资源文件将迁移到图床的说明" class="headerlink" title="关于本站图片等资源文件将迁移到图床的说明"></a>关于本站图片等资源文件将迁移到图床的说明</h1><p>因为此网站博客是静态博客，需要在本地处理生成文章之后再上传。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="关于本站图片等资源文件将迁移到图床的说明"><a href="#关于本站图片等资源文件将迁移到图床的说明" class="headerlink" title="关于本站图片等资源文件将迁移到图床的说明"></a>关于本站图片等资源文件将迁移到图床的说明</h1><p>因为此网站博客是静态博客，需要在本地处理生成文章之后再上传。</p>
 <p>考虑到上传的速度和访问的速度，并节约服务器存储空间，所以图片和其它资源文件将放在图床和OSS上。</p>
 <a id="more"></a>
 
@@ -692,7 +728,7 @@
   <entry>
     <title>小米盒子3国际版开箱</title>
     <url>/2020/03/mibox-3/</url>
-    <content><![CDATA[<h1 id="MiBox开箱（小米盒子3国际版）"><a href="#MiBox开箱（小米盒子3国际版）" class="headerlink" title="MiBox开箱（小米盒子3国际版）"></a>MiBox开箱（小米盒子3国际版）</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MiBox开箱（小米盒子3国际版）"><a href="#MiBox开箱（小米盒子3国际版）" class="headerlink" title="MiBox开箱（小米盒子3国际版）"></a>MiBox开箱（小米盒子3国际版）</h1><blockquote>
 <p>你没有看错！我又买新玩意了！</p>
 <p>这次的开箱是小米电视盒子3 的国际版：MiBox</p>
 <p>特点：内置 Android TV 系统，支持最高 4K 60FPS HDR 输出，支持 2.4GHz/5GHz Wi-Fi 连接。</p>
@@ -818,7 +854,7 @@
   <entry>
     <title>外置SSD安装Win2Go使用体验</title>
     <url>/2020/03/win-on-ssd-report/</url>
-    <content><![CDATA[<h1 id="外置SSD安装Win2Go使用体验"><a href="#外置SSD安装Win2Go使用体验" class="headerlink" title="外置SSD安装Win2Go使用体验"></a>外置SSD安装Win2Go使用体验</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上回说到，因为我的<strong>MacBook Air</strong>内置硬盘太小，而且我恐怕内置硬盘很快达到读写上限。于是成功在外置SSD上安装了Windows To Go系统，而且成功使用了一天了。现在写一个简短的使用体验，希望有同样想法的朋友可以参考。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="外置SSD安装Win2Go使用体验"><a href="#外置SSD安装Win2Go使用体验" class="headerlink" title="外置SSD安装Win2Go使用体验"></a>外置SSD安装Win2Go使用体验</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上回说到，因为我的<strong>MacBook Air</strong>内置硬盘太小，而且我恐怕内置硬盘很快达到读写上限。于是成功在外置SSD上安装了Windows To Go系统，而且成功使用了一天了。现在写一个简短的使用体验，希望有同样想法的朋友可以参考。</p>
 <a id="more"></a>
 
 <h2 id="总体上"><a href="#总体上" class="headerlink" title="总体上"></a>总体上</h2><p>在外置SSD上运行的Windows 10系统没有丝毫的不流畅，甚至没有出现蓝屏等异常情况。具体使用和正常的Windows 10并无差别。系统启动后会自动载入虚拟硬盘作为系统<code>C:\</code>盘，剩余空间将作为<code>D:\</code>盘。</p>
@@ -857,7 +893,7 @@
   <entry>
     <title>把Windows 10装进外接硬盘里(Windows To Go)</title>
     <url>/2020/03/ssd-wtg/</url>
-    <content><![CDATA[<h1 id="把Windows-10-装进外接硬盘里，给Mac外接一个系统"><a href="#把Windows-10-装进外接硬盘里，给Mac外接一个系统" class="headerlink" title="把Windows 10 装进外接硬盘里，给Mac外接一个系统"></a>把Windows 10 装进外接硬盘里，给Mac外接一个系统</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="把Windows-10-装进外接硬盘里，给Mac外接一个系统"><a href="#把Windows-10-装进外接硬盘里，给Mac外接一个系统" class="headerlink" title="把Windows 10 装进外接硬盘里，给Mac外接一个系统"></a>把Windows 10 装进外接硬盘里，给Mac外接一个系统</h1><blockquote>
 <p><a href="https://docs.microsoft.com/zh-cn/windows/deployment/planning/windows-to-go-overview" target="_blank" rel="noopener">Windows To Go：概述</a></p>
 <p>Windows To Go 是 Windows 10 企业版和 Windows 10 教育版中的一项功能，支持创建可从电脑上 USB 连接的外部驱动器启动的 Windows To Go 工作区。</p>
 <p>满足 Windows 7 或更高版本认证要求的 pc 可以在 Windows To Go 工作区中运行 Windows10，无论电脑上运行的是何种操作系统。 Windows To Go 工作区可以使用企业针对其桌面和便携式计算机使用的相同图像，并且可以通过同样的方式进行管理。 Windows To Go 不能取代桌面、笔记本电脑或 supplant 其他移动产品。 相反，它为备用工作区方案提供了对资源的有效使用的支持。 </p>
@@ -960,7 +996,7 @@
   <entry>
     <title>Python删除macOS产生的冗余文件</title>
     <url>/2020/03/python-macos-trashed/</url>
-    <content><![CDATA[<h1 id="利用Python删除磁盘中macOS产生的冗余文件"><a href="#利用Python删除磁盘中macOS产生的冗余文件" class="headerlink" title="利用Python删除磁盘中macOS产生的冗余文件"></a>利用Python删除磁盘中macOS产生的冗余文件</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="利用Python删除磁盘中macOS产生的冗余文件"><a href="#利用Python删除磁盘中macOS产生的冗余文件" class="headerlink" title="利用Python删除磁盘中macOS产生的冗余文件"></a>利用Python删除磁盘中macOS产生的冗余文件</h1><blockquote>
 <p><strong>特别说明：</strong></p>
 <p>请不要在macOS下运行此脚本，因为这些文件对于macOS来说是可能必须的。</p>
 <p>使用此Python脚本或其中部分代码导致的个人文件被删除，本人概不负责。</p>
@@ -994,7 +1030,7 @@
   <entry>
     <title>小米手环4 开箱</title>
     <url>/2020/03/Mi-band-4/</url>
-    <content><![CDATA[<h1 id="小米手环4-开箱"><a href="#小米手环4-开箱" class="headerlink" title="小米手环4 开箱"></a>小米手环4 开箱</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="小米手环4-开箱"><a href="#小米手环4-开箱" class="headerlink" title="小米手环4 开箱"></a>小米手环4 开箱</h1><blockquote>
 <p>摘自百度百科“小米手环4”：</p>
 <p>小米手环4是小米公司2019年6月11日发布的智能新品，与小米手环3相比，表盘不仅从黑白升级为AMOLED彩屏，显示面积也增加了39.9%；表面覆盖2.5D弧面耐刮强化玻璃，搭配77种表盘主题，可以充分满足个性化需求。</p>
 <p>小米手环4标准版/NFC版，采用真彩屏、50米防水、6轴传感器等，售价169元。共有石墨黑、热力橙、深空蓝、酒红、藕荷粉5种颜色（标准版）。</p>
@@ -1064,7 +1100,7 @@
   <entry>
     <title>花式字体</title>
     <url>/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/</url>
-    <content><![CDATA[<h1 id="Markdown-花式字体"><a href="#Markdown-花式字体" class="headerlink" title="Markdown 花式字体"></a>Markdown 花式字体</h1><p><strong>如果你的浏览器在网页上无法预览字体</strong></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Markdown-花式字体"><a href="#Markdown-花式字体" class="headerlink" title="Markdown 花式字体"></a>Markdown 花式字体</h1><p><strong>如果你的浏览器在网页上无法预览字体</strong></p>
 <p><strong>请点击➡️<a href="https://url.airocket.tech/html/花式字体.html" target="_blank" rel="noopener">  这里  </a></strong></p>
 <a id="more"></a>
 
@@ -1110,7 +1146,7 @@
   <entry>
     <title>常见LaTeX数学符号参考（图转）</title>
     <url>/2020/03/Markdown+LaTeX/</url>
-    <content><![CDATA[<h1 id="常见LaTeX数学符号参考（图转）"><a href="#常见LaTeX数学符号参考（图转）" class="headerlink" title="常见LaTeX数学符号参考（图转）"></a>常见LaTeX数学符号参考（图转）</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="常见LaTeX数学符号参考（图转）"><a href="#常见LaTeX数学符号参考（图转）" class="headerlink" title="常见LaTeX数学符号参考（图转）"></a>常见LaTeX数学符号参考（图转）</h1><blockquote>
 <p>适用于<strong>Typora</strong>下数学符号打印（亲测）</p>
 <p>（摘录自百度百科：“LaTeX“）</p>
 <p>$\LaTeX$（LATEX，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。</p>
@@ -1137,7 +1173,7 @@
   <entry>
     <title>Markdown For Typora</title>
     <url>/2020/03/Markdown-Reference/</url>
-    <content><![CDATA[<h1 id="Markdown-For-Typora"><a href="#Markdown-For-Typora" class="headerlink" title="Markdown For Typora"></a>Markdown For Typora</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Markdown</strong> is created by <a href="http://daringfireball.net/" target="_blank" rel="noopener">Daring Fireball</a>; the original guideline is <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener">here</a>. Its syntax, however, varies between different parsers or editors. <strong>Typora</strong> is using <a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener">GitHub Flavored Markdown</a>.</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Markdown-For-Typora"><a href="#Markdown-For-Typora" class="headerlink" title="Markdown For Typora"></a>Markdown For Typora</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p><strong>Markdown</strong> is created by <a href="http://daringfireball.net/" target="_blank" rel="noopener">Daring Fireball</a>; the original guideline is <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" rel="noopener">here</a>. Its syntax, however, varies between different parsers or editors. <strong>Typora</strong> is using <a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank" rel="noopener">GitHub Flavored Markdown</a>.</p>
 <a id="more"></a>
 <!--[toc]-->
 
@@ -1215,7 +1251,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#x79;&#112;&#x6f;&#x72;&#x61;&#46;&#105;&#x6f;">&#105;&#x40;&#x74;&#x79;&#112;&#x6f;&#x72;&#x61;&#46;&#105;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#114;&#97;&#x2e;&#x69;&#x6f;">&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#114;&#97;&#x2e;&#x69;&#x6f;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -1286,7 +1322,7 @@
   <entry>
     <title>现代物流的基本概念</title>
     <url>/2020/02/modern-logistics/</url>
-    <content><![CDATA[<h1 id="现代物流学"><a href="#现代物流学" class="headerlink" title="现代物流学"></a>现代物流学</h1><h2 id="第一章：物流的基本概念"><a href="#第一章：物流的基本概念" class="headerlink" title="第一章：物流的基本概念"></a>第一章：物流的基本概念</h2><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="现代物流学"><a href="#现代物流学" class="headerlink" title="现代物流学"></a>现代物流学</h1><h2 id="第一章：物流的基本概念"><a href="#第一章：物流的基本概念" class="headerlink" title="第一章：物流的基本概念"></a>第一章：物流的基本概念</h2><blockquote>
 <ol>
 <li>物流概念的产生</li>
 <li>物流的定义</li>
@@ -1402,7 +1438,7 @@
   <entry>
     <title>终端编译Java源文件含有package的处理方法</title>
     <url>/2020/02/Java-compile-package/</url>
-    <content><![CDATA[<!--# 终端编译Java源文件含有package的处理方法-->
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><!--# 终端编译Java源文件含有package的处理方法-->
 
 <blockquote>
 <p> Java源文件不含package时，使用<code>javac</code>编译：</p>
@@ -1458,7 +1494,7 @@
   <entry>
     <title>惠普 光影精灵5 开箱</title>
     <url>/2020/02/HP-Pavilion/</url>
-    <content><![CDATA[<!--# 惠普 光影精灵5 开箱-->
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><!--# 惠普 光影精灵5 开箱-->
 
 <blockquote>
 <p>光影精灵5 介绍（来自百度百科）</p>
@@ -1560,7 +1596,7 @@
   <entry>
     <title>realme X2 Pro 一个月使用感受</title>
     <url>/2020/02/realme-x2-pro/</url>
-    <content><![CDATA[<h1 id="realme-X2-Pro-一个月使用感受"><a href="#realme-X2-Pro-一个月使用感受" class="headerlink" title="realme X2 Pro 一个月使用感受"></a>realme X2 Pro 一个月使用感受</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="realme-X2-Pro-一个月使用感受"><a href="#realme-X2-Pro-一个月使用感受" class="headerlink" title="realme X2 Pro 一个月使用感受"></a>realme X2 Pro 一个月使用感受</h1><blockquote>
 <p>realme介绍：（来自百度百科）</p>
 <p>真我(realme)成立于2018年5月4日，是一家专注于提供优质智能手机和IoT产品的科技品牌。</p>
 <p>realme专注于提供兼具强劲性能与潮流设计的手机产品，凭借”越级”产品和”敢越级”的品牌态度，秉承创新基因，在产品性能、设计、品质和服务方面不断超越自我。</p>
@@ -1647,9 +1683,49 @@
       </tags>
   </entry>
   <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
+<li><strong>博客主站</strong><ul>
+<li><a href="https://ryzenx.com">ryzenx.com</a></li>
+<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
+</ul>
+</li>
+<li>搜索+链接<ul>
+<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
+<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
+<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
+</ul>
+</li>
+<li>图床OSS<ul>
+<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<hr>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <categories>
+        <category>link</category>
+      </categories>
+      <tags>
+        <tag>link</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About Me</title>
     <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
 <p>A developer from SiChuan, and study in WuHan, Hubei.</p>
 </blockquote>
 <p>个人链接：</p>
@@ -1748,49 +1824,9 @@
       </tags>
   </entry>
   <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
-<li><a href="https://ryzenx.com">ryzenx.com</a></li>
-<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
-</ul>
-</li>
-<li>搜索+链接<ul>
-<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
-<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
-<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
-</ul>
-</li>
-<li>图床OSS<ul>
-<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<hr>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <categories>
-        <category>link</category>
-      </categories>
-      <tags>
-        <tag>link</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用Linux命令手册合集</title>
     <url>/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/</url>
-    <content><![CDATA[<h1 id="常用Linux命令手册合集"><a href="#常用Linux命令手册合集" class="headerlink" title="常用Linux命令手册合集"></a>常用Linux命令手册合集</h1><p>[toc]</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="常用Linux命令手册合集"><a href="#常用Linux命令手册合集" class="headerlink" title="常用Linux命令手册合集"></a>常用Linux命令手册合集</h1><p>[toc]</p>
 <a id="more"></a>
 
 <h2 id="1-ls-选项-目录名-列出相关目录下的所有目录和文件"><a href="#1-ls-选项-目录名-列出相关目录下的所有目录和文件" class="headerlink" title="1.ls [选项] [目录名] | 列出相关目录下的所有目录和文件"></a>1.ls [选项] [目录名] | 列出相关目录下的所有目录和文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-a  列出包括.a开头的隐藏文件的所有文件</span><br><span class="line">-A  通-a，但不列出&quot;.&quot;和&quot;..&quot;</span><br><span class="line">-l  列出文件的详细信息</span><br><span class="line">-c  根据ctime排序显示</span><br><span class="line">-t  根据文件修改时间排序</span><br><span class="line">---color[&#x3D;WHEN] 用色彩辨别文件类型 WHEN 可以是&#39;never&#39;、&#39;always&#39;或&#39;auto&#39;其中之一</span><br><span class="line">   白色：表示普通文件</span><br><span class="line">   蓝色：表示目录</span><br><span class="line">   绿色：表示可执行文件</span><br><span class="line">   红色：表示压缩文件</span><br><span class="line">   浅蓝色：链接文件</span><br><span class="line">   红色闪烁：表示链接的文件有问题</span><br><span class="line">   黄色：表示设备文件</span><br><span class="line">   灰色：表示其它文件</span><br></pre></td></tr></table></figure>
@@ -1932,7 +1968,7 @@
   <entry>
     <title>Docker 入门与实战</title>
     <url>/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</url>
-    <content><![CDATA[<p>[TOC]</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>[TOC]</p>
 <h1 id="了解Docker"><a href="#了解Docker" class="headerlink" title="了解Docker"></a>了解Docker</h1><h2 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h2><p>​    想要了解什么是Docker，首先要明白容器（container）的概念。容器是近年来兴起的一种操作系统层面的虚拟化技术，基于Linux内核的 cgroup，namespace等技术对进程进行隔离封装，由于隔离的进程独立于宿主和其他的隔离化进程，所以被称为容器。</p>
 <a id="more"></a>
 <p>​    容器和虚拟机一样，都是硬件性能提升以及软件种类日渐丰富带来的硬件性能过剩与软件冲突两大问题的解决方案。所谓硬件虚拟化，就是由某个特殊的软件，虚拟出计算机的各种硬件。使用者可以在虚拟机上安装Guest OS 和各种软件，虚拟机会将Guest OS以及其他软件对硬件资源的访问，转发到底层的物理机上。而这个时候，Guest OS的开销就造成了硬件资源的浪费，例如Windows操作系统，仅仅是安装开机，不运行任何其他应用，就需要占用2<del>3G内存和 20</del>30硬盘空间。然而虚拟机的这种架构，决定了运行在同一物理机上的每一台虚拟机都需要运行一个Guest OS，当虚拟机数量超过一定量的时候，浪费的硬件资源就相当可观了，尤其是大部分的Guest OS都是相同的。能不能所有的应用使用同一个操作系统减少硬件资源的浪费，又能避免包括Runtime library在内的软件冲突呢？于是就有了操作系统虚拟化技术，也就是容器。通过cgroup（control group）隔离并将应用与Runtime library打包在一起，不用实现自己的内核，也不需要专门的硬件虚拟，节省了Guest OS的性能开销，就实现了这个目的。</p>
@@ -2065,7 +2101,7 @@
   <entry>
     <title>高等数学上册 概念公式笔记</title>
     <url>/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/</url>
-    <content><![CDATA[<h1 id="高等数学（上）"><a href="#高等数学（上）" class="headerlink" title="高等数学（上）"></a>高等数学（上）</h1><p><em>建议使用大内存高清宽屏设备阅读</em><br>本笔记采用Markdown+$\LaTeX$编写，需要在页面上实时渲染，且文件较大。<br><strong>如果卡顿请<a href="https://url.airocket.tech/html/Higher-education-math-one.html" target="_blank" rel="noopener">&gt;点击这里&lt;</a>浏览已渲染好的页面</strong></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="高等数学（上）"><a href="#高等数学（上）" class="headerlink" title="高等数学（上）"></a>高等数学（上）</h1><p><em>建议使用大内存高清宽屏设备阅读</em><br>本笔记采用Markdown+$\LaTeX$编写，需要在页面上实时渲染，且文件较大。<br><strong>如果卡顿请<a href="https://url.airocket.tech/html/Higher-education-math-one.html" target="_blank" rel="noopener">&gt;点击这里&lt;</a>浏览已渲染好的页面</strong></p>
 <a id="more"></a>
 <h2 id="toc"><a href="#toc" class="headerlink" title="[toc]"></a>[toc]</h2><h2 id="1-函数与极限"><a href="#1-函数与极限" class="headerlink" title="1. 函数与极限"></a>1. 函数与极限</h2><h3 id="1-1-集合与函数"><a href="#1-1-集合与函数" class="headerlink" title="1.1 集合与函数"></a>1.1 集合与函数</h3><ol>
 <li><p>集合的概念：略</p>
@@ -2722,7 +2758,7 @@
   <entry>
     <title>Ayer中文说明</title>
     <url>/2019/12/Ayer%E4%B8%AD%E6%96%87%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><blockquote>
 <p><a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank" rel="noopener">Ayer</a> 是一个干净且优雅的Hexo主题，自带响应式，加载速度很快，该有的功能都有，可配置项也很多，非常适合作为你的博客主题，主题内还附送了6张精美的高清壁纸。欢迎使用和Star支持，如果你在使用过程中有任何疑问或者建议，欢迎联系我！如果你的博客采用了本主题，欢迎在下面评论区留下地址哦~</p>
 </blockquote>
 <p><a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank" rel="noopener">Ayer</a> 在马来语中是“水”的意思，在西班牙语中是“昨天”的意思。</p>
@@ -2809,7 +2845,7 @@
   <entry>
     <title>Recognizing ORIGINALS</title>
     <url>/2019/11/Recognizing-GRIGINALS/</url>
-    <content><![CDATA[<h1 id="Recognizing-ORIGINALS"><a href="#Recognizing-ORIGINALS" class="headerlink" title="Recognizing ORIGINALS"></a>Recognizing ORIGINALS</h1><p><code>Keywords: originals</code></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Recognizing-ORIGINALS"><a href="#Recognizing-ORIGINALS" class="headerlink" title="Recognizing ORIGINALS"></a>Recognizing ORIGINALS</h1><p><code>Keywords: originals</code></p>
 <h3 id="What-are-the-originals"><a href="#What-are-the-originals" class="headerlink" title="What are the originals?"></a>What are the originals?</h3><p>Originals are nonconformists, people who not only have new ideas, but take action to champion them. They are people who stand out and speak up. Originals drive creativity and change in the world.</p>
 <a id="more"></a>
 
@@ -2846,7 +2882,7 @@
   <entry>
     <title>The Sound of the Universe</title>
     <url>/2019/11/The-Sound-of-the-Universe/</url>
-    <content><![CDATA[<h2 id="The-Sound-of-the-Universe"><a href="#The-Sound-of-the-Universe" class="headerlink" title="The Sound of the Universe"></a>The Sound of the Universe</h2><h2 id="Keywords-Stars-Music"><a href="#Keywords-Stars-Music" class="headerlink" title="Keywords: Stars | Music"></a><code>Keywords: Stars | Music</code></h2><p>There is a deep connection between music and astronomy. It goes back over 2000 years to Pythagoras<a href="毕达哥拉斯">^1</a>. He said, There is geometry in the humming of the strings, there is music in the spacing of the spheres. </p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="The-Sound-of-the-Universe"><a href="#The-Sound-of-the-Universe" class="headerlink" title="The Sound of the Universe"></a>The Sound of the Universe</h2><h2 id="Keywords-Stars-Music"><a href="#Keywords-Stars-Music" class="headerlink" title="Keywords: Stars | Music"></a><code>Keywords: Stars | Music</code></h2><p>There is a deep connection between music and astronomy. It goes back over 2000 years to Pythagoras<a href="毕达哥拉斯">^1</a>. He said, There is geometry in the humming of the strings, there is music in the spacing of the spheres. </p>
 <hr>
 <a id="more"></a>
 
