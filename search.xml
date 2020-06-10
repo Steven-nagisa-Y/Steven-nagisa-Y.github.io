@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git忽略文件换行/回车符和权限</title>
+    <url>/2020/06/git-ignore-crlf/</url>
+    <content><![CDATA[<h1 id="git-忽略换行符和权限变化"><a href="#git-忽略换行符和权限变化" class="headerlink" title="git 忽略换行符和权限变化"></a>git 忽略换行符和权限变化</h1><blockquote>
+<p>由于我经常在多平台写代码，Windows/macOS/Linux，每个系统的换行符又不一样，导致git提交的时候会由一大堆的变化，当然这些变化都是没必要的。故在此备忘。</p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h2 id="1-什么是换行符"><a href="#1-什么是换行符" class="headerlink" title="1-什么是换行符"></a>1-什么是换行符</h2><p><code>&quot;\r&quot;</code>是回车：使光标到行首（carriage return）</p>
+<p><code>&quot;\n&quot;</code>是换行：使光标下移一格（line feed）</p>
+<p><code>\r</code> 是回车（return）</p>
+<p><code>\n</code> 是换行，（newline）</p>
+<p>对于换行这个动作，unix下一般只有一个0x0A表示换行(“\n”），Windows下一般都是0x0D和0x0A两个字符(“\r\n”)，macOS则采用回车符CR表示下一行(\r)，Unix系统里，每行结尾只有“&lt;换行&gt;”，即“\n”；Windows系统里面，每行结尾是“&lt;回车&gt;&lt;换行&gt;”，即“\r\n”；Mac系统里，每行结尾是“&lt;回车&gt;”,即“\r”。</p>
+<p>windows采用回车+换行CR/LF表示下一行,即^M$ </p>
+<h2 id="2-git如何忽略"><a href="#2-git如何忽略" class="headerlink" title="2-git如何忽略"></a>2-git如何忽略</h2><ul>
+<li><p>忽略换行符：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global core.autocrlf false</span><br><span class="line">git config --global core.safecrlf true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>忽略权限变化：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global core.filemode false</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Fiil CC 半入耳式蓝牙无线耳机开箱</title>
     <url>/2020/06/fiil-cc/</url>
     <content><![CDATA[<h1 id="Fill-CC-蓝牙无线耳机开箱"><a href="#Fill-CC-蓝牙无线耳机开箱" class="headerlink" title="Fill CC 蓝牙无线耳机开箱"></a>Fill CC 蓝牙无线耳机开箱</h1><blockquote>
@@ -458,7 +495,7 @@
 <p>.rar<br>解压：rar x FileName.rar<br>压缩：rar a FileName.rar DirName</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>note</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -779,8 +816,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>快充</tag>
         <tag>技术</tag>
+        <tag>快充</tag>
         <tag>公众号文章</tag>
       </tags>
   </entry>
@@ -1088,14 +1125,14 @@
 <p>相对于上面两个，<code>macOS</code>就比较难搞，不仅根目录下会有<code>.fseventsd  .Spotlight-V100  .Trashes</code>文件夹，各个目录下还会存放<code>.DS_Store</code>目录信息文件，最要命的还是每打开一个文件就会创建一个<code>._&lt;原文件名&gt;.&lt;原扩展名&gt;</code>的一个文件，有时候会误打开甚至把不智能的设备搞死机。</p>
 <h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用正则表达式匹配文件目录中的<code>._</code>开头，以及<code>.DS_Store</code>文件，把它们移动到备份文件夹。</p>
 <p>备份的目的就是防止正则表达式匹配到同样以<code>._</code>开头的<strong>正 ♂ 常</strong>文件，需要手动确认后在一键删除。</p>
-<h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># encoding:UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除备份文件夹</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delAll</span><span class="params">(path)</span>:</span></span><br><span class="line">    print(<span class="string">"是否清空备份文件夹？(yes / no)"</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="string">"yes"</span>):</span><br><span class="line">        <span class="keyword">for</span> fileList <span class="keyword">in</span> os.walk(aaa):</span><br><span class="line">            <span class="keyword">for</span> name <span class="keyword">in</span> fileList[<span class="number">2</span>]:</span><br><span class="line">                os.remove(os.path.join(fileList[<span class="number">0</span>], name))</span><br><span class="line">            shutil.rmtree(aaa)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa)):</span><br><span class="line">            print(<span class="string">"删除成功！"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Abort."</span>)</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过正则表达式匹配文件名</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean</span><span class="params">(path, aaa)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 正则表达式</span></span><br><span class="line">    pattern = <span class="string">"\._"</span></span><br><span class="line">    print(<span class="string">"Selected path: "</span> + path)</span><br><span class="line">    <span class="comment"># 递归查找目录下文件</span></span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            matchObj1 = re.match(pattern, file)</span><br><span class="line">            matchObj2 = re.match(<span class="string">"\.DS_Store$"</span>, file)</span><br><span class="line">            <span class="keyword">if</span> matchObj1:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">            <span class="keyword">if</span> matchObj2:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>):</span><br><span class="line">        print(<span class="string">"No ._file found"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        delAll(path)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户输入需要处理的目录</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"===================="</span>)</span><br><span class="line">    print(<span class="string">"请输入需要处理的目录，例如：C:\ "</span>)</span><br><span class="line">    print(<span class="string">"输入 \"0\" 处理当前目录 "</span>)</span><br><span class="line">    src = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建备份文件夹</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkDir</span><span class="params">(aaa)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        os.mkdir(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        print(<span class="string">"备份文件夹创建成功..."</span> + aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># 获取本文件所在目录</span></span><br><span class="line">    currentPath = os.getcwd()</span><br><span class="line">    path = selectPath()</span><br><span class="line">    print(<span class="string">"备份文件夹目录：（不要在处理的目录下！）"</span>)</span><br><span class="line">    aaa = input(<span class="string">"Backup path &gt; "</span>)</span><br><span class="line">    mkDir(aaa)</span><br><span class="line">    aaa = aaa + <span class="string">"\\Mac-trash-file-backup"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (path == <span class="string">"0"</span>):</span><br><span class="line">        clean(currentPath, aaa)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        clean(path, aaa)</span><br></pre></td></tr></table></figure>
+<h2 id="上代码"><a href="#上代码" class="headerlink" title="上代码"></a>上代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># encoding:UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bye</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"\n    Bye!"</span>)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delAll</span><span class="params">(path)</span>:</span></span><br><span class="line">    print(<span class="string">"请检查备份文件夹是否有正常文件"</span>)</span><br><span class="line">    print(<span class="string">"\n"</span>)</span><br><span class="line">    print(<span class="string">"是否清空备份文件夹？(yes / no)\n"</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="string">"yes"</span>):</span><br><span class="line">        <span class="keyword">for</span> fileList <span class="keyword">in</span> os.walk(aaa):</span><br><span class="line">            <span class="keyword">for</span> name <span class="keyword">in</span> fileList[<span class="number">2</span>]:</span><br><span class="line">                os.remove(os.path.join(fileList[<span class="number">0</span>], name))</span><br><span class="line">            shutil.rmtree(aaa)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa)):</span><br><span class="line">            print(<span class="string">"删除成功！"</span>)</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Abort."</span>)</span><br><span class="line">    bye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean</span><span class="params">(path, aaa)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    pattern = <span class="string">"\._"</span></span><br><span class="line">    print(<span class="string">"Selected path: "</span> + path)</span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            matchObj1 = re.match(pattern, file)</span><br><span class="line">            matchObj2 = re.match(<span class="string">"\.DS_Store$"</span>, file)</span><br><span class="line">            <span class="keyword">if</span> matchObj1:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">            <span class="keyword">if</span> matchObj2:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                print(str(i) + <span class="string">" Found... "</span> + filePath)</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\"</span> + file)):</span><br><span class="line">                    os.rename(aaa + <span class="string">"\\"</span> + file, aaa + <span class="string">"\\"</span> + file + str(i))</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, aaa)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>):</span><br><span class="line">        print(<span class="string">"No file found"</span>)</span><br><span class="line">        delAll(path)</span><br><span class="line">        bye()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        delAll(path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"============================"</span>)</span><br><span class="line">    print(<span class="string">"请输入需要处理的目录，例如：C: "</span>)</span><br><span class="line">    print(<span class="string">"输入 \"jhsb\" 处理当前目录 "</span>)</span><br><span class="line">    src = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> src</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkDir</span><span class="params">(aaa)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        os.mkdir(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> (os.path.exists(aaa + <span class="string">"\\Mac-trash-file-backup"</span>)):</span><br><span class="line">        print(<span class="string">"备份文件夹创建成功..."</span> + aaa + <span class="string">"\\Mac-trash-file-backup"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    currentPath = os.getcwd()</span><br><span class="line">    path = selectPath()</span><br><span class="line">    print(<span class="string">"备份文件夹目录：（不要在处理的目录下！）"</span>)</span><br><span class="line">    aaa = input(<span class="string">"Backup path &gt; "</span>)</span><br><span class="line">    mkDir(aaa)</span><br><span class="line">    aaa = aaa + <span class="string">"\\Mac-trash-file-backup"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (path == <span class="string">"jhsb"</span>):</span><br><span class="line">        clean(currentPath, aaa)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        clean(path, aaa)</span><br></pre></td></tr></table></figure>
 
 
 
 <p><strong>遇到问题下方评论哦</strong></p>
 ]]></content>
       <categories>
-        <category>code</category>
+        <category>note</category>
       </categories>
       <tags>
         <tag>essay</tag>
@@ -1211,7 +1248,7 @@
 <p>​    $\mathfrak{Steven \ \ Yan}$</p>
 ]]></content>
       <categories>
-        <category>code</category>
+        <category>note</category>
       </categories>
       <tags>
         <tag>markdown</tag>
@@ -1327,7 +1364,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#116;&#x79;&#x70;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;">&#x69;&#x40;&#116;&#x79;&#x70;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#64;&#116;&#x79;&#112;&#x6f;&#x72;&#97;&#x2e;&#x69;&#111;">&#105;&#64;&#116;&#x79;&#112;&#x6f;&#x72;&#97;&#x2e;&#x69;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -1559,11 +1596,11 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>code</category>
+        <category>note</category>
       </categories>
       <tags>
-        <tag>essay</tag>
         <tag>Java</tag>
+        <tag>essay</tag>
         <tag>Java 复习</tag>
       </tags>
   </entry>
@@ -1759,147 +1796,6 @@
       </tags>
   </entry>
   <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/02/link/</url>
-    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
-<p>更新时间：2020-02-15</p>
-</blockquote>
-<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
-<li><a href="https://ryzenx.com">ryzenx.com</a></li>
-<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
-</ul>
-</li>
-<li>搜索+链接<ul>
-<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
-<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
-<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
-</ul>
-</li>
-<li>图床OSS<ul>
-<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
-</ul>
-</li>
-</ul>
-<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
-<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
-<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
-<hr>
-<a id="more"></a>
-
-<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
-<hr>
-<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
-]]></content>
-      <categories>
-        <category>link</category>
-      </categories>
-      <tags>
-        <tag>link</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>About Me</title>
-    <url>/2020/02/about/</url>
-    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
-<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
-</blockquote>
-<p>个人链接：</p>
-<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
-<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
-<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
-<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
-<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
-<a id="more"></a>
-
-<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
-<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
-</li>
-<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
-</li>
-<li><p>Name: <strong>小渚w</strong>  (cn)</p>
-</li>
-<li><p>(Day) Dream: 变得可爱</p>
-</li>
-</ul>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Premier</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>Lua</li>
-<li>Android 客户端开发</li>
-<li>微信小程序开发</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影</li>
-</ul>
-</li>
-<li>搞 机 技 术</li>
-<li>哲 ♂ 学</li>
-</ul>
-<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
-<li>使命召唤系列</li>
-<li>战地系列</li>
-<li>绝地求生系列</li>
-<li>GTA系列</li>
-<li>还有各种小游戏</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
-<li>小裙子！ (特别是jk制服格裙)</li>
-<li>听音乐？</li>
-<li>写代码？</li>
-<li>Van 游戏？</li>
-<li>学习一直学不会的前端设计？</li>
-<li>买新设备体验？（烧钱操作⚠️）</li>
-</ul>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
-<li>果粉</li>
-<li>米粉</li>
-<li>谷粉</li>
-<li>软粉</li>
-<li>诺粉</li>
-<li>反海🐶联盟第一人</li>
-<li>MtF</li>
-</ul>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
-<li>常用QQ还是微信？<ul>
-<li>QQ</li>
-</ul>
-</li>
-<li>常用微信支付还是支付宝？<ul>
-<li>支付宝</li>
-</ul>
-</li>
-<li>spaces or tabs?<ul>
-<li>spaces</li>
-</ul>
-</li>
-<li>where do you put {} after function?<ul>
-<li><code>void func() {...}</code></li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker 入门与实战</title>
     <url>/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -2024,12 +1920,153 @@
 <h3 id="新建容器并启动"><a href="#新建容器并启动" class="headerlink" title="新建容器并启动"></a>新建容器并启动</h3><p>​    <code>Docker run</code>是新建容器的命令，例如现在我需要在开发环境上部署一个openCV开发环境</p>
 ]]></content>
       <categories>
-        <category>code</category>
+        <category>note</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>docker</tag>
+        <tag>技术</tag>
         <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <url>/2020/02/about/</url>
+    <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><blockquote>
+<p>A developer from SiChuan, and study in WuHan, Hubei.</p>
+</blockquote>
+<p>个人链接：</p>
+<p><a href="https://github.com/Steven-nagisa-Y" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://twitter.com/Steven_nagisa" target="_blank" rel="noopener">Twitter</a></p>
+<p><a href="https://weibo.com/stevennagisa" target="_blank" rel="noopener">微博</a></p>
+<p><a href="mailto:app.json@hotmail.com">开发技术 E-mail</a>    </p>
+<p>和    <a href="https://stevenos.com" target="_blank" rel="noopener">万年不更新的网站</a></p>
+<a id="more"></a>
+
+<h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><ul>
+<li><p>Name: <strong>Steven Yan</strong>  (en)</p>
+</li>
+<li><p>Name: <strong>なぎさ</strong>  (jp)</p>
+</li>
+<li><p>Name: <strong>小渚w</strong>  (cn)</p>
+</li>
+<li><p>(Day) Dream: 变得可爱</p>
+</li>
+</ul>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><ul>
+<li>多媒体技术<ul>
+<li>视频剪辑 - Premier</li>
+<li>音频处理 - Cool Edit Pro</li>
+<li>图像处理 - Photoshop</li>
+</ul>
+</li>
+<li>编程技术<ul>
+<li>C/C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>PHP</li>
+<li>Golang</li>
+<li>VBScript</li>
+<li>JavaScript</li>
+<li>Lua</li>
+<li>Android 客户端开发</li>
+<li>微信小程序开发</li>
+</ul>
+</li>
+<li>摄影技术<ul>
+<li>手机摄影</li>
+</ul>
+</li>
+<li>搞 机 技 术</li>
+<li>哲 ♂ 学</li>
+</ul>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><ul>
+<li>使命召唤系列</li>
+<li>战地系列</li>
+<li>绝地求生系列</li>
+<li>GTA系列</li>
+<li>还有各种小游戏</li>
+</ul>
+<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><ul>
+<li>小裙子！ (特别是jk制服格裙)</li>
+<li>听音乐？</li>
+<li>写代码？</li>
+<li>Van 游戏？</li>
+<li>学习一直学不会的前端设计？</li>
+<li>买新设备体验？（烧钱操作⚠️）</li>
+</ul>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><ul>
+<li>果粉</li>
+<li>米粉</li>
+<li>谷粉</li>
+<li>软粉</li>
+<li>诺粉</li>
+<li>反海🐶联盟第一人</li>
+<li>MtF</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
+<li>常用QQ还是微信？<ul>
+<li>QQ</li>
+</ul>
+</li>
+<li>常用微信支付还是支付宝？<ul>
+<li>支付宝</li>
+</ul>
+</li>
+<li>spaces or tabs?<ul>
+<li>spaces</li>
+</ul>
+</li>
+<li>where do you put {} after function?<ul>
+<li><code>void func() {...}</code></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站链接及友链</title>
+    <url>/2020/02/link/</url>
+    <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
+<p>更新时间：2020-02-15</p>
+</blockquote>
+<h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
+<li><strong>博客主站</strong><ul>
+<li><a href="https://ryzenx.com">ryzenx.com</a></li>
+<li><a href="https://airocket.tech" target="_blank" rel="noopener">airocket.tech</a></li>
+</ul>
+</li>
+<li>搜索+链接<ul>
+<li><a href="https://s.ryzenx.com" target="_blank" rel="noopener">s.ryzenx.com</a></li>
+<li><a href="http://gms.icu" target="_blank" rel="noopener">gms.icu</a></li>
+<li><a href="https://h.airocket.tech" target="_blank" rel="noopener">home.airocket.tech</a></li>
+</ul>
+</li>
+<li>图床OSS<ul>
+<li><a href="https://oss.ryzenx.com" target="_blank" rel="noopener">oss.ryzenx.com</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="http://url.airocket.tech" target="_blank" rel="noopener">url.airocket.tech</a> - 链接转发和保存（在开发）</p>
+<p><a href="https://dl.airocket.tech" target="_blank" rel="noopener">dl.airocket.tech</a> - 下载站</p>
+<p><a href="https://api.airocket.tech" target="_blank" rel="noopener">api.airocket.tech</a> - 后端api接口地址（在开发）</p>
+<hr>
+<a id="more"></a>
+
+<h2 id="友链"><a href="#友链" class="headerlink" title="友链"></a>友链</h2><p>如果想要交换友链，可以在下面评论区提交你的  &lt;名称&gt;+&lt;网址&gt;  （前提是已经添加本站）。</p>
+<hr>
+<p><a href="http://untitled.pw/" target="_blank" rel="noopener">路人甲的世界 – untitled.pw</a></p>
+]]></content>
+      <categories>
+        <category>link</category>
+      </categories>
+      <tags>
+        <tag>link</tag>
       </tags>
   </entry>
   <entry>
