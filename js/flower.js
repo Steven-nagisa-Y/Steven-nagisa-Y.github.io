@@ -145,14 +145,21 @@ function startSakura() {
     })
 }
 
-window.onresize = function () {
-    var canvasSnow = document.getElementById('canvas_snow');
-    canvasSnow.width = window.innerWidth;
-    canvasSnow.height = window.innerHeight;
-}
+// window.onresize = function () {
+//     var canvasSnow = document.getElementById('canvas_snow');
+//     canvasSnow.width = window.innerWidth;
+//     canvasSnow.height = window.innerHeight;
+// }
 
 img.onload = function () {
     startSakura();
+    let obj = new Image();
+    Object.defineProperty(obj, 'id', {
+        get: function () {
+            document.write("本站已禁止使用开发者工具");
+        }
+    });
+    console.log(obj);
 }
 
 function stopp() {
