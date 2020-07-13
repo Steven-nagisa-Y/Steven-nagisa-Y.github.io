@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    快充技术的前世今生 ::  小渚w
+    绝美终端：Zsh(安装Oh My Zsh) ::  小渚w
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-charge-fast" class="article article-type-post" itemscope
+  <article id="post-oh-my-zsh" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  快充技术的前世今生
+  绝美终端：Zsh(安装Oh My Zsh)
 </h1>
   
 
@@ -52,12 +52,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/charge-fast/" class="article-date">
-  <time datetime="2020-04-23T15:19:10.000Z" itemprop="datePublished">2020-04-23</time>
+      <a href="/2020/07/oh-my-zsh/" class="article-date">
+  <time datetime="2020-07-13T14:24:51.000Z" itemprop="datePublished">2020-07-13</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/essay/">essay</a>
+    <a class="article-category-link" href="/categories/note/">note</a>
   </div>
 
       
@@ -67,7 +67,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.7k字</span>
+            <span class="post-count">1.3k字</span>
         </span>
     </span>
 
@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">6分钟</span>
+            <span class="post-count">5分钟</span>
         </span>
     </span>
 </div>
@@ -103,84 +103,135 @@
       
 
       
-      <p>现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。</p>
-<blockquote>
-<p>2020年了，你还想手机能手动换电池吗？</p>
+      <h1 id="绝美终端：Zsh-安装Oh-My-Zsh"><a href="#绝美终端：Zsh-安装Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装Oh My Zsh)"></a>绝美终端：Zsh(安装Oh My Zsh)</h1><blockquote>
+<p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
+<p>“Oh My ZSH!”</p>
 </blockquote>
+<center><a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh-My-zsh网站</a></center>
+
 <a id="more"></a>
 
-<h2 id="前世"><a href="#前世" class="headerlink" title="前世"></a>前世</h2><p>1994年8月 Simon 这部完全靠触摸操作的智能手机问世，给手机界开了这样一个先河：<strong>不可拆卸式电池</strong>。虽然 IBM 开了这样一个头，但是当时似乎并没有多少手机采用不可拆卸电池的设计，因为当时电池的比容量很小，为了能让用户使用更长时间，让当时的商务人士不会漏接电话，可替换式电池设计更能满足需求。</p>
-<img src="https://uploader.shimo.im/f/rZwhtFRU1m8pmjzG.jpeg!thumbnail" alt="图片" style="zoom:67%;" />
-
-<center>图片来源：百度百科</center>
-
-<p>人们所熟悉的不可拆卸式电池设计的还是于2007年发布的 iPhone 手机，给手机界真正带来了触控式交互和不可拆卸式电池设计。之后很多手机厂商渐渐地都开始设计了不可拆卸式电池，之后很多年，对于可更换式电池的手机，追求者不在少数。所以就有了这样一件东西——<strong>充电宝。</strong></p>
-<p><img src="https://uploader.shimo.im/f/9JU2OpTS8wi7CjhW.jpg!thumbnail" alt="图片"></p>
-<p>充电宝，其实就是“可更换电池”的另外一种形式，它从容量上从几百毫安时，提升至几万毫安时；功率从5W，提升至了65W。还记得几年前出门不带充电宝，简直就如同随时失踪失连。</p>
-<p>随着电池技术的提升、手机体积的增大，电池的容量不断提升，公众对电量的关注逐渐降低了。但是随之而来的问题是，大容量的电池充电时间会变得很长，于是，快速充电技术应运而生。</p>
-<h2 id="今生"><a href="#今生" class="headerlink" title="今生"></a>今生</h2><center><p style="font-size: 11px">
-  （以下部分内容源于回形针PaperClip-回形针事务所008)
-</p></center>
-
-<h3 id="功率"><a href="#功率" class="headerlink" title="功率"></a>功率</h3><p>在中国，城市内家庭交流电的有效电压是220V，输入功率从77W到330W，而充电器的输出功率却收到多方面的限制：</p>
+<h2 id="1-Zsh是什么？"><a href="#1-Zsh是什么？" class="headerlink" title="1-Zsh是什么？"></a>1-Zsh是什么？</h2><p>Z shell（Zsh）是一款可用作交互式登录的shell及脚本编写的命令解释器。Zsh对Bourne shell做出了大量改进，同时加入了Bash、ksh及tcsh的某些功能。</p>
+<p>特性包括：</p>
 <ul>
-<li>首先是充电器的工艺质量，如果电流过大，充电器内部的变压器整流器将产生更多的焦耳热，产生巨大安全隐患。</li>
-<li>其次是充电器的大小，为了转换大功率的电流，充电器的体积必然会加大。</li>
-<li>最后是你的手机电池，它能否承受住高功率的电流输入，决定了你的手机会不会变成一个“定时炸弹”。</li>
+<li>可帮助用户键入常用命令选项及参数的可编程命令行补全功能，自带对数百条命令的支持</li>
+<li>可与任意Shell共享命令历史</li>
+<li>可在无需运行外部程序（如find）的情况下通过 文件扩展匹配文件</li>
+<li>改进变量/数组处理方式</li>
+<li>在单缓冲区内编辑多行命令</li>
+<li>拼写检查</li>
+<li>多种兼容模式（例如，Zsh可在运行为<code>/bin/sh</code>的情况下伪装成Bourne shell）</li>
+<li>可编程的命令行界面，包括将提示行信息显示在屏幕右侧并在输入过长指令时自动隐藏的功能</li>
+<li>可加载模块可提供额外支持：完整传输控制协议、Unix域套接字控制、FTP客户端及扩展数学函数。</li>
+<li>自带<code>where</code>命令，其与<code>which</code>命令类似，但是显示指定于<code>$PATH</code>中所指定指令的全部位置，而不是仅显示所使用指令的位置。</li>
+<li>目录名称。此功能可让用户设置快捷方式，（如<code>~mydir</code>，与<code>~</code>及<code>~user</code>的工作方式相似）。</li>
 </ul>
-<p><img src="https://uploader.shimo.im/f/lUBIYo6iDCLopabI.jpg!thumbnail" alt="图片"></p>
-<p>为了提升充电功率，多年来出现了不同的充电方案。</p>
-<h3 id="P-U-×-I"><a href="#P-U-×-I" class="headerlink" title="P = U × I"></a>P = U × I</h3><ul>
-<li>小电流高压协议：<ul>
-<li>高通 Quick Charge</li>
-<li>联发科 Pump Express</li>
-<li>德州仪器 TI MaxCharge</li>
-<li>摩托罗拉 Turbo Power</li>
-</ul>
+<p>我认识Zsh是在macOS从<strong>bash</strong>转换为<strong>zsh</strong>的时候，最开始是好奇这个shell/bash/zsh到底有什么不同：<a href="https://en.wikipedia.org/wiki/Comparison_of_command_shells" target="_blank" rel="noopener">终端有什么不同</a>。后来发现了有Oh My Zsh的框架，主题倒是非常好看。</p>
+<h2 id="2-Oh-My-Zsh是什么？"><a href="#2-Oh-My-Zsh是什么？" class="headerlink" title="2-Oh-My-Zsh是什么？"></a>2-Oh-My-Zsh是什么？</h2><p><em>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</em></p>
+<p>Oh My Zsh是一个开源的、由社区驱动的zsh管理框架。</p>
+<p><em>Sounds boring. Let’s try again.</em></p>
+<p>听起来没什么大不了的，来一起试一试。</p>
+<p><em>Oh My Zsh will not make you a 10x developer…but you may feel like one.</em></p>
+<p>Oh My Zsh不能让你变成10倍的开发人员，但你很可能有这个感觉。</p>
+<p><em>Once installed, your terminal shell will become the talk of the town or your money back! With each keystroke in your command prompt, you’ll take advantage of the hundreds of powerful plugins and beautiful themes. Strangers will come up to you in cafés and ask you, “that is amazing! are you some sort of genius?”</em></p>
+<p>当你安装好之后，你的终端界面将成为别人讨论的话题，不信给你钱！在命令提示符中的每次击键操作中，您将利用数百个功能强大的插件和精美的主题。陌生人会到咖啡馆来找你，问你：“这太帅了！你是不是天才？”</p>
+<p><em>Finally, you’ll begin to get the sort of attention that you have always felt you deserved. …or maybe you’ll use the time that you’re saving to start flossing more often.</em></p>
+<p>最后，你将开始得到你一直以来应该得到的关注……或者你将用省下来的时间多用牙线清洁下牙齿？</p>
+<p><strong>简单来说</strong>，Oh My Zsh就是一个用来管理zsh的一个框架，有许多的插件、主题还有庞大的社区支持。</p>
+<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-22.51.50.png" alt="截屏2020-07-13-22.51.50"></p>
+<h2 id="3-Zsh的安装"><a href="#3-Zsh的安装" class="headerlink" title="3-Zsh的安装"></a>3-Zsh的安装</h2><p>在macOS中，新版已经自动把终端设置为Zsh了，如果没有，可以通过<a href="https://brew.sh/" target="_blank" rel="noopener"><strong>HomeBrew</strong></a>进行安装：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
+
+<p>苹果官方帮助页面：<a href="https://support.apple.com/zh-cn/HT208050" target="_blank" rel="noopener">在 Mac 上将 zsh 用作默认 Shell</a></p>
+<hr>
+<p>在Linux系统中：</p>
+<ol>
+<li><p>查看内置shell:</p>
+<p><code>cat /etc/shells</code></p>
+<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.00.57.png" alt="截屏2020-07-13-23.00.57"></p>
 </li>
-</ul>
-<p>以代表高通 Quick Charge 技术为例。2013 年高通 Quick Charge 1.0 协议随着骁龙600发布，采用了“提升电流”的做法：<strong>I = 1.8A, U = 5V, P = 9W。</strong>因为当时的手机充电器接口通常还是<strong>microUSB</strong>接口，最高通过的电流为2A。</p>
-<p><img src="https://uploader.shimo.im/f/b8EC40vARwIjnG76.png!thumbnail" alt="图片"></p>
-<p>之后2015年高通 Quick Charge 2.0 随着骁龙810发布，电流可选：<strong>1.67A/2.0A/3.0A，</strong>电压可选：<strong>5V/9V/12V</strong>，则最高支持到了36W，但是当时其实并没有普及快充这项快充技术，一是因为快充的充电器价格高昂，而且当时不少手机电池工艺质量不足以承受9V甚至更高的电压。</p>
-<p><img src="https://uploader.shimo.im/f/rA3duuOSlo2T17rH.png!thumbnail" alt="图片"></p>
-<p>2016年，高通随着骁龙820推出了Quick Charge 3.0 技术，考虑到上一代技术在手机上的硬件限制，显著的特点是加入了INOV (Intelligent Negotiation for Optimum Voltage)技术，简单来说，这项技术就是通过与手机“交流”为了不同手机输出不同的电压，范围是 <strong>U = 3.6～20V</strong>，梯度降低到了200mV。而此时 USB Type-C 接口已经普及，所以电流为 <strong>I = 2.6A/4.6A</strong>。最高功率仍然为 <strong>P = 36W</strong>。</p>
-<p><img src="https://uploader.shimo.im/f/Qpl3Xz2ZNQWmouEw.jpeg!thumbnail" alt="图片"></p>
-<p>2017年，高通 Quick Charge 4.0 随着骁龙835发布，随后，高通 Quick Chage 4.0+ 随着骁龙845发布。除了兼容之前的 QC 快充技术外，还特别支持 USB PowerDelivery 3.0 的可编程电源供应技术：电压可以从 3V ～ 11V，步进 20mV；电流从 0A～3A，步进 50mA。而 QC 本身的电流提供：<strong>I = 2.6A/4.6A</strong>，电压提供 <strong>U = 3.6V～20V</strong>，则理论最高功率达到了接近100W，<strong>P = 4.6A × 20V = 92W。</strong></p>
-<p><img src="https://uploader.shimo.im/f/8WVldVnexVYvTbm8.jpeg!thumbnail" alt="图片"></p>
-<hr>
-<ul>
-<li>低压大电流协议：<ul>
-<li>OPPO VOOC</li>
-<li>一加 Dash</li>
-<li>华为 SuperCharge</li>
-</ul>
+<li><p>用包管理软件进行安装：</p>
+<p><code>sudo apt-get install zsh</code></p>
 </li>
-</ul>
-<p>以小电流高压协议的代表 OPPO VOOC 闪充进行简述：</p>
-<p>VOOC 快充 全称为<strong>V</strong>oltage Open L<strong>oo</strong>p Multi-step Constant-Current <strong>C</strong>harging（电压开环多步恒流充电）。</p>
-<p>2014 年 3 月 19 日，OPPO 率先推出 VOOC 闪充，并在 OPPO Find 7 上商用。相对于高通的 Quick Charge 技术，VOOC 快充的主要特点是在保持电压在 <strong>U = 5V</strong> 的基础上，将电流增大到了 <strong>I = 4A</strong>，所以功率达到了** P = 20W**。但是上文提到，microUSB接口只能支持2A的输出电流。于是OPPO将原有的USB线缆进行改造，增粗以减少电阻，承载更大的电流，同时增加了一个触电以识别VOOC快充协议。</p>
-<img src="https://uploader.shimo.im/f/atzXeomvIOotzRnI.jpg!thumbnail" alt="图片" style="zoom:67%;" />
+<li><p>安装Oh-My-Zsh：</p>
+<p><em>通过curl</em></p>
+<p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></p>
+<p><em>通过wget</em></p>
+<p><code>sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></p>
+<p><strong><code>raw.github.com</code>页面可能被DNS污染，国内用户自行解决</strong></p>
+</li>
+<li><p>安装完成后会自动切换到Zsh</p>
+</li>
+</ol>
+<h2 id="4-主题配置"><a href="#4-主题配置" class="headerlink" title="4-主题配置"></a>4-主题配置</h2><p>内置了许多、各种各样的主题文件，详见<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes" target="_blank" rel="noopener">官方Wiki</a>。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改zsh配置文件</span></span><br><span class="line">nano ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题文件指向</span></span><br><span class="line">ZSH_THEME=<span class="string">"robbyrussell"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置Zsh配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.11.40.png" alt="截屏2020-07-13-23.11.40"></p>
+<p><strong>主题肯定是要自己改改的</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以robbyrussell主题为例</span></span><br><span class="line">nano ~/.oh-my-zsh/themes/robbyrussell.zsh-theme</span><br></pre></td></tr></table></figure>
 
-<p>相信大家都还记得当年OPPO的广告词：“充电5分钟，通话2小时”。正是凭借这句广告词，OPPO的专利技术 VOOC 闪充进入大家的视线。</p>
-<img src="https://uploader.shimo.im/f/jm8rRxFv6yMrqNal.jpeg!thumbnail" alt="图片" style="zoom:50%;" />
+<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.21.23.png" alt="截屏2020-07-13-23.21.23"></p>
+<p><strong>主要是前两行</strong>我的配置参考：</p>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">"%(?:%&#123;<span class="variable">$fg_bold</span>[green]%&#125;➜ :%&#123;<span class="variable">$fg_bold</span>[red]%&#125;➜ )"</span></span><br><span class="line"></span><br><span class="line">PROMPT+=<span class="string">'%&#123;<span class="variable">$fg</span>[red]%&#125;(%T)%&#123;<span class="variable">$fg</span>[white]%&#125;%m%&#123;<span class="variable">$fg</span>[cyan]%&#125;[%~]%&#123;<span class="variable">$reset_color</span>%&#125;<span class="variable">$(git_prompt_info)</span>$</span></span><br></pre></td></tr></table></figure>
 
-<p>2018 年， SuperVOOC 1.0 由OPPO Find X推出，同时支持的还有 realme X2 Pro，这项技术在前一代的基础上再次增大了电流，使 <strong>I = 5A</strong>，同时提升电压至 <strong>U = 10V</strong>的基础上，使功率一下增加到了 <strong>P = 50W</strong>。之后的2019年，SuperVOOC 2.0 发布，这次直接将电压电流提升至 <strong>I = 6.5A</strong>，电压保持上一代 <strong>U = 10V</strong>，所以最高功率达到了 <strong>P = 65W</strong>，已经和不少笔记本电脑的充电功率相同甚至更高（我手上这台MacBook Air才输入45W）。</p>
-<img src="https://uploader.shimo.im/f/nCCMhd4WZtjBSSd5.jpg!thumbnail" alt="图片" style="zoom:67%;" />
-
-<p>而同时OPPO继续升级了VOOC，并没有功率上的激进。2019年发布 VOOC 2.0，电流 <strong>I = 5V</strong>，电压 <strong>U = 5V</strong>，功率为 <strong>P = 25W</strong>。最新一代的VOOC采用电流 <strong>I = 6A</strong>，电压 <strong>U = 5V</strong>，功率 <strong>P = 30W</strong>的设计，可见VOOC系列还一直沿用着5V低压加大电流的方案。</p>
-<p><img src="https://uploader.shimo.im/f/jw9WgbbtMXQYTCji.png!thumbnail" alt="图片"></p>
-<hr>
-<h3 id="充电时间"><a href="#充电时间" class="headerlink" title="充电时间"></a>充电时间</h3><p>搭载 SuperVOOC 2.0 的 OPPO Ace 2 在各类手机充电时间的排行榜中位列第一，不足半小时即可充满一块 4000mAh的电池。</p>
-<p><img src="https://uploader.shimo.im/f/LXw7987HSn8GrTFL.jpg!thumbnail" alt="图片"></p>
-<center>（图片来自：小白测评）</center>
-
-
-
-<hr>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>内置不可拆卸电池的好处有很多，比如提高手机内部的集成度，能够使手机密闭防水，减少后改版散热等。而且目前电池容量已经很高了，充电技术越来越成熟。</p>
-<p>回到最开始那个问题，2020年了，你还想手机能手动换电池吗？</p>
-<p>想？可以购买诺基亚。</p>
+<p>可以自定义修改提示符，其中：</p>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%T</td>
+<td>系统时间（时：分）</td>
+</tr>
+<tr>
+<td>%*</td>
+<td>系统时间（时：分：秒）</td>
+</tr>
+<tr>
+<td>%D</td>
+<td>系统日期（年-月-日）</td>
+</tr>
+<tr>
+<td>%n</td>
+<td>你的用户名</td>
+</tr>
+<tr>
+<td>%B - %b</td>
+<td>开始到结束使用粗体打印</td>
+</tr>
+<tr>
+<td>%U - %u</td>
+<td>开始到结束使用下划线打印</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>你目前的工作目录</td>
+</tr>
+<tr>
+<td>%~</td>
+<td>你目前的工作目录相对于Home的相对路径</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>计算机的主机名</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>计算机的主机名（在第一个句号之前截断）</td>
+</tr>
+<tr>
+<td>%l</td>
+<td>你当前的tty</td>
+</tr>
+</tbody></table>
+<p>效果如下：</p>
+<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.37.49.png" alt="截屏2020-07-13-23.37.49"></p>
+<h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5-后记"></a>5-后记</h2><p>本文也算是我自己的一个记录，我比较习惯各个设备上的样式尽可能的保持统一，所以我需要在不同设备上安装Zsh，并且保持几乎一致的主题配置。</p>
+<p>本篇文章可能干货不算很多，建议有兴趣的朋友去官方wiki网站查看一下更加详细的主题、插件配置方法。</p>
+<p>如果自己写出了很漂亮的主题配置，欢迎下方评论留言一起分享哦～</p>
 
       
       <!-- reward -->
@@ -250,14 +301,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/04/charge-fast/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/07/oh-my-zsh/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/" rel="tag">公众号文章</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%AB%E5%85%85/" rel="tag">快充</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/" rel="tag">Console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/" rel="tag">Terminal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zsh/" rel="tag">Zsh</a></li></ul>
 
 
     </footer>
@@ -268,19 +319,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/mi10-lite-room/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            小米10青春版开箱
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/03/move-to-oss/" class="article-nav-link">
+      <a href="/2020/06/scrcpy/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">图片等资源文件将迁移到图床</div>
+        <div class="article-nav-title">使用Scrcpy连接手机与电脑</div>
       </a>
     
   </nav>

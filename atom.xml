@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ryzenx.com/"/>
-  <updated>2020-06-20T08:43:04.000Z</updated>
+  <updated>2020-07-13T14:24:51.000Z</updated>
   <id>https://ryzenx.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>绝美终端：Zsh(安装Oh My Zsh)</title>
+    <link href="https://ryzenx.com/2020/07/oh-my-zsh/"/>
+    <id>https://ryzenx.com/2020/07/oh-my-zsh/</id>
+    <published>2020-07-13T14:24:51.000Z</published>
+    <updated>2020-07-13T14:24:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="绝美终端：Zsh-安装Oh-My-Zsh"><a href="#绝美终端：Zsh-安装Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装Oh My Zsh)"></a>绝美终端：Zsh(安装Oh My Zsh)</h1><blockquote><p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p><p>“Oh My ZSH!”</p></blockquote><center><a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh-My-zsh网站</a></center><a id="more"></a><h2 id="1-Zsh是什么？"><a href="#1-Zsh是什么？" class="headerlink" title="1-Zsh是什么？"></a>1-Zsh是什么？</h2><p>Z shell（Zsh）是一款可用作交互式登录的shell及脚本编写的命令解释器。Zsh对Bourne shell做出了大量改进，同时加入了Bash、ksh及tcsh的某些功能。</p><p>特性包括：</p><ul><li>可帮助用户键入常用命令选项及参数的可编程命令行补全功能，自带对数百条命令的支持</li><li>可与任意Shell共享命令历史</li><li>可在无需运行外部程序（如find）的情况下通过 文件扩展匹配文件</li><li>改进变量/数组处理方式</li><li>在单缓冲区内编辑多行命令</li><li>拼写检查</li><li>多种兼容模式（例如，Zsh可在运行为<code>/bin/sh</code>的情况下伪装成Bourne shell）</li><li>可编程的命令行界面，包括将提示行信息显示在屏幕右侧并在输入过长指令时自动隐藏的功能</li><li>可加载模块可提供额外支持：完整传输控制协议、Unix域套接字控制、FTP客户端及扩展数学函数。</li><li>自带<code>where</code>命令，其与<code>which</code>命令类似，但是显示指定于<code>$PATH</code>中所指定指令的全部位置，而不是仅显示所使用指令的位置。</li><li>目录名称。此功能可让用户设置快捷方式，（如<code>~mydir</code>，与<code>~</code>及<code>~user</code>的工作方式相似）。</li></ul><p>我认识Zsh是在macOS从<strong>bash</strong>转换为<strong>zsh</strong>的时候，最开始是好奇这个shell/bash/zsh到底有什么不同：<a href="https://en.wikipedia.org/wiki/Comparison_of_command_shells" target="_blank" rel="noopener">终端有什么不同</a>。后来发现了有Oh My Zsh的框架，主题倒是非常好看。</p><h2 id="2-Oh-My-Zsh是什么？"><a href="#2-Oh-My-Zsh是什么？" class="headerlink" title="2-Oh-My-Zsh是什么？"></a>2-Oh-My-Zsh是什么？</h2><p><em>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</em></p><p>Oh My Zsh是一个开源的、由社区驱动的zsh管理框架。</p><p><em>Sounds boring. Let’s try again.</em></p><p>听起来没什么大不了的，来一起试一试。</p><p><em>Oh My Zsh will not make you a 10x developer…but you may feel like one.</em></p><p>Oh My Zsh不能让你变成10倍的开发人员，但你很可能有这个感觉。</p><p><em>Once installed, your terminal shell will become the talk of the town or your money back! With each keystroke in your command prompt, you’ll take advantage of the hundreds of powerful plugins and beautiful themes. Strangers will come up to you in cafés and ask you, “that is amazing! are you some sort of genius?”</em></p><p>当你安装好之后，你的终端界面将成为别人讨论的话题，不信给你钱！在命令提示符中的每次击键操作中，您将利用数百个功能强大的插件和精美的主题。陌生人会到咖啡馆来找你，问你：“这太帅了！你是不是天才？”</p><p><em>Finally, you’ll begin to get the sort of attention that you have always felt you deserved. …or maybe you’ll use the time that you’re saving to start flossing more often.</em></p><p>最后，你将开始得到你一直以来应该得到的关注……或者你将用省下来的时间多用牙线清洁下牙齿？</p><p><strong>简单来说</strong>，Oh My Zsh就是一个用来管理zsh的一个框架，有许多的插件、主题还有庞大的社区支持。</p><p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-22.51.50.png" alt="截屏2020-07-13-22.51.50"></p><h2 id="3-Zsh的安装"><a href="#3-Zsh的安装" class="headerlink" title="3-Zsh的安装"></a>3-Zsh的安装</h2><p>在macOS中，新版已经自动把终端设置为Zsh了，如果没有，可以通过<a href="https://brew.sh/" target="_blank" rel="noopener"><strong>HomeBrew</strong></a>进行安装：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure><p>苹果官方帮助页面：<a href="https://support.apple.com/zh-cn/HT208050" target="_blank" rel="noopener">在 Mac 上将 zsh 用作默认 Shell</a></p><hr><p>在Linux系统中：</p><ol><li><p>查看内置shell:</p><p><code>cat /etc/shells</code></p><p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.00.57.png" alt="截屏2020-07-13-23.00.57"></p></li><li><p>用包管理软件进行安装：</p><p><code>sudo apt-get install zsh</code></p></li><li><p>安装Oh-My-Zsh：</p><p><em>通过curl</em></p><p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></p><p><em>通过wget</em></p><p><code>sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></p><p><strong><code>raw.github.com</code>页面可能被DNS污染，国内用户自行解决</strong></p></li><li><p>安装完成后会自动切换到Zsh</p></li></ol><h2 id="4-主题配置"><a href="#4-主题配置" class="headerlink" title="4-主题配置"></a>4-主题配置</h2><p>内置了许多、各种各样的主题文件，详见<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes" target="_blank" rel="noopener">官方Wiki</a>。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改zsh配置文件</span></span><br><span class="line">nano ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题文件指向</span></span><br><span class="line">ZSH_THEME=<span class="string">"robbyrussell"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置Zsh配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure><p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.11.40.png" alt="截屏2020-07-13-23.11.40"></p><p><strong>主题肯定是要自己改改的</strong></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以robbyrussell主题为例</span></span><br><span class="line">nano ~/.oh-my-zsh/themes/robbyrussell.zsh-theme</span><br></pre></td></tr></table></figure><p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.21.23.png" alt="截屏2020-07-13-23.21.23"></p><p><strong>主要是前两行</strong>我的配置参考：</p><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">"%(?:%&#123;<span class="variable">$fg_bold</span>[green]%&#125;➜ :%&#123;<span class="variable">$fg_bold</span>[red]%&#125;➜ )"</span></span><br><span class="line"></span><br><span class="line">PROMPT+=<span class="string">'%&#123;<span class="variable">$fg</span>[red]%&#125;(%T)%&#123;<span class="variable">$fg</span>[white]%&#125;%m%&#123;<span class="variable">$fg</span>[cyan]%&#125;[%~]%&#123;<span class="variable">$reset_color</span>%&#125;<span class="variable">$(git_prompt_info)</span>$</span></span><br></pre></td></tr></table></figure><p>可以自定义修改提示符，其中：</p><table><thead><tr><th>占位符</th><th>内容</th></tr></thead><tbody><tr><td>%T</td><td>系统时间（时：分）</td></tr><tr><td>%*</td><td>系统时间（时：分：秒）</td></tr><tr><td>%D</td><td>系统日期（年-月-日）</td></tr><tr><td>%n</td><td>你的用户名</td></tr><tr><td>%B - %b</td><td>开始到结束使用粗体打印</td></tr><tr><td>%U - %u</td><td>开始到结束使用下划线打印</td></tr><tr><td>%d</td><td>你目前的工作目录</td></tr><tr><td>%~</td><td>你目前的工作目录相对于Home的相对路径</td></tr><tr><td>%M</td><td>计算机的主机名</td></tr><tr><td>%m</td><td>计算机的主机名（在第一个句号之前截断）</td></tr><tr><td>%l</td><td>你当前的tty</td></tr></tbody></table><p>效果如下：</p><p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.37.49.png" alt="截屏2020-07-13-23.37.49"></p><h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5-后记"></a>5-后记</h2><p>本文也算是我自己的一个记录，我比较习惯各个设备上的样式尽可能的保持统一，所以我需要在不同设备上安装Zsh，并且保持几乎一致的主题配置。</p><p>本篇文章可能干货不算很多，建议有兴趣的朋友去官方wiki网站查看一下更加详细的主题、插件配置方法。</p><p>如果自己写出了很漂亮的主题配置，欢迎下方评论留言一起分享哦～</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;绝美终端：Zsh-安装Oh-My-Zsh&quot;&gt;&lt;a href=&quot;#绝美终端：Zsh-安装Oh-My-Zsh&quot; class=&quot;headerlink&quot; title=&quot;绝美终端：Zsh(安装Oh My Zsh)&quot;&gt;&lt;/a&gt;绝美终端：Zsh(安装Oh My Zsh)&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…&lt;/p&gt;
+&lt;p&gt;“Oh My ZSH!”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;center&gt;&lt;a href=&quot;https://ohmyz.sh/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Oh-My-zsh网站&lt;/a&gt;&lt;/center&gt;
+    
+    </summary>
+    
+    
+      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
+    
+    
+      <category term="Zsh" scheme="https://ryzenx.com/tags/zsh/"/>
+    
+      <category term="Terminal" scheme="https://ryzenx.com/tags/terminal/"/>
+    
+      <category term="Console" scheme="https://ryzenx.com/tags/console/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Scrcpy连接手机与电脑</title>
@@ -36,7 +67,7 @@
     </summary>
     
     
-      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
+      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="note" scheme="https://ryzenx.com/tags/note/"/>
@@ -212,9 +243,9 @@
     
       <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="Chrome" scheme="https://ryzenx.com/tags/chrome/"/>
-    
       <category term="note" scheme="https://ryzenx.com/tags/note/"/>
+    
+      <category term="Chrome" scheme="https://ryzenx.com/tags/chrome/"/>
     
   </entry>
   
@@ -349,14 +380,14 @@
     </summary>
     
     
-      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="essay" scheme="https://ryzenx.com/categories/essay/"/>
     
     
       <category term="技术" scheme="https://ryzenx.com/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="公众号文章" scheme="https://ryzenx.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
-    
       <category term="快充" scheme="https://ryzenx.com/tags/%E5%BF%AB%E5%85%85/"/>
+    
+      <category term="公众号文章" scheme="https://ryzenx.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
@@ -563,37 +594,6 @@
       <category term="font" scheme="https://ryzenx.com/tags/font/"/>
     
       <category term="text" scheme="https://ryzenx.com/tags/text/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常见LaTeX数学符号参考（图转）</title>
-    <link href="https://ryzenx.com/2020/03/Markdown+LaTeX/"/>
-    <id>https://ryzenx.com/2020/03/Markdown+LaTeX/</id>
-    <published>2020-03-01T14:49:23.000Z</published>
-    <updated>2020-03-01T14:49:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="常见LaTeX数学符号参考（图转）"><a href="#常见LaTeX数学符号参考（图转）" class="headerlink" title="常见LaTeX数学符号参考（图转）"></a>常见LaTeX数学符号参考（图转）</h1><blockquote><p>适用于<strong>Typora</strong>下数学符号打印（亲测）</p><p>（摘录自百度百科：“LaTeX“）</p><p>$\LaTeX$（LATEX，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。</p></blockquote><a id="more"></a><h2 id="常见排版"><a href="#常见排版" class="headerlink" title="常见排版"></a>常见排版</h2><p>见<a href="/2020/03/Markdown-Reference">Typora Markdown Reference</a></p><h2 id="数学符号代码"><a href="#数学符号代码" class="headerlink" title="数学符号代码"></a>数学符号代码</h2><p><img src="https://oss.ryzenx.com/img/2020/Screenshot_2019-11-25-20-00-53-186_com.android.ch.jpg" alt="Screenshot_2019-11-25-20-00-53-186_com.android.ch"></p><p><img src="https://oss.ryzenx.com/img/2020/Screenshot_2019-11-25-20-01-01-696_com.android.ch.jpg" alt="Screenshot_2019-11-25-20-01-01-696_com.android.ch"></p><p><img src="https://oss.ryzenx.com/img/2020/Screenshot_2019-11-25-20-01-25-404_com.android.ch.jpg" alt="Screenshot_2019-11-25-20-01-25-404_com.android.ch"></p><p><img src="https://oss.ryzenx.com/img/2020/Screenshot_2019-11-25-20-01-32-326_com.android.ch.jpg" alt="Screenshot_2019-11-25-20-01-32-326_com.android.ch"></p><p><img src="https://oss.ryzenx.com/img/2020/Screenshot_2019-11-25-20-01-47-619_com.android.ch.jpg" alt="Screenshot_2019-11-25-20-01-47-619_com.android.ch"></p><p>原文见上图链接</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;常见LaTeX数学符号参考（图转）&quot;&gt;&lt;a href=&quot;#常见LaTeX数学符号参考（图转）&quot; class=&quot;headerlink&quot; title=&quot;常见LaTeX数学符号参考（图转）&quot;&gt;&lt;/a&gt;常见LaTeX数学符号参考（图转）&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;适用于&lt;strong&gt;Typora&lt;/strong&gt;下数学符号打印（亲测）&lt;/p&gt;
-&lt;p&gt;（摘录自百度百科：“LaTeX“）&lt;/p&gt;
-&lt;p&gt;$\LaTeX$（LATEX，音译“拉泰赫”）是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发，利用这种格式，即使使用者没有排版和程序设计的知识也可以充分发挥由TeX所提供的强大功能，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。因此它非常适用于生成高印刷质量的科技和数学类文档。这个系统同样适用于生成从简单的信件到完整书籍的所有其他种类的文档。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
-    
-    
-      <category term="note" scheme="https://ryzenx.com/tags/note/"/>
-    
-      <category term="markdown" scheme="https://ryzenx.com/tags/markdown/"/>
-    
-      <category term="参考" scheme="https://ryzenx.com/tags/%E5%8F%82%E8%80%83/"/>
     
   </entry>
   

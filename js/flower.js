@@ -151,16 +151,16 @@ function startSakura() {
 //     canvasSnow.height = window.innerHeight;
 // }
 
-img.onload = function () {
-    startSakura();
-    let obj = new Image();
-    Object.defineProperty(obj, 'id', {
-        get: function () {
-            document.write("本站已禁止使用开发者工具");
-        }
-    });
-    console.log(obj);
-}
+// img.onload = function () {
+//     startSakura();
+//     let obj = new Image();
+//     Object.defineProperty(obj, 'id', {
+//         get: function () {
+//             document.write("本站已禁止使用开发者工具");
+//         }
+//     });
+//     console.log(obj);
+// }
 
 function stopp() {
     if (staticx) {
