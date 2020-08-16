@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>利用Tinify缩小图片体积(Python实现)</title>
+    <url>/2020/08/py-tinify/</url>
+    <content><![CDATA[<h1 id="利用Tinify缩小图片体积-Python实现"><a href="#利用Tinify缩小图片体积-Python实现" class="headerlink" title="利用Tinify缩小图片体积(Python实现)"></a>利用Tinify缩小图片体积(Python实现)</h1><blockquote>
+<p>在博客上传图片的时候往往不需要很高的清晰度，越小的图片体积能够减少图床的空间占用。所以我一般会先通过一些工具缩小图片体积。</p>
+<p>具有代表性的在线图片压缩网站是<a href="https://tinypng.com/" target="_blank" rel="noopener">tinyPNG</a></p>
+</blockquote>
+<a id="more"></a>
+
+
+
+<h2 id="首先在官网注册api"><a href="#首先在官网注册api" class="headerlink" title="首先在官网注册api"></a>首先在官网注册api</h2><p>-&gt; 官网：<a href="https://tinypng.com/developers" target="_blank" rel="noopener">https://tinypng.com/developers</a></p>
+<h2 id="安装python依赖"><a href="#安装python依赖" class="headerlink" title="安装python依赖"></a>安装python依赖</h2><p><code>pip install --upgrade tinify</code></p>
+<h2 id="在py文件中引入依赖"><a href="#在py文件中引入依赖" class="headerlink" title="在py文件中引入依赖"></a>在py文件中引入依赖</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写api</span></span><br><span class="line">tinify.key = <span class="string">"&lt;your api key here&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据需要设置代理</span></span><br><span class="line">tinify.proxy = <span class="string">"http://&lt;user&gt;:&lt;pass&gt;@&lt;ip addr&gt;:&lt;port&gt;"</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=UTF-8</span></span><br><span class="line"><span class="comment"># Author: Steven Yan</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"><span class="keyword">import</span> os, time, sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tinify.key = <span class="string">"&lt;your key here&gt;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">welcome</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line">    print(<span class="string">"##                 Website: StevenOS.com                ##"</span>)</span><br><span class="line">    print(<span class="string">"##                     By Steven Yan                    ##"</span>)</span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于在Windows平台设置窗口</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWindow</span><span class="params">()</span>:</span></span><br><span class="line">    os.system(<span class="string">"mode con cols=60 lines=30"</span>)</span><br><span class="line">    os.system(<span class="string">"color 0e"</span>)</span><br><span class="line">    os.system(<span class="string">"title Convert png/jpg to tiny ones"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">goodBye</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"\nGood Bye! See you next time!\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        print(<span class="string">"-&gt; %s"</span> % str(<span class="number">4</span> - i))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历目录中的文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            imgpath = os.path.join(dirpath, file)</span><br><span class="line">            print(<span class="string">"compressing... "</span> + imgpath)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                tinify.from_file(imgpath).to_file(imgpath)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="comment"># 如果不是图片文件则显示异常，但不要raiseError</span></span><br><span class="line">                print(<span class="string">"...Failed to compress "</span> + imgpath)</span><br><span class="line">                print(<span class="string">"...Maybe it is not a PNG/JPG image."</span>)</span><br><span class="line">                print(<span class="string">"...Or, please check your internet access.\n"</span>)</span><br><span class="line">    print(<span class="string">"\nFinished!"</span>)</span><br><span class="line">    print(<span class="string">"Saved at "</span> + path)</span><br><span class="line">    goodBye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Please enter your image-path: "</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">"nt"</span>:</span><br><span class="line">        setWindow()</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更多语言开发参考"><a href="#更多语言开发参考" class="headerlink" title="更多语言开发参考"></a>更多语言开发参考</h2><p>官方文档：<a href="https://tinypng.com/developers/reference/python" target="_blank" rel="noopener">https://tinypng.com/developers/reference/python</a></p>
+<blockquote>
+<p><a href="https://tinypng.com/developers/reference/nodejs" target="_blank" rel="noopener">Node.js</a></p>
+<p><a href="https://tinypng.com/developers/reference/java" target="_blank" rel="noopener">Java</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>绝美终端：Zsh(安装Oh My Zsh)</title>
     <url>/2020/07/oh-my-zsh/</url>
     <content><![CDATA[<h1 id="绝美终端：Zsh-安装Oh-My-Zsh"><a href="#绝美终端：Zsh-安装Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装Oh My Zsh)"></a>绝美终端：Zsh(安装Oh My Zsh)</h1><blockquote>
@@ -1250,8 +1285,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>公众号文章</tag>
         <tag>快充</tag>
+        <tag>公众号文章</tag>
       </tags>
   </entry>
   <entry>
@@ -1569,8 +1604,8 @@
       </categories>
       <tags>
         <tag>essay</tag>
-        <tag>code</tag>
         <tag>Python</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -1797,7 +1832,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#116;&#x79;&#x70;&#111;&#x72;&#x61;&#46;&#x69;&#111;">&#x69;&#x40;&#116;&#x79;&#x70;&#111;&#x72;&#x61;&#46;&#x69;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#116;&#121;&#x70;&#111;&#x72;&#97;&#46;&#105;&#111;">&#x69;&#x40;&#116;&#121;&#x70;&#111;&#x72;&#97;&#46;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg "Optional title"</span>)</span><br></pre></td></tr></table></figure>
@@ -2356,8 +2391,8 @@
         <category>note</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>docker</tag>
+        <tag>技术</tag>
         <tag>总结</tag>
       </tags>
   </entry>

@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    绝美终端：Zsh(安装Oh My Zsh) ::  小渚w
+    利用Tinify缩小图片体积(Python实现) ::  小渚w
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -35,7 +35,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-oh-my-zsh" class="article article-type-post" itemscope
+  <article id="post-py-tinify" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  绝美终端：Zsh(安装Oh My Zsh)
+  利用Tinify缩小图片体积(Python实现)
 </h1>
   
 
@@ -52,12 +52,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/07/oh-my-zsh/" class="article-date">
-  <time datetime="2020-07-13T14:24:51.000Z" itemprop="datePublished">2020-07-13</time>
+      <a href="/2020/08/py-tinify/" class="article-date">
+  <time datetime="2020-08-16T03:31:58.000Z" itemprop="datePublished">2020-08-16</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">note</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </div>
 
       
@@ -67,7 +67,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.3k字</span>
+            <span class="post-count">387字</span>
         </span>
     </span>
 
@@ -76,7 +76,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">5分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -103,135 +103,29 @@
       
 
       
-      <h1 id="绝美终端：Zsh-安装Oh-My-Zsh"><a href="#绝美终端：Zsh-安装Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装Oh My Zsh)"></a>绝美终端：Zsh(安装Oh My Zsh)</h1><blockquote>
-<p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
-<p>“Oh My ZSH!”</p>
+      <h1 id="利用Tinify缩小图片体积-Python实现"><a href="#利用Tinify缩小图片体积-Python实现" class="headerlink" title="利用Tinify缩小图片体积(Python实现)"></a>利用Tinify缩小图片体积(Python实现)</h1><blockquote>
+<p>在博客上传图片的时候往往不需要很高的清晰度，越小的图片体积能够减少图床的空间占用。所以我一般会先通过一些工具缩小图片体积。</p>
+<p>具有代表性的在线图片压缩网站是<a href="https://tinypng.com/" target="_blank" rel="noopener">tinyPNG</a></p>
 </blockquote>
-<center><a href="https://ohmyz.sh/" target="_blank" rel="noopener">Oh-My-zsh网站</a></center>
-
 <a id="more"></a>
 
-<h2 id="1-Zsh是什么？"><a href="#1-Zsh是什么？" class="headerlink" title="1-Zsh是什么？"></a>1-Zsh是什么？</h2><p>Z shell（Zsh）是一款可用作交互式登录的shell及脚本编写的命令解释器。Zsh对Bourne shell做出了大量改进，同时加入了Bash、ksh及tcsh的某些功能。</p>
-<p>特性包括：</p>
-<ul>
-<li>可帮助用户键入常用命令选项及参数的可编程命令行补全功能，自带对数百条命令的支持</li>
-<li>可与任意Shell共享命令历史</li>
-<li>可在无需运行外部程序（如find）的情况下通过 文件扩展匹配文件</li>
-<li>改进变量/数组处理方式</li>
-<li>在单缓冲区内编辑多行命令</li>
-<li>拼写检查</li>
-<li>多种兼容模式（例如，Zsh可在运行为<code>/bin/sh</code>的情况下伪装成Bourne shell）</li>
-<li>可编程的命令行界面，包括将提示行信息显示在屏幕右侧并在输入过长指令时自动隐藏的功能</li>
-<li>可加载模块可提供额外支持：完整传输控制协议、Unix域套接字控制、FTP客户端及扩展数学函数。</li>
-<li>自带<code>where</code>命令，其与<code>which</code>命令类似，但是显示指定于<code>$PATH</code>中所指定指令的全部位置，而不是仅显示所使用指令的位置。</li>
-<li>目录名称。此功能可让用户设置快捷方式，（如<code>~mydir</code>，与<code>~</code>及<code>~user</code>的工作方式相似）。</li>
-</ul>
-<p>我认识Zsh是在macOS从<strong>bash</strong>转换为<strong>zsh</strong>的时候，最开始是好奇这个shell/bash/zsh到底有什么不同：<a href="https://en.wikipedia.org/wiki/Comparison_of_command_shells" target="_blank" rel="noopener">终端有什么不同</a>。后来发现了有Oh My Zsh的框架，主题倒是非常好看。</p>
-<h2 id="2-Oh-My-Zsh是什么？"><a href="#2-Oh-My-Zsh是什么？" class="headerlink" title="2-Oh-My-Zsh是什么？"></a>2-Oh-My-Zsh是什么？</h2><p><em>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</em></p>
-<p>Oh My Zsh是一个开源的、由社区驱动的zsh管理框架。</p>
-<p><em>Sounds boring. Let’s try again.</em></p>
-<p>听起来没什么大不了的，来一起试一试。</p>
-<p><em>Oh My Zsh will not make you a 10x developer…but you may feel like one.</em></p>
-<p>Oh My Zsh不能让你变成10倍的开发人员，但你很可能有这个感觉。</p>
-<p><em>Once installed, your terminal shell will become the talk of the town or your money back! With each keystroke in your command prompt, you’ll take advantage of the hundreds of powerful plugins and beautiful themes. Strangers will come up to you in cafés and ask you, “that is amazing! are you some sort of genius?”</em></p>
-<p>当你安装好之后，你的终端界面将成为别人讨论的话题，不信给你钱！在命令提示符中的每次击键操作中，您将利用数百个功能强大的插件和精美的主题。陌生人会到咖啡馆来找你，问你：“这太帅了！你是不是天才？”</p>
-<p><em>Finally, you’ll begin to get the sort of attention that you have always felt you deserved. …or maybe you’ll use the time that you’re saving to start flossing more often.</em></p>
-<p>最后，你将开始得到你一直以来应该得到的关注……或者你将用省下来的时间多用牙线清洁下牙齿？</p>
-<p><strong>简单来说</strong>，Oh My Zsh就是一个用来管理zsh的一个框架，有许多的插件、主题还有庞大的社区支持。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-22.51.50.png" alt="截屏2020-07-13-22.51.50"></p>
-<h2 id="3-Zsh的安装"><a href="#3-Zsh的安装" class="headerlink" title="3-Zsh的安装"></a>3-Zsh的安装</h2><p>在macOS中，新版已经自动把终端设置为Zsh了，如果没有，可以通过<a href="https://brew.sh/" target="_blank" rel="noopener"><strong>HomeBrew</strong></a>进行安装：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
 
-<p>苹果官方帮助页面：<a href="https://support.apple.com/zh-cn/HT208050" target="_blank" rel="noopener">在 Mac 上将 zsh 用作默认 Shell</a></p>
-<hr>
-<p>在Linux系统中：</p>
-<ol>
-<li><p>查看内置shell:</p>
-<p><code>cat /etc/shells</code></p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.00.57.png" alt="截屏2020-07-13-23.00.57"></p>
-</li>
-<li><p>用包管理软件进行安装：</p>
-<p><code>sudo apt-get install zsh</code></p>
-</li>
-<li><p>安装Oh-My-Zsh：</p>
-<p><em>通过curl</em></p>
-<p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></p>
-<p><em>通过wget</em></p>
-<p><code>sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></p>
-<p><strong><code>raw.github.com</code>页面可能被DNS污染，国内用户自行解决</strong></p>
-</li>
-<li><p>安装完成后会自动切换到Zsh</p>
-</li>
-</ol>
-<h2 id="4-主题配置"><a href="#4-主题配置" class="headerlink" title="4-主题配置"></a>4-主题配置</h2><p>内置了许多、各种各样的主题文件，详见<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes" target="_blank" rel="noopener">官方Wiki</a>。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改zsh配置文件</span></span><br><span class="line">nano ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题文件指向</span></span><br><span class="line">ZSH_THEME=<span class="string">"robbyrussell"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置Zsh配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.11.40.png" alt="截屏2020-07-13-23.11.40"></p>
-<p><strong>主题肯定是要自己改改的</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以robbyrussell主题为例</span></span><br><span class="line">nano ~/.oh-my-zsh/themes/robbyrussell.zsh-theme</span><br></pre></td></tr></table></figure>
+<h2 id="首先在官网注册api"><a href="#首先在官网注册api" class="headerlink" title="首先在官网注册api"></a>首先在官网注册api</h2><p>-&gt; 官网：<a href="https://tinypng.com/developers" target="_blank" rel="noopener">https://tinypng.com/developers</a></p>
+<h2 id="安装python依赖"><a href="#安装python依赖" class="headerlink" title="安装python依赖"></a>安装python依赖</h2><p><code>pip install --upgrade tinify</code></p>
+<h2 id="在py文件中引入依赖"><a href="#在py文件中引入依赖" class="headerlink" title="在py文件中引入依赖"></a>在py文件中引入依赖</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写api</span></span><br><span class="line">tinify.key = <span class="string">"&lt;your api key here&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据需要设置代理</span></span><br><span class="line">tinify.proxy = <span class="string">"http://&lt;user&gt;:&lt;pass&gt;@&lt;ip addr&gt;:&lt;port&gt;"</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.21.23.png" alt="截屏2020-07-13-23.21.23"></p>
-<p><strong>主要是前两行</strong>我的配置参考：</p>
-<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">"%(?:%&#123;<span class="variable">$fg_bold</span>[green]%&#125;➜ :%&#123;<span class="variable">$fg_bold</span>[red]%&#125;➜ )"</span></span><br><span class="line"></span><br><span class="line">PROMPT+=<span class="string">'%&#123;<span class="variable">$fg</span>[red]%&#125;(%T)%&#123;<span class="variable">$fg</span>[white]%&#125;%m%&#123;<span class="variable">$fg</span>[cyan]%&#125;[%~]%&#123;<span class="variable">$reset_color</span>%&#125;<span class="variable">$(git_prompt_info)</span>$</span></span><br></pre></td></tr></table></figure>
 
-<p>可以自定义修改提示符，其中：</p>
-<table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%T</td>
-<td>系统时间（时：分）</td>
-</tr>
-<tr>
-<td>%*</td>
-<td>系统时间（时：分：秒）</td>
-</tr>
-<tr>
-<td>%D</td>
-<td>系统日期（年-月-日）</td>
-</tr>
-<tr>
-<td>%n</td>
-<td>你的用户名</td>
-</tr>
-<tr>
-<td>%B - %b</td>
-<td>开始到结束使用粗体打印</td>
-</tr>
-<tr>
-<td>%U - %u</td>
-<td>开始到结束使用下划线打印</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>你目前的工作目录</td>
-</tr>
-<tr>
-<td>%~</td>
-<td>你目前的工作目录相对于Home的相对路径</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>计算机的主机名</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>计算机的主机名（在第一个句号之前截断）</td>
-</tr>
-<tr>
-<td>%l</td>
-<td>你当前的tty</td>
-</tr>
-</tbody></table>
-<p>效果如下：</p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.37.49.png" alt="截屏2020-07-13-23.37.49"></p>
-<h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5-后记"></a>5-后记</h2><p>本文也算是我自己的一个记录，我比较习惯各个设备上的样式尽可能的保持统一，所以我需要在不同设备上安装Zsh，并且保持几乎一致的主题配置。</p>
-<p>本篇文章可能干货不算很多，建议有兴趣的朋友去官方wiki网站查看一下更加详细的主题、插件配置方法。</p>
-<p>如果自己写出了很漂亮的主题配置，欢迎下方评论留言一起分享哦～</p>
+
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=UTF-8</span></span><br><span class="line"><span class="comment"># Author: Steven Yan</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"><span class="keyword">import</span> os, time, sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tinify.key = <span class="string">"&lt;your key here&gt;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">welcome</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line">    print(<span class="string">"##                 Website: StevenOS.com                ##"</span>)</span><br><span class="line">    print(<span class="string">"##                     By Steven Yan                    ##"</span>)</span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于在Windows平台设置窗口</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWindow</span><span class="params">()</span>:</span></span><br><span class="line">    os.system(<span class="string">"mode con cols=60 lines=30"</span>)</span><br><span class="line">    os.system(<span class="string">"color 0e"</span>)</span><br><span class="line">    os.system(<span class="string">"title Convert png/jpg to tiny ones"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">goodBye</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"\nGood Bye! See you next time!\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        print(<span class="string">"-&gt; %s"</span> % str(<span class="number">4</span> - i))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历目录中的文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            imgpath = os.path.join(dirpath, file)</span><br><span class="line">            print(<span class="string">"compressing... "</span> + imgpath)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                tinify.from_file(imgpath).to_file(imgpath)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="comment"># 如果不是图片文件则显示异常，但不要raiseError</span></span><br><span class="line">                print(<span class="string">"...Failed to compress "</span> + imgpath)</span><br><span class="line">                print(<span class="string">"...Maybe it is not a PNG/JPG image."</span>)</span><br><span class="line">                print(<span class="string">"...Or, please check your internet access.\n"</span>)</span><br><span class="line">    print(<span class="string">"\nFinished!"</span>)</span><br><span class="line">    print(<span class="string">"Saved at "</span> + path)</span><br><span class="line">    goodBye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Please enter your image-path: "</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">"nt"</span>:</span><br><span class="line">        setWindow()</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更多语言开发参考"><a href="#更多语言开发参考" class="headerlink" title="更多语言开发参考"></a>更多语言开发参考</h2><p>官方文档：<a href="https://tinypng.com/developers/reference/python" target="_blank" rel="noopener">https://tinypng.com/developers/reference/python</a></p>
+<blockquote>
+<p><a href="https://tinypng.com/developers/reference/nodejs" target="_blank" rel="noopener">Node.js</a></p>
+<p><a href="https://tinypng.com/developers/reference/java" target="_blank" rel="noopener">Java</a></p>
+</blockquote>
 
       
       <!-- reward -->
@@ -301,14 +195,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/07/oh-my-zsh/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/08/py-tinify/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/console/" rel="tag">Console</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/terminal/" rel="tag">Terminal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zsh/" rel="tag">Zsh</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/" rel="tag">Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
@@ -319,19 +213,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/08/py-tinify/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            利用Tinify缩小图片体积(Python实现)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/06/scrcpy/" class="article-nav-link">
+      <a href="/2020/07/oh-my-zsh/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">使用Scrcpy连接手机与电脑</div>
+        <div class="article-nav-title">绝美终端：Zsh(安装Oh My Zsh)</div>
       </a>
     
   </nav>

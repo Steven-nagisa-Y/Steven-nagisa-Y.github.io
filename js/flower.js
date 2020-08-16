@@ -156,13 +156,13 @@ img.onload = function () {
     let obj = new Image();
     Object.defineProperty(obj, 'id', {
         get: function () {
-            document.write("<h1>本站已禁止使用开发者工具</h1><br />");
+            document.write("<h1>本站已暂停使用开发者工具</h1><br />");
         }
     });
     console.log(obj);
 }
 
-function stopp() {
+function stop() {
     if (staticx) {
         var child = document.getElementById("canvas_sakura");
         child.parentNode.removeChild(child);

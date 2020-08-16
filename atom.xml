@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ryzenx.com/"/>
-  <updated>2020-07-13T14:24:51.000Z</updated>
+  <updated>2020-08-16T03:31:58.000Z</updated>
   <id>https://ryzenx.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用Tinify缩小图片体积(Python实现)</title>
+    <link href="https://ryzenx.com/2020/08/py-tinify/"/>
+    <id>https://ryzenx.com/2020/08/py-tinify/</id>
+    <published>2020-08-16T03:31:58.000Z</published>
+    <updated>2020-08-16T03:31:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="利用Tinify缩小图片体积-Python实现"><a href="#利用Tinify缩小图片体积-Python实现" class="headerlink" title="利用Tinify缩小图片体积(Python实现)"></a>利用Tinify缩小图片体积(Python实现)</h1><blockquote><p>在博客上传图片的时候往往不需要很高的清晰度，越小的图片体积能够减少图床的空间占用。所以我一般会先通过一些工具缩小图片体积。</p><p>具有代表性的在线图片压缩网站是<a href="https://tinypng.com/" target="_blank" rel="noopener">tinyPNG</a></p></blockquote><a id="more"></a><h2 id="首先在官网注册api"><a href="#首先在官网注册api" class="headerlink" title="首先在官网注册api"></a>首先在官网注册api</h2><p>-&gt; 官网：<a href="https://tinypng.com/developers" target="_blank" rel="noopener">https://tinypng.com/developers</a></p><h2 id="安装python依赖"><a href="#安装python依赖" class="headerlink" title="安装python依赖"></a>安装python依赖</h2><p><code>pip install --upgrade tinify</code></p><h2 id="在py文件中引入依赖"><a href="#在py文件中引入依赖" class="headerlink" title="在py文件中引入依赖"></a>在py文件中引入依赖</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"></span><br><span class="line"><span class="comment"># 填写api</span></span><br><span class="line">tinify.key = <span class="string">"&lt;your api key here&gt;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据需要设置代理</span></span><br><span class="line">tinify.proxy = <span class="string">"http://&lt;user&gt;:&lt;pass&gt;@&lt;ip addr&gt;:&lt;port&gt;"</span></span><br></pre></td></tr></table></figure><h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=UTF-8</span></span><br><span class="line"><span class="comment"># Author: Steven Yan</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tinify</span><br><span class="line"><span class="keyword">import</span> os, time, sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tinify.key = <span class="string">"&lt;your key here&gt;"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">welcome</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line">    print(<span class="string">"##                 Website: StevenOS.com                ##"</span>)</span><br><span class="line">    print(<span class="string">"##                     By Steven Yan                    ##"</span>)</span><br><span class="line">    print(<span class="string">"##########################################################"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于在Windows平台设置窗口</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWindow</span><span class="params">()</span>:</span></span><br><span class="line">    os.system(<span class="string">"mode con cols=60 lines=30"</span>)</span><br><span class="line">    os.system(<span class="string">"color 0e"</span>)</span><br><span class="line">    os.system(<span class="string">"title Convert png/jpg to tiny ones"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">goodBye</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"\nGood Bye! See you next time!\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        print(<span class="string">"-&gt; %s"</span> % str(<span class="number">4</span> - i))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历目录中的文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            imgpath = os.path.join(dirpath, file)</span><br><span class="line">            print(<span class="string">"compressing... "</span> + imgpath)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                tinify.from_file(imgpath).to_file(imgpath)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="comment"># 如果不是图片文件则显示异常，但不要raiseError</span></span><br><span class="line">                print(<span class="string">"...Failed to compress "</span> + imgpath)</span><br><span class="line">                print(<span class="string">"...Maybe it is not a PNG/JPG image."</span>)</span><br><span class="line">                print(<span class="string">"...Or, please check your internet access.\n"</span>)</span><br><span class="line">    print(<span class="string">"\nFinished!"</span>)</span><br><span class="line">    print(<span class="string">"Saved at "</span> + path)</span><br><span class="line">    goodBye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPath</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Please enter your image-path: "</span>)</span><br><span class="line">    s = input(<span class="string">"&gt; "</span>)</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">"nt"</span>:</span><br><span class="line">        setWindow()</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        welcome()</span><br><span class="line">        path = getPath()</span><br><span class="line">        convert(path)</span><br></pre></td></tr></table></figure><h2 id="更多语言开发参考"><a href="#更多语言开发参考" class="headerlink" title="更多语言开发参考"></a>更多语言开发参考</h2><p>官方文档：<a href="https://tinypng.com/developers/reference/python" target="_blank" rel="noopener">https://tinypng.com/developers/reference/python</a></p><blockquote><p><a href="https://tinypng.com/developers/reference/nodejs" target="_blank" rel="noopener">Node.js</a></p><p><a href="https://tinypng.com/developers/reference/java" target="_blank" rel="noopener">Java</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;利用Tinify缩小图片体积-Python实现&quot;&gt;&lt;a href=&quot;#利用Tinify缩小图片体积-Python实现&quot; class=&quot;headerlink&quot; title=&quot;利用Tinify缩小图片体积(Python实现)&quot;&gt;&lt;/a&gt;利用Tinify缩小图片体积(Python实现)&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;在博客上传图片的时候往往不需要很高的清晰度，越小的图片体积能够减少图床的空间占用。所以我一般会先通过一些工具缩小图片体积。&lt;/p&gt;
+&lt;p&gt;具有代表性的在线图片压缩网站是&lt;a href=&quot;https://tinypng.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;tinyPNG&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://ryzenx.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Python" scheme="https://ryzenx.com/tags/python/"/>
+    
+      <category term="Code" scheme="https://ryzenx.com/tags/code/"/>
+    
+  </entry>
   
   <entry>
     <title>绝美终端：Zsh(安装Oh My Zsh)</title>
@@ -385,9 +413,9 @@
     
       <category term="技术" scheme="https://ryzenx.com/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="公众号文章" scheme="https://ryzenx.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
-    
       <category term="快充" scheme="https://ryzenx.com/tags/%E5%BF%AB%E5%85%85/"/>
+    
+      <category term="公众号文章" scheme="https://ryzenx.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
@@ -532,9 +560,9 @@
     
       <category term="essay" scheme="https://ryzenx.com/tags/essay/"/>
     
-      <category term="code" scheme="https://ryzenx.com/tags/code/"/>
-    
       <category term="Python" scheme="https://ryzenx.com/tags/python/"/>
+    
+      <category term="code" scheme="https://ryzenx.com/tags/code/"/>
     
   </entry>
   
@@ -566,34 +594,6 @@
       <category term="小米手环" scheme="https://ryzenx.com/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF/"/>
     
       <category term="小米" scheme="https://ryzenx.com/tags/%E5%B0%8F%E7%B1%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>花式字体</title>
-    <link href="https://ryzenx.com/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/"/>
-    <id>https://ryzenx.com/2020/03/%E8%8A%B1%E5%BC%8F%E5%AD%97%E4%BD%93/</id>
-    <published>2020-03-04T09:56:46.000Z</published>
-    <updated>2020-03-04T09:56:46.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Markdown-花式字体"><a href="#Markdown-花式字体" class="headerlink" title="Markdown 花式字体"></a>Markdown 花式字体</h1><p><strong>如果你的浏览器在网页上无法预览字体</strong></p><p><strong>请点击➡️<a href="https://url.airocket.tech/html/花式字体.html" target="_blank" rel="noopener">  这里  </a></strong></p><a id="more"></a><h3 id="常规字体"><a href="#常规字体" class="headerlink" title="常规字体"></a>常规字体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathrm&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><h3 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathit&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathnormal&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><h3 id="手写体"><a href="#手写体" class="headerlink" title="手写体"></a>手写体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathcal&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><h3 id="花体"><a href="#花体" class="headerlink" title="花体"></a>花体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathscr&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><h3 id="哥特体"><a href="#哥特体" class="headerlink" title="哥特体"></a>哥特体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathfrak&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><h3 id="空心体"><a href="#空心体" class="headerlink" title="空心体"></a>空心体</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathbb&#123;Your text here&#125;$</span><br></pre></td></tr></table></figure><p>Like this:</p><p>$\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ \ \quad abcdefghijklmnopqrstuvwxyz \ 1234567890}$</p><p>​    $\mathfrak{Steven \ \ Yan}$</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Markdown-花式字体&quot;&gt;&lt;a href=&quot;#Markdown-花式字体&quot; class=&quot;headerlink&quot; title=&quot;Markdown 花式字体&quot;&gt;&lt;/a&gt;Markdown 花式字体&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;如果你的浏览器在网页上无法预览字体&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;请点击➡️&lt;a href=&quot;https://url.airocket.tech/html/花式字体.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;  这里  &lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="note" scheme="https://ryzenx.com/categories/note/"/>
-    
-    
-      <category term="markdown" scheme="https://ryzenx.com/tags/markdown/"/>
-    
-      <category term="font" scheme="https://ryzenx.com/tags/font/"/>
-    
-      <category term="text" scheme="https://ryzenx.com/tags/text/"/>
     
   </entry>
   
