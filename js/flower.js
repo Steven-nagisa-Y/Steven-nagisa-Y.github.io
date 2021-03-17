@@ -156,7 +156,7 @@ img.onload = function () {
     let obj = new Image();
     Object.defineProperty(obj, 'id', {
         get: function () {
-            document.write("<h1>本站已暂停使用开发者工具</h1><br />");
+            document.write("<center><h1>本站已暂停使用开发者工具</h1><br /></center>");
         }
     });
     console.log(obj);
