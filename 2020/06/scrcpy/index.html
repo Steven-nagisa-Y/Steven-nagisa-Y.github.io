@@ -35,7 +35,8 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-scrcpy" class="article article-type-post" itemscope
+  
+<article id="post-scrcpy" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -108,7 +109,7 @@
 <p>这样一款应用能够解决这个问题，采用ADB连接电脑与你的Android手机，并且还能流畅的操控，这就是Scrcpy。</p>
 <p>Scrcpy是一款开源应用，能够支持在不同平台的电脑上连接和操控Android设备。有理由怀疑华为的“多屏协同”也来自于此。</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="1-官方文档"><a href="#1-官方文档" class="headerlink" title="1-官方文档"></a>1-官方文档</h2><p>Scrcpy在Github的项目地址为：<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">github.com/Genymobile/scrcpy</a></p>
 <p>基本的安装和命令在官方文档中已经十分详细，适合有经验的朋友自行摸索，这里提供适合大众阅读的安装和使用介绍。</p>
@@ -260,7 +261,7 @@
 <p><em>¹</em>双击黑边可隐藏</p>
 <p>²Right-click turns the screen on if it was off, presses BACK otherwise.</p>
 <h2 id="4-常用命令"><a href="#4-常用命令" class="headerlink" title="4-常用命令"></a>4-常用命令</h2><p>全部命令请参照<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/blob/master/README.md">官方文档</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 调整显示分辨率（最宽处）为 1024 pixel</span></span><br><span class="line">scrcpy -m 1024</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 调整镜像码率为 2Mbps</span></span><br><span class="line">scrcpy -b 2M</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 限制最大帧率为 30fps</span></span><br><span class="line">scrcpy --max-fps 30</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 锁定屏幕旋转</span></span><br><span class="line">scrcpy --lock-video-orientation 0   # 初始方向</span><br><span class="line">scrcpy --lock-video-orientation 1   # 90° 逆时针</span><br><span class="line">scrcpy --lock-video-orientation 2   # 180°</span><br><span class="line">scrcpy --lock-video-orientation 3   # 90° 顺时针</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 录屏到 rec.mp4</span></span><br><span class="line">scrcpy -r rec.mp4</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止录屏使用：Ctrl + C</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 只投屏，不操作</span></span><br><span class="line">scrcpy -n</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 调整显示分辨率（最宽处）为 1024 pixel</span></span><br><span class="line">scrcpy -m 1024</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 调整镜像码率为 2Mbps</span></span><br><span class="line">scrcpy -b 2M</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 限制最大帧率为 30fps</span></span><br><span class="line">scrcpy --max-fps 30</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 锁定屏幕旋转</span></span><br><span class="line">scrcpy --lock-video-orientation 0   # 初始方向</span><br><span class="line">scrcpy --lock-video-orientation 1   # 90° 逆时针</span><br><span class="line">scrcpy --lock-video-orientation 2   # 180°</span><br><span class="line">scrcpy --lock-video-orientation 3   # 90° 顺时针</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 录屏到 rec.mp4</span></span><br><span class="line">scrcpy -r rec.mp4</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止录屏使用：Ctrl + C</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 只投屏，不操作</span></span><br><span class="line">scrcpy -n</span><br></pre></td></tr></table></figure>
 
 
 
@@ -284,8 +285,9 @@
             <li>
               <i class="ri-copyright-line"></i>
               <strong>版权声明： </strong s>
-              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
-                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
+                https://ryzenx.com/2020/06/scrcpy/
             </li>
           </ul>
         </div>

@@ -35,7 +35,8 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Docker入门与实战" class="article article-type-post" itemscope
+  
+<article id="post-Docker入门与实战" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -105,7 +106,7 @@
       
       <p>[TOC]</p>
 <h1 id="了解Docker"><a href="#了解Docker" class="headerlink" title="了解Docker"></a>了解Docker</h1><h2 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h2><p>​    想要了解什么是Docker，首先要明白容器（container）的概念。容器是近年来兴起的一种操作系统层面的虚拟化技术，基于Linux内核的 cgroup，namespace等技术对进程进行隔离封装，由于隔离的进程独立于宿主和其他的隔离化进程，所以被称为容器。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>​    容器和虚拟机一样，都是硬件性能提升以及软件种类日渐丰富带来的硬件性能过剩与软件冲突两大问题的解决方案。所谓硬件虚拟化，就是由某个特殊的软件，虚拟出计算机的各种硬件。使用者可以在虚拟机上安装Guest OS 和各种软件，虚拟机会将Guest OS以及其他软件对硬件资源的访问，转发到底层的物理机上。而这个时候，Guest OS的开销就造成了硬件资源的浪费，例如Windows操作系统，仅仅是安装开机，不运行任何其他应用，就需要占用2<del>3G内存和 20</del>30硬盘空间。然而虚拟机的这种架构，决定了运行在同一物理机上的每一台虚拟机都需要运行一个Guest OS，当虚拟机数量超过一定量的时候，浪费的硬件资源就相当可观了，尤其是大部分的Guest OS都是相同的。能不能所有的应用使用同一个操作系统减少硬件资源的浪费，又能避免包括Runtime library在内的软件冲突呢？于是就有了操作系统虚拟化技术，也就是容器。通过cgroup（control group）隔离并将应用与Runtime library打包在一起，不用实现自己的内核，也不需要专门的硬件虚拟，节省了Guest OS的性能开销，就实现了这个目的。</p>
 <h2 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h2><p>​    Docker是一个开源的应用容器引擎，Docker在容器的基础上，进一步进行了封装，从文件系统、进程隔离到网络等，很大程度上简化了容器的创建和维护，使得容器虚拟化技术得到广泛的推广和使用。Docker早期基于<code>lxc</code>（Linux container）封装，从0.7版本后，docker去除了<code>lxc</code>，转而使用自行开发的<code>libcontainer</code>，从1.11开始，进一步演进为使用 <code>runC</code> 和 <code>containerd</code>。</p>
 <p>​    此外，Docker公司还提供了一个公共的镜像仓库（Repository），Github connect，自动构建镜像，极大简化了应用分发、部署、升级流程，这些使Docker成为最流行的容器技术。</p>

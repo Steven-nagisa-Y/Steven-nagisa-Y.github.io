@@ -6950,7 +6950,8 @@ a.toc-link {
 }
 .article-entry pre,
 .article-entry code {
-  font-family: "Jetbrains Mono", Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: "Jetbrains Mono", "Fira Code", Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 85%;
 }
 .article-entry code {
   background: #eee;
@@ -7020,7 +7021,7 @@ a.toc-link {
 }
 .article-entry .gist .gist-file {
   border: none;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family: "Jetbrains Mono", "Fira Code", "Source Code Pro", Menlo, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   margin: 0;
 }
 .article-entry .gist .gist-file .gist-data {

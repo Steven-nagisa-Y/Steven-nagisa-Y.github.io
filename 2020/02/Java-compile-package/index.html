@@ -35,7 +35,8 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-Java-compile-package" class="article article-type-post" itemscope
+  
+<article id="post-Java-compile-package" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -110,7 +111,7 @@
 <p><code>javac test.java</code></p>
 <p>如果源文件含有package应该怎么处理呢？</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.stevenos.utils.DateTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String text;</span><br><span class="line">    text = DateTools.formatTime();</span><br><span class="line">    System.out.println(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -164,8 +165,9 @@
             <li>
               <i class="ri-copyright-line"></i>
               <strong>版权声明： </strong s>
-              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
-                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
+                https://ryzenx.com/2020/02/Java-compile-package/
             </li>
           </ul>
         </div>
