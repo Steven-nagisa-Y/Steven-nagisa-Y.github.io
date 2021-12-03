@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客, 技术" />
+   
+  <meta name="description" content="渚：水中的小块陆地" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Docker 入门与实战 ::  小渚w的博客小站
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-ZYJSPP9RMK', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+<link rel="alternate" href="/atom.xml" title="小渚w的博客小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  
+<article id="post-Docker入门与实战" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Docker 入门与实战
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/" class="article-date">
+  <time datetime="2020-02-14T16:00:00.000Z" itemprop="datePublished">2020-02-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">Note</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.4k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>[TOC]</p>
+<h1 id="了解Docker"><a href="#了解Docker" class="headerlink" title="了解Docker"></a>了解Docker</h1><h2 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h2><p>​    想要了解什么是Docker，首先要明白容器（container）的概念。容器是近年来兴起的一种操作系统层面的虚拟化技术，基于Linux内核的 cgroup，namespace等技术对进程进行隔离封装，由于隔离的进程独立于宿主和其他的隔离化进程，所以被称为容器。</p>
+<span id="more"></span>
+<p>​    容器和虚拟机一样，都是硬件性能提升以及软件种类日渐丰富带来的硬件性能过剩与软件冲突两大问题的解决方案。所谓硬件虚拟化，就是由某个特殊的软件，虚拟出计算机的各种硬件。使用者可以在虚拟机上安装Guest OS 和各种软件，虚拟机会将Guest OS以及其他软件对硬件资源的访问，转发到底层的物理机上。而这个时候，Guest OS的开销就造成了硬件资源的浪费，例如Windows操作系统，仅仅是安装开机，不运行任何其他应用，就需要占用2<del>3G内存和 20</del>30硬盘空间。然而虚拟机的这种架构，决定了运行在同一物理机上的每一台虚拟机都需要运行一个Guest OS，当虚拟机数量超过一定量的时候，浪费的硬件资源就相当可观了，尤其是大部分的Guest OS都是相同的。能不能所有的应用使用同一个操作系统减少硬件资源的浪费，又能避免包括Runtime library在内的软件冲突呢？于是就有了操作系统虚拟化技术，也就是容器。通过cgroup（control group）隔离并将应用与Runtime library打包在一起，不用实现自己的内核，也不需要专门的硬件虚拟，节省了Guest OS的性能开销，就实现了这个目的。</p>
+<h2 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h2><p>​    Docker是一个开源的应用容器引擎，Docker在容器的基础上，进一步进行了封装，从文件系统、进程隔离到网络等，很大程度上简化了容器的创建和维护，使得容器虚拟化技术得到广泛的推广和使用。Docker早期基于<code>lxc</code>（Linux container）封装，从0.7版本后，docker去除了<code>lxc</code>，转而使用自行开发的<code>libcontainer</code>，从1.11开始，进一步演进为使用 <code>runC</code> 和 <code>containerd</code>。</p>
+<p>​    此外，Docker公司还提供了一个公共的镜像仓库（Repository），Github connect，自动构建镜像，极大简化了应用分发、部署、升级流程，这些使Docker成为最流行的容器技术。</p>
+<h2 id="为什么要用Docker"><a href="#为什么要用Docker" class="headerlink" title="为什么要用Docker"></a>为什么要用Docker</h2><h3 id="更加高效的利用硬件资源"><a href="#更加高效的利用硬件资源" class="headerlink" title="更加高效的利用硬件资源"></a>更加高效的利用硬件资源</h3><p>​    正如之前提到的，容器内不需要硬件虚拟和运行完整操作系统的开销，Docker对系统资源的利用率更加高，因此无论是应用执行速度、内存损耗还是文件储存速度，都比传统虚拟机技术更加高效。因此，相比传统的硬件虚拟化技术，一个相同配置的主机，可以运行更多数量的容器。</p>
+<h3 id="更快速的启动时间"><a href="#更快速的启动时间" class="headerlink" title="更快速的启动时间"></a>更快速的启动时间</h3><p>​    由于Docker容器应用，直接运行于Host内核，无需完整的操作系统Runtime，因此可以大大加快启动时间，大大节约开发、测试与部署的时间。</p>
+<h3 id="轻松迁移"><a href="#轻松迁移" class="headerlink" title="轻松迁移"></a>轻松迁移</h3><p>​    由于Docker直接封装了应用所需的Runtime library以及相关依赖，所以Docker的镜像可以保证应用的运行环境一致性，使得应用的迁移更加容易，无论是在哪种物理平台，使用Docker构建镜像并运行容器，都能保证应用的正常运行。</p>
+<h3 id="持续交付和部署"><a href="#持续交付和部署" class="headerlink" title="持续交付和部署"></a>持续交付和部署</h3><p>​    使用Docker可以通过定制应用来实现持续集成、交付、部署。开发成员通过编写dockerfile来构建镜像，并结合CI系统进行集成测试，同时运维人员可以在生产环境快速部署，甚至结合CD系统进行自动部署。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>容器</th>
+<th>虚拟机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动</td>
+<td>秒级</td>
+<td>分钟级</td>
+</tr>
+<tr>
+<td>储存占用</td>
+<td>MB级</td>
+<td>GB级</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>原生级</td>
+<td>有损耗</td>
+</tr>
+<tr>
+<td>HOST支持量</td>
+<td>&gt;1k</td>
+<td>~10</td>
+</tr>
+</tbody></table>
+<h1 id="Docker基础概念"><a href="#Docker基础概念" class="headerlink" title="Docker基础概念"></a>Docker基础概念</h1><h2 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h2><p>​    Docker镜像，相当于一个Linux的root文件系统，除了提供容器<code>runtime</code>所需要的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（例如：匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<p>​    因为镜像包含操作系统完整的root文件系统，所以体积往往较大，因此Docker设计的时候就充分利用了<code>unionFS</code> 的技术，将其设计为分成存储的架构。因此严格来说，镜像并非是像ISO文件那种打包文件，而是由多层文件系统联合组成。这种分层储存的特征使得镜像的复用、定制变得极为容易，可以利用之前构建好的镜像作为基础层，然后添加自己所需的内容，构建新的镜像。</p>
+<h2 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h2><p>​    镜像和容器之间的关系，有点类似在OOP语言中类和对象的关系。容器就是镜像在运行时的实体，镜像只是一个静态的定义，而容器可以被创建、启动、暂停、停止、删除等。</p>
+<p>​    容器的实质是进程，运行于属于自己的独立的namespace，因为与HOST隔离，所以容器可以拥有自己的root文件系统、自己的网络配置、自己的进程空间甚至是自己的用户ID空间。容器内的进程是运行在一个隔离的环境里，使用起来，就好像是在一个独立于宿主的系统下操作。这种特性使得容器封装的应用比直接在HOST运行更加安全。</p>
+<p>​    容器运行时，是以镜像为基础层，在其上创建一个当前容器的储存层。当容器消亡的时候，容器储存层也随之消亡。因此，任何保存于容器储存层的数据都会随容器删除而丢失。按照Docker最佳实践的要求，容器不应该向其储存层写入任何数据，容器储存层要保持无状态化。所有的文件写入操作，都应该使用数据卷（volume）或者绑定HOST目录，这样跳过容器储存层直接对HOST发生读写，性能和稳定性更高，即使容器删除或者重新运行，数据都能得到保存。</p>
+<h2 id="Registry"><a href="#Registry" class="headerlink" title="Registry"></a>Registry</h2><p>​    Docker image构建完成后,想要在其他服务器上使用这个镜像,就需要一个集中的储存、分发的服务，Docker registry就是这样的服务。一个Docker registry可以包含多个<code>repository</code>；每个仓库可以包含多个<code>tag</code>；每个tag对应一个镜像。通常一个仓库会包含同一个软件不同版本的镜像，而标签就常用于对应该软件的各个版本，我们常使用<code>&lt;repository&gt;:&lt;tag&gt;</code>来指定具体是那个版本的镜像。</p>
+<p>​    默认的registry是官方的Docker Hub，也是最常使用的registry。（一般来说，在国内使用Docker hub会受网络环境的影响，国内的一些云服务商提供了针对Docker hub的镜像<code>mirror</code> ）</p>
+<h1 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h1><p>​    Docker目前分为CE和EE两大版本，这里主要介绍CE在Windows 10、macOS、主流Linux上的安装。</p>
+<h2 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h2><p><strong>系统要求</strong></p>
+<p>​    Docker CE支持以下版本的Ubuntu系统：</p>
+<ul>
+<li><p>Disco 19.04</p>
+</li>
+<li><p>Cosmic 18.10</p>
+</li>
+<li><p>Bionic 18.04(LTS)</p>
+</li>
+<li><p>Xenial 16.04(LTS)</p>
+<p>一般来说，在生产环境更加推荐LTS长期支持版本，更加稳定。</p>
+</li>
+</ul>
+<p><strong>卸载旧版本</strong></p>
+<p>​    旧版本的Docker 称为 <code>docker</code>或者<code>docker-engine</code>，使用以下命令卸载旧版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove docker \</span><br><span class="line">               docker-engine \</span><br><span class="line">               docker.io</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>使用apt安装</strong></p>
+<p>​    首先要添加使用HTTPS传输的软件包以及CA证书。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
+
+<p>​    为了确认安装包的合法性，需要添加软件源的<code>GPG</code>密钥。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - </span><br></pre></td></tr></table></figure>
+
+<p>​    然后向<code>source.list</code>中添加Docker软件源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository \</span><br><span class="line">     <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span></span><br><span class="line"><span class="string">     <span class="subst">$(lsb_release -cs)</span> \</span></span><br><span class="line"><span class="string">     stable&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    更新apt软件包缓存，并安装docker-ce：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install docker-ce</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>使用脚本自动安装</strong></p>
+<p>​    Docker官方提供了一套简便的安装脚本，Ubuntu系统上可以使用这个脚本安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line">$ sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动Docker CE</strong> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> docker</span><br><span class="line">$ sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p><strong>建立docker用户组</strong></p>
+<p>​    默认情况下，<code>docker</code>命令会使用Unix socket与docker引擎通信，而只有root和docker组的用户可以访问Docker引擎的Unix socket。因此为了安全起见，更好的做法就是将使用docker的用户加入docker用户组。</p>
+<p>​    建立docker用户组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo groupadd docker</span><br></pre></td></tr></table></figure>
+
+<p>​    将当前用户加入docker用户组</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>测试Docker是否安装正确</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>​    正常情况下，将会输出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image <span class="string">&#x27;hello-world:latest&#x27;</span> locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">d1725b59e92d: Pull complete</span><br><span class="line">Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the <span class="string">&quot;hello-world&quot;</span> image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h1><blockquote>
+<p>在之前讲到镜像是一种特殊的文件系统，Docker在运行容器前需要本地存在对应的镜像，如果本地不准在该镜像，Docker会从镜像仓库下载该镜像。</p>
+</blockquote>
+<h2 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h2><p>​    从Docker镜像仓库获取镜像的命令是<code>docker pull</code>。命令格式为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [option] [registry address[:port]/]repo:[tag]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Docker镜像仓库地址格式一般是<ip>:<port>。默认是Docker Hub</li>
+<li>仓库名：一般仓库名是两段式名称，即<code>username/tag</code>。对于Docker Hub如果不给出用户名，则默认为library，也就是官方镜像。</li>
+</ul>
+<h2 id="管理镜像"><a href="#管理镜像" class="headerlink" title="管理镜像"></a>管理镜像</h2><h3 id="列出镜像"><a href="#列出镜像" class="headerlink" title="列出镜像"></a>列出镜像</h3><p>​    我们可以使用 docker images ls 列出本地主机上的镜像。</p>
+<p>​    列表包含了 repository、tag、image id、created以及size。其中关于仓库名和标签的概念在前面已经提到，镜像ID则是镜像的唯一标识，一个镜像可以对应多个tag。因此，如何判断镜像的唯一性，就需要用到image id。</p>
+<p>​    Docker image还支持通过参数筛选出特定的镜像，例如根据仓库名列出镜像，只需在ls后面加上仓库名。此外，Docker image ls 还支持过滤器参数，–filter，可以使用filter的强大功能进行筛选。</p>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p>​    当一个镜像没有被相应的容器运行时，我们可以使用<code>docker rmi &lt;image id&gt;</code>或者<code>docker image rm</code>来删除它。在Docker镜像管理中，有一个专门的命令<code>docker image prune</code>用来删除虚悬镜像。所谓虚悬镜像，即一个仓库名与tag均为<none>的镜像，往往在docker pull新版本的镜像后，因为原来的镜像名被转移到了新pull的镜像,原镜像的名称变成了none而出现。除了Docker pull以外，Docker build也同样能导致这种情况，新的镜像与原有镜像同名，则原有镜像名称被取消，变为虚悬镜像。一般来说，虚悬镜像已经失去了存在的价值，可以随意删除，所有才有了专门的prune命令。</p>
+<p>​    在我们运行<code>docker rmi</code>时，通过输出的信息我们可以发现，Docker删除镜像的行为由Untag和Delete组成，即当我们删除镜像时，删除的是指定的标签，如果还有别的标签指向了该镜像，那么就不会进行Delete，当一个镜像的所有标签都被取消后，才会触发删除，即当没有任何层依赖当前层的时候，才会真实的删除当前层。这也是为什么在删除镜像之前，需要先删除所有依赖该镜像的容器。</p>
+<h3 id="查看镜像体积"><a href="#查看镜像体积" class="headerlink" title="查看镜像体积"></a>查看镜像体积</h3><p>​    由于Docker镜像采用了多层储存结构，所以当我们使用<code>Docker image ls</code>命令列出的镜像体积总和并不等于所占硬盘空间，由于多层储存的结构，不同的镜像可能使用了相同的基础镜像，从而拥有共同的层，而相同的层只需要保存一份即可，因此实际硬盘占用空间要比列表镜像大小的总和小很多。可以使用<code>Docker system df</code>来查看镜像、容器与数据卷所占用的空间。</p>
+<h1 id="使用容器"><a href="#使用容器" class="headerlink" title="使用容器"></a>使用容器</h1><p>​    简单的来说，容器是独立运行的一个或一组应用，以及它们的runtime环境。接下来我们就从容器的生命周期讲一讲如何使用容器。</p>
+<h2 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h2><p>​    启动容器有两种，一种是基于镜像新建一个容器并启动，另一种是重新启动已终止的容器。</p>
+<h3 id="新建容器并启动"><a href="#新建容器并启动" class="headerlink" title="新建容器并启动"></a>新建容器并启动</h3><p>​    <code>Docker run</code>是新建容器的命令，例如现在我需要在开发环境上部署一个openCV开发环境</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/02/Docker%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%BB%E7%BB%93/" rel="tag">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/02/realme-x2-pro/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            realme X2 Pro 一个月使用感受
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/02/%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4%E6%89%8B%E5%86%8C%E5%90%88%E9%9B%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">常用Linux命令手册合集</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '6rOx45BhTGiuJn08QqGSIM60-gzGzoHsz',
+        app_key: 'U0llTCuXc2JxORgPV75aQQsh',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'retro',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <!-- <div class="gif-img">
+    <center><img src="/img/bg/logo.gif" alt="image frame" /></center>
+  </div> -->
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-2021
+        Steven Yan
+      </li>
+      <li>
+        
+        <br />
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/img/favicon.ico" alt="小渚w的博客小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/link/">链接</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/Steven-nagisa-Y">技术</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢你的喜欢~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/alipay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/cursor-effects.js"></script>
+
+
+<script src="/js/flower.js"></script>
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['反思使人进步，总结使人提高','','Hello, world'],
+    startDelay: 200,
+    typeSpeed: 300,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

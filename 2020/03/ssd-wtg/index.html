@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客, 技术" />
+   
+  <meta name="description" content="渚：水中的小块陆地" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    把Windows 10装进外接硬盘里(Windows To Go) ::  小渚w的博客小站
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-ZYJSPP9RMK', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+<link rel="alternate" href="/atom.xml" title="小渚w的博客小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  
+<article id="post-ssd-wtg" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  把Windows 10装进外接硬盘里(Windows To Go)
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/ssd-wtg/" class="article-date">
+  <time datetime="2020-03-11T12:21:14.000Z" itemprop="datePublished">2020-03-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">Note</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.3k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="把Windows-10-装进外接硬盘里，给Mac外接一个系统"><a href="#把Windows-10-装进外接硬盘里，给Mac外接一个系统" class="headerlink" title="把Windows 10 装进外接硬盘里，给Mac外接一个系统"></a>把Windows 10 装进外接硬盘里，给Mac外接一个系统</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/deployment/planning/windows-to-go-overview">Windows To Go：概述</a></p>
+<p>Windows To Go 是 Windows 10 企业版和 Windows 10 教育版中的一项功能，支持创建可从电脑上 USB 连接的外部驱动器启动的 Windows To Go 工作区。</p>
+<p>满足 Windows 7 或更高版本认证要求的 pc 可以在 Windows To Go 工作区中运行 Windows10，无论电脑上运行的是何种操作系统。 Windows To Go 工作区可以使用企业针对其桌面和便携式计算机使用的相同图像，并且可以通过同样的方式进行管理。 Windows To Go 不能取代桌面、笔记本电脑或 supplant 其他移动产品。 相反，它为备用工作区方案提供了对资源的有效使用的支持。 </p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的<strong>MacBook Air</strong>是一个很棒的电脑，它是在我14岁生日的那一天到我手中的，至今它还是我听网课的主要工具。若是说<strong>Mac</strong>的价格高，配不上那渣渣一样的配置，我的确没法反驳；但是从事实出发，这台<strong>MacBookAir6,1</strong>足足跟随了我快6年，从 <strong>OS X 10.8 Mountain Lion</strong> 到 <strong>macOS 10.15 Catalina</strong> 从Windows 7 虚拟机到现在Windows 10 LTSC它从来没有崩溃过，也从来没有出现网上那些奇奇怪怪的问题。外观无损，屏幕正常，电池循环162次，装上Windows 10双系统还能流畅玩耍使命召唤9，独立的<strong>macOS</strong>也很棒，小程序开发，写博客样样能行。</p>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205914623.png" alt="image-20200311205914623"></p>
+<p>要说唯一的不足，就是当初没钱，内置的128GB SSD实在是太小了。不久之前我曾想过给这台Mac更换一个硬盘，毕竟固态硬盘也很快会达到寿命，可是那高昂的原装盘价格和难以忍受的改装盘问题让我犹豫了。</p>
+<p>外接个SSD装系统不仅减少内置硬盘读写、作为磁盘空间补充，还能双系统切换，岂不美哉？那我就去实现外接硬盘安装Windows To Go的想法。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>硬件材料：</p>
+<ol>
+<li>一块SSD硬盘（某品牌120GB SATA SSD）</li>
+<li>硬盘转接器（绿联SATA3转USB 3.1）</li>
+<li>一个U盘（东芝8GB USB2.0）</li>
+<li>一台Windows 10电脑（当然是我的惠普光影精灵5）</li>
+</ol>
+<blockquote>
+<p>ps.</p>
+<p>受疫情影响，中国韩国日本等存储颗粒生产地产能持续下降，内存条和SSD的价格几乎是一天涨一个价，所以我选择了一个杂牌，因为<em>便宜</em>。</p>
+</blockquote>
+<p>软件材料：</p>
+<ol>
+<li>BootCamp驱动</li>
+<li>MSDN原版Windows 10镜像</li>
+<li><center>
+  还在学习中，持续更新...
+</center>
+
+</li>
+</ol>
+<blockquote>
+<p>ps.</p>
+<p>我选择的是Windows 10 Enterprise LTSC 2019版本，是长期支持版本，而且这个版本没有内置Windows App应用，据说不会出现磁盘读写100%问题。</p>
+<p>如果Windows 10电脑版本是专业版或者企业版，则可以使用自带的Windows To Go工具制作。</p>
+</blockquote>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><ul>
+<li>在macOS下的启动转换助理app（BootCamp助理）中下载Windows支持软件，并选择下载到U盘中。</li>
+</ul>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205837284.png" alt="image-20200311205837284"></p>
+<ul>
+<li>下载WTG辅助工具：<a target="_blank" rel="noopener" href="https://bbs.luobotou.org/thread-761-1-1.html">Windows To Go 辅助工具|WTG辅助工具 v5.1.2</a>(出处: 萝卜头IT论坛)</li>
+</ul>
+<img src="https://oss.ryzenx.com/img/2020/image-20200311205610724.png" alt="image-20200311205610724" style="zoom:67%;" />
+
+<ul>
+<li>下载Windows 10原版镜像。可以到<a target="_blank" rel="noopener" href="http://msdn.itellyou.cn">MSDN我告诉你</a>下载</li>
+</ul>
+<img src="https://oss.ryzenx.com/img/2020/image-20200311210816662.png" alt="image-20200311210816662" style="zoom: 67%;" />
+
+
+
+<h3 id="写入镜像"><a href="#写入镜像" class="headerlink" title="写入镜像"></a>写入镜像</h3><ol>
+<li>首先初始化新买的硬盘，使它能够在Windows系统下正常读写，略。</li>
+<li>装载Windows镜像。在Windows 10上无需虚拟光驱，双击即可装载在“此电脑”中：</li>
+</ol>
+<p><img src="https://oss.ryzenx.com/img/2020/image-20200311211023714.png" alt="image-20200311211023714"></p>
+<ol start="3">
+<li>打开WGT辅助工具，并按照以下图示操作：</li>
+</ol>
+<p><img src="https://oss.ryzenx.com/img/2020/step1.png" alt="step1"></p>
+<center>注意硬盘别选错了，系统版本可以任意选择</center>
+
+<p><img src="https://oss.ryzenx.com/img/2020/step2.png" alt="step2"></p>
+<center>虽然苹果磁盘是GPT分区表，但是外接硬盘必须选择MBR，不然无法启动！！！</center>
+
+<center>选择虚拟硬盘是防止Windows文件修改，同时便于备份</center>
+
+<center>如果需要读取Windows系统下的文件，请选择“传统”磁盘模式</center>
+
+<p><img src="https://oss.ryzenx.com/img/2020/step3.png" alt="step3"></p>
+<center>“虚拟硬盘”和“分区”可以按照需要调整</center>
+
+<p><img src="https://oss.ryzenx.com/img/2020/step4.png" alt="step4"></p>
+<center>点击部署后，再次确认硬盘</center>
+
+<ol start="4">
+<li>等待写入完成之后取下硬盘。</li>
+</ol>
+<p>至此，Windows To Go写入已完成。</p>
+<h2 id="接入硬盘"><a href="#接入硬盘" class="headerlink" title="接入硬盘"></a>接入硬盘</h2><p>将Mac关机，把硬盘接入Mac中，点击电源键后<strong>按住 option</strong>按键，等待屏幕显示选择启动磁盘。<em>如果有多个磁盘显示，请优先选择 EFI Boot。选择其他引导分区可能无法启动</em></p>
+<img src="https://oss.ryzenx.com/img/2020/IMG_20200311_213150.jpg" alt="IMG_20200311_213150" style="zoom: 67%;" />
+
+<center>要选择<b>EFI Boot启动选项</b></center>
+
+<p>然后等待Windows 10安装…</p>
+<p>等待进入系统桌面之后，插入之前保存Windows支持软件的U盘，双击<strong>BootCamp.exe</strong>安装Mac专属驱动。期间电脑会闪烁屏幕、有硬件插入拔出的音效，这是正在安装驱动的正常现象。</p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新启动一次之后，就能进入熟悉的Windows 10桌面啦~</p>
+<p><strong>注意！!</strong>由于是外接硬盘运行的系统，建议每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘，虽然我刚刚试了一下，Mac可以记录上一次启动磁盘，正常从外部硬盘启动。</p>
+<p><img src="https://oss.ryzenx.com/img/2020/WTG.jpg" alt="WTG"></p>
+<h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><p><a href="https://ryzenx.com/2020/03/win-on-ssd-report/">【已更新】点击这里</a></p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
+                https://ryzenx.com/2020/03/ssd-wtg/
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2020/03/ssd-wtg/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/essay/" rel="tag">essay</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssd/" rel="tag">ssd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/03/win-on-ssd-report/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            外置SSD安装Win2Go使用体验
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/03/macOS-trashfile-cleaner/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Python删除macOS产生的冗余文件</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '6rOx45BhTGiuJn08QqGSIM60-gzGzoHsz',
+        app_key: 'U0llTCuXc2JxORgPV75aQQsh',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'retro',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <!-- <div class="gif-img">
+    <center><img src="/img/bg/logo.gif" alt="image frame" /></center>
+  </div> -->
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-2021
+        Steven Yan
+      </li>
+      <li>
+        
+        <br />
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/img/favicon.ico" alt="小渚w的博客小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/link/">链接</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/Steven-nagisa-Y">技术</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢你的喜欢~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/alipay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/cursor-effects.js"></script>
+
+
+<script src="/js/flower.js"></script>
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['反思使人进步，总结使人提高','','Hello, world'],
+    startDelay: 200,
+    typeSpeed: 300,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>
