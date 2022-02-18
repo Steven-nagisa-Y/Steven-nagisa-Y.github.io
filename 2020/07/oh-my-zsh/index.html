@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.3k字</span>
+            <span class="post-count">1.4k字</span>
         </span>
     </span>
 
@@ -117,7 +117,7 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="绝美终端：Zsh-安装Oh-My-Zsh"><a href="#绝美终端：Zsh-安装Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装Oh My Zsh)"></a>绝美终端：Zsh(安装Oh My Zsh)</h1><blockquote>
+      <h1 id="绝美终端：Zsh-安装-Oh-My-Zsh"><a href="#绝美终端：Zsh-安装-Oh-My-Zsh" class="headerlink" title="绝美终端：Zsh(安装 Oh My Zsh)"></a>绝美终端：Zsh(安装 Oh My Zsh)</h1><blockquote>
 <p>Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout…</p>
 <p>“Oh My ZSH!”</p>
 </blockquote>
@@ -125,66 +125,66 @@ ga('send', 'pageview');
 
 <span id="more"></span>
 
-<h2 id="1-Zsh是什么？"><a href="#1-Zsh是什么？" class="headerlink" title="1-Zsh是什么？"></a>1-Zsh是什么？</h2><p>Z shell（Zsh）是一款可用作交互式登录的shell及脚本编写的命令解释器。Zsh对Bourne shell做出了大量改进，同时加入了Bash、ksh及tcsh的某些功能。</p>
+<h2 id="1-Zsh-是什么？"><a href="#1-Zsh-是什么？" class="headerlink" title="1-Zsh 是什么？"></a>1-Zsh 是什么？</h2><p>Z shell（Zsh）是一款可用作交互式登录的 shell 及脚本编写的命令解释器。Zsh 对 Bourne shell 做出了大量改进，同时加入了 Bash、ksh 及 tcsh 的某些功能。</p>
 <p>特性包括：</p>
 <ul>
 <li>可帮助用户键入常用命令选项及参数的可编程命令行补全功能，自带对数百条命令的支持</li>
-<li>可与任意Shell共享命令历史</li>
-<li>可在无需运行外部程序（如find）的情况下通过 文件扩展匹配文件</li>
+<li>可与任意 Shell 共享命令历史</li>
+<li>可在无需运行外部程序（如 find）的情况下通过 文件扩展匹配文件</li>
 <li>改进变量/数组处理方式</li>
 <li>在单缓冲区内编辑多行命令</li>
 <li>拼写检查</li>
-<li>多种兼容模式（例如，Zsh可在运行为<code>/bin/sh</code>的情况下伪装成Bourne shell）</li>
+<li>多种兼容模式（例如，Zsh 可在运行为<code>/bin/sh</code>的情况下伪装成 Bourne shell）</li>
 <li>可编程的命令行界面，包括将提示行信息显示在屏幕右侧并在输入过长指令时自动隐藏的功能</li>
-<li>可加载模块可提供额外支持：完整传输控制协议、Unix域套接字控制、FTP客户端及扩展数学函数。</li>
+<li>可加载模块可提供额外支持：完整传输控制协议、Unix 域套接字控制、FTP 客户端及扩展数学函数。</li>
 <li>自带<code>where</code>命令，其与<code>which</code>命令类似，但是显示指定于<code>$PATH</code>中所指定指令的全部位置，而不是仅显示所使用指令的位置。</li>
 <li>目录名称。此功能可让用户设置快捷方式，（如<code>~mydir</code>，与<code>~</code>及<code>~user</code>的工作方式相似）。</li>
 </ul>
-<p>我认识Zsh是在macOS从<strong>bash</strong>转换为<strong>zsh</strong>的时候，最开始是好奇这个shell/bash/zsh到底有什么不同：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Comparison_of_command_shells">终端有什么不同</a>。后来发现了有Oh My Zsh的框架，主题倒是非常好看。</p>
-<h2 id="2-Oh-My-Zsh是什么？"><a href="#2-Oh-My-Zsh是什么？" class="headerlink" title="2-Oh-My-Zsh是什么？"></a>2-Oh-My-Zsh是什么？</h2><p><em>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</em></p>
-<p>Oh My Zsh是一个开源的、由社区驱动的zsh管理框架。</p>
+<p>我认识 Zsh 是在 macOS 从<strong>bash</strong>转换为<strong>zsh</strong>的时候，最开始是好奇这个 shell/bash/zsh 到底有什么不同：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Comparison_of_command_shells">终端有什么不同</a>。后来发现了有 Oh My Zsh 的框架，主题倒是非常好看。</p>
+<h2 id="2-Oh-My-Zsh-是什么？"><a href="#2-Oh-My-Zsh-是什么？" class="headerlink" title="2-Oh-My-Zsh 是什么？"></a>2-Oh-My-Zsh 是什么？</h2><p><em>Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.</em></p>
+<p>Oh My Zsh 是一个开源的、由社区驱动的 zsh 管理框架。</p>
 <p><em>Sounds boring. Let’s try again.</em></p>
 <p>听起来没什么大不了的，来一起试一试。</p>
 <p><em>Oh My Zsh will not make you a 10x developer…but you may feel like one.</em></p>
-<p>Oh My Zsh不能让你变成10倍的开发人员，但你很可能有这个感觉。</p>
+<p>Oh My Zsh 不能让你变成 10 倍的开发人员，但你很可能有这个感觉。</p>
 <p><em>Once installed, your terminal shell will become the talk of the town or your money back! With each keystroke in your command prompt, you’ll take advantage of the hundreds of powerful plugins and beautiful themes. Strangers will come up to you in cafés and ask you, “that is amazing! are you some sort of genius?”</em></p>
 <p>当你安装好之后，你的终端界面将成为别人讨论的话题，不信给你钱！在命令提示符中的每次击键操作中，您将利用数百个功能强大的插件和精美的主题。陌生人会到咖啡馆来找你，问你：“这太帅了！你是不是天才？”</p>
 <p><em>Finally, you’ll begin to get the sort of attention that you have always felt you deserved. …or maybe you’ll use the time that you’re saving to start flossing more often.</em></p>
 <p>最后，你将开始得到你一直以来应该得到的关注……或者你将用省下来的时间多用牙线清洁下牙齿？</p>
-<p><strong>简单来说</strong>，Oh My Zsh就是一个用来管理zsh的一个框架，有许多的插件、主题还有庞大的社区支持。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-22.51.50.png" alt="截屏2020-07-13-22.51.50"></p>
-<h2 id="3-Zsh的安装"><a href="#3-Zsh的安装" class="headerlink" title="3-Zsh的安装"></a>3-Zsh的安装</h2><p>在macOS中，新版已经自动把终端设置为Zsh了，如果没有，可以通过<a target="_blank" rel="noopener" href="https://brew.sh/"><strong>HomeBrew</strong></a>进行安装：</p>
+<p><strong>简单来说</strong>，Oh My Zsh 就是一个用来管理 zsh 的一个框架，有许多的插件、主题还有庞大的社区支持。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-22.51.50.png" alt="截屏2020-07-13-22.51.50"></p>
+<h2 id="3-Zsh-的安装"><a href="#3-Zsh-的安装" class="headerlink" title="3-Zsh 的安装"></a>3-Zsh 的安装</h2><p>在 macOS 中，新版已经自动把终端设置为 Zsh 了，如果没有，可以通过<a target="_blank" rel="noopener" href="https://brew.sh/"><strong>HomeBrew</strong></a>进行安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure>
 
 <p>苹果官方帮助页面：<a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT208050">在 Mac 上将 zsh 用作默认 Shell</a></p>
 <hr>
-<p>在Linux系统中：</p>
+<p>在 Linux 系统中：</p>
 <ol>
-<li><p>查看内置shell:</p>
+<li><p>查看内置 shell:</p>
 <p><code>cat /etc/shells</code></p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.00.57.png" alt="截屏2020-07-13-23.00.57"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.00.57.png" alt="截屏2020-07-13-23.00.57"></p>
 </li>
 <li><p>用包管理软件进行安装：</p>
 <p><code>sudo apt-get install zsh</code></p>
 </li>
-<li><p>安装Oh-My-Zsh：</p>
-<p><em>通过curl</em></p>
+<li><p>安装 Oh-My-Zsh：</p>
+<p><em>通过 curl</em></p>
 <p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></p>
-<p><em>通过wget</em></p>
+<p><em>通过 wget</em></p>
 <p><code>sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></p>
-<p><strong><code>raw.github.com</code>页面可能被DNS污染，国内用户自行解决</strong></p>
+<p><strong><code>raw.github.com</code>页面可能被 DNS 污染，国内用户自行解决</strong></p>
 </li>
-<li><p>安装完成后会自动切换到Zsh</p>
+<li><p>安装完成后会自动切换到 Zsh</p>
 </li>
 </ol>
-<h2 id="4-主题配置"><a href="#4-主题配置" class="headerlink" title="4-主题配置"></a>4-主题配置</h2><p>内置了许多、各种各样的主题文件，详见<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">官方Wiki</a>。</p>
+<h2 id="4-主题配置"><a href="#4-主题配置" class="headerlink" title="4-主题配置"></a>4-主题配置</h2><p>内置了许多、各种各样的主题文件，详见<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">官方 Wiki</a>。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改zsh配置文件</span></span><br><span class="line">nano ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改主题文件指向</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;robbyrussell&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置Zsh配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.11.40.png" alt="截屏2020-07-13-23.11.40"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.11.40.png" alt="截屏2020-07-13-23.11.40"></p>
 <p><strong>主题肯定是要自己改改的</strong></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以robbyrussell主题为例</span></span><br><span class="line">nano ~/.oh-my-zsh/themes/robbyrussell.zsh-theme</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.21.23.png" alt="截屏2020-07-13-23.21.23"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.21.23.png" alt="截屏2020-07-13-23.21.23"></p>
 <p><strong>主要是前两行</strong>我的配置参考：</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PROMPT=<span class="string">&quot;%(?:%&#123;$fg_bold[green]%&#125;➜ :%&#123;$fg_bold[red]%&#125;➜ )&quot;</span></span><br><span class="line">PROMPT+=<span class="string">&quot;%&#123;$fg[red]%&#125;(%T)%&#123;$fg[cyan]%&#125;[%~]$ %&#123;$reset_color%&#125;&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -226,7 +226,7 @@ ga('send', 'pageview');
 </tr>
 <tr>
 <td>%~</td>
-<td>你目前的工作目录相对于Home的相对路径</td>
+<td>你目前的工作目录相对于 Home 的相对路径</td>
 </tr>
 <tr>
 <td>%M</td>
@@ -238,13 +238,13 @@ ga('send', 'pageview');
 </tr>
 <tr>
 <td>%l</td>
-<td>你当前的tty</td>
+<td>你当前的 tty</td>
 </tr>
 </tbody></table>
 <p>效果如下：</p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.37.49.png" alt="截屏2020-07-13-23.37.49"></p>
-<h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5-后记"></a>5-后记</h2><p>本文也算是我自己的一个记录，我比较习惯各个设备上的样式尽可能的保持统一，所以我需要在不同设备上安装Zsh，并且保持几乎一致的主题配置。</p>
-<p>本篇文章可能干货不算很多，建议有兴趣的朋友去官方wiki网站查看一下更加详细的主题、插件配置方法。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-07-13-23.37.49.png" alt="截屏2020-07-13-23.37.49"></p>
+<h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5-后记"></a>5-后记</h2><p>本文也算是我自己的一个记录，我比较习惯各个设备上的样式尽可能的保持统一，所以我需要在不同设备上安装 Zsh，并且保持几乎一致的主题配置。</p>
+<p>本篇文章可能干货不算很多，建议有兴趣的朋友去官方 wiki 网站查看一下更加详细的主题、插件配置方法。</p>
 <p>如果自己写出了很漂亮的主题配置，欢迎下方评论留言一起分享哦～</p>
 
       
@@ -422,23 +422,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

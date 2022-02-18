@@ -123,25 +123,15 @@ ga('send', 'pageview');
 </blockquote>
 <span id="more"></span>
 
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作者名字</span></span><br><span class="line"><span class="attr">authorName:</span> <span class="string">StevenOS</span></span><br><span class="line"><span class="comment"># 实验名称</span></span><br><span class="line"><span class="attr">experimentName:</span> <span class="string">Test</span></span><br><span class="line"><span class="comment"># 定义trial的数量，一般不大于空闲GPU的数量</span></span><br><span class="line"><span class="attr">trialConcurrency:</span> <span class="number">1</span> </span><br><span class="line"><span class="comment"># 定义此实验的最长执行时间，单位有:s, m, h, d</span></span><br><span class="line"><span class="attr">maxExecDuration:</span> <span class="string">1h</span></span><br><span class="line"><span class="comment"># 最大trail的数量</span></span><br><span class="line"><span class="attr">maxTrialNum:</span> <span class="number">10</span></span><br><span class="line"><span class="comment"># choices: local, remote, pai</span></span><br><span class="line"><span class="comment"># 运行此nni服务的位置：</span></span><br><span class="line"><span class="comment"># local: 本地</span></span><br><span class="line"><span class="comment"># remote: ssh链接到的远程计算机</span></span><br><span class="line"><span class="comment"># pai: 提交任务到微软开源的 OpenPAI 上。</span></span><br><span class="line"><span class="attr">trainingServicePlatform:</span> <span class="string">local</span></span><br><span class="line"><span class="comment"># 搜索空间路径</span></span><br><span class="line"><span class="attr">searchSpacePath:</span> <span class="string">search_space.json</span></span><br><span class="line"><span class="comment"># 定义使用标记来分析代码并生成搜索空间。使用Annotation则设置为true</span></span><br><span class="line"><span class="attr">useAnnotation:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">tuner:</span></span><br><span class="line">44<span class="comment"># 系统Tuner的名字</span></span><br><span class="line">44<span class="comment"># choices: TPE, Random, Anneal, Evolution, BatchTuner, MetisTuner,</span></span><br><span class="line">44<span class="comment">#          GPTuner, SMAC (SMAC should be installed through nnictl)</span></span><br><span class="line">    <span class="attr">builtinTunerName:</span> <span class="string">TPE</span></span><br><span class="line">    <span class="comment"># Tuner算法的参数</span></span><br><span class="line">    <span class="attr">classArgs:</span></span><br><span class="line">    		<span class="comment"># choices: maximize, minimize</span></span><br><span class="line">        <span class="attr">optimize_mode:</span> <span class="string">maximize</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># trail配置</span></span><br><span class="line"><span class="attr">trial:</span></span><br><span class="line">4<span class="comment"># trial执行命令</span></span><br><span class="line">  <span class="attr">command:</span> <span class="string">python3</span> <span class="string">mnist.py</span></span><br><span class="line">  <span class="comment"># 代码相对路径</span></span><br><span class="line">  <span class="attr">codeDir:</span> <span class="string">.</span></span><br><span class="line">  <span class="comment"># 设置GPU个数</span></span><br><span class="line">  <span class="attr">gpuNum:</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作者名字</span></span><br><span class="line"><span class="attr">authorName:</span> <span class="string">StevenOS</span></span><br><span class="line"><span class="comment"># 实验名称</span></span><br><span class="line"><span class="attr">experimentName:</span> <span class="string">Test</span></span><br><span class="line"><span class="comment"># 定义trial的数量，一般不大于空闲GPU的数量</span></span><br><span class="line"><span class="attr">trialConcurrency:</span> <span class="number">1</span></span><br><span class="line"><span class="comment"># 定义此实验的最长执行时间，单位有:s, m, h, d</span></span><br><span class="line"><span class="attr">maxExecDuration:</span> <span class="string">1h</span></span><br><span class="line"><span class="comment"># 最大trail的数量</span></span><br><span class="line"><span class="attr">maxTrialNum:</span> <span class="number">10</span></span><br><span class="line"><span class="comment"># choices: local, remote, pai</span></span><br><span class="line"><span class="comment"># 运行此nni服务的位置：</span></span><br><span class="line"><span class="comment"># local: 本地</span></span><br><span class="line"><span class="comment"># remote: ssh链接到的远程计算机</span></span><br><span class="line"><span class="comment"># pai: 提交任务到微软开源的 OpenPAI 上。</span></span><br><span class="line"><span class="attr">trainingServicePlatform:</span> <span class="string">local</span></span><br><span class="line"><span class="comment"># 搜索空间路径</span></span><br><span class="line"><span class="attr">searchSpacePath:</span> <span class="string">search_space.json</span></span><br><span class="line"><span class="comment"># 定义使用标记来分析代码并生成搜索空间。使用Annotation则设置为true</span></span><br><span class="line"><span class="attr">useAnnotation:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">tuner:</span></span><br><span class="line">44<span class="comment"># 系统Tuner的名字</span></span><br><span class="line">44<span class="comment"># choices: TPE, Random, Anneal, Evolution, BatchTuner, MetisTuner,</span></span><br><span class="line">44<span class="comment">#          GPTuner, SMAC (SMAC should be installed through nnictl)</span></span><br><span class="line">    <span class="attr">builtinTunerName:</span> <span class="string">TPE</span></span><br><span class="line">    <span class="comment"># Tuner算法的参数</span></span><br><span class="line">    <span class="attr">classArgs:</span></span><br><span class="line">    		<span class="comment"># choices: maximize, minimize</span></span><br><span class="line">        <span class="attr">optimize_mode:</span> <span class="string">maximize</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># trail配置</span></span><br><span class="line"><span class="attr">trial:</span></span><br><span class="line">4<span class="comment"># trial执行命令</span></span><br><span class="line">  <span class="attr">command:</span> <span class="string">python3</span> <span class="string">mnist.py</span></span><br><span class="line">  <span class="comment"># 代码相对路径</span></span><br><span class="line">  <span class="attr">codeDir:</span> <span class="string">.</span></span><br><span class="line">  <span class="comment"># 设置GPU个数</span></span><br><span class="line">  <span class="attr">gpuNum:</span> <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="参数定义"><a href="#参数定义" class="headerlink" title="参数定义"></a>参数定义</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">        <span class="string">&quot;dropout_rate&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">        <span class="string">&quot;conv_size&quot;</span>: <span class="number">5</span>,</span><br><span class="line">        <span class="string">&quot;hidden_size&quot;</span>: <span class="number">1024</span>,</span><br><span class="line">        <span class="string">&quot;batch_size&quot;</span>: <span class="number">32</span>,</span><br><span class="line">        <span class="string">&quot;learning_rate&quot;</span>: <span class="number">1e-4</span>,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = MnistModel(</span><br><span class="line">        conv_size=params[<span class="string">&quot;conv_size&quot;</span>],</span><br><span class="line">        hidden_size=params[<span class="string">&quot;hidden_size&quot;</span>],</span><br><span class="line">        dropout_rate=params[<span class="string">&quot;dropout_rate&quot;</span>],</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-
-
 
 <h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model.fit(</span><br><span class="line">        x_train,</span><br><span class="line">        y_train,</span><br><span class="line">        batch_size=params[<span class="string">&quot;batch_size&quot;</span>],</span><br><span class="line">        epochs=<span class="number">10</span>,</span><br><span class="line">        verbose=<span class="number">0</span>,</span><br><span class="line">        callbacks=[ReportIntermediates()],</span><br><span class="line">        validation_data=(x_test, y_test),</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="加载数据集"><a href="#加载数据集" class="headerlink" title="加载数据集"></a>加载数据集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_dataset</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Download and reformat MNIST dataset&quot;&quot;&quot;</span></span><br><span class="line">    mnist = tf.keras.datasets.mnist</span><br><span class="line">    (x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line">    x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line">    x_train = x_train[..., tf.newaxis]</span><br><span class="line">    x_test = x_test[..., tf.newaxis]</span><br><span class="line">    <span class="keyword">return</span> (x_train, y_train), (x_test, y_test)</span><br></pre></td></tr></table></figure>
-
-
 
 <h3 id="提交中间结果"><a href="#提交中间结果" class="headerlink" title="提交中间结果"></a>提交中间结果</h3><blockquote>
 <p>主要代码：</p>
@@ -149,28 +139,24 @@ ga('send', 'pageview');
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_epoch_end</span>(<span class="params">self, epoch, logs=<span class="literal">None</span></span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;Reports intermediate accuracy to NNI framework&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;val_acc&quot;</span> <span class="keyword">in</span> logs:</span><br><span class="line">            nni.report_intermediate_result(logs[<span class="string">&quot;val_acc&quot;</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            nni.report_intermediate_result(logs[<span class="string">&quot;val_accuracy&quot;</span>])</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="提交最终结果"><a href="#提交最终结果" class="headerlink" title="提交最终结果"></a>提交最终结果</h3><blockquote>
 <p>主要代码</p>
 <p><code>nni.report_final_result()</code></p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loss, accuracy = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line">  nni.report_final_result(accuracy)  <span class="comment"># send final accuracy to NNI tuner and web UI</span></span><br><span class="line">  _logger.info(<span class="string">&quot;Final accuracy reported: %s&quot;</span>, accuracy)</span><br></pre></td></tr></table></figure>
 
-
-
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
 <li>从配置文件中的<code>searchSpacePath</code>中读取超级参数和搜索范围字典文件：<code>search_space.json</code></li>
 <li>获得命令行参数，或者采用默认参数</li>
-<li>加载参数，用以产生2D图表</li>
+<li>加载参数，用以产生 2D 图表</li>
 <li>若需要将每次实验结果上报，则使用：<br><code>nni.report_intermediate_result(metric)</code></li>
 <li>若要上报最终结果（以此最终结果作为参数选择的参考），则使用：<br><code>nni.report_final_result(metric)</code></li>
-<li>每次Trial重复实现，直到达到配置文件中的<code>maxTrialNum</code></li>
+<li>每次 Trial 重复实现，直到达到配置文件中的<code>maxTrialNum</code></li>
 </ol>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="https://oss.ryzenx.com/img/2020/image-20200510204056750.png" alt=""></p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200510204115621.png" alt=""></p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200510204131183.png" alt=""></p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200510204148149.png" alt=""></p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200510204056750.png" alt=""></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200510204115621.png" alt=""></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200510204131183.png" alt=""></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200510204148149.png" alt=""></p>
 
       
       <!-- reward -->
@@ -347,23 +333,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

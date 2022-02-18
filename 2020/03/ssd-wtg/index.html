@@ -117,32 +117,32 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="把Windows-10-装进外接硬盘里，给Mac外接一个系统"><a href="#把Windows-10-装进外接硬盘里，给Mac外接一个系统" class="headerlink" title="把Windows 10 装进外接硬盘里，给Mac外接一个系统"></a>把Windows 10 装进外接硬盘里，给Mac外接一个系统</h1><blockquote>
+      <h1 id="把-Windows-10-装进外接硬盘里，给-Mac-外接一个系统"><a href="#把-Windows-10-装进外接硬盘里，给-Mac-外接一个系统" class="headerlink" title="把 Windows 10 装进外接硬盘里，给 Mac 外接一个系统"></a>把 Windows 10 装进外接硬盘里，给 Mac 外接一个系统</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/deployment/planning/windows-to-go-overview">Windows To Go：概述</a></p>
 <p>Windows To Go 是 Windows 10 企业版和 Windows 10 教育版中的一项功能，支持创建可从电脑上 USB 连接的外部驱动器启动的 Windows To Go 工作区。</p>
-<p>满足 Windows 7 或更高版本认证要求的 pc 可以在 Windows To Go 工作区中运行 Windows10，无论电脑上运行的是何种操作系统。 Windows To Go 工作区可以使用企业针对其桌面和便携式计算机使用的相同图像，并且可以通过同样的方式进行管理。 Windows To Go 不能取代桌面、笔记本电脑或 supplant 其他移动产品。 相反，它为备用工作区方案提供了对资源的有效使用的支持。 </p>
+<p>满足 Windows 7 或更高版本认证要求的 pc 可以在 Windows To Go 工作区中运行 Windows10，无论电脑上运行的是何种操作系统。 Windows To Go 工作区可以使用企业针对其桌面和便携式计算机使用的相同图像，并且可以通过同样的方式进行管理。 Windows To Go 不能取代桌面、笔记本电脑或 supplant 其他移动产品。 相反，它为备用工作区方案提供了对资源的有效使用的支持。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的<strong>MacBook Air</strong>是一个很棒的电脑，它是在我14岁生日的那一天到我手中的，至今它还是我听网课的主要工具。若是说<strong>Mac</strong>的价格高，配不上那渣渣一样的配置，我的确没法反驳；但是从事实出发，这台<strong>MacBookAir6,1</strong>足足跟随了我快6年，从 <strong>OS X 10.8 Mountain Lion</strong> 到 <strong>macOS 10.15 Catalina</strong> 从Windows 7 虚拟机到现在Windows 10 LTSC它从来没有崩溃过，也从来没有出现网上那些奇奇怪怪的问题。外观无损，屏幕正常，电池循环162次，装上Windows 10双系统还能流畅玩耍使命召唤9，独立的<strong>macOS</strong>也很棒，小程序开发，写博客样样能行。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205914623.png" alt="image-20200311205914623"></p>
-<p>要说唯一的不足，就是当初没钱，内置的128GB SSD实在是太小了。不久之前我曾想过给这台Mac更换一个硬盘，毕竟固态硬盘也很快会达到寿命，可是那高昂的原装盘价格和难以忍受的改装盘问题让我犹豫了。</p>
-<p>外接个SSD装系统不仅减少内置硬盘读写、作为磁盘空间补充，还能双系统切换，岂不美哉？那我就去实现外接硬盘安装Windows To Go的想法。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我的<strong>MacBook Air</strong>是一个很棒的电脑，它是在我 14 岁生日的那一天到我手中的，至今它还是我听网课的主要工具。若是说<strong>Mac</strong>的价格高，配不上那渣渣一样的配置，我的确没法反驳；但是从事实出发，这台<strong>MacBookAir6,1</strong>足足跟随了我快 6 年，从 <strong>OS X 10.8 Mountain Lion</strong> 到 <strong>macOS 10.15 Catalina</strong> 从 Windows 7 虚拟机到现在 Windows 10 LTSC 它从来没有崩溃过，也从来没有出现网上那些奇奇怪怪的问题。外观无损，屏幕正常，电池循环 162 次，装上 Windows 10 双系统还能流畅玩耍使命召唤 9，独立的<strong>macOS</strong>也很棒，小程序开发，写博客样样能行。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200311205914623.png" alt="image-20200311205914623"></p>
+<p>要说唯一的不足，就是当初没钱，内置的 128GB SSD 实在是太小了。不久之前我曾想过给这台 Mac 更换一个硬盘，毕竟固态硬盘也很快会达到寿命，可是那高昂的原装盘价格和难以忍受的改装盘问题让我犹豫了。</p>
+<p>外接个 SSD 装系统不仅减少内置硬盘读写、作为磁盘空间补充，还能双系统切换，岂不美哉？那我就去实现外接硬盘安装 Windows To Go 的想法。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>硬件材料：</p>
 <ol>
-<li>一块SSD硬盘（某品牌120GB SATA SSD）</li>
-<li>硬盘转接器（绿联SATA3转USB 3.1）</li>
-<li>一个U盘（东芝8GB USB2.0）</li>
-<li>一台Windows 10电脑（当然是我的惠普光影精灵5）</li>
+<li>一块 SSD 硬盘（某品牌 120GB SATA SSD）</li>
+<li>硬盘转接器（绿联 SATA3 转 USB 3.1）</li>
+<li>一个 U 盘（东芝 8GB USB2.0）</li>
+<li>一台 Windows 10 电脑（当然是我的惠普光影精灵 5）</li>
 </ol>
 <blockquote>
 <p>ps.</p>
-<p>受疫情影响，中国韩国日本等存储颗粒生产地产能持续下降，内存条和SSD的价格几乎是一天涨一个价，所以我选择了一个杂牌，因为<em>便宜</em>。</p>
+<p>受疫情影响，中国韩国日本等存储颗粒生产地产能持续下降，内存条和 SSD 的价格几乎是一天涨一个价，所以我选择了一个杂牌，因为<em>便宜</em>。</p>
 </blockquote>
 <p>软件材料：</p>
 <ol>
-<li>BootCamp驱动</li>
-<li>MSDN原版Windows 10镜像</li>
+<li>BootCamp 驱动</li>
+<li>MSDN 原版 Windows 10 镜像</li>
 <li><center>
   还在学习中，持续更新...
 </center>
@@ -151,63 +151,61 @@ ga('send', 'pageview');
 </ol>
 <blockquote>
 <p>ps.</p>
-<p>我选择的是Windows 10 Enterprise LTSC 2019版本，是长期支持版本，而且这个版本没有内置Windows App应用，据说不会出现磁盘读写100%问题。</p>
-<p>如果Windows 10电脑版本是专业版或者企业版，则可以使用自带的Windows To Go工具制作。</p>
+<p>我选择的是 Windows 10 Enterprise LTSC 2019 版本，是长期支持版本，而且这个版本没有内置 Windows App 应用，据说不会出现磁盘读写 100%问题。</p>
+<p>如果 Windows 10 电脑版本是专业版或者企业版，则可以使用自带的 Windows To Go 工具制作。</p>
 </blockquote>
 <h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h3><ul>
-<li>在macOS下的启动转换助理app（BootCamp助理）中下载Windows支持软件，并选择下载到U盘中。</li>
+<li>在 macOS 下的启动转换助理 app（BootCamp 助理）中下载 Windows 支持软件，并选择下载到 U 盘中。</li>
 </ul>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200311205837284.png" alt="image-20200311205837284"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200311205837284.png" alt="image-20200311205837284"></p>
 <ul>
-<li>下载WTG辅助工具：<a target="_blank" rel="noopener" href="https://bbs.luobotou.org/thread-761-1-1.html">Windows To Go 辅助工具|WTG辅助工具 v5.1.2</a>(出处: 萝卜头IT论坛)</li>
+<li>下载 WTG 辅助工具：<a target="_blank" rel="noopener" href="https://bbs.luobotou.org/thread-761-1-1.html">Windows To Go 辅助工具|WTG 辅助工具 v5.1.2</a>(出处: 萝卜头 IT 论坛)</li>
 </ul>
-<img src="https://oss.ryzenx.com/img/2020/image-20200311205610724.png" alt="image-20200311205610724" style="zoom:67%;" />
+<img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200311205610724.png" alt="image-20200311205610724" style="zoom:67%;" />
 
 <ul>
-<li>下载Windows 10原版镜像。可以到<a target="_blank" rel="noopener" href="http://msdn.itellyou.cn">MSDN我告诉你</a>下载</li>
+<li>下载 Windows 10 原版镜像。可以到<a target="_blank" rel="noopener" href="http://msdn.itellyou.cn">MSDN 我告诉你</a>下载</li>
 </ul>
-<img src="https://oss.ryzenx.com/img/2020/image-20200311210816662.png" alt="image-20200311210816662" style="zoom: 67%;" />
-
-
+<img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200311210816662.png" alt="image-20200311210816662" style="zoom: 67%;" />
 
 <h3 id="写入镜像"><a href="#写入镜像" class="headerlink" title="写入镜像"></a>写入镜像</h3><ol>
-<li>首先初始化新买的硬盘，使它能够在Windows系统下正常读写，略。</li>
-<li>装载Windows镜像。在Windows 10上无需虚拟光驱，双击即可装载在“此电脑”中：</li>
+<li>首先初始化新买的硬盘，使它能够在 Windows 系统下正常读写，略。</li>
+<li>装载 Windows 镜像。在 Windows 10 上无需虚拟光驱，双击即可装载在“此电脑”中：</li>
 </ol>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200311211023714.png" alt="image-20200311211023714"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200311211023714.png" alt="image-20200311211023714"></p>
 <ol start="3">
-<li>打开WGT辅助工具，并按照以下图示操作：</li>
+<li>打开 WGT 辅助工具，并按照以下图示操作：</li>
 </ol>
-<p><img src="https://oss.ryzenx.com/img/2020/step1.png" alt="step1"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/step1.png" alt="step1"></p>
 <center>注意硬盘别选错了，系统版本可以任意选择</center>
 
-<p><img src="https://oss.ryzenx.com/img/2020/step2.png" alt="step2"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/step2.png" alt="step2"></p>
 <center>虽然苹果磁盘是GPT分区表，但是外接硬盘必须选择MBR，不然无法启动！！！</center>
 
 <center>选择虚拟硬盘是防止Windows文件修改，同时便于备份</center>
 
 <center>如果需要读取Windows系统下的文件，请选择“传统”磁盘模式</center>
 
-<p><img src="https://oss.ryzenx.com/img/2020/step3.png" alt="step3"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/step3.png" alt="step3"></p>
 <center>“虚拟硬盘”和“分区”可以按照需要调整</center>
 
-<p><img src="https://oss.ryzenx.com/img/2020/step4.png" alt="step4"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/step4.png" alt="step4"></p>
 <center>点击部署后，再次确认硬盘</center>
 
 <ol start="4">
 <li>等待写入完成之后取下硬盘。</li>
 </ol>
-<p>至此，Windows To Go写入已完成。</p>
-<h2 id="接入硬盘"><a href="#接入硬盘" class="headerlink" title="接入硬盘"></a>接入硬盘</h2><p>将Mac关机，把硬盘接入Mac中，点击电源键后<strong>按住 option</strong>按键，等待屏幕显示选择启动磁盘。<em>如果有多个磁盘显示，请优先选择 EFI Boot。选择其他引导分区可能无法启动</em></p>
-<img src="https://oss.ryzenx.com/img/2020/IMG_20200311_213150.jpg" alt="IMG_20200311_213150" style="zoom: 67%;" />
+<p>至此，Windows To Go 写入已完成。</p>
+<h2 id="接入硬盘"><a href="#接入硬盘" class="headerlink" title="接入硬盘"></a>接入硬盘</h2><p>将 Mac 关机，把硬盘接入 Mac 中，点击电源键后<strong>按住 option</strong>按键，等待屏幕显示选择启动磁盘。<em>如果有多个磁盘显示，请优先选择 EFI Boot。选择其他引导分区可能无法启动</em></p>
+<img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/IMG_20200311_213150.jpg" alt="IMG_20200311_213150" style="zoom: 67%;" />
 
 <center>要选择<b>EFI Boot启动选项</b></center>
 
-<p>然后等待Windows 10安装…</p>
-<p>等待进入系统桌面之后，插入之前保存Windows支持软件的U盘，双击<strong>BootCamp.exe</strong>安装Mac专属驱动。期间电脑会闪烁屏幕、有硬件插入拔出的音效，这是正在安装驱动的正常现象。</p>
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新启动一次之后，就能进入熟悉的Windows 10桌面啦~</p>
-<p><strong>注意！!</strong>由于是外接硬盘运行的系统，建议每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘，虽然我刚刚试了一下，Mac可以记录上一次启动磁盘，正常从外部硬盘启动。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/WTG.jpg" alt="WTG"></p>
+<p>然后等待 Windows 10 安装…</p>
+<p>等待进入系统桌面之后，插入之前保存 Windows 支持软件的 U 盘，双击<strong>BootCamp.exe</strong>安装 Mac 专属驱动。期间电脑会闪烁屏幕、有硬件插入拔出的音效，这是正在安装驱动的正常现象。</p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>重新启动一次之后，就能进入熟悉的 Windows 10 桌面啦~</p>
+<p><strong>注意！!</strong>由于是外接硬盘运行的系统，建议每次开机之前需要按住<strong>option</strong>键手动选择启动磁盘，虽然我刚刚试了一下，Mac 可以记录上一次启动磁盘，正常从外部硬盘启动。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/WTG.jpg" alt="WTG"></p>
 <h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><p><a href="https://ryzenx.com/2020/03/win-on-ssd-report/">【已更新】点击这里</a></p>
 
       
@@ -385,23 +383,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

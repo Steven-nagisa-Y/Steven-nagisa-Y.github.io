@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">471字</span>
+            <span class="post-count">473字</span>
         </span>
     </span>
 
@@ -117,46 +117,40 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器"><a href="#RPi-1-Raspberry-Pi-搭建支持苹果AirPlay的播放器" class="headerlink" title="(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器"></a>(RPi#1) Raspberry Pi 搭建支持苹果AirPlay的播放器</h1><blockquote>
-<p>Raspberry Pi 4B 内置了Bluetooth 5.0，按道理说可以把它变成一个蓝牙音响的接收器。不过苹果的Bonjour协议是真的好用，可以在局域网内共享音视频播放。</p>
+      <h1 id="RPi-1-Raspberry-Pi-搭建支持苹果-AirPlay-的播放器"><a href="#RPi-1-Raspberry-Pi-搭建支持苹果-AirPlay-的播放器" class="headerlink" title="(RPi#1) Raspberry Pi 搭建支持苹果 AirPlay 的播放器"></a>(RPi#1) Raspberry Pi 搭建支持苹果 AirPlay 的播放器</h1><blockquote>
+<p>Raspberry Pi 4B 内置了 Bluetooth 5.0，按道理说可以把它变成一个蓝牙音响的接收器。不过苹果的 Bonjour 协议是真的好用，可以在局域网内共享音视频播放。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="准备工作（一堆废话）"><a href="#准备工作（一堆废话）" class="headerlink" title="准备工作（一堆废话）"></a>准备工作（一堆废话）</h2><h3 id="1-联网"><a href="#1-联网" class="headerlink" title="1. 联网"></a>1. 联网</h3><p>确保你的RPi链接上了跟你的Apple设备同一个网络。</p>
+<h2 id="准备工作（一堆废话）"><a href="#准备工作（一堆废话）" class="headerlink" title="准备工作（一堆废话）"></a>准备工作（一堆废话）</h2><h3 id="1-联网"><a href="#1-联网" class="headerlink" title="1. 联网"></a>1. 联网</h3><p>确保你的 RPi 链接上了跟你的 Apple 设备同一个网络。</p>
 <h3 id="2-连接树莓派"><a href="#2-连接树莓派" class="headerlink" title="2. 连接树莓派"></a>2. 连接树莓派</h3><ul>
 <li><p>ssh 连接：</p>
-<p>​    <code>ssh pi@&lt;ip addr&gt;</code></p>
+<p>​ <code>ssh pi@&lt;ip addr&gt;</code></p>
 </li>
 <li><p>vnc 连接：</p>
 <p><code>vnc://&lt;ip addr&gt;</code></p>
 </li>
 </ul>
 <h3 id="3-更新源"><a href="#3-更新源" class="headerlink" title="3. 更新源"></a>3. 更新源</h3><p>根据个人需要可以换源：<code>sudo vim /etc/apt/sources.list</code></p>
-<p>已知问题：通过代理下载包经常wait for header等很久</p>
+<p>已知问题：通过代理下载包经常 wait for header 等很久</p>
 <p><code>sudo apt-get update</code></p>
 <h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>项目名称是<strong>shairplay</strong></p>
 <p><code>git clone https:*//github.com/juhovh/shairplay.git &amp;&amp; cd shairplay</code></p>
 <h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -y install autoconf automake libtool</span><br><span class="line">sudo apt-get -y install libltdl-dev libao-dev libavahi-compat-libdnssd-dev</span><br><span class="line">sudo apt-get -y install avahi-daemon</span><br></pre></td></tr></table></figure>
 
-
-
 <h2 id="在本地编译并安装"><a href="#在本地编译并安装" class="headerlink" title="在本地编译并安装"></a>在本地编译并安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">./autogen.sh</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>如果上几步没有错误就能运行了，程序会在运行时输出日志，建议开个screen运行。</p>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>如果上几步没有错误就能运行了，程序会在运行时输出日志，建议开个 screen 运行。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 比如我的server_name 就是 RPi</span></span><br></pre></td></tr></table></figure>
 
-<p>在Apple设备播放音乐的时候选择<your_server_name>就好了</p>
-<p><img src="https://oss.ryzenx.com/img/2020/RPi-airplay.jpg" alt=""></p>
+<p>在 Apple 设备播放音乐的时候选择<your_server_name>就好了</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/RPi-airplay.jpg" alt=""></p>
 <h2 id="按照需求设置开机自启动"><a href="#按照需求设置开机自启动" class="headerlink" title="按照需求设置开机自启动"></a>按照需求设置开机自启动</h2><p>Linux 设置自启动方法有多种，写一个最简单的。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改文件rc.local</span></span><br><span class="line">sudo vim /etc/rc.local</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 <span class="built_in">exit</span> 0 之前加命令</span></span><br><span class="line">shairplay -a &lt;your_server_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出编辑模式</span></span><br><span class="line">&#123;esc&#125;</span><br><span class="line">:wq</span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加运行权限</span></span><br><span class="line">sudo chmod +x /etc/rc.local</span><br></pre></td></tr></table></figure>
 
-
-
 <h2 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h2><ul>
-<li><p>开机后执行<code>shairplay</code>命令提示key没有放到正确的目录</p>
-<p>解决方法：在shairplay源代码目录中执行：<code>shairplay -a &lt;server_name&gt;</code></p>
+<li><p>开机后执行<code>shairplay</code>命令提示 key 没有放到正确的目录</p>
+<p>解决方法：在 shairplay 源代码目录中执行：<code>shairplay -a &lt;server_name&gt;</code></p>
 </li>
 <li><p>播放过程中，音乐中断：</p>
 <p>解决办法：点亮屏幕就恢复播放了。是休眠了还是网络原因不得而知。</p>
@@ -340,23 +334,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

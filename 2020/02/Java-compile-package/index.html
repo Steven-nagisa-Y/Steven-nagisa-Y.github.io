@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">288字</span>
+            <span class="post-count">289字</span>
         </span>
     </span>
 
@@ -120,19 +120,17 @@ ga('send', 'pageview');
       <!--# 终端编译Java源文件含有package的处理方法-->
 
 <blockquote>
-<p> Java源文件不含package时，使用<code>javac</code>编译：</p>
+<p>Java 源文件不含 package 时，使用<code>javac</code>编译：</p>
 <p><code>javac test.java</code></p>
-<p>如果源文件含有package应该怎么处理呢？</p>
+<p>如果源文件含有 package 应该怎么处理呢？</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
+<h2 id="举例："><a href="#举例：" class="headerlink" title="举例："></a>举例：</h2><p>文件 1：Main.java（位置：<code>~/com/stevenos/java/Main.java</code>）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.java;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.stevenos.utils.DateTools;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String text;</span><br><span class="line">    text = DateTools.formatTime();</span><br><span class="line">    System.out.println(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>文件2：DateTools.java（位置：<code>~/com/stevenos/utils/DateTools.java</code>）</p>
+<p>文件 2：DateTools.java（位置：<code>~/com/stevenos/utils/DateTools.java</code>）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.stevenos.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateTools</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">formatTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Date day = <span class="keyword">new</span> Date();</span><br><span class="line">44SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">44<span class="keyword">return</span> sdf.format(day);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 
 <h3 id="编译命令"><a href="#编译命令" class="headerlink" title="编译命令"></a>编译命令</h3><p><code>javac -d &lt;dir&gt; &lt;src&gt;</code></p>
 <ol>
@@ -140,25 +138,25 @@ ga('send', 'pageview');
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -d . ~/com/stevenos/java/Main.java</span><br><span class="line">javac -d . ~/com/stevenos/utils/DateTools.java</span><br></pre></td></tr></table></figure>
 
 <p><code>.</code> 代表在当前目录下生成文件夹，可以自行更换。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200223095756528.png" alt="image-20200223095756528"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200223095756528.png" alt="image-20200223095756528"></p>
 <p>如果在当前目录生成，可以看到目录下有：</p>
 <ul>
 <li><code>com/stevenos/java/Main.class</code></li>
 <li><code>com/stevenos/utils/DateTime.class</code></li>
 </ul>
 <p>如果目录（包）中有多个文件，可以使用通配符 <code>*</code>：</p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200223100326158.png" alt="image-20200223100326158"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200223100326158.png" alt="image-20200223100326158"></p>
 </li>
 <li><p>直接运行：</p>
-<p>Java运行主方法。</p>
+<p>Java 运行主方法。</p>
 <p><code>java com.stevenos.java.Main</code></p>
-<p><img src="https://oss.ryzenx.com/img/2020/image-20200223100543259.png" alt="image-20200223100543259"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/image-20200223100543259.png" alt="image-20200223100543259"></p>
 </li>
 </ol>
 <h2 id="搞定"><a href="#搞定" class="headerlink" title="搞定"></a>搞定</h2><p>PS.</p>
 <blockquote>
-<p>输出中文时，若非编写时使用GBK编码，可能会出现GBK编码映射错误；</p>
-<p>UTF-8编码的需要加上参数：<code>-encoding UTF-8</code></p>
+<p>输出中文时，若非编写时使用 GBK 编码，可能会出现 GBK 编码映射错误；</p>
+<p>UTF-8 编码的需要加上参数：<code>-encoding UTF-8</code></p>
 </blockquote>
 
       
@@ -336,23 +334,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

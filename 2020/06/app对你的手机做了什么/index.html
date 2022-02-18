@@ -117,8 +117,8 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="App对你的手机做了什么？"><a href="#App对你的手机做了什么？" class="headerlink" title="App对你的手机做了什么？"></a>App对你的手机做了什么？</h1><p>前段时间，央视新闻频道播出了一则<a target="_blank" rel="noopener" href="http://m.news.cctv.com/2020/06/08/ARTImcAiqsUb3bPRnKMS8nBk200608.shtml"><strong>手机App频繁自启动 收集个人隐私触目惊心</strong>的新闻</a>，报告出多款常用的手机App在后台有自启动、读取照片文件、读取手机信息和读取定位信息的行为。这则新闻再次引起了很多人的关注。虽然在手机普及的信息时代，信息的互通给大家带来了极大的便利，但是个人的隐私信息是否能够”守得住“需要引起更大关注。</p>
-<p>下面我将基于Android平台，以开发者的身份深入解析：<strong>App到底在后台对你的手机做了什么</strong>。</p>
+      <h1 id="App-对你的手机做了什么？"><a href="#App-对你的手机做了什么？" class="headerlink" title="App 对你的手机做了什么？"></a>App 对你的手机做了什么？</h1><p>前段时间，央视新闻频道播出了一则<a target="_blank" rel="noopener" href="http://m.news.cctv.com/2020/06/08/ARTImcAiqsUb3bPRnKMS8nBk200608.shtml"><strong>手机 App 频繁自启动 收集个人隐私触目惊心</strong>的新闻</a>，报告出多款常用的手机 App 在后台有自启动、读取照片文件、读取手机信息和读取定位信息的行为。这则新闻再次引起了很多人的关注。虽然在手机普及的信息时代，信息的互通给大家带来了极大的便利，但是个人的隐私信息是否能够”守得住“需要引起更大关注。</p>
+<p>下面我将基于 Android 平台，以开发者的身份深入解析：<strong>App 到底在后台对你的手机做了什么</strong>。</p>
 <blockquote>
 <p>Android = 安卓</p>
 <p>App = 应用</p>
@@ -127,20 +127,14 @@ ga('send', 'pageview');
 
 <center>转载或引用请注明作者和出处👉<a href="https://ryzenx.com/2020/06/app对你的手机做了什么/">RyzenX.com</a></center>
 
-
-
 <span id="more"></span>
 
-<h2 id="1-App能“偷窥”些什么？"><a href="#1-App能“偷窥”些什么？" class="headerlink" title="1-App能“偷窥”些什么？"></a>1-App能“偷窥”些什么？</h2><p>打开你的安卓手机，进入：<strong>设置-&gt;应用/应用管理/应用设置-&gt;找到你一个常用的app-&gt;点击app图标-&gt;点击“权限/权限管理”</strong>，你就能看到这个App向你的手机申请了多少权限。下面将以<strong>微信</strong>为示例，介绍App拿到这些权限一般会做什么？</p>
-<img src="https://oss.ryzenx.com/img/2020/IMG_20200611_175752.jpg" style="zoom:50%;" />
+<h2 id="1-App-能“偷窥”些什么？"><a href="#1-App-能“偷窥”些什么？" class="headerlink" title="1-App 能“偷窥”些什么？"></a>1-App 能“偷窥”些什么？</h2><p>打开你的安卓手机，进入：<strong>设置-&gt;应用/应用管理/应用设置-&gt;找到你一个常用的 app-&gt;点击 app 图标-&gt;点击“权限/权限管理”</strong>，你就能看到这个 App 向你的手机申请了多少权限。下面将以<strong>微信</strong>为示例，介绍 App 拿到这些权限一般会做什么？</p>
+<img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/IMG_20200611_175752.jpg" style="zoom:50%;" />
 
 <center>这是一张微信的权限示例图</center>
 
-
-
-
-
-<h3 id="什么是权限？"><a href="#什么是权限？" class="headerlink" title="什么是权限？"></a>什么是权限？</h3><p>在Google Android开发者文档中，这样描述<strong>权限(Permissions)</strong></p>
+<h3 id="什么是权限？"><a href="#什么是权限？" class="headerlink" title="什么是权限？"></a>什么是权限？</h3><p>在 Google Android 开发者文档中，这样描述<strong>权限(Permissions)</strong></p>
 <blockquote>
 <p>The purpose of a <em>permission</em> is to protect the privacy of an Android user. Android apps must request permission to access sensitive user data (such as contacts and SMS), as well as certain system features (such as camera and internet). Depending on the feature, the system might grant the permission automatically or might prompt the user to approve the request.</p>
 </blockquote>
@@ -152,26 +146,26 @@ ga('send', 'pageview');
 <li>签名权限一般和某些系统应用联动，例如更换桌面图标，就需要桌面启动器提供的权限。</li>
 <li>危险权限表示可能影响到设备功能和用户隐私的权限，例如录音录像、访问照片文件、发送短信彩信等等。这类权限几乎都需要用户手动确认。</li>
 </ul>
-<h3 id="App会拿这些权限做些什么？"><a href="#App会拿这些权限做些什么？" class="headerlink" title="App会拿这些权限做些什么？"></a>App会拿这些权限做些什么？</h3><p>回到刚刚微信的权限示例截图，来具体分析一下。</p>
+<h3 id="App-会拿这些权限做些什么？"><a href="#App-会拿这些权限做些什么？" class="headerlink" title="App 会拿这些权限做些什么？"></a>App 会拿这些权限做些什么？</h3><p>回到刚刚微信的权限示例截图，来具体分析一下。</p>
 <ul>
 <li>发送短信/彩信：这一项权限大家应该不陌生，会想大约五年以前，可能你的手机中病毒后第一件事就是“帮”你向运营商订购一大堆“彩铃”“礼包”“游戏充值卡”，由此来获利；而且以前的手机病毒还通过手机短信群发病毒链接，以此来进行传播。那么微信拿它有什么用呢？其实是在你<strong>注册微信/验证微信密保/重置微信密码</strong>时，“帮助”你发送一条校验短信的，当然这条短信可以自己手动发出，所以这项权限——<strong>拒绝</strong></li>
 <li>读取联系人/修改联系人：发现微信在给你推荐通讯录好友了吗？是的，微信拿这一项权限就是用来实现这个功能的。当然我们可以猜测，微信可能会利用你的通讯录实现信息联网，如果你并不需要推荐手机通讯录微信好友的功能，那么建议——<strong>拒绝</strong></li>
-<li>定位：不必多说，在你向好友共享位置的时候就会用到它，如果你不想时时刻刻让微信了解你的行踪，在Android 10及以上的系统中，可以选择——<strong>仅在使用过程中允许</strong></li>
+<li>定位：不必多说，在你向好友共享位置的时候就会用到它，如果你不想时时刻刻让微信了解你的行踪，在 Android 10 及以上的系统中，可以选择——<strong>仅在使用过程中允许</strong></li>
 <li>获取手机信息/获取应用列表/访问手机账户：这一般是为了让应用识别你的登陆手机是否是常用手机，避免盗号风险，不过还是那句话，你也不知道应用会在后台拿你的数据干嘛。获取手机信息——<strong>允许</strong>；获取应用列表/访问手机账户——<strong>拒绝</strong></li>
 <li>相机/录音：这两个是最容易出现隐私泄露风险的，但是你也不得不允许的权限。你想在朋友圈分享小视频，你需要允许微信访问相机；你想给好友发送语音，你需要允许微信录音。所以为了不牺牲功能还是选择——<strong>允许</strong></li>
 <li>读写手机存储：这是一项非常有争议的功能，想了解详细的说明请<strong>继续阅读</strong>。你只需要知道，本来你不需要给这个权限你也能正常使用，但是你不得不给这个权限。我们妥协吧，选择——<strong>允许</strong></li>
 <li>“设置相关”：这些权限可以按照需求开启，一般允许<strong>显示悬浮窗</strong>和<strong>常驻通知</strong>，因为这两个权限在屏幕上都能看得到的，而且不会对隐私有关。所以按照需求可以——<strong>选择性开启</strong></li>
 </ul>
-<h2 id="2-App为什么能拖慢手机运行速度？"><a href="#2-App为什么能拖慢手机运行速度？" class="headerlink" title="2-App为什么能拖慢手机运行速度？"></a>2-App为什么能拖慢手机运行速度？</h2><p>App运行的时候会占用系统资源，这我们都知道，但是为什么我没有用这些App的时候，手机还是很卡顿、耗电还是很高？</p>
+<h2 id="2-App-为什么能拖慢手机运行速度？"><a href="#2-App-为什么能拖慢手机运行速度？" class="headerlink" title="2-App 为什么能拖慢手机运行速度？"></a>2-App 为什么能拖慢手机运行速度？</h2><p>App 运行的时候会占用系统资源，这我们都知道，但是为什么我没有用这些 App 的时候，手机还是很卡顿、耗电还是很高？</p>
 <p>这就牵扯到应用在安卓系统中的一项功能——<strong>自启动</strong></p>
-<p><img src="https://oss.ryzenx.com/img/2020/ysxw-2020-06-11-1.png" alt="ysxw-2020-06-11-1"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/ysxw-2020-06-11-1.png" alt="ysxw-2020-06-11-1"></p>
 <p><strong>自启动</strong>本身并不是一个坏东西，你的手机电脑启动的时候，就会自动启动一些系统应用：启动桌面应用，这样你才能看到应用图标；启动设置，这样你的手机才能自动连接上无线网络和蓝牙。也就是说，合理利用“自启动”这个功能是能够方便用户的使用的，但是错就错在很多应用<strong>滥用</strong>了“自启动”功能。</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>自启动可以按照启动对象分为：<strong>系统唤醒</strong>和<strong>关联唤醒</strong></p>
-<h4 id="系统唤醒"><a href="#系统唤醒" class="headerlink" title="系统唤醒"></a>系统唤醒</h4><p>系统自启动是使用了Android提供的：Broadcast系统广播和Receiver广播接收类来完成的。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/boardcast.actions.png" alt="boardcast.actions"></p>
+<h4 id="系统唤醒"><a href="#系统唤醒" class="headerlink" title="系统唤醒"></a>系统唤醒</h4><p>系统自启动是使用了 Android 提供的：Broadcast 系统广播和 Receiver 广播接收类来完成的。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/boardcast.actions.png" alt="boardcast.actions"></p>
 <center>Android 9广播通知多达219种</center>
 
-<p>系统广播可以说是知无不言，可以理解为安卓系统对着所有App用大喇叭喊道：</p>
+<p>系统广播可以说是知无不言，可以理解为安卓系统对着所有 App 用大喇叭喊道：</p>
 <ul>
 <li>我开机啦！</li>
 <li>我在充电啦！</li>
@@ -182,45 +176,39 @@ ga('send', 'pageview');
 <li>…………</li>
 </ul>
 <p>那么既然系统都这么喊了，我应用是不是应该做点什么？于是应用就添加了相应行为(<em>action</em>)的接收器，当应用一旦接收到系统的广播，就会开始执行自启动，这就是为什么你没有点击应用图标，应用却还能照常运行。</p>
-<p>示例MyBroadcastReceiver.java代码：</p>
+<p>示例 MyBroadcastReceiver.java 代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBroadcastReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_BOOT = <span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_SCREEN_ON = <span class="string">&quot;android.intent.ACTION_SCREEN_ON&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_SCREEN_OFF = <span class="string">&quot;android.intent.ACTION_SCREEN_OFF&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_CONNECTION_CHANGED = <span class="string">&quot;android.net.conn.CONNECTIVITY_CHANGE&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_WIFI_CHANGED = <span class="string">&quot;android.net.wifi.WIFI_STATE_CHANGED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_ADDED_APP = <span class="string">&quot;android.intent.action.PACKAGE_ADDED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_REMOVED_APP = <span class="string">&quot;android.intent.action.PACKAGE_REMOVED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_MEDIA_MOUNTED = <span class="string">&quot;android.intent.action.MEDIA_MOUNTED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_MEDIA_REMOVED = <span class="string">&quot;android.intent.action.MEDIA_REMOVED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_POWER_CON = <span class="string">&quot;android.intent.action.ACTION_POWER_CONNECTED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_POWER_DISCON = <span class="string">&quot;android.intent.action.ACTION_POWER_DISCONNECTED&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String ACTION_WALLPAPER_CHANGED = <span class="string">&quot;android.intent.action.WALLPAPER_CHANGED&quot;</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (intent.getAction().equals(ACTION_BOOT))&#123;</span><br><span class="line">            TipsUtils.notify(context, <span class="string">&quot;开机完成&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_SCREEN_ON)) &#123;</span><br><span class="line">            TipsUtils.notify(context, <span class="string">&quot;屏幕打开&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_ADDED_APP)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已安装应用&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_REMOVED_APP)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已卸载应用&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_WIFI_CHANGED)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;WiFi连接变化&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_CONNECTION_CHANGED)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;网络连接变化&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_MEDIA_MOUNTED)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已挂载存储介质&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(intent.getAction().equals(ACTION_MEDIA_REMOVED)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已移除存储介质&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_POWER_CON)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已连接电源&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_POWER_DISCON)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已断开电源&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(ACTION_WALLPAPER_CHANGED)) &#123;</span><br><span class="line">            TipsUtils.notify(context,<span class="string">&quot;已更换壁纸&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-<h4 id="关联唤醒"><a href="#关联唤醒" class="headerlink" title="关联唤醒"></a>关联唤醒</h4><p>顾名思义，关联启动就是已经运行的应用去启动其他应用的行为，要是说现在的定制安卓系统能够防止系统唤醒，可是关联唤醒可是不那么容易防止的。因为很多时候关联唤醒的必要的，比如你想在”图库”中分享图片到”QQ”，那么图库就必须唤醒QQ，你想在”淘宝”中支付，淘宝就必须唤醒支付宝。</p>
-<img src="https://oss.ryzenx.com/img/2020/zfb-被关联启动.png" alt="zfb-被关联启动" style="zoom:50%;" />
+<h4 id="关联唤醒"><a href="#关联唤醒" class="headerlink" title="关联唤醒"></a>关联唤醒</h4><p>顾名思义，关联启动就是已经运行的应用去启动其他应用的行为，要是说现在的定制安卓系统能够防止系统唤醒，可是关联唤醒可是不那么容易防止的。因为很多时候关联唤醒的必要的，比如你想在”图库”中分享图片到”QQ”，那么图库就必须唤醒 QQ，你想在”淘宝”中支付，淘宝就必须唤醒支付宝。</p>
+<img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/zfb-被关联启动.png" alt="zfb-被关联启动" style="zoom:50%;" />
 
 <center>在某手机管家中显示支付宝被关联启动的情况</center>
 
-<p>Android操作系统启动就是上文说的“系统唤醒”；</p>
+<p>Android 操作系统启动就是上文说的“系统唤醒”；</p>
 <p>手机淘宝想要启动支付宝付款我知道，还有那么多奇奇怪怪的应用，干嘛要启动支付宝？</p>
-<p>其实并不是应用要主动启动支付宝，故意拖慢你手机速度。实际上是其他应用使用了支付宝的SDK，也就是内嵌了支付宝的一部分用来方便用户通过支付宝支付。但是其他应用没办法控制SDK的行为，这相当于霸王条款：你想用我的功能，就别管我做什么。</p>
-<p><img src="https://oss.ryzenx.com/img/2020/ysxw-2020-06-11-2.png" alt="ysxw-2020-06-11-2"></p>
-<p>除了阿里系的SDK，还有腾讯系的SDK、百度系的SDK、头条系的SDK等等，很多应用都使用了这些SDK来便捷化应用的开发。比如我想实现地图导航，采取高德地图的SDK就可以，不需要开发者自己去设计地图、设计路线，但是这个高德地图SDK具体除了实现地图导航，还要干些什么，那开发者也是不得而知的。</p>
-<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>App想要自启动，在后台一直运行的目的其实挺复杂。</p>
+<p>其实并不是应用要主动启动支付宝，故意拖慢你手机速度。实际上是其他应用使用了支付宝的 SDK，也就是内嵌了支付宝的一部分用来方便用户通过支付宝支付。但是其他应用没办法控制 SDK 的行为，这相当于霸王条款：你想用我的功能，就别管我做什么。</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/ysxw-2020-06-11-2.png" alt="ysxw-2020-06-11-2"></p>
+<p>除了阿里系的 SDK，还有腾讯系的 SDK、百度系的 SDK、头条系的 SDK 等等，很多应用都使用了这些 SDK 来便捷化应用的开发。比如我想实现地图导航，采取高德地图的 SDK 就可以，不需要开发者自己去设计地图、设计路线，但是这个高德地图 SDK 具体除了实现地图导航，还要干些什么，那开发者也是不得而知的。</p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>App 想要自启动，在后台一直运行的目的其实挺复杂。</p>
 <p>往好的方面说：你可以及时收到消息，能够在应用间更加流畅的使用不同的功能；</p>
 <p>往坏的方面说：应用在后台收集你的数据，用来实现用户画像或者干脆直接出售。</p>
-<h2 id="3-App做的这些事情有必要吗？"><a href="#3-App做的这些事情有必要吗？" class="headerlink" title="3-App做的这些事情有必要吗？"></a>3-App做的这些事情有必要吗？</h2><p>很明确的说：<strong>大多数是没必要的</strong></p>
+<h2 id="3-App-做的这些事情有必要吗？"><a href="#3-App-做的这些事情有必要吗？" class="headerlink" title="3-App 做的这些事情有必要吗？"></a>3-App 做的这些事情有必要吗？</h2><p>很明确的说：<strong>大多数是没必要的</strong></p>
 <p>也就是说，很多权限不给应用，应用不需要后台自启动，你的使用上不会有任何影响。</p>
 <p>就拿上文说的<strong>读写手机存储</strong>，对于大多数应用来说，根本不需要这一项权限，但是事实上大多数应用都会向你请求这一权限，<strong>不允许还没法用！</strong>应用会给出各种各样的理由：不给权限没办法保存图片；不给权限您不能上传图片；不给权限您不能下载音乐……</p>
 <p>事实：</p>
 <p>想要访问相册？安卓提供了通过“图库”应用获得你图片的方法，你可以选择图片或者视频，应用也只能读取到你所选择的图片，给予应用<strong>读写手机存储</strong>的权限之后，它能够读取你<strong>所有</strong>的照片。</p>
 <p>没法保存数据？安卓为应用在存储中专门划分了独立的存储空间，就在<code>Android/data</code>中，按照应用分成文件夹，互不干扰不杂乱，给予应用<strong>读写手机存储</strong>的权限后，应用想保存在哪里就保存在哪里，想创建多少个文件夹就创建多少个文件夹，垃圾数据想存多少就存多少，而且卸载了应用还是不能完全删除。</p>
-<p>想要发送通知？GMS提供了统一的通知发送API，应用不需要持续运行也能发送通知。没有GMS？国内也有统一通知平台，比如MiPush。</p>
-<p>本来能够通过官方的渠道实现某一项功能，反而大费周章想你索取权限，这些App的目的实在让人琢磨不透。</p>
-<h2 id="4-国内App乱象"><a href="#4-国内App乱象" class="headerlink" title="4-国内App乱象"></a>4-国内App乱象</h2><p>很有意思的是，网络上那些最“讨厌”的App，往往是大家常用的国产App。反而国外的App十分“乖巧”。</p>
-<p>而且国内的App功能相当复杂：购物、聊天、直播、新闻、小视频……结果就是<strong>App容量大幅增大</strong>，你是否已经习惯了只用来支付的支付宝占用270MB的容量？是否习惯了只用来聊天看朋友圈的微信占用530MB的容量？你是否习惯了网络购物的淘宝占用430MB的容量？</p>
-<p>曾几何时，内存1GB不卡、2GB流畅、4GB全能；存储空间8GB够用、16GB随心、32GB海量。而现在的国产手机高配版直接内存12GB、存储高达512GB，甚至内存低于6GB就会被认为太小无法流畅运行。</p>
-<p>几年之前诺基亚手机回归，诺基亚为中国市场推出的8GB大内存版本的做法不知是喜是忧。要知道除了不能打电话其他啥都能干的Windows，仅仅2GB的内存就能运行，4GB内存就能流畅运行办公软件；而现在手机的内存和存储容量，比大多数普通笔记本电脑还要大。但是你依然会觉得卡顿。</p>
-<p>要知道在印度，很多人的手机内存还只有2GB，存储空间也才仅仅16GB，然而他们跟我们享受着同一个互联网生活：网购、发照片、导航、直播……</p>
+<p>想要发送通知？GMS 提供了统一的通知发送 API，应用不需要持续运行也能发送通知。没有 GMS？国内也有统一通知平台，比如 MiPush。</p>
+<p>本来能够通过官方的渠道实现某一项功能，反而大费周章想你索取权限，这些 App 的目的实在让人琢磨不透。</p>
+<h2 id="4-国内-App-乱象"><a href="#4-国内-App-乱象" class="headerlink" title="4-国内 App 乱象"></a>4-国内 App 乱象</h2><p>很有意思的是，网络上那些最“讨厌”的 App，往往是大家常用的国产 App。反而国外的 App 十分“乖巧”。</p>
+<p>而且国内的 App 功能相当复杂：购物、聊天、直播、新闻、小视频……结果就是<strong>App 容量大幅增大</strong>，你是否已经习惯了只用来支付的支付宝占用 270MB 的容量？是否习惯了只用来聊天看朋友圈的微信占用 530MB 的容量？你是否习惯了网络购物的淘宝占用 430MB 的容量？</p>
+<p>曾几何时，内存 1GB 不卡、2GB 流畅、4GB 全能；存储空间 8GB 够用、16GB 随心、32GB 海量。而现在的国产手机高配版直接内存 12GB、存储高达 512GB，甚至内存低于 6GB 就会被认为太小无法流畅运行。</p>
+<p>几年之前诺基亚手机回归，诺基亚为中国市场推出的 8GB 大内存版本的做法不知是喜是忧。要知道除了不能打电话其他啥都能干的 Windows，仅仅 2GB 的内存就能运行，4GB 内存就能流畅运行办公软件；而现在手机的内存和存储容量，比大多数普通笔记本电脑还要大。但是你依然会觉得卡顿。</p>
+<p>要知道在印度，很多人的手机内存还只有 2GB，存储空间也才仅仅 16GB，然而他们跟我们享受着同一个互联网生活：网购、发照片、导航、直播……</p>
 <p><strong>应该反思这究竟是我们的软件厂商“技术很好”还是“技术很差”？</strong></p>
-<h2 id="5-我想做手机的主人？"><a href="#5-我想做手机的主人？" class="headerlink" title="5-我想做手机的主人？"></a>5-我想做手机的主人？</h2><p>很抱歉，目前甚至之后的很多年，国内安卓圈依然会保持这样一个乱象，App为了抢占你手机的隐私数据费劲心机。一方面是国家没有针对性的法律条文，一方面是互联网公司的利益驱使。</p>
-<p>最近，小米和华为都主动向应用的“流氓”行为作出了行动，MIUI和EMUI内置的权限管理能够显示App的后台行为，并且制止其读取用户隐私数据。可以说开了一个好头，我也希望能有更多的厂商能够加入，尽快实现安卓手机App的法律化、规范化、合理化。</p>
-<p>当然，如果你现在实在受不了App采集你的隐私，可以换用iPhone。iOS生态圈的应用将会严格进行审核，几乎没有上述的问题：不会不经允许读取个人信息，不会后台占用，不会产生垃圾数据……</p>
+<h2 id="5-我想做手机的主人？"><a href="#5-我想做手机的主人？" class="headerlink" title="5-我想做手机的主人？"></a>5-我想做手机的主人？</h2><p>很抱歉，目前甚至之后的很多年，国内安卓圈依然会保持这样一个乱象，App 为了抢占你手机的隐私数据费劲心机。一方面是国家没有针对性的法律条文，一方面是互联网公司的利益驱使。</p>
+<p>最近，小米和华为都主动向应用的“流氓”行为作出了行动，MIUI 和 EMUI 内置的权限管理能够显示 App 的后台行为，并且制止其读取用户隐私数据。可以说开了一个好头，我也希望能有更多的厂商能够加入，尽快实现安卓手机 App 的法律化、规范化、合理化。</p>
+<p>当然，如果你现在实在受不了 App 采集你的隐私，可以换用 iPhone。iOS 生态圈的应用将会严格进行审核，几乎没有上述的问题：不会不经允许读取个人信息，不会后台占用，不会产生垃圾数据……</p>
 
       
       <!-- reward -->
@@ -397,23 +385,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

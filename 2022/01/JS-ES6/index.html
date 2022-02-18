@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客, 技术" />
+   
+  <meta name="description" content="渚：水中的小块陆地" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    ECMAScript 6+标准学习 ::  小渚w的博客小站
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-ZYJSPP9RMK', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+<link rel="alternate" href="/atom.xml" title="小渚w的博客小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  
+<article id="post-JS-ES6" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  ECMAScript 6+标准学习
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/01/JS-ES6/" class="article-date">
+  <time datetime="2022-01-10T04:09:06.000Z" itemprop="datePublished">2022-01-10</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.2k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="ECMAScript-6-学习笔记"><a href="#ECMAScript-6-学习笔记" class="headerlink" title="ECMAScript 6+学习笔记"></a>ECMAScript 6+学习笔记</h1><blockquote>
+<p>ES6 的第一个版本，就这样在 2015 年 6 月发布了，正式名称就是《ECMAScript 2015 标准》（简称 ES2015）。2016 年 6 月，小幅修订的《ECMAScript 2016 标准》（简称 ES2016）如期发布，这个版本可以看作是 ES6.1 版，因为两者的差异非常小，基本上是同一个标准。根据计划，2017 年 6 月发布 ES2017 标准。</p>
+<p>因此，ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 JavaScript 的下一代标准，涵盖了 ES2015、ES2016、ES2017 等等，而 ES2015 则是正式名称，特指该年发布的正式版本的语言标准。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>本笔记主要参考了阮一峰老师的开源教程：<a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/https://es6.ruanyifeng.com/">《ECMAScript 6 入门教程》</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/">MDN Web Docs</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://tc39.es/">ECMAScript TC39</a></p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Update Time:</p>
+</blockquote>
+<span id="more"></span>
+
+<p>根据我的理解将内容分为两个大的部分：<strong>新增</strong>和<strong>扩展</strong>。</p>
+<h2 id="新增内容"><a href="#新增内容" class="headerlink" title="新增内容"></a>新增内容</h2><h3 id="1-Let-and-Const-Declarations"><a href="#1-Let-and-Const-Declarations" class="headerlink" title="[1] Let and Const Declarations"></a>[1] Let and Const Declarations</h3><p><code>let</code>仅在当作用范围有效，且无如<code>var</code>的变量提升：在 JavaScript 中，<code>var</code>声明的变量在赋值之前就已经存在，其值为<code>undefined</code>。</p>
+<p><code>let</code>不允许重复声明。</p>
+<p><code>let</code>新增了块级作用域。能够防止内层变量覆盖全局变量，防止内层变量泄露到全局变量。</p>
+<p><code>const</code>声明一个只读、不变的“常量”，实际上固定了一个变量的内存地址。当<code>const</code>声明<strong>对象</strong>或<strong>数组</strong>时，其指向的地址不变，当指向对象的值是可变的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [];</span><br><span class="line"><span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">arr.push(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// -&gt; [1]</span></span><br><span class="line">obj.name = <span class="string">&quot;obj&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);</span><br><span class="line"><span class="comment">// -&gt; &#x27;obj&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-String-的新增方法"><a href="#2-String-的新增方法" class="headerlink" title="[2] String 的新增方法"></a>[2] String 的新增方法</h3><ul>
+<li><code>String.fromCodePoint(/*unicode*/)</code> 用于返回 Unicode</li>
+<li><code>String.raw(/*string*/)</code> 用于返回原始字符串，即将字符串转义后显示</li>
+<li><code>String.prototype.codePointAt(/*index*/)</code> 解析字符串中的 Unicode 码</li>
+<li><code>String.prototype.normalize(/*arg*/)</code> 用于合成多字节 Unicode 字</li>
+<li><code>String.prototype.includes(/*toFind*/)</code> 返回是否包含参数字符串</li>
+<li><code>String.prototype.startsWith(/*toFind*/)</code> 返回字符串头部是否是参数字符串</li>
+<li><code>String.prototype.endsWit(/*toFind*/)</code> 返回字符串尾部是否是参数字符串</li>
+<li><code>String.prototype.repeat(/*uint n*/)</code> 将字符串重复 n 次</li>
+<li><code>String.prototype.padStart(/*uint len, string*/)</code> 使用第二个参数在起始补全第一个参数值的长度</li>
+<li><code>String.prototype.padEnd(/*uint len, string*/)</code> 使用第二个参数在末尾补全第一个参数值的长度</li>
+<li><code>String.prototype.trimStart()</code> 消除起始空格，不修改原字符串</li>
+<li><code>String.prototype.trimEnd()</code> 消除末尾空格，不修改原字符串</li>
+<li><code>String.prototype.matchAll()</code> 返回正则所有匹配</li>
+<li><code>String.prototype.replaceAll(/*old, new*/)</code> 全部替换匹配值</li>
+<li><code>String.prototype.at(/*index*/)</code> 返回指定位置的字符</li>
+</ul>
+<h3 id="3-RegExp"><a href="#3-RegExp" class="headerlink" title="[3] RegExp"></a>[3] RegExp</h3><p>新增修饰符<code>u</code>: Unicode 模式，能够正常识别双字符 Unicode 字，同时<code>.</code>能够正常匹配所有 Unicode 字符</p>
+<p>新增<code>RegExp.prototype.unicode</code>检查是否有<code>u</code>修饰符</p>
+<p>新增修饰符<code>y</code>: 从上一个匹配到的位置开始匹配</p>
+<p>新增<code>RegExp.prototype.sticky</code>检查是否有<code>y</code>修饰符</p>
+<p>新增<code>RegExp.prototype.flags</code>显示所有修饰符</p>
+<p>新增修饰符<code>s</code>: dotAll，使得<code>.</code>修饰所有字符</p>
+<p>新增后行断言：lookbehind：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 已有先行断言</span></span><br><span class="line">/\d+(?=%)/  <span class="comment">/* 表示匹配%前方的数字 */</span></span><br><span class="line"><span class="comment">// 新增后行断言</span></span><br><span class="line"><span class="regexp">/(?&lt;=#)\d+/</span>  <span class="comment">/* 表示匹配#之后的数字 */</span></span><br></pre></td></tr></table></figure>
+
+<p>新增命名组匹配（类似 Python 中），可以进行后续引用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reDate = <span class="regexp">/(?&lt;year&gt;\d&#123;4&#125;)-(?&lt;month&gt;\d&#123;2&#125;)-(?&lt;day&gt;\d&#123;2&#125;)/</span>;</span><br><span class="line"><span class="keyword">const</span> matchRes = reDate.exec(<span class="string">&quot;2022-01-01&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; year, month, day &#125; = matchRes.groups;</span><br><span class="line"><span class="keyword">const</span> reTwice = <span class="regexp">/^(?&lt;word&gt;\w+)-\k&lt;word&gt;$/</span>;</span><br><span class="line">reTwice.test(<span class="string">&quot;abc-abc&quot;</span>);</span><br><span class="line"><span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Number"><a href="#4-Number" class="headerlink" title="[4] Number"></a>[4] Number</h3><p>新增二进制<code>0b0100</code>八进制<code>0o4</code>。转换：<code>Number(&#39;0b0100&#39;) = 4</code></p>
+<p>新增数值分隔符<code>1000 == 1_000</code></p>
+<p>新增<code>Number.isFinite(/*number*/)</code> 判断是否为有限<strong>数值</strong></p>
+<p>新增<code>Number.isNaN(/*number*/)</code> 判断是否为<code>NaN</code>类型</p>
+<p>新增<code>Number.isInteger()</code> 判断是否为整数。特别地，JavaScript 内部，整数和浮点数采用的是同样的储存方法，所以 25 和 25.0 被视为同一个值；如果数值的精度超过这个限度，第 54 位及后面的位就会被丢弃，这种情况下，<code>Number.isInteger</code>可能会误判；如果一个数值的绝对值小于<code>Number.MIN_VALUE</code>（5E-324），即小于 JavaScript 能够分辨的最小值，会被自动转为 0，这时，<code>Number.isInteger</code>也会误判</p>
+<p>新增<code>Number.EPSILON</code>代表一个极小的常量<code>Number.EPSILON === Math.pow(2, -52)</code></p>
+<p>新增<code>Number.isSafeInteger()</code>，同时新增最大、最小整数常量<code>Number.MAX_SAFE_INTEGER</code> <code>Number.MIN_SAFE_INTEGER</code></p>
+<h3 id="5-Math"><a href="#5-Math" class="headerlink" title="[5] Math"></a>[5] Math</h3><ul>
+<li><p><code>Math.trunc(/*number*/)</code> 去除小数部分，返回整数部分；首先转换为数值，若无法转换，返回<code>NaN</code></p>
+</li>
+<li><p><code>Math.sign(/*number*/)</code> 判断参数正负，返回值：<code>+1 -1 0 -0 NaN</code></p>
+</li>
+<li><p><code>Math.cbrt(/*number*/)</code> 计算立方根</p>
+</li>
+<li><p><code>Math.clz32(/*number*/)</code> 将参数转为 32 位无符号整数的形式，然后返回这个 32 位值里面有多少个前导 0</p>
+</li>
+<li><p><code>Math.imul(/*numbers*/)</code> 返回两个数以 32 位带符号整数形式相乘的结果，返回的也是一个 32 位的带符号整数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">0x7fffffff</span> * <span class="number">0x7fffffff</span>) | <span class="number">0</span>;</span><br><span class="line"><span class="comment">// -&gt; 0</span></span><br><span class="line"><span class="built_in">Math</span>.imul(<span class="number">0x7fffffff</span>, <span class="number">0x7fffffff</span>);</span><br><span class="line"><span class="comment">// -&gt; 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.fround(/*number*/)</code> 返回一个数的 32 位单精度浮点数形式</p>
+</li>
+<li><p><code>Math.hypot(/*numbers*/)</code> 返回所有参数的平方和的开方</p>
+</li>
+<li><p><code>Math.expm1(/*number*/)</code> 返回$e^x-1$，等价于<code>Math.exp(x) - 1</code></p>
+</li>
+<li><p><code>Math.log1p(/*number*/)</code> 返回$\ln(1 + x)$</p>
+</li>
+<li><p><code>Math.log10(/*number*/)</code> 返回$\lg x$</p>
+</li>
+<li><p><code>Math.log2(/*number*/)</code> 返回$\log_2 x$</p>
+</li>
+<li><p><code>Math.sinh(x)</code> 返回<code>x</code>的双曲正弦（hyperbolic sine）</p>
+</li>
+<li><p><code>Math.cosh(x)</code> 返回<code>x</code>的双曲余弦（hyperbolic cosine）</p>
+</li>
+<li><p><code>Math.tanh(x)</code> 返回<code>x</code>的双曲正切（hyperbolic tangent）</p>
+</li>
+<li><p><code>Math.asinh(x)</code> 返回<code>x</code>的反双曲正弦（inverse hyperbolic sine）</p>
+</li>
+<li><p><code>Math.acosh(x)</code> 返回<code>x</code>的反双曲余弦（inverse hyperbolic cosine）</p>
+</li>
+<li><p><code>Math.atanh(x)</code> 返回<code>x</code>的反双曲正切（inverse hyperbolic tangent）</p>
+</li>
+</ul>
+<h3 id="6-BigInt"><a href="#6-BigInt" class="headerlink" title="[6] BigInt"></a>[6] BigInt</h3><p>用来表示整数，没有位数限制。需要添加后缀<code>n</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> n = <span class="number">7378697629483821n</span>;</span><br><span class="line"><span class="keyword">typeof</span> n;</span><br><span class="line"><span class="comment">// -&gt; &#x27;bigint&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以进行转换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BigInt</span>(<span class="string">&quot;123&quot;</span>); <span class="comment">// -&gt; 123n</span></span><br></pre></td></tr></table></figure>
+
+<p>实例方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BigInt</span>.prototype.toString();</span><br><span class="line"><span class="built_in">BigInt</span>.prototype.valueOf();</span><br><span class="line"><span class="built_in">BigInt</span>.prototype.toLocaleString();</span><br></pre></td></tr></table></figure>
+
+<p>静态方法：</p>
+<ul>
+<li><code>BigInt.asUintN(width, BigInt)</code>： 给定的 BigInt 转为 0 到 2width - 1 之间对应的值。</li>
+<li><code>BigInt.asIntN(width, BigInt)</code>：给定的 BigInt 转为 -2width - 1 到 2width - 1 - 1 之间对应的值。</li>
+<li><code>BigInt.parseInt(string[, radix])</code>：近似于<code>Number.parseInt()</code>，将一个字符串转换成指定进制的 BigInt。</li>
+</ul>
+<h2 id="扩展内容"><a href="#扩展内容" class="headerlink" title="扩展内容"></a>扩展内容</h2><h3 id="1-globalThis"><a href="#1-globalThis" class="headerlink" title="(1) globalThis"></a>(1) globalThis</h3><p><code>globalThis</code>是全局对象(The <em>global object</em>)的扩展，其属性如下：</p>
+<blockquote>
+<p>This property has the attributes { [[Writable]]: true, [[Enumerable]]: false, [[Configurable]]: true }.</p>
+</blockquote>
+<h3 id="2-Destructuring-Assignment"><a href="#2-Destructuring-Assignment" class="headerlink" title="(2) Destructuring Assignment"></a>(2) Destructuring Assignment</h3><p>变量的解构语法能够方便地解构数组(array)、对象(object)内部的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// LeftHandSideExpression = AssignmentExpression</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>,</span><br><span class="line">  b = <span class="number">2</span>;</span><br><span class="line">[a, b] = [b, a];</span><br><span class="line"><span class="built_in">console</span>.log(a, b);</span><br><span class="line"><span class="comment">// -&gt; 2 1</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;obj&quot;</span>,</span><br><span class="line">  <span class="function"><span class="title">getter</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 将变量扩充到window全局对象中</span></span><br><span class="line"><span class="keyword">var</span> &#123; name, getter &#125; = obj;</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="comment">// -&gt; &#x27;obj&#x27;</span></span><br><span class="line"><span class="comment">// getter中的this-&gt;window</span></span><br><span class="line">getter();</span><br><span class="line"><span class="comment">// -&gt; &#x27;obj&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>同样可以多层解构和部分解构，只要与被解构的结构相同即可。</p>
+<p>由于 JavaScript 内部皆对象，则对象的解构可以用于能够被转换为对象的：数组、字符串、数值、布尔值。</p>
+<h3 id="3-Unicode"><a href="#3-Unicode" class="headerlink" title="(3) Unicode"></a>(3) Unicode</h3><p>单字节 Unicode: <code>&quot;\u0061&quot;</code>，双字节 Unicode: <code>&quot;\u&#123;20BB7&#125;&quot;</code></p>
+<h3 id="4-Template-strings"><a href="#4-Template-strings" class="headerlink" title="(4) Template strings"></a>(4) Template strings</h3><p>字符串的扩展声明语法，使用反引号表示`，内部可插入表达式。可以包含多行字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> resp = &#123; <span class="attr">status</span>: <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> text = <span class="string">`response: <span class="subst">$&#123;resp.status == <span class="number">0</span> ? <span class="string">&quot;ok&quot;</span> : <span class="string">&quot;error&quot;</span>&#125;</span>`</span>;</span><br><span class="line"><span class="built_in">console</span>.log(text);</span><br></pre></td></tr></table></figure>
+
+<p>可以作为第一个参数传入函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">arg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> ++<span class="built_in">parseInt</span>(arg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add<span class="string">`12`</span>);</span><br><span class="line"><span class="comment">// -&gt; 13</span></span><br></pre></td></tr></table></figure>
+
+<p>但是如果包含模版内表达式，则会换转为多个参数。将表达式切分为多个部分，传递给参数 0，然后将表达式结果依次传递给后续参数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>,</span><br><span class="line">  b = <span class="number">2</span>;</span><br><span class="line">add<span class="string">`<span class="subst">$&#123;a + b&#125;</span>`</span>; <span class="comment">// 错误！Uncaught ReferenceError: Invalid left-hand side expression in prefix operation</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tag</span>(<span class="params">arg, ...args</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg);</span><br><span class="line">  <span class="keyword">if</span> (args) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">of</span> args) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">tag<span class="string">`part1<span class="subst">$&#123;a + b&#125;</span>part2<span class="subst">$&#123;a * b&#125;</span>part3`</span>;</span><br><span class="line"><span class="comment">// -&gt; [&#x27;part1&#x27;, &#x27;part2&#x27;, &#x27;part3&#x27;]</span></span><br><span class="line"><span class="comment">// -&gt; 3</span></span><br><span class="line"><span class="comment">// -&gt; 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Function"><a href="#5-Function" class="headerlink" title="(5) Function"></a>(5) Function</h3><p>可为参数添加默认值<code>function(n = 0) &#123;&#125;</code> 当传入参数为<code>undefined</code>时触发，需要放在尾部</p>
+<p>将默认值设定为<code>undefined</code>代表是可以省略的</p>
+<p><code>Function.prototype.length</code>返回需要传入参数的个数</p>
+<p>新增<strong>rest</strong>参数<code>function(...rest) &#123;&#125;</code>包含传递参数的数组，必须放在尾部</p>
+<p><code>Function.prototype.name</code>返回函数名，或者匿名函数的变量名</p>
+<p>箭头函数<code>() =&gt; &#123;&#125;</code>用于快速编写匿名函数，其不包含自己的作用域。将<code>this</code>固定化，有利于封装回调函数</p>
+<h2 id="变化内容"><a href="#变化内容" class="headerlink" title="变化内容"></a>变化内容</h2><h3 id="lt-1-gt-RegExp-Constructor"><a href="#lt-1-gt-RegExp-Constructor" class="headerlink" title="&lt;1&gt; RegExp Constructor"></a>&lt;1&gt; RegExp Constructor</h3><p><code>RegExp</code>构造函数可以同时接收正则表达式和修饰符参数。参数会覆盖表达式中的修饰符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/abc/gi</span>, <span class="string">&quot;i&quot;</span>).flags;</span><br><span class="line"><span class="comment">// -&gt; &#x27;i&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="lt-2-gt-RegExp-property"><a href="#lt-2-gt-RegExp-property" class="headerlink" title="&lt;2&gt; RegExp property"></a>&lt;2&gt; RegExp property</h3><p>ES6 将这 4 个方法，在语言内部全部调用<code>RegExp</code>的实例方法，从而做到所有与正则相关的方法，全都定义在<code>RegExp</code>对象上。</p>
+<ul>
+<li><code>String.prototype.match</code> 调用 <code>RegExp.prototype[Symbol.match]</code></li>
+<li><code>String.prototype.replace</code> 调用 <code>RegExp.prototype[Symbol.replace]</code></li>
+<li><code>String.prototype.search</code> 调用 <code>RegExp.prototype[Symbol.search]</code></li>
+<li><code>String.prototype.split</code> 调用 <code>RegExp.prototype[Symbol.split]</code></li>
+</ul>
+<h3 id="lt-3-gt-Number"><a href="#lt-3-gt-Number" class="headerlink" title="&lt;3&gt; Number"></a>&lt;3&gt; Number</h3><p><code>parseInt() parseFloat()</code>移动到<code>Number</code>对象中</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
+                https://ryzenx.com/2022/01/JS-ES6/
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2022/01/JS-ES6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/" rel="tag">Note</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/06/S-Wallpaper/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">给桌面换上bing壁纸  S-Wallpaper</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '6rOx45BhTGiuJn08QqGSIM60-gzGzoHsz',
+        app_key: 'U0llTCuXc2JxORgPV75aQQsh',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'retro',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <!-- <div class="gif-img">
+    <center><img src="/img/bg/logo.gif" alt="image frame" /></center>
+  </div> -->
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
+      </li>
+      <li>
+        
+                    <br />
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+          
+            <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+              
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/img/favicon.ico" alt="小渚w的博客小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/link/">链接</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/Steven-nagisa-Y">技术</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢你的喜欢~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/alipay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/cursor-effects.js"></script>
+
+
+<script src="/js/flower.js"></script>
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['反思使人进步，总结使人提高','','Hello, world'],
+    startDelay: 200,
+    typeSpeed: 300,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

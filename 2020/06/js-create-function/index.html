@@ -71,7 +71,7 @@ ga('send', 'pageview');
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/note/">Note</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
   </div>
 
       
@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">257字</span>
+            <span class="post-count">554字</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -117,9 +117,33 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="JavaScript-声明函数的三种方式"><a href="#JavaScript-声明函数的三种方式" class="headerlink" title="JavaScript 声明函数的三种方式"></a>JavaScript 声明函数的三种方式</h1><span id="more"></span>
+      <h1 id="JavaScript-声明函数"><a href="#JavaScript-声明函数" class="headerlink" title="JavaScript 声明函数"></a>JavaScript 声明函数</h1><blockquote>
+<p>2022-01-10 更新</p>
+</blockquote>
+<span id="more"></span>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数式声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量式声明</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Funcion构造函数</span></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> <span class="function"><span class="title">Function</span>(<span class="params">args</span>)</span> &#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-函数声明"><a href="#1-函数声明" class="headerlink" title="1. 函数声明"></a>1. 函数声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数式声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* function body */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>函数声明创建了一个变量，在当前作用域，这个变量就是函数的名称，而且是一个函数对象。这个函数变量存在变量提升，它会提到当前作用域的顶部，也就是说，在函数声明之前可以调用。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo);</span><br><span class="line"><span class="comment">// -&gt; [Function: foo]</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，这种函数声明并不能覆盖已声明的变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="string">&quot;string&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn);</span><br><span class="line"><span class="comment">// -&gt; string</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-函数表达式"><a href="#2-函数表达式" class="headerlink" title="2. 函数表达式"></a>2. 函数表达式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表达式声明</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* function body */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>函数表达式创建了一个函数对象。</p>
+<h2 id="3-箭头函数"><a href="#3-箭头函数" class="headerlink" title="3. 箭头函数"></a>3. 箭头函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="params">arg</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">/* function body */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>箭头函数不创建自己的上下文，<code>this</code>指向上文中的<code>this</code>。箭头函数是匿名函数。</p>
+<h2 id="4-构造函数"><a href="#4-构造函数" class="headerlink" title="4. 构造函数"></a>4. 构造函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Funcion构造函数</span></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;arg1&quot;</span>, <span class="string">&quot;arg2&quot;</span>, <span class="string">&quot;return arg1 + arg2&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(baz(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line"><span class="comment">// -&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<p>这种方式创建的函数不能访问当前的作用域，因为没办法创建闭包。他们总是在全局作用域内创建的。</p>
+<p>可以通过这种方式获得浏览器全局对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">	&#x27;use strict&#x27;</span>;</span><br><span class="line">4<span class="keyword">var</span> <span class="built_in">global</span> = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&#x27;return this&#x27;</span>)();</span><br><span class="line">4<span class="built_in">console</span>.log(<span class="built_in">global</span> == <span class="built_in">window</span>);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// -&gt; true</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -317,23 +341,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

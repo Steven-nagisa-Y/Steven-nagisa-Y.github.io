@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">299字</span>
+            <span class="post-count">303字</span>
         </span>
     </span>
 
@@ -117,41 +117,35 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="MySQL在macOS上的安装"><a href="#MySQL在macOS上的安装" class="headerlink" title="MySQL在macOS上的安装"></a>MySQL在macOS上的安装</h1><blockquote>
+      <h1 id="MySQL-在-macOS-上的安装"><a href="#MySQL-在-macOS-上的安装" class="headerlink" title="MySQL 在 macOS 上的安装"></a>MySQL 在 macOS 上的安装</h1><blockquote>
 <p>System version: macOS Catalina 10.15.5</p>
 <p>MySQL cersion: 8.0.20</p>
 <p>MySQL offical download site: <a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1-安装"></a>1-安装</h2><p>前往MySQL的官方网站下载安装MySQL Community Server（免费版）</p>
-<p><img src="https://oss.ryzenx.com/img/2020/20200531185157.png" alt=""></p>
-<p>选择<code>DMG Archive</code>或者<code>Compressed TAR Archive</code>均可。这里选择dmg格式的包。</p>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1-安装"></a>1-安装</h2><p>前往 MySQL 的官方网站下载安装 MySQL Community Server（免费版）</p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/20200531185157.png" alt=""></p>
+<p>选择<code>DMG Archive</code>或者<code>Compressed TAR Archive</code>均可。这里选择 dmg 格式的包。</p>
 <p>下载，打开压缩包，双击运行<strong>pkg</strong>安装包。</p>
 <p>如果出现“无法验证开发者”的情况，前往<code>系统偏好设置-&gt;安全性与隐私-&gt;通用-&gt;仍要打开</code></p>
 <p>之后按照提示下一步。</p>
-<p>最后安装完成需要你设置root用户的密码，自行设置密码后牢记。</p>
-<p>建议安装后选择<strong>自动启动MySQL Server服务</strong>，否则请按照<a href="#3-启动与停止">启动与停止</a>启动服务。</p>
-<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2-使用"></a>2-使用</h2><p>如果你在Mac上的<strong>终端</strong>上输入<code>mysql</code>后提示<code>command not found</code>，那么请这样做：</p>
+<p>最后安装完成需要你设置 root 用户的密码，自行设置密码后牢记。</p>
+<p>建议安装后选择<strong>自动启动 MySQL Server 服务</strong>，否则请按照<a href="#3-启动与停止">启动与停止</a>启动服务。</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2-使用"></a>2-使用</h2><p>如果你在 Mac 上的<strong>终端</strong>上输入<code>mysql</code>后提示<code>command not found</code>，那么请这样做：</p>
 <ul>
 <li>打开终端</li>
 <li>切换目录：<code>cd /usr/local/bin</code></li>
 <li>设置软链：<code>ln -fs /usr/local/mysql/bin/mysql mysql</code></li>
-<li>完成。只需要在终端中输入：<code>mysql -u root -p</code>即可使用MySQL。</li>
+<li>完成。只需要在终端中输入：<code>mysql -u root -p</code>即可使用 MySQL。</li>
 </ul>
 <h2 id="3-启动与停止"><a href="#3-启动与停止" class="headerlink" title="3-启动与停止"></a>3-启动与停止</h2><h3 id="启动："><a href="#启动：" class="headerlink" title="启动："></a>启动：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/MySQL/support-files/mysql.server start</span><br></pre></td></tr></table></figure>
 
-
-
 <h3 id="停止："><a href="#停止：" class="headerlink" title="停止："></a>停止：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server stop</span><br></pre></td></tr></table></figure>
-
-
 
 <h3 id="重启："><a href="#重启：" class="headerlink" title="重启："></a>重启：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/local/mysql/support-files/mysql.server restart</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="通过系统偏好设置："><a href="#通过系统偏好设置：" class="headerlink" title="通过系统偏好设置："></a>通过系统偏好设置：</h3><p><img src="https://oss.ryzenx.com/img/2020/20200531190500.png" alt=""></p>
+<h3 id="通过系统偏好设置："><a href="#通过系统偏好设置：" class="headerlink" title="通过系统偏好设置："></a>通过系统偏好设置：</h3><p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/20200531190500.png" alt=""></p>
 
       
       <!-- reward -->
@@ -328,23 +322,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->

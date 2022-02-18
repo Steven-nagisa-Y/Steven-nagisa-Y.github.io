@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">839字</span>
+            <span class="post-count">843字</span>
         </span>
     </span>
 
@@ -117,17 +117,17 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="使用Scrcpy连接手机与电脑"><a href="#使用Scrcpy连接手机与电脑" class="headerlink" title="使用Scrcpy连接手机与电脑"></a>使用Scrcpy连接手机与电脑</h1><blockquote>
-<p>要想在电脑上运行手机应用，最多的做法是采用虚拟机，但是有许多应用并不支持x86架构，导致了模拟器的应用体验极差。</p>
-<p>这样一款应用能够解决这个问题，采用ADB连接电脑与你的Android手机，并且还能流畅的操控，这就是Scrcpy。</p>
-<p>Scrcpy是一款开源应用，能够支持在不同平台的电脑上连接和操控Android设备。有理由怀疑华为的“多屏协同”也来自于此。</p>
+      <h1 id="使用-Scrcpy-连接手机与电脑"><a href="#使用-Scrcpy-连接手机与电脑" class="headerlink" title="使用 Scrcpy 连接手机与电脑"></a>使用 Scrcpy 连接手机与电脑</h1><blockquote>
+<p>要想在电脑上运行手机应用，最多的做法是采用虚拟机，但是有许多应用并不支持 x86 架构，导致了模拟器的应用体验极差。</p>
+<p>这样一款应用能够解决这个问题，采用 ADB 连接电脑与你的 Android 手机，并且还能流畅的操控，这就是 Scrcpy。</p>
+<p>Scrcpy 是一款开源应用，能够支持在不同平台的电脑上连接和操控 Android 设备。有理由怀疑华为的“多屏协同”也来自于此。</p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="1-官方文档"><a href="#1-官方文档" class="headerlink" title="1-官方文档"></a>1-官方文档</h2><p>Scrcpy在Github的项目地址为：<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">github.com/Genymobile/scrcpy</a></p>
+<h2 id="1-官方文档"><a href="#1-官方文档" class="headerlink" title="1-官方文档"></a>1-官方文档</h2><p>Scrcpy 在 Github 的项目地址为：<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">github.com/Genymobile/scrcpy</a></p>
 <p>基本的安装和命令在官方文档中已经十分详细，适合有经验的朋友自行摸索，这里提供适合大众阅读的安装和使用介绍。</p>
 <h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2-安装"></a>2-安装</h2><blockquote>
-<p>本人目前的平台是macOS，所以配图是macOS平台的，其他平台我也会讲述，大体上一致。</p>
+<p>本人目前的平台是 macOS，所以配图是 macOS 平台的，其他平台我也会讲述，大体上一致。</p>
 </blockquote>
 <h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>推荐使用<code>Homebrew</code>进行安装，什么？没有<strong>Homebrew</strong>？</p>
 <ul>
@@ -138,26 +138,26 @@ ga('send', 'pageview');
 <li><p>安装完成后，在终端中输入：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装Scrcpy</span></span><br><span class="line">brew install scrcpy</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装ADB</span></span><br><span class="line">brew cask install android-platform-tools</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>打开你的Android设备的<strong>开发者选项</strong>，并打开<strong>USB调试</strong></p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-06-20-17.03.04.png" alt="截屏2020-06-20-17.03.04"></p>
+<li><p>打开你的 Android 设备的<strong>开发者选项</strong>，并打开<strong>USB 调试</strong></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-06-20-17.03.04.png" alt="截屏2020-06-20-17.03.04"></p>
 </li>
-<li><p>在终端中输入<code>adb devices</code>；adb将会列出设备，在设备上点击“允许”（一律允许此计算机调试）。</p>
+<li><p>在终端中输入<code>adb devices</code>；adb 将会列出设备，在设备上点击“允许”（一律允许此计算机调试）。</p>
 </li>
 <li><p>再次输入<code>adb devices</code>；如果一切正常，将会显示：</p>
-<p><img src="https://oss.ryzenx.com/img/2020/%E6%88%AA%E5%B1%8F2020-06-20-17.10.16.png" alt="截屏2020-06-20-17.10.16"></p>
+<p><img src="https://ryzenx.oss-accelerate.aliyuncs.com/img/2020/%E6%88%AA%E5%B1%8F2020-06-20-17.10.16.png" alt="截屏2020-06-20-17.10.16"></p>
 </li>
-<li><p>在终端中输入<code>scrcpy</code>即可连接上你的Android设备啦～</p>
+<li><p>在终端中输入<code>scrcpy</code>即可连接上你的 Android 设备啦～</p>
 </li>
 </ul>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>在<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/releases">Releases页面</a>下载最新的zip格式文件。</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>在<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/releases">Releases 页面</a>下载最新的 zip 格式文件。</p>
 <p>解压后在当前目录打开<strong>cmd 或 PowerShell</strong></p>
 <p>按照上述命令即可执行。</p>
 <h2 id="3-快捷键"><a href="#3-快捷键" class="headerlink" title="3-快捷键"></a>3-快捷键</h2><table>
 <thead>
 <tr>
 <th>动作</th>
-<th align="left">Windows按键</th>
-<th align="left">macOS按键</th>
+<th align="left">Windows 按键</th>
+<th align="left">macOS 按键</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -176,14 +176,14 @@ ga('send', 'pageview');
 <td align="left"><code>Cmd</code>+<code>→</code> <em>(right)</em></td>
 </tr>
 <tr>
-<td>屏幕1:1显示</td>
+<td>屏幕 1:1 显示</td>
 <td align="left"><code>Ctrl</code>+<code>g</code></td>
 <td align="left"><code>Cmd</code>+<code>g</code></td>
 </tr>
 <tr>
 <td>Resize window to remove black borders</td>
 <td align="left"><code>Ctrl</code>+<code>x</code> | <em>Double-click¹</em></td>
-<td align="left"><code>Cmd</code>+<code>x</code>  | <em>Double-click¹</em></td>
+<td align="left"><code>Cmd</code>+<code>x</code> | <em>Double-click¹</em></td>
 </tr>
 <tr>
 <td>点击主页键</td>
@@ -193,7 +193,7 @@ ga('send', 'pageview');
 <tr>
 <td>点击返回键</td>
 <td align="left"><code>Ctrl</code>+<code>b</code> | <em>Right-click²</em></td>
-<td align="left"><code>Cmd</code>+<code>b</code>  | <em>Right-click²</em></td>
+<td align="left"><code>Cmd</code>+<code>b</code> | <em>Right-click²</em></td>
 </tr>
 <tr>
 <td>点击应用切换器键</td>
@@ -266,7 +266,7 @@ ga('send', 'pageview');
 <td align="left"><code>Cmd</code>+<code>Shift</code>+<code>v</code></td>
 </tr>
 <tr>
-<td>控制台中开关FPS计数</td>
+<td>控制台中开关 FPS 计数</td>
 <td align="left"><code>Ctrl</code>+<code>i</code></td>
 <td align="left"><code>Cmd</code>+<code>i</code></td>
 </tr>
@@ -275,10 +275,6 @@ ga('send', 'pageview');
 <p>²Right-click turns the screen on if it was off, presses BACK otherwise.</p>
 <h2 id="4-常用命令"><a href="#4-常用命令" class="headerlink" title="4-常用命令"></a>4-常用命令</h2><p>全部命令请参照<a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy/blob/master/README.md">官方文档</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 调整显示分辨率（最宽处）为 1024 pixel</span></span><br><span class="line">scrcpy -m 1024</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 调整镜像码率为 2Mbps</span></span><br><span class="line">scrcpy -b 2M</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 限制最大帧率为 30fps</span></span><br><span class="line">scrcpy --max-fps 30</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 锁定屏幕旋转</span></span><br><span class="line">scrcpy --lock-video-orientation 0   # 初始方向</span><br><span class="line">scrcpy --lock-video-orientation 1   # 90° 逆时针</span><br><span class="line">scrcpy --lock-video-orientation 2   # 180°</span><br><span class="line">scrcpy --lock-video-orientation 3   # 90° 顺时针</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 录屏到 rec.mp4</span></span><br><span class="line">scrcpy -r rec.mp4</span><br><span class="line"><span class="meta">#</span><span class="bash"> 停止录屏使用：Ctrl + C</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 只投屏，不操作</span></span><br><span class="line">scrcpy -n</span><br></pre></td></tr></table></figure>
-
-
-
-
 
 <h2 id="5-Enjoy"><a href="#5-Enjoy" class="headerlink" title="5-Enjoy!"></a>5-Enjoy!</h2>
       
@@ -456,23 +452,28 @@ ga('send', 'pageview');
     <ul class="list-inline">
       <li>
         &copy;
-        2020-2021
-        Steven Yan
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
       </li>
       <li>
         
-        <br />
+                    <br />
       </li>
     </ul>
     <ul class="list-inline">
       <li>
         
-        
-        <span>
+          
+            <span>
   <i>PV:<span id="busuanzi_value_page_pv"></span></i>
   <i>UV:<span id="busuanzi_value_site_uv"></span></i>
 </span>
-        
+              
       </li>
       <li>
         <!-- cnzz统计 -->
