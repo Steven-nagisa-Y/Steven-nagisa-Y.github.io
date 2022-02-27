@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ryzenx.com/"/>
-  <updated>2022-01-14T05:16:20.228Z</updated>
+  <updated>2022-02-27T09:18:37.706Z</updated>
   <id>https://ryzenx.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Magisk安装步骤</title>
+    <link href="https://ryzenx.com/2022/02/Install-magisk/"/>
+    <id>https://ryzenx.com/2022/02/Install-magisk/</id>
+    <published>2022-02-27T08:12:47.000Z</published>
+    <updated>2022-02-27T09:18:37.706Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Magisk-安装步骤简述"><a href="#Magisk-安装步骤简述" class="headerlink" title="Magisk 安装步骤简述"></a>Magisk 安装步骤简述</h1><blockquote><p>Magisk is for <em>The Magic Mask for Android</em></p><p>Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.</p></blockquote><span id="more"></span><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>在 Android 系统还不成熟的时候，<em>root</em> Android 系统获得系统最高用户权限，从而修改系统达到快捷操作个性化等目的。</p><p>虽然 Android 系统已经来到了 <strong>Android 12</strong>（截至本文最后修改时间，<strong>Android 13 beta</strong>已经推出），各种之前需要 <em>root</em> 系统才能进行的操作已经被内置在了系统功能中。但是，搞机不息，折腾不止，<em>Magisk</em> 的多种功能和“模块”也让 Android 系统变得更加自由。</p><h2 id="2-第一步：备份数据"><a href="#2-第一步：备份数据" class="headerlink" title="2. 第一步：备份数据"></a>2. 第一步：备份数据</h2><p><strong>！！！重中之重</strong></p><p>下列操作将涉及<strong>重置系统</strong>，提前备份手机中所有数据。</p><h2 id="3-第二步：解锁-Bootloader"><a href="#3-第二步：解锁-Bootloader" class="headerlink" title="3. 第二步：解锁 Bootloader"></a>3. 第二步：解锁 Bootloader</h2><blockquote><p>Bootloader 在类似于 Windows 电脑中的“安全启动”，是系统启动引导的安全空间。以下简称<strong>BL</strong></p><p>主要的功能是防止恶意程序修改系统引导、破坏系统文件、盗取存储数据。同时防止被加密的手机通过“刷机”获取存储中的资料。</p></blockquote><p>目前，不是所有品牌的手机都能自由解锁BL，因为很多手机厂商并不希望你安装其他系统版本、不希望你 <em>root</em> 手机后卸载系统的广告应用。</p><p>目前已知可以比较方便解锁BL的手机厂商有：</p><ul><li>小米 (MIUI)：绑定小米账号7天-30天即可解锁</li><li>三星 (OneUI)：熔断式安全锁，解锁后不可恢复锁定状态，安全功能不可用</li><li>联想</li><li>一加 (H2OS)</li><li>HTC</li><li>Sony</li><li>Google</li></ul><p>解锁方法可自行搜索<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; unlock bootloader</code></p><p><strong>解锁BL会清除所有数据！！！</strong></p><h2 id="4-第三步：获取最新安装包"><a href="#4-第三步：获取最新安装包" class="headerlink" title="4. 第三步：获取最新安装包"></a>4. 第三步：获取最新安装包</h2><p>可通过两种方法获取系统安装包：</p><ul><li><strong>官网下载</strong>，搜索：<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; system image</code></li><li><strong>OTA升级</strong></li></ul><p>获取系统安装包完成后，先在手机上安装一下最新系统，并进行初始化设置。如果不想更新系统，则需要下载到当前对应系统版本的安装包。</p><p>在<a href="https://github.com/topjohnwu/Magisk/releases">Github上下载Magisk</a>，在手机上直接安装。</p><h2 id="5-第四步：解包并提取"><a href="#5-第四步：解包并提取" class="headerlink" title="5. 第四步：解包并提取"></a>5. 第四步：解包并提取</h2><p>对下载的系统安装包进行解压，并提取<code>boot.img</code>。如果为加密系统安装包，即仅包含<code>payload.bin</code>，则按照<a href="https://magiskcn.com/payload-boot">这个教程解包</a><code>payload.bin</code></p><p>将提取到的<code>boot.img</code>保存到容易找到的手机目录，例如手机的“下载文件夹”<code>./Download/</code></p><h2 id="6-第五步：将Magisk注入"><a href="#6-第五步：将Magisk注入" class="headerlink" title="6. 第五步：将Magisk注入"></a>6. 第五步：将Magisk注入</h2><p>打开手机上安装的<strong>Magisk</strong> App，按照下图操作：</p><p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-3.jpg" alt="Magisk安装教程插图1"></p><h2 id="7-第六步：刷入注入完成的boot-img"><a href="#7-第六步：刷入注入完成的boot-img" class="headerlink" title="7. 第六步：刷入注入完成的boot.img"></a>7. 第六步：刷入注入完成的boot.img</h2><p>将<strong>Magisk</strong>注入完成的<code>magisk_patched-*****.img</code>拷贝到电脑，需要 <code>adb</code> 和  <code>fastboot</code> 工具。</p><p>将手机关机，同时按住<strong>电源</strong> <strong>音量减</strong>，直到手机出现画面显示<strong>Bootloader</strong>字样。将手机连接到电脑。</p><p>打开电脑的“终端”，例如 Windows 系统中的 <em>PowerShell</em> 窗口，或者 macOS 中的 <em>Terminal.app</em></p><p>切换到 <code>adb</code> 和  <code>fastboot</code> 目录，输入<code>fastboot devices</code>，返回当前连接的设备(1个)表示连接成功。</p><p>确认连接成功后，输入：<code>fastboot flash boot /path/to/magisk_patched-*****.img</code>，并确认</p><p>如果显示：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sending ‘boot’ (131072 KB) OKAY [ 3.123s]</span><br><span class="line">Writing ‘boot’ OKAY [ 0.397s]</span><br><span class="line">Finished. Total time: 4.645s</span><br></pre></td></tr></table></figure><p>代表你的手机为单系统引导分区，且已经执行成功。</p><p>如果显示：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Sending ‘boota’</span><br><span class="line">Sending ‘bootb’</span><br></pre></td></tr></table></figure><p>表示你的手机为双系统引导分区。</p><p>如果没有显示<code>OKAY</code> 和 <code>Finished</code>，表示执行失败。</p><blockquote><p>这里有个坑</p></blockquote><p>这里仅需要运行<code>fastboot flash boot XXX.img</code>表示把<code>XXX.img</code>刷入<code>boot</code>分区，<strong>fastboot</strong>会自动找到下次启动的分区，但是在个别机型上，<strong>A/B</strong>分区并不是<code>boota</code>和<code>bootb</code>，而是<code>boot_a</code>和<code>boot_b</code>。如果输入上述命令执行失败，提示未找到<code>boota</code>和<code>bootb</code>分区，则手动修改为<code>boot_a</code>和<code>boot_b</code>，但注意与提示对应。</p><h2 id="8-第七步：重启手机"><a href="#8-第七步：重启手机" class="headerlink" title="8. 第七步：重启手机"></a>8. 第七步：重启手机</h2><p>断开手机与电脑的连接。可通过长按按键“电源”重启手机或者输入<code>fastboot reboot</code>重启。</p><p>重启后打开 <strong>Magisk</strong> App，如果显示（右上角有个刷新/重启按钮）：</p><p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-4.jpg" alt="Magisk安装教程插图5"></p><p>则表示安装成功。</p><br /><blockquote><p>参考：<a href="https://magiskcn.com/">https://magiskcn.com/</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Magisk-安装步骤简述&quot;&gt;&lt;a href=&quot;#Magisk-安装步骤简述&quot; class=&quot;headerlink&quot; title=&quot;Magisk 安装步骤简述&quot;&gt;&lt;/a&gt;Magisk 安装步骤简述&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Magisk is for &lt;em&gt;The Magic Mask for Android&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Note" scheme="https://ryzenx.com/categories/note/"/>
+    
+    
+      <category term="Android" scheme="https://ryzenx.com/tags/android/"/>
+    
+      <category term="玩机" scheme="https://ryzenx.com/tags/%E7%8E%A9%E6%9C%BA/"/>
+    
+      <category term="心得" scheme="https://ryzenx.com/tags/%E5%BF%83%E5%BE%97/"/>
+    
+  </entry>
   
   <entry>
     <title>ECMAScript 6+标准学习</title>
@@ -568,37 +598,6 @@
       <category term="开箱" scheme="https://ryzenx.com/tags/%E5%BC%80%E7%AE%B1/"/>
     
       <category term="小米" scheme="https://ryzenx.com/tags/%E5%B0%8F%E7%B1%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快充技术的前世今生</title>
-    <link href="https://ryzenx.com/2020/04/charge-fast/"/>
-    <id>https://ryzenx.com/2020/04/charge-fast/</id>
-    <published>2020-04-23T15:19:10.000Z</published>
-    <updated>2021-06-13T03:51:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。</p><blockquote><p>2020年了，你还想手机能手动换电池吗？</p><p>➡️<a href="https://shimo.im/docs/m6kMLxenVoUrFBqD/">石墨文档预览</a></p></blockquote><span id="more"></span><h2 id="前世"><a href="#前世" class="headerlink" title="前世"></a>前世</h2><p>1994年8月 Simon 这部完全靠触摸操作的智能手机问世，给手机界开了这样一个先河：<strong>不可拆卸式电池</strong>。虽然 IBM 开了这样一个头，但是当时似乎并没有多少手机采用不可拆卸电池的设计，因为当时电池的比容量很小，为了能让用户使用更长时间，让当时的商务人士不会漏接电话，可替换式电池设计更能满足需求。</p><img src="https://uploader.shimo.im/f/rZwhtFRU1m8pmjzG.jpeg!thumbnail" alt="图片" style="zoom:67%;" /><center>图片来源：百度百科</center><p>人们所熟悉的不可拆卸式电池设计的还是于2007年发布的 iPhone 手机，给手机界真正带来了触控式交互和不可拆卸式电池设计。之后很多手机厂商渐渐地都开始设计了不可拆卸式电池，之后很多年，对于可更换式电池的手机，追求者不在少数。所以就有了这样一件东西——<strong>充电宝。</strong></p><p><img src="https://uploader.shimo.im/f/9JU2OpTS8wi7CjhW.jpg!thumbnail" alt="图片"></p><p>充电宝，其实就是“可更换电池”的另外一种形式，它从容量上从几百毫安时，提升至几万毫安时；功率从5W，提升至了65W。还记得几年前出门不带充电宝，简直就如同随时失踪失连。</p><p>随着电池技术的提升、手机体积的增大，电池的容量不断提升，公众对电量的关注逐渐降低了。但是随之而来的问题是，大容量的电池充电时间会变得很长，于是，快速充电技术应运而生。</p><h2 id="今生"><a href="#今生" class="headerlink" title="今生"></a>今生</h2><center><p style="font-size: 11px">  （以下部分内容源于回形针PaperClip-回形针事务所008)</p></center><h3 id="功率"><a href="#功率" class="headerlink" title="功率"></a>功率</h3><p>在中国，城市内家庭交流电的有效电压是220V，输入功率从77W到330W，而充电器的输出功率却收到多方面的限制：</p><ul><li>首先是充电器的工艺质量，如果电流过大，充电器内部的变压器整流器将产生更多的焦耳热，产生巨大安全隐患。</li><li>其次是充电器的大小，为了转换大功率的电流，充电器的体积必然会加大。</li><li>最后是你的手机电池，它能否承受住高功率的电流输入，决定了你的手机会不会变成一个“定时炸弹”。</li></ul><p><img src="https://uploader.shimo.im/f/lUBIYo6iDCLopabI.jpg!thumbnail" alt="图片"></p><p>为了提升充电功率，多年来出现了不同的充电方案。</p><h3 id="P-U-×-I"><a href="#P-U-×-I" class="headerlink" title="P = U × I"></a>P = U × I</h3><ul><li>小电流高压协议：<ul><li>高通 Quick Charge</li><li>联发科 Pump Express</li><li>德州仪器 TI MaxCharge</li><li>摩托罗拉 Turbo Power</li></ul></li></ul><p>以代表高通 Quick Charge 技术为例。2013 年高通 Quick Charge 1.0 协议随着骁龙600发布，采用了“提升电流”的做法：<strong>I = 1.8A, U = 5V, P = 9W。</strong>因为当时的手机充电器接口通常还是<strong>microUSB</strong>接口，最高通过的电流为2A。</p><p><img src="https://uploader.shimo.im/f/b8EC40vARwIjnG76.png!thumbnail" alt="图片"></p><p>之后2015年高通 Quick Charge 2.0 随着骁龙810发布，电流可选：<strong>1.67A/2.0A/3.0A，</strong>电压可选：<strong>5V/9V/12V</strong>，则最高支持到了36W，但是当时其实并没有普及快充这项快充技术，一是因为快充的充电器价格高昂，而且当时不少手机电池工艺质量不足以承受9V甚至更高的电压。</p><p><img src="https://uploader.shimo.im/f/rA3duuOSlo2T17rH.png!thumbnail" alt="图片"></p><p>2016年，高通随着骁龙820推出了Quick Charge 3.0 技术，考虑到上一代技术在手机上的硬件限制，显著的特点是加入了INOV (Intelligent Negotiation for Optimum Voltage)技术，简单来说，这项技术就是通过与手机“交流”为了不同手机输出不同的电压，范围是 <strong>U = 3.6～20V</strong>，梯度降低到了200mV。而此时 USB Type-C 接口已经普及，所以电流为 <strong>I = 2.6A/4.6A</strong>。最高功率仍然为 <strong>P = 36W</strong>。</p><p><img src="https://uploader.shimo.im/f/Qpl3Xz2ZNQWmouEw.jpeg!thumbnail" alt="图片"></p><p>2017年，高通 Quick Charge 4.0 随着骁龙835发布，随后，高通 Quick Chage 4.0+ 随着骁龙845发布。除了兼容之前的 QC 快充技术外，还特别支持 USB PowerDelivery 3.0 的可编程电源供应技术：电压可以从 3V ～ 11V，步进 20mV；电流从 0A～3A，步进 50mA。而 QC 本身的电流提供：<strong>I = 2.6A/4.6A</strong>，电压提供 <strong>U = 3.6V～20V</strong>，则理论最高功率达到了接近100W，<strong>P = 4.6A × 20V = 92W。</strong></p><p><img src="https://uploader.shimo.im/f/8WVldVnexVYvTbm8.jpeg!thumbnail" alt="图片"></p><hr><ul><li>低压大电流协议：<ul><li>OPPO VOOC</li><li>一加 Dash</li><li>华为 SuperCharge</li></ul></li></ul><p>以小电流高压协议的代表 OPPO VOOC 闪充进行简述：</p><p>VOOC 快充 全称为<strong>V</strong>oltage Open L<strong>oo</strong>p Multi-step Constant-Current <strong>C</strong>harging（电压开环多步恒流充电）。</p><p>2014 年 3 月 19 日，OPPO 率先推出 VOOC 闪充，并在 OPPO Find 7 上商用。相对于高通的 Quick Charge 技术，VOOC 快充的主要特点是在保持电压在 <strong>U = 5V</strong> 的基础上，将电流增大到了 <strong>I = 4A</strong>，所以功率达到了** P = 20W**。但是上文提到，microUSB接口只能支持2A的输出电流。于是OPPO将原有的USB线缆进行改造，增粗以减少电阻，承载更大的电流，同时增加了一个触电以识别VOOC快充协议。</p><img src="https://uploader.shimo.im/f/atzXeomvIOotzRnI.jpg!thumbnail" alt="图片" style="zoom:67%;" /><p>相信大家都还记得当年OPPO的广告词：“充电5分钟，通话2小时”。正是凭借这句广告词，OPPO的专利技术 VOOC 闪充进入大家的视线。</p><img src="https://uploader.shimo.im/f/jm8rRxFv6yMrqNal.jpeg!thumbnail" alt="图片" style="zoom:50%;" /><p>2018 年， SuperVOOC 1.0 由OPPO Find X推出，同时支持的还有 realme X2 Pro，这项技术在前一代的基础上再次增大了电流，使 <strong>I = 5A</strong>，同时提升电压至 <strong>U = 10V</strong>的基础上，使功率一下增加到了 <strong>P = 50W</strong>。之后的2019年，SuperVOOC 2.0 发布，这次直接将电压电流提升至 <strong>I = 6.5A</strong>，电压保持上一代 <strong>U = 10V</strong>，所以最高功率达到了 <strong>P = 65W</strong>，已经和不少笔记本电脑的充电功率相同甚至更高（我手上这台MacBook Air才输入45W）。</p><img src="https://uploader.shimo.im/f/nCCMhd4WZtjBSSd5.jpg!thumbnail" alt="图片" style="zoom:67%;" /><p>而同时OPPO继续升级了VOOC，并没有功率上的激进。2019年发布 VOOC 2.0，电流 <strong>I = 5V</strong>，电压 <strong>U = 5V</strong>，功率为 <strong>P = 25W</strong>。最新一代的VOOC采用电流 <strong>I = 6A</strong>，电压 <strong>U = 5V</strong>，功率 <strong>P = 30W</strong>的设计，可见VOOC系列还一直沿用着5V低压加大电流的方案。</p><p><img src="https://uploader.shimo.im/f/jw9WgbbtMXQYTCji.png!thumbnail" alt="图片"></p><hr><h3 id="充电时间"><a href="#充电时间" class="headerlink" title="充电时间"></a>充电时间</h3><p>搭载 SuperVOOC 2.0 的 OPPO Ace 2 在各类手机充电时间的排行榜中位列第一，不足半小时即可充满一块 4000mAh的电池。</p><p><img src="https://uploader.shimo.im/f/LXw7987HSn8GrTFL.jpg!thumbnail" alt="图片"></p><center>（图片来自：小白测评）</center><hr><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>内置不可拆卸电池的好处有很多，比如提高手机内部的集成度，能够使手机密闭防水，减少后改版散热等。而且目前电池容量已经很高了，充电技术越来越成熟。</p><p>回到最开始那个问题，2020年了，你还想手机能手动换电池吗？</p><p>想？可以购买诺基亚。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;现在快充技术逐渐成熟，人们对电量的焦虑在逐渐下降。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2020年了，你还想手机能手动换电池吗？&lt;/p&gt;
-&lt;p&gt;➡️&lt;a href=&quot;https://shimo.im/docs/m6kMLxenVoUrFBqD/&quot;&gt;石墨文档预览&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="essay" scheme="https://ryzenx.com/categories/essay/"/>
-    
-    
-      <category term="技术" scheme="https://ryzenx.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="快充" scheme="https://ryzenx.com/tags/%E5%BF%AB%E5%85%85/"/>
-    
-      <category term="公众号文章" scheme="https://ryzenx.com/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   

@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Magisk安装步骤</title>
+    <url>/2022/02/Install-magisk/</url>
+    <content><![CDATA[<h1 id="Magisk-安装步骤简述"><a href="#Magisk-安装步骤简述" class="headerlink" title="Magisk 安装步骤简述"></a>Magisk 安装步骤简述</h1><blockquote>
+<p>Magisk is for <em>The Magic Mask for Android</em></p>
+<p>Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>在 Android 系统还不成熟的时候，<em>root</em> Android 系统获得系统最高用户权限，从而修改系统达到快捷操作个性化等目的。</p>
+<p>虽然 Android 系统已经来到了 <strong>Android 12</strong>（截至本文最后修改时间，<strong>Android 13 beta</strong>已经推出），各种之前需要 <em>root</em> 系统才能进行的操作已经被内置在了系统功能中。但是，搞机不息，折腾不止，<em>Magisk</em> 的多种功能和“模块”也让 Android 系统变得更加自由。</p>
+<h2 id="2-第一步：备份数据"><a href="#2-第一步：备份数据" class="headerlink" title="2. 第一步：备份数据"></a>2. 第一步：备份数据</h2><p><strong>！！！重中之重</strong></p>
+<p>下列操作将涉及<strong>重置系统</strong>，提前备份手机中所有数据。</p>
+<h2 id="3-第二步：解锁-Bootloader"><a href="#3-第二步：解锁-Bootloader" class="headerlink" title="3. 第二步：解锁 Bootloader"></a>3. 第二步：解锁 Bootloader</h2><blockquote>
+<p>Bootloader 在类似于 Windows 电脑中的“安全启动”，是系统启动引导的安全空间。以下简称<strong>BL</strong></p>
+<p>主要的功能是防止恶意程序修改系统引导、破坏系统文件、盗取存储数据。同时防止被加密的手机通过“刷机”获取存储中的资料。</p>
+</blockquote>
+<p>目前，不是所有品牌的手机都能自由解锁BL，因为很多手机厂商并不希望你安装其他系统版本、不希望你 <em>root</em> 手机后卸载系统的广告应用。</p>
+<p>目前已知可以比较方便解锁BL的手机厂商有：</p>
+<ul>
+<li>小米 (MIUI)：绑定小米账号7天-30天即可解锁</li>
+<li>三星 (OneUI)：熔断式安全锁，解锁后不可恢复锁定状态，安全功能不可用</li>
+<li>联想</li>
+<li>一加 (H2OS)</li>
+<li>HTC</li>
+<li>Sony</li>
+<li>Google</li>
+</ul>
+<p>解锁方法可自行搜索<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; unlock bootloader</code></p>
+<p><strong>解锁BL会清除所有数据！！！</strong></p>
+<h2 id="4-第三步：获取最新安装包"><a href="#4-第三步：获取最新安装包" class="headerlink" title="4. 第三步：获取最新安装包"></a>4. 第三步：获取最新安装包</h2><p>可通过两种方法获取系统安装包：</p>
+<ul>
+<li><strong>官网下载</strong>，搜索：<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; system image</code></li>
+<li><strong>OTA升级</strong></li>
+</ul>
+<p>获取系统安装包完成后，先在手机上安装一下最新系统，并进行初始化设置。如果不想更新系统，则需要下载到当前对应系统版本的安装包。</p>
+<p>在<a href="https://github.com/topjohnwu/Magisk/releases">Github上下载Magisk</a>，在手机上直接安装。</p>
+<h2 id="5-第四步：解包并提取"><a href="#5-第四步：解包并提取" class="headerlink" title="5. 第四步：解包并提取"></a>5. 第四步：解包并提取</h2><p>对下载的系统安装包进行解压，并提取<code>boot.img</code>。如果为加密系统安装包，即仅包含<code>payload.bin</code>，则按照<a href="https://magiskcn.com/payload-boot">这个教程解包</a><code>payload.bin</code></p>
+<p>将提取到的<code>boot.img</code>保存到容易找到的手机目录，例如手机的“下载文件夹”<code>./Download/</code></p>
+<h2 id="6-第五步：将Magisk注入"><a href="#6-第五步：将Magisk注入" class="headerlink" title="6. 第五步：将Magisk注入"></a>6. 第五步：将Magisk注入</h2><p>打开手机上安装的<strong>Magisk</strong> App，按照下图操作：</p>
+<p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-3.jpg" alt="Magisk安装教程插图1"></p>
+<h2 id="7-第六步：刷入注入完成的boot-img"><a href="#7-第六步：刷入注入完成的boot-img" class="headerlink" title="7. 第六步：刷入注入完成的boot.img"></a>7. 第六步：刷入注入完成的boot.img</h2><p>将<strong>Magisk</strong>注入完成的<code>magisk_patched-*****.img</code>拷贝到电脑，需要 <code>adb</code> 和  <code>fastboot</code> 工具。</p>
+<p>将手机关机，同时按住<strong>电源</strong> <strong>音量减</strong>，直到手机出现画面显示<strong>Bootloader</strong>字样。将手机连接到电脑。</p>
+<p>打开电脑的“终端”，例如 Windows 系统中的 <em>PowerShell</em> 窗口，或者 macOS 中的 <em>Terminal.app</em></p>
+<p>切换到 <code>adb</code> 和  <code>fastboot</code> 目录，输入<code>fastboot devices</code>，返回当前连接的设备(1个)表示连接成功。</p>
+<p>确认连接成功后，输入：<code>fastboot flash boot /path/to/magisk_patched-*****.img</code>，并确认</p>
+<p>如果显示：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending ‘boot’ (131072 KB) OKAY [ 3.123s]</span><br><span class="line">Writing ‘boot’ OKAY [ 0.397s]</span><br><span class="line">Finished. Total time: 4.645s</span><br></pre></td></tr></table></figure>
+
+<p>代表你的手机为单系统引导分区，且已经执行成功。</p>
+<p>如果显示：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Sending ‘boota’</span><br><span class="line">Sending ‘bootb’</span><br></pre></td></tr></table></figure>
+
+<p>表示你的手机为双系统引导分区。</p>
+<p>如果没有显示<code>OKAY</code> 和 <code>Finished</code>，表示执行失败。</p>
+<blockquote>
+<p>这里有个坑</p>
+</blockquote>
+<p>这里仅需要运行<code>fastboot flash boot XXX.img</code>表示把<code>XXX.img</code>刷入<code>boot</code>分区，<strong>fastboot</strong>会自动找到下次启动的分区，但是在个别机型上，<strong>A/B</strong>分区并不是<code>boota</code>和<code>bootb</code>，而是<code>boot_a</code>和<code>boot_b</code>。如果输入上述命令执行失败，提示未找到<code>boota</code>和<code>bootb</code>分区，则手动修改为<code>boot_a</code>和<code>boot_b</code>，但注意与提示对应。</p>
+<h2 id="8-第七步：重启手机"><a href="#8-第七步：重启手机" class="headerlink" title="8. 第七步：重启手机"></a>8. 第七步：重启手机</h2><p>断开手机与电脑的连接。可通过长按按键“电源”重启手机或者输入<code>fastboot reboot</code>重启。</p>
+<p>重启后打开 <strong>Magisk</strong> App，如果显示（右上角有个刷新/重启按钮）：</p>
+<p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-4.jpg" alt="Magisk安装教程插图5"></p>
+<p>则表示安装成功。</p>
+<br />
+
+<blockquote>
+<p>参考：<a href="https://magiskcn.com/">https://magiskcn.com/</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>玩机</tag>
+        <tag>心得</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ECMAScript 6+标准学习</title>
     <url>/2022/01/JS-ES6/</url>
     <content><![CDATA[<h1 id="ECMAScript-6-学习笔记"><a href="#ECMAScript-6-学习笔记" class="headerlink" title="ECMAScript 6+学习笔记"></a>ECMAScript 6+学习笔记</h1><blockquote>
@@ -1885,8 +1963,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>快充</tag>
         <tag>公众号文章</tag>
+        <tag>快充</tag>
       </tags>
   </entry>
   <entry>
@@ -2182,6 +2260,42 @@
       </tags>
   </entry>
   <entry>
+    <title>Python删除macOS产生的冗余文件</title>
+    <url>/2020/03/macOS-trashfile-cleaner.sync-conflict-20220223-210436-ASIL2XC/</url>
+    <content><![CDATA[<h1 id="利用Python删除磁盘中macOS产生的冗余文件"><a href="#利用Python删除磁盘中macOS产生的冗余文件" class="headerlink" title="利用Python删除磁盘中macOS产生的冗余文件"></a>利用Python删除磁盘中macOS产生的冗余文件</h1><blockquote>
+<p><strong>特别说明：</strong></p>
+<p>请不要在macOS下运行此脚本，因为这些文件对于macOS来说是可能必须的。</p>
+<p>使用此Python脚本或其中部分代码导致的个人文件被删除，本人概不负责。</p>
+<p>请确认你有足够的能力应对各种突发情况，再使用此代码。</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>由于我的U盘需要经常在各个系统之间拷贝、移动文件，所以其中难免会被创建很多在其他系统平台没用的文件。</p>
+<p>比如<code>Windows</code>下会创建<code>System Volume Information</code>目录</p>
+<p><code>Android</code>平台下会创建<code>.android_secure</code>目录</p>
+<p>相对于上面两个，<code>macOS</code>就比较难搞，不仅根目录下会有<code>.fseventsd  .Spotlight-V100  .Trashes</code>文件夹，各个目录下还会存放<code>.DS_Store</code>目录信息文件，最要命的还是每打开一个文件就会创建一个<code>._&lt;原文件名&gt;.&lt;原扩展名&gt;</code>的一个文件，有时候会误打开甚至把不智能的设备搞死机。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用正则表达式匹配文件目录中的<code>._</code>开头，以及<code>.DS_Store</code>文件，把它们移动到备份文件夹。</p>
+<p>备份的目的就是防止正则表达式匹配到同样以<code>._</code>开头的<strong>正 ♂ 常</strong>文件，需要手动确认后在一键删除。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># encoding:UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">currentPath = <span class="string">&quot;&quot;</span></span><br><span class="line">path = <span class="string">&quot;&quot;</span></span><br><span class="line">bk_path = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bye</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n        Bye!&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delAll</span>(<span class="params">m=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;是否清空备份文件夹: &#123;&#125; ？(yes / no)&quot;</span>.<span class="built_in">format</span>(bk_path))</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">&#x27;nt&#x27;</span> <span class="keyword">and</span> m == <span class="number">0</span>:</span><br><span class="line">        os.system(<span class="string">&quot;explorer &#123;&#125;&quot;</span>.<span class="built_in">format</span>(bk_path))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s = <span class="built_in">input</span>(<span class="string">&quot;&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">if</span> (s.lower() <span class="keyword">in</span> [<span class="string">&#x27;yes&#x27;</span>, <span class="string">&#x27;y&#x27;</span>]):</span><br><span class="line">        <span class="keyword">for</span> fileList <span class="keyword">in</span> os.walk(bk_path):</span><br><span class="line">            <span class="keyword">for</span> name <span class="keyword">in</span> fileList[<span class="number">2</span>]:</span><br><span class="line">                os.remove(os.path.join(fileList[<span class="number">0</span>], name))</span><br><span class="line">            shutil.rmtree(bk_path)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(bk_path)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;删除成功！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">    bye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean</span>(<span class="params">path, bk_path</span>):</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Selected path: &quot;</span> + path)</span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">dir</span> <span class="keyword">in</span> dirs:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">dir</span>.lower() <span class="keyword">in</span> [<span class="string">&#x27;.fseventsd&#x27;</span>, <span class="string">&#x27;.spotlight-v100&#x27;</span>, <span class="string">&#x27;.trashes&#x27;</span>]:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, <span class="built_in">dir</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span>)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span>,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span> + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            matchObj1 = re.match(<span class="string">r&quot;^\._\S+&quot;</span>, file, re.I)</span><br><span class="line">            matchObj2 = re.match(<span class="string">r&quot;^\.DS_Store$&quot;</span>, file, re.I)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> matchObj1:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + file)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + file,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + file + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">            <span class="keyword">if</span> matchObj2:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + file)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + file,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + file + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;\n* No trash file found!\n&quot;</span>)</span><br><span class="line">        delAll(m=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        delAll()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkDir</span>(<span class="params">bk_path</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)):</span><br><span class="line">        os.mkdir(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;备份文件夹创建成功...&quot;</span> + bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">&#x27;nt&#x27;</span>:</span><br><span class="line">        os.system(<span class="string">&#x27;cls&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> os.name == <span class="string">&#x27;posix&#x27;</span>:</span><br><span class="line">        os.system(<span class="string">&#x27;clear&#x27;</span>)</span><br><span class="line">    currentPath = os.getcwd()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;==============================&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;请输入需要处理的目录，例如：C:\ &quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;输入 `this` 处理当前目录: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(currentPath))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        path = <span class="built_in">input</span>(<span class="string">&quot;=&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;备份文件夹目录：（不要在处理的目录下！）&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        bk_path = <span class="built_in">input</span>(<span class="string">&quot;=&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    mkDir(bk_path)</span><br><span class="line">    bk_path = bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span></span><br><span class="line">    <span class="keyword">if</span> (path.lower() == <span class="string">&quot;this&quot;</span>):</span><br><span class="line">        clean(currentPath, bk_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path = path + <span class="string">&quot;\\&quot;</span></span><br><span class="line">        clean(path, bk_path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Github链接"><a href="#Github链接" class="headerlink" title="Github链接"></a>Github链接</h2><ul>
+<li><a href="https://github.com/Steven-nagisa-Y/macOS-trashfile-cleaner">Steven-nagisa-Y/macOS-trashfile-cleaner: Clean macOS trash files: ._xxx/.DS_Store, etc. (github.com)</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>essay</tag>
+        <tag>code</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小米手环4 开箱</title>
     <url>/2020/03/Mi-band-4/</url>
     <content><![CDATA[<h1 id="小米手环-4-开箱"><a href="#小米手环-4-开箱" class="headerlink" title="小米手环 4 开箱"></a>小米手环 4 开箱</h1><blockquote>
@@ -2399,7 +2513,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#121;&#x70;&#x6f;&#x72;&#x61;&#x2e;&#x69;&#111;">&#105;&#x40;&#x74;&#121;&#x70;&#x6f;&#x72;&#x61;&#x2e;&#x69;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#64;&#116;&#121;&#112;&#x6f;&#114;&#x61;&#x2e;&#105;&#111;">&#x69;&#64;&#116;&#121;&#112;&#x6f;&#114;&#x61;&#x2e;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
