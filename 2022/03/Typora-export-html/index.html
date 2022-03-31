@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客, 技术" />
+   
+  <meta name="description" content="Typora自定义导出HTML简介" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Typora自定义导出HTML ::  小渚w的博客小站
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-ZYJSPP9RMK', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+<link rel="alternate" href="/atom.xml" title="小渚w的博客小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  
+<article id="post-Typora-export-html" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Typora自定义导出HTML
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/03/Typora-export-html/" class="article-date">
+  <time datetime="2022-03-31T14:18:44.000Z" itemprop="datePublished">2022-03-31</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/note/">Note</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="Typora-Export-to-HTML-Mixin"><a href="#Typora-Export-to-HTML-Mixin" class="headerlink" title="Typora Export to HTML Mixin"></a>Typora Export to HTML Mixin</h1><p>平常喜欢用Typora编写Markdown笔记，一般来说都是导出为pdf方便阅读，有时候也导出为html文件方便直接放在静态网站上展示。</p>
+<p>偶然发现Typora可以在导出的html文件的<code>&lt;head&gt;</code>和<code>&lt;body&gt;</code>中插入自定义代码。这就有了很多可玩性。</p>
+<center><img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331222931.png" alt="Typora screenshot" style="height:400px;" /></center>
+
+<span id="more"></span>
+
+<h2 id="1-官方文档这样说"><a href="#1-官方文档这样说" class="headerlink" title="1. 官方文档这样说"></a>1. 官方文档这样说</h2><blockquote>
+<h4 id="Add-Custom-Contents"><a href="#Add-Custom-Contents" class="headerlink" title="Add Custom Contents"></a>Add Custom Contents</h4><p>You can add custom contents in Append in <head /> and Append in <body />, which will be inserted into <head /> part and <body /> part in the exported html. For contents that cannot be added into <head />, even when it is added in Append in <head />, it will be prepend into <body /> instead. Same for Append in <body />.</p>
+<h5 id="Export-YAML-meta"><a href="#Export-YAML-meta" class="headerlink" title="Export YAML meta"></a>Export YAML meta</h5><p>Variables like <code>$&#123;title&#125;</code> or <code>$&#123;author&#125;</code> in <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> tag will be replaced by corresponding <a target="_blank" rel="noopener" href="https://support.typora.io/Export/#variables">variables</a> defined in <a target="_blank" rel="noopener" href="https://jekyllrb.com/docs/front-matter/">YAML Front Matter</a>.</p>
+<p>For example, you can insert additional <code>&lt;meta&gt;</code> data or custom <code>&lt;style&gt;</code> into exported html using those options, e.g:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">&quot;author&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;<span class="variable">$&#123;author&#125;</span>&quot;</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">&quot;description&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;<span class="variable">$&#123;description&#125;</span>&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>To use those variables in somewhere else, you can add some javascript in <code>Append in &lt;body /&gt;</code>, to read target meta tag, and modified export content as you want.</p>
+</blockquote>
+<h2 id="2-实践"><a href="#2-实践" class="headerlink" title="2. 实践"></a>2. 实践</h2><p>官方文档中有几点需要注意</p>
+<ul>
+<li>变量可以写在Markdown的<code>YAML</code>头注释中，输入方式是三个减号<code>---</code>并<code>return</code></li>
+<li>Typora只能在<code>&lt;head&gt;</code>中插入带变量的内容，如果需要在<code>&lt;body&gt;</code>中使用变量，需要先在<code>&lt;head&gt;</code>中通过<code>&lt;meta&gt;</code>引入，在<code>&lt;body&gt;</code>中通过Javascript读取<code>&lt;meta&gt;</code>中的变量再使用。</li>
+</ul>
+<h3 id="输出user-agent"><a href="#输出user-agent" class="headerlink" title="输出user agent"></a>输出user agent</h3><p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span>(navigator.userAgentData)&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ua = navigator.userAgentData.platform || <span class="string">&quot;Unknown&quot;</span>;</span></span><br><span class="line"><span class="javascript">ua = ua + <span class="string">&quot; &quot;</span> + navigator.userAgentData.brands[<span class="number">2</span>].brand + <span class="string">&quot; var.&quot;</span> + navigator.userAgentData.brands[<span class="number">2</span>].version;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript">&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ua = navigator.userAgent;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意⚠️，<code>userAgentData</code>是新属性</p>
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331224202.png" alt="log user agent" style="zoom:50%;" />
+
+<h3 id="输出title"><a href="#输出title" class="headerlink" title="输出title"></a>输出title</h3><p>在<code>&lt;head&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>$&#123;title&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> title = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;title&#x27;</span>)[<span class="number">0</span>].textContent;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+<span class="string">&quot;Title: &quot;</span>+title, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331224629.png" alt="log title" style="zoom:50%;" />
+
+<h3 id="输出自定义变量"><a href="#输出自定义变量" class="headerlink" title="输出自定义变量"></a>输出自定义变量</h3><p>在<code>&lt;head&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;$&#123;description&#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> desp = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;meta&#x27;</span>)[<span class="string">&#x27;description&#x27;</span>].content;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+<span class="string">&quot;Desp: &quot;</span>+desp, <span class="string">&quot;font-size:16px;background-color:white;color:black;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331225114.png" alt="log desciption" style="zoom:50%;" />
+
+<h3 id="输出本页地址"><a href="#输出本页地址" class="headerlink" title="输出本页地址"></a>输出本页地址</h3><p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> pageUrl = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%cPlease indicate the URL for forwarding: &quot;</span>+ pageUrl, <span class="string">&quot;font-size:18px;background-color:yellow;color:black;padding:4px;margin:4px;&quot;</span>)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>进阶：复制页面文本时添加版权信息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addLink</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> pageUrl = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> linkContent = <span class="string">&quot;&lt;br/&gt;&lt;br/&gt;Please indicate the URL for forwarding: &lt;br/&gt;\n&quot;</span>+ pageUrl+<span class="string">&quot;&lt;br/&gt;\n&quot;</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> selected = selection = <span class="built_in">window</span>.getSelection() ? <span class="built_in">window</span>.getSelection() : <span class="built_in">document</span>.selection.createRange().text;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(<span class="built_in">window</span>.clipboardData)&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.clipboardData.setData (<span class="string">&quot;Text&quot;</span>, selected+linkContent);</span></span><br><span class="line"><span class="javascript">  &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newDiv = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    newDiv.style.position =<span class="string">&#x27;absolute&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    newDiv.style.left =<span class="string">&#x27;-99999px&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    newDiv.style.top =<span class="string">&#x27;-99999px&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.body.appendChild(newDiv);</span></span><br><span class="line"><span class="javascript">    newDiv.innerHTML = selected+linkContent;</span></span><br><span class="line"><span class="javascript">    selection.selectAllChildren(newDiv);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.removeChild(newDiv);</span></span><br><span class="line"><span class="javascript">    &#125;,<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.oncopy = addLink;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-完"><a href="#3-完" class="headerlink" title="3. 完"></a>3. 完</h2><p>因为是内嵌代码，理论上是支持一切网页上可以运行的内容。可以自行发掘用法。</p>
+<p>一次设定，导出无忧。</p>
+<p>我的<code>&lt;script&gt;</code>使用<code>uglify</code>压缩</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua,title=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;title&quot;</span>)[<span class="number">0</span>].textContent,updatetime=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;meta&quot;</span>).updatetime.content,pageUrl=(<span class="built_in">console</span>.log(<span class="string">&quot;%cTitle: &quot;</span>+title+<span class="string">&quot;\nUpdateTime: &quot;</span>+updatetime,<span class="string">&quot;font-size:14px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>),ua=navigator.userAgentData?(ua=navigator.userAgentData.platform||<span class="string">&quot;Unknown&quot;</span>)+<span class="string">&quot; &quot;</span>+navigator.userAgentData.brands[<span class="number">2</span>].brand+<span class="string">&quot; var.&quot;</span>+navigator.userAgentData.brands[<span class="number">2</span>].version:navigator.userAgent,<span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua,<span class="string">&quot;font-size:14px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">window</span>.location.href);<span class="function"><span class="keyword">function</span> <span class="title">addLink</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> e,o=<span class="string">&quot;&lt;br/&gt;&lt;br/&gt;Please indicate the URL for forwarding: &lt;br/&gt;\n&quot;</span>+<span class="built_in">window</span>.location.href+<span class="string">&quot;&lt;br/&gt;\n&quot;</span>,t=selection=<span class="built_in">window</span>.getSelection()?<span class="built_in">window</span>.getSelection():<span class="built_in">document</span>.selection.createRange().text;<span class="built_in">window</span>.clipboardData?<span class="built_in">window</span>.clipboardData.setData(<span class="string">&quot;Text&quot;</span>,t+o):((e=<span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>)).style.position=<span class="string">&quot;absolute&quot;</span>,e.style.left=<span class="string">&quot;-99999px&quot;</span>,e.style.top=<span class="string">&quot;-99999px&quot;</span>,<span class="built_in">document</span>.body.appendChild(e),e.innerHTML=t+o,selection.selectAllChildren(e),<span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.body.removeChild(e)&#125;,<span class="number">0</span>))&#125;<span class="built_in">console</span>.log(<span class="string">&quot;%cPlease indicate the URL for forwarding: &quot;</span>+pageUrl,<span class="string">&quot;font-size:14px;background-color:yellow;color:black;padding:4px;margin:4px;&quot;</span>),<span class="built_in">console</span>.log(<span class="string">&quot;%cWebsite: https://RyzenX.com&quot;</span>,<span class="string">&quot;font-size:24px;background-color:red;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">console</span>.log(<span class="string">&quot;%cCopyright 2022 Steven Yan. All rights reserved.&quot;</span>,<span class="string">&quot;font-size:24px;background-color:blue;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">document</span>.oncopy=addLink;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
+                https://ryzenx.com/2022/03/Typora-export-html/
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2022/03/Typora-export-html/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typora/" rel="tag">Typora</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%87%E5%BF%98/" rel="tag">备忘</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/03/JS-questions-2203/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">JavaScript 基础问题</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '6rOx45BhTGiuJn08QqGSIM60-gzGzoHsz',
+        app_key: 'U0llTCuXc2JxORgPV75aQQsh',
+        path: window.location.pathname,
+        notify: 'true',
+        verify: 'true',
+        avatar: 'retro',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <!-- <div class="gif-img">
+    <center><img src="/img/bg/logo.gif" alt="image frame" /></center>
+  </div> -->
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        
+          2020-
+              2022
+                Steven Yan
+      </li>
+      <li>
+        <a href="https://icp.gov.moe/?keyword=20220921" target="_blank">萌ICP备20220921号</a>
+      </li>
+      <li>
+        
+                    <br />
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+          
+            <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+              
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/img/favicon.ico" alt="小渚w的博客小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/link/">链接</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://github.com/Steven-nagisa-Y">技术</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/01/about/">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>谢谢你的喜欢~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/alipay.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/img/wechat.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+<script src="/js/cursor-effects.js"></script>
+
+
+<script src="/js/flower.js"></script>
+
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['反思使人进步，总结使人提高','','Hello, world'],
+    startDelay: 200,
+    typeSpeed: 300,
+    loop: true,
+    backSpeed: 100,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

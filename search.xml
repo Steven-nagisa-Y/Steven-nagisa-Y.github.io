@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Typora自定义导出HTML</title>
+    <url>/2022/03/Typora-export-html/</url>
+    <content><![CDATA[<h1 id="Typora-Export-to-HTML-Mixin"><a href="#Typora-Export-to-HTML-Mixin" class="headerlink" title="Typora Export to HTML Mixin"></a>Typora Export to HTML Mixin</h1><p>平常喜欢用Typora编写Markdown笔记，一般来说都是导出为pdf方便阅读，有时候也导出为html文件方便直接放在静态网站上展示。</p>
+<p>偶然发现Typora可以在导出的html文件的<code>&lt;head&gt;</code>和<code>&lt;body&gt;</code>中插入自定义代码。这就有了很多可玩性。</p>
+<center><img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331222931.png" alt="Typora screenshot" style="height:400px;" /></center>
+
+<span id="more"></span>
+
+<h2 id="1-官方文档这样说"><a href="#1-官方文档这样说" class="headerlink" title="1. 官方文档这样说"></a>1. 官方文档这样说</h2><blockquote>
+<h4 id="Add-Custom-Contents"><a href="#Add-Custom-Contents" class="headerlink" title="Add Custom Contents"></a>Add Custom Contents</h4><p>You can add custom contents in Append in <head /> and Append in <body />, which will be inserted into <head /> part and <body /> part in the exported html. For contents that cannot be added into <head />, even when it is added in Append in <head />, it will be prepend into <body /> instead. Same for Append in <body />.</p>
+<h5 id="Export-YAML-meta"><a href="#Export-YAML-meta" class="headerlink" title="Export YAML meta"></a>Export YAML meta</h5><p>Variables like <code>$&#123;title&#125;</code> or <code>$&#123;author&#125;</code> in <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> tag will be replaced by corresponding <a href="https://support.typora.io/Export/#variables">variables</a> defined in <a href="https://jekyllrb.com/docs/front-matter/">YAML Front Matter</a>.</p>
+<p>For example, you can insert additional <code>&lt;meta&gt;</code> data or custom <code>&lt;style&gt;</code> into exported html using those options, e.g:</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;meta <span class="attribute">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">&quot;author&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;<span class="variable">$&#123;author&#125;</span>&quot;</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">&quot;description&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;<span class="variable">$&#123;description&#125;</span>&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>To use those variables in somewhere else, you can add some javascript in <code>Append in &lt;body /&gt;</code>, to read target meta tag, and modified export content as you want.</p>
+</blockquote>
+<h2 id="2-实践"><a href="#2-实践" class="headerlink" title="2. 实践"></a>2. 实践</h2><p>官方文档中有几点需要注意</p>
+<ul>
+<li>变量可以写在Markdown的<code>YAML</code>头注释中，输入方式是三个减号<code>---</code>并<code>return</code></li>
+<li>Typora只能在<code>&lt;head&gt;</code>中插入带变量的内容，如果需要在<code>&lt;body&gt;</code>中使用变量，需要先在<code>&lt;head&gt;</code>中通过<code>&lt;meta&gt;</code>引入，在<code>&lt;body&gt;</code>中通过Javascript读取<code>&lt;meta&gt;</code>中的变量再使用。</li>
+</ul>
+<h3 id="输出user-agent"><a href="#输出user-agent" class="headerlink" title="输出user agent"></a>输出user agent</h3><p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span>(navigator.userAgentData)&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ua = navigator.userAgentData.platform || <span class="string">&quot;Unknown&quot;</span>;</span></span><br><span class="line"><span class="javascript">ua = ua + <span class="string">&quot; &quot;</span> + navigator.userAgentData.brands[<span class="number">2</span>].brand + <span class="string">&quot; var.&quot;</span> + navigator.userAgentData.brands[<span class="number">2</span>].version;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript">&#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> ua = navigator.userAgent;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意⚠️，<code>userAgentData</code>是新属性</p>
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331224202.png" alt="log user agent" style="zoom:50%;" />
+
+<h3 id="输出title"><a href="#输出title" class="headerlink" title="输出title"></a>输出title</h3><p>在<code>&lt;head&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>$&#123;title&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> title = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;title&#x27;</span>)[<span class="number">0</span>].textContent;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+<span class="string">&quot;Title: &quot;</span>+title, <span class="string">&quot;font-size:16px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331224629.png" alt="log title" style="zoom:50%;" />
+
+<h3 id="输出自定义变量"><a href="#输出自定义变量" class="headerlink" title="输出自定义变量"></a>输出自定义变量</h3><p>在<code>&lt;head&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;$&#123;description&#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> desp = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;meta&#x27;</span>)[<span class="string">&#x27;description&#x27;</span>].content;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+<span class="string">&quot;Desp: &quot;</span>+desp, <span class="string">&quot;font-size:16px;background-color:white;color:black;padding:4px;margin:4px;&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331225114.png" alt="log desciption" style="zoom:50%;" />
+
+<h3 id="输出本页地址"><a href="#输出本页地址" class="headerlink" title="输出本页地址"></a>输出本页地址</h3><p>在<code>&lt;body&gt;</code>中</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> pageUrl = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="javascript"><span class="built_in">console</span>.log(<span class="string">&quot;%cPlease indicate the URL for forwarding: &quot;</span>+ pageUrl, <span class="string">&quot;font-size:18px;background-color:yellow;color:black;padding:4px;margin:4px;&quot;</span>)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>进阶：复制页面文本时添加版权信息</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">addLink</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> pageUrl = <span class="built_in">window</span>.location.href;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> linkContent = <span class="string">&quot;&lt;br/&gt;&lt;br/&gt;Please indicate the URL for forwarding: &lt;br/&gt;\n&quot;</span>+ pageUrl+<span class="string">&quot;&lt;br/&gt;\n&quot;</span>;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> selected = selection = <span class="built_in">window</span>.getSelection() ? <span class="built_in">window</span>.getSelection() : <span class="built_in">document</span>.selection.createRange().text;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(<span class="built_in">window</span>.clipboardData)&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.clipboardData.setData (<span class="string">&quot;Text&quot;</span>, selected+linkContent);</span></span><br><span class="line"><span class="javascript">  &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> newDiv = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    newDiv.style.position =<span class="string">&#x27;absolute&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    newDiv.style.left =<span class="string">&#x27;-99999px&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    newDiv.style.top =<span class="string">&#x27;-99999px&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.body.appendChild(newDiv);</span></span><br><span class="line"><span class="javascript">    newDiv.innerHTML = selected+linkContent;</span></span><br><span class="line"><span class="javascript">    selection.selectAllChildren(newDiv);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.removeChild(newDiv);</span></span><br><span class="line"><span class="javascript">    &#125;,<span class="number">0</span>);</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">&#125;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.oncopy = addLink;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-完"><a href="#3-完" class="headerlink" title="3. 完"></a>3. 完</h2><p>因为是内嵌代码，理论上是支持一切网页上可以运行的内容。可以自行发掘用法。</p>
+<p>一次设定，导出无忧。</p>
+<p>我的<code>&lt;script&gt;</code>使用<code>uglify</code>压缩</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ua,title=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;title&quot;</span>)[<span class="number">0</span>].textContent,updatetime=<span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;meta&quot;</span>).updatetime.content,pageUrl=(<span class="built_in">console</span>.log(<span class="string">&quot;%cTitle: &quot;</span>+title+<span class="string">&quot;\nUpdateTime: &quot;</span>+updatetime,<span class="string">&quot;font-size:14px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>),ua=navigator.userAgentData?(ua=navigator.userAgentData.platform||<span class="string">&quot;Unknown&quot;</span>)+<span class="string">&quot; &quot;</span>+navigator.userAgentData.brands[<span class="number">2</span>].brand+<span class="string">&quot; var.&quot;</span>+navigator.userAgentData.brands[<span class="number">2</span>].version:navigator.userAgent,<span class="built_in">console</span>.log(<span class="string">&quot;%c&quot;</span>+ua,<span class="string">&quot;font-size:14px;background-color:black;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">window</span>.location.href);<span class="function"><span class="keyword">function</span> <span class="title">addLink</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> e,o=<span class="string">&quot;&lt;br/&gt;&lt;br/&gt;Please indicate the URL for forwarding: &lt;br/&gt;\n&quot;</span>+<span class="built_in">window</span>.location.href+<span class="string">&quot;&lt;br/&gt;\n&quot;</span>,t=selection=<span class="built_in">window</span>.getSelection()?<span class="built_in">window</span>.getSelection():<span class="built_in">document</span>.selection.createRange().text;<span class="built_in">window</span>.clipboardData?<span class="built_in">window</span>.clipboardData.setData(<span class="string">&quot;Text&quot;</span>,t+o):((e=<span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>)).style.position=<span class="string">&quot;absolute&quot;</span>,e.style.left=<span class="string">&quot;-99999px&quot;</span>,e.style.top=<span class="string">&quot;-99999px&quot;</span>,<span class="built_in">document</span>.body.appendChild(e),e.innerHTML=t+o,selection.selectAllChildren(e),<span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">document</span>.body.removeChild(e)&#125;,<span class="number">0</span>))&#125;<span class="built_in">console</span>.log(<span class="string">&quot;%cPlease indicate the URL for forwarding: &quot;</span>+pageUrl,<span class="string">&quot;font-size:14px;background-color:yellow;color:black;padding:4px;margin:4px;&quot;</span>),<span class="built_in">console</span>.log(<span class="string">&quot;%cWebsite: https://RyzenX.com&quot;</span>,<span class="string">&quot;font-size:24px;background-color:red;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">console</span>.log(<span class="string">&quot;%cCopyright 2022 Steven Yan. All rights reserved.&quot;</span>,<span class="string">&quot;font-size:24px;background-color:blue;color:white;padding:4px;margin:4px;&quot;</span>),<span class="built_in">document</span>.oncopy=addLink;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Typora</tag>
+        <tag>备忘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 基础问题</title>
     <url>/2022/03/JS-questions-2203/</url>
     <content><![CDATA[<h1 id="JavaScript-基础问题"><a href="#JavaScript-基础问题" class="headerlink" title="JavaScript 基础问题"></a>JavaScript 基础问题</h1><p>一些网上收集到的面试题答案总结…</p>
@@ -290,7 +359,7 @@
 <h2 id="14-this的指向"><a href="#14-this的指向" class="headerlink" title="14. this的指向"></a>14. this的指向</h2><p><code>this</code>通常指向当前作用域，在当前作用域找不到对象时，向上级作用域查找。</p>
 <p><code>Function.prototype.call</code>与<code>Function.prototype.apply</code>都可以改变<code>this</code>的指向。</p>
 <p><code>bind()</code>方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 <code>bind()</code>方法的第一个参数作为 <code>this</code>，传入 <code>bind()</code> 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
-<h2 id="15-map-reduce-filter"><a href="#15-map-reduce-filter" class="headerlink" title="15. map / reduce/ filter"></a>15. map / reduce/ filter</h2><blockquote>
+<h2 id="15-map-reduce-filter"><a href="#15-map-reduce-filter" class="headerlink" title="15. map / reduce / filter"></a>15. map / reduce / filter</h2><blockquote>
 <p>参考：<a href="https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/">https://www.freecodecamp.org/news/javascript-map-reduce-and-filter-explained-with-examples/</a></p>
 </blockquote>
 <ul>
@@ -2285,8 +2354,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>公众号文章</tag>
         <tag>快充</tag>
+        <tag>公众号文章</tag>
       </tags>
   </entry>
   <entry>
@@ -2835,7 +2904,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#64;&#x74;&#x79;&#112;&#111;&#114;&#x61;&#46;&#x69;&#x6f;">&#105;&#64;&#x74;&#x79;&#112;&#111;&#114;&#x61;&#46;&#x69;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;">&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
