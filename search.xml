@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使Vim中的空白字符可见</title>
+    <url>/2022/04/make-vim-show-whitechars/</url>
+    <content><![CDATA[<h1 id="使Vim中空白字符可见"><a href="#使Vim中空白字符可见" class="headerlink" title="使Vim中空白字符可见"></a>使Vim中空白字符可见</h1><blockquote>
+<p>参考引用：<a href="https://segmentfault.com/a/1190000021101602">vim技巧：设置空格和Tab字符可见，并自定义显示的字符颜色</a></p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>不同于Visual Studio Code, Sublime Text等拥有GUI的高级文本编辑器，Vim作为Linux系统中命令行环境的常用文本编辑器，Vim的上手难度很高，且配置较为复杂。除了使用SSH连接远程服务器通过本机Visual Studio Code编写代码，有时候也需要使用Vim对服务器脚本、配置等文件进行修改。</p>
+<p>偶然看到思否一篇文章介绍了如何使Vim中展示空白字符，让我印象深刻。毕竟Python这种语言对于是<code>Tab</code>还是<code>Space</code>的格式化要求较高；同时git提交的时候也会由于空白字符的问题产生不必要的更改。</p>
+<p>于是记录我的Vim配置如下。</p>
+<h2 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2. 介绍"></a>2. 介绍</h2><p>执行 <code>:setlocal list</code> 命令后，会把 tab 字符显示为 <code>CTRL-I</code> 键的显示字符，实际显示为 <code>^I</code>。同时会在行末显示一个 <code>$</code> 字符。默认不会显示空格。</p>
+<p>这个 <em>list</em> 选项是一个 “local to window“ 选项，也就是可以使用 <code>:setlocal</code> 命令来设置成只在当前窗口生效，这样设置之后，用 <code>:edit</code> 命令再打开其他文件，在新的窗口上没有开启这个设置，不会影响其他文件。</p>
+<p>如果想要在打开代码文件时，才显示空格或 tab 字符，打开其他类型文件，例如 txt 文件、markdown 文件、makefile 文件等，不显示空格或 tab 字符，就可以使用 <code>:setlocal list</code> 命令。如果需要设置成全局状态，所有窗口都开启这个设置，可以使用 <code>:set list</code> 命令。</p>
+<p>由于把 tab 字符显示为 <code>^I</code> 不够直观，不想在行末显示 <code>$</code> 字符，且需要显示空格，所以再执行 <code>set listchars=tab:&gt;~,trail:.</code> 命令来设置 tab 字符和空格的显示样式，且行末不显示字符。</p>
+<p>这个 <em>listchars</em> 选项是一个 “global” 选项，一旦设置，对所有窗口都生效，用于设置 <em>list</em> 属性会显示哪些字符、以及如何显示。常见的选项值说明如下：</p>
+<ul>
+<li><strong>eol:c</strong><br>设置行末显示字符为 <em>c</em>。这里 <em>c</em> 可以换成任意一个字符，例如默认的 <code>$</code> 字符、或者改成 <code>#</code> 字符，等等。<br>显然，要设置成一个可见字符，才能明显地看到显示效果。<br>如果没有设置这一项，行末不显示任何字符。</li>
+<li><strong>tab:xy</strong><br>设置 tab 字符的显示样式，字符 <em>x</em> 总是会显示，会显示零个或多个字符 <em>y</em> 以填充到 tab 字符的显示宽度。<br>例如，设置为 <code>tab:&gt;-</code>，且 tab 字符的显示宽度是 4，那么 tab 字符会显示为 <code>&gt;---</code>。<br>实际显示的时候，可能只显示一个 <code>&gt;</code>，或者只显示 <code>&gt;-</code>。这个跟 tab 字符所在的位置有关。假设 tab 字符的显示宽度为 4，意味着 tab 字符的宽度总是停在 4 的倍数行上，当手动输入 3 个空格，再输入一个 tab 字符时，tab 字符只会显示一个空白字符，那么就只显示所设置的字符 <em>x</em>，对于刚才的例子来说，就是只显示 <code>&gt;</code> 字符。<br>在实际测试时，如有设置 <code>:set expandtab</code>，会把 tab 字符转换成空格，输入 tab 键不会得到 tab 字符，要先执行 <code>:set noexpandtab</code> 命令，关闭这个设置再来测试。</li>
+<li><strong>tab:xyz</strong><br>设置 tab 字符的显示样式，字符 <em>z</em> 总是会显示，显示字符 <em>z</em> 之后，如果还有可显示的位置，字符 <em>x</em> 会显示在开头，在字符 <em>x</em> 和 字符 <em>z</em> 中间显示零个或多个字符 <em>y</em> 以填充到 tab 字符的显示宽度。<br>例如，设置为 <code>tab:&lt;-&gt;</code>，且 tab 字符的显示为 4，那么 tab 字符会显示为 <code>&lt;--&gt;</code>。<br>实际显示的时候，可能只显示一个 <code>&gt;</code>，或者显示为 <code>&lt;&gt;</code>、<code>&lt;-&gt;</code> 等，跟 tab 字符所在的位置有关。如上面说明所示。</li>
+<li>如果没有设置 <strong>tab:</strong> 这一项，tab 字符默认会显示为 <code>^I</code>。</li>
+<li><strong>space:c</strong><br>设置所有的空格显示为字符 <em>c</em>，包括行首空格、行中间的空格、行末空格都会显示。<br>这里 <em>c</em> 可以换成任意一个字符。<br>如果没有设置这一项，空格显示为默认的空白。</li>
+<li><strong>trail:c</strong><br>设置行末空格显示为字符 <em>c</em>，会覆盖 <code>space:</code> 这一项的设置，且只覆盖行末空格的显示。<br>这里 <em>c</em> 可以换成任意一个字符。<br>如果没有设置这一项，行末空格保持为 <code>space:</code> 这一项的设置。</li>
+<li>不同设置项之间，用英文逗号 <code>,</code> 隔开。例如，<code>tab:&gt;~,trail:.</code> 设置了 tab 字符和行末空格的显示样式。</li>
+</ul>
+<p>基于上面说明，可以知道 <code>set listchars=tab:&gt;~,trail:.</code> 命令设置 tab 字符显示为 <code>&gt;~~~~</code> 的样式（假设 tab 字符的显示宽度是 4），设置行末空格显示为点号 <code>.</code>，不显示行首空格和行中间的空格，行末不显示字符。如果需要显示所有空格，可以把 <em>trail</em> 改成 <em>space</em>。</p>
+<p>进行前面的设置之后，空格和 tab 字符已经可见，但是显示的字符颜色使用了 <code>hi SpecialKey</code> 这一项的颜色，可以执行 <code>:hi</code> 命令查看 <em>SpecialKey</em> 对应的颜色是什么，跟 vim 使用的颜色主题有关，不同颜色主题可能有不同的颜色，例如蓝色、绿色、黑底白色等。</p>
+<p>这个显示颜色会跟代码文件本身的颜色高亮混在一起，不方便区分。假设 tab 字符显示为 <code>&gt;~~~~</code>，字符颜色是蓝色，如果后面跟着蓝色的代码关键字，就跟代码关键字显示成一个整体，不方便看到代码关键字。前面把行末空格显示为点号 <code>.</code>，如果某句注释的行末有空格，容易误以为是注释本身的点号。</p>
+<p>为了方便区分于代码文件自身的颜色高亮，可以使用下面命令来设置可见的空格和 tab 字符显示为灰色，不那么显眼，方便区分于代码文件自身的颜色高亮：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">:hi SpecialKey <span class="attribute">guifg</span>=darkgrey <span class="attribute">ctermfg</span>=darkgrey</span><br></pre></td></tr></table></figure>
+
+<p>如果不想显示成灰色，可以修改上面 <em>guifg<em>、</em>ctermfg</em> 的值，设置成个人喜欢的颜色。</p>
+<p>这样设置之后，会有一个问题，就是修改了默认 <code>hi SpecialKey</code> 这一项的颜色。而 vim 会用到这个颜色来显示自身的一些内容，例如执行 <code>:map</code> 命令，显示映射的快捷键时，按键字符就显示为 <code>hi SpecialKey</code> 这一项的颜色，改成灰色后，不太显眼。</p>
+<p>为了避免直接修改 <code>hi SpecialKey</code> 这一项的颜色，我们可以自定义一个颜色组，并设置为只对空格和 tab 字符生效，具体如下所示：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">:highlight MyTabSpace <span class="attribute">guifg</span>=darkgrey <span class="attribute">ctermfg</span>=darkgrey</span><br><span class="line">:match MyTabSpace /\t\| /</span><br></pre></td></tr></table></figure>
+
+<p>这里用 <code>:highlight</code> 命令（这个命令也可以简写为 <code>:hi</code> 命令）来自定义了一个 <em>MyTabSpace</em> 颜色组，显示为灰色。然后用 <code>:match</code> 命令设置 <em>MyTabSpace</em> 颜色组对空格和 tab 字符生效。上面的 <code>\t</code> 就是 tab 字符。不同字符串之间用 <code>|</code> 隔开，书写的时候要使用 <code>\|</code> 转义。在 <code>|</code> 后面的空白字符就是空格。</p>
+<p>如前面说明，我们可能只想在查看代码文件时，才设置空格和 tab 字符可见，并且最好是自动开启。这个就需要在 <code>~/.vimrc</code> 文件中进行配置。完整配置如下：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="comment">&quot; 创建一个新的 MyTabSpace 组,并设置它的颜色</span></span><br><span class="line"><span class="keyword">highlight</span> MyTabSpace guifg=darkgrey ctermfg=darkgrey</span><br><span class="line"><span class="comment">&quot; 指定tab字符和空格的颜色组为MyTabSpace,不同字符串之间用|隔开,要使用\|转义.</span></span><br><span class="line"><span class="keyword">match</span> MyTabSpace /\t\| /</span><br><span class="line"><span class="comment">&quot; 针对特定类型的代码文件,设置显示Tab键和行尾空格以便在查看代码时注意到它们</span></span><br><span class="line"><span class="keyword">autocmd</span> FileType <span class="keyword">c</span>,cpp,java,xml <span class="keyword">setlocal</span> <span class="keyword">list</span> | <span class="keyword">set</span> listchars=<span class="keyword">ta</span><span class="variable">b:</span>&gt;~,trai<span class="variable">l:</span>.</span><br></pre></td></tr></table></figure>
+
+<p>这段配置先使用 <code>:highlight</code> 命令（在 <em>.vimrc</em> 文件中书写时，省略了前面的冒号）自定义一个 <em>MyTabSpace</em> 颜色组，颜色为灰色。然后用 <code>:match</code> 命令设置 <em>MyTabSpace</em> 颜色组对空格和 tab 字符生效。由于空格和 tab 字符默认不可见，所以对于没有设置空格和 tab 字符可见的文件窗口来说，这个设置没有影响。</p>
+<p>后面使用 <code>:autocmd</code> 命令针对 <code>c,cpp,java,xml</code> 这些类型的文件自动设置空格和tab 字符可见，就能看到这些字符显示为灰色。其他类型文件没有自动设置，不受影响。如有需要，可以自行添加其他类型的文件后缀名。</p>
+<p>可以使用 <code>:help &#39;list&#39;</code> 命令查看 <code>list</code> 选项的说明。<br>可以使用 <code>:help &#39;listchars&#39;</code> 命令查看 <code>listchars</code> 选项的说明。<br>可以使用 <code>:help :highlight</code> 命令查看设置颜色高亮的更多说明。<br>可以使用 <code>:help :match</code> 命令查看如何设置指定字符串的显示颜色组。<br>可以使用 <code>:help :autocmd</code> 命令查看如何针对特定类型文件自动执行指定命令。</p>
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><p>在<code>home</code>目录下新建<code>.vimrc</code>配置文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim ~/.vimrc</span><br></pre></td></tr></table></figure>
+
+<p>填入</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set tabstop=4</span><br><span class="line">set shiftwidth=4</span><br><span class="line">set expandtab</span><br><span class="line">set autoindent</span><br><span class="line">set softtabstop=4</span><br><span class="line">set ruler</span><br><span class="line">syntax on</span><br><span class="line">set showmode</span><br><span class="line">set encoding=utf-8</span><br><span class="line">set t_Co=256</span><br><span class="line">set laststatus=2</span><br><span class="line"></span><br><span class="line">set list</span><br><span class="line">set listchars=tab:⇥⇥,space:·,eol:⤦</span><br><span class="line">highlight TabSpaceColor guifg=darkgrey ctermfg=darkgrey</span><br><span class="line">match TabSpaceColor /\t\| \|\n\|\r/</span><br></pre></td></tr></table></figure>
+
+<p>从而可以显示空格、制表符和换行符。效果：</p>
+<p><img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220406194350.png" alt="效果图片"></p>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Vim</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora自定义导出HTML</title>
     <url>/2022/03/Typora-export-html/</url>
     <content><![CDATA[<h1 id="Typora-Export-to-HTML-Mixin"><a href="#Typora-Export-to-HTML-Mixin" class="headerlink" title="Typora Export to HTML Mixin"></a>Typora Export to HTML Mixin</h1><p>平常喜欢用Typora编写Markdown笔记，一般来说都是导出为pdf方便阅读，有时候也导出为html文件方便直接放在静态网站上展示。</p>
 <p>偶然发现Typora可以在导出的html文件的<code>&lt;head&gt;</code>和<code>&lt;body&gt;</code>中插入自定义代码。这就有了很多可玩性。</p>
-<center><img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331222931.png" alt="Typora screenshot" style="height:400px;" /></center>
+<center><img src="https://ryzenx.oss-cn-hangzhou.aliyuncs.com/img/2022/20220331222931.png" alt="Typora screenshot" style="height:320px;" /></center>
 
 <span id="more"></span>
 
