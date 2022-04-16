@@ -1,6 +1,460 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Android 基础问题</title>
+    <url>/2022/04/Android-questions-2204/</url>
+    <content><![CDATA[<h1 id="Android-基础问题2022-04"><a href="#Android-基础问题2022-04" class="headerlink" title="Android 基础问题2022-04"></a>Android 基础问题2022-04</h1><p><strong>从网上收集的一些基础面试问题</strong></p>
+<span id="more"></span>
+
+<h2 id="1-Android启动模式"><a href="#1-Android启动模式" class="headerlink" title="1. Android启动模式"></a>1. Android启动模式</h2><blockquote>
+<p>参考：<a href="https://blog.csdn.net/ElisonX/article/details/80397519">https://blog.csdn.net/ElisonX/article/details/80397519</a></p>
+</blockquote>
+<p>在一个项目中会包括着多个Activity，系统中使用任务栈来存储创建的Activity实例，任务栈是一种“后进先出”的栈结构。</p>
+<h3 id="启动模式种类"><a href="#启动模式种类" class="headerlink" title="启动模式种类"></a>启动模式种类</h3><p>在“标准模式”下若我们多次启动同一个Activity。系统会创建多个实例依次放入任务栈中。当按back键返回时，每按一次，一个Activity出栈，直到栈空为止。并不利于减少内存压力。</p>
+<p>Android共有四种启动模式：<code>Standard</code>, <code>SingleTop</code>, <code>SingleTask</code>, <code>SingleInstance</code></p>
+<ol>
+<li><p><code>Standard</code></p>
+<p>启动Activity的默认启动模式。这种情况下，新建的Activity将会创建一个新的实例加入栈顶。</p>
+<p>生命周期钩子<code>onCreate</code>、<code>onStart</code>、<code>onResume</code>都会被调用。</p>
+</li>
+<li><p><code>SingleTop</code></p>
+<p>栈顶复用启动模式，当栈顶的Activity再次创建时，会直接服用栈顶的实例，不会创建新的实例。如果创建的Activity不在栈顶，将会如同<code>Standard</code>模式一样创建新的实例。</p>
+<p>若栈顶Activity被服用，生命周期钩子<code>onCreate</code>、<code>onStart</code>不会被系统调用，由于它并没有发生改变，可是一个新的方法 <code>onNewIntent</code>会被回调。</p>
+</li>
+<li><p><code>SingleTask</code></p>
+<p>栈内复用启动模式，如果栈内已有的Activity被再次创建时，将销毁该Activity栈之上的所有实例，使该Activity实例成为栈顶。</p>
+<p>仅仅会又一次回调Activity中的 <code>onNewIntent</code>方法</p>
+</li>
+<li><p><code>SingleInstance</code></p>
+<p>单实例启动模式，类似于<code>SingleTask</code>，但是该Activity只能处于单独的一个栈中。即，不会通过back返回上一个栈中的Activity。</p>
+</li>
+</ol>
+<h3 id="启动模式的使用方式"><a href="#启动模式的使用方式" class="headerlink" title="启动模式的使用方式"></a>启动模式的使用方式</h3><ol>
+<li><p>在<code>manifest.xml</code>清单文件中指令Activity的启动方式</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.activity.MultiportActivity&quot;</span> <span class="attr">android:launchMode</span>=<span class="string">&quot;singleTask&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动Activity的Intent中指定启动方式</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setClass(context, MainActivity.class);</span><br><span class="line">intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span><br><span class="line">context.startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>区别：</p>
+<p>优先级：Intent指定方式即另外一种比清单指定优先级要高，若两者同一时候存在，以另外一种方式为准。</p>
+<p>限定范围：清单指定方式无法为Activity直接指定 FLAG_ACTIVITY_CLEAR_TOP 标识，Intent方式无法为Activity指定 singleInstance 模式。</p>
+<h3 id="Intent启动时的flags"><a href="#Intent启动时的flags" class="headerlink" title="Intent启动时的flags"></a>Intent启动时的<code>flags</code></h3><ol>
+<li><code>FLAG_ACTIVITY_NEW_TASK</code>指定为<code>SingleTask</code>模式</li>
+<li><code>FLAG_ACTIVITY_SINGLE_TOP</code>指定为<code>SingleTop</code>模式</li>
+<li><code>FLAG_ACTIVITY_CLEAN_TOP</code>启动时会将与该Activity在同一任务栈的其他Activity出栈</li>
+<li><code>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS</code>启动此Activity后不会出历史Activity的列表中，即用户无法通过返回进入该Activity</li>
+</ol>
+<h2 id="2-Handler机制"><a href="#2-Handler机制" class="headerlink" title="2. Handler机制"></a>2. Handler机制</h2><blockquote>
+<p>参考：</p>
+<p><a href="https://cdmana.com/2022/03/202203230559249472.html">https://cdmana.com/2022/03/202203230559249472.html</a></p>
+<p><a href="https://www.jianshu.com/p/592fb6bb69fa">https://www.jianshu.com/p/592fb6bb69fa</a></p>
+</blockquote>
+<p>Handler机制主要是用作线程间通信，尤其是主线程和子线程之间的通信。</p>
+<h3 id="Handler-涉及的对象"><a href="#Handler-涉及的对象" class="headerlink" title="Handler 涉及的对象"></a>Handler 涉及的对象</h3><p>Handler机制里面涉及到四个对象：<code>Handler</code>，<code>message</code>、<code>MessageQueue</code>、<code>Looper</code></p>
+<ol>
+<li><code>Message</code>:信息的携带者，持有了Handler，存在<code>MessageQueue</code>中，一个线程可以有多个</li>
+<li><code>Hanlder</code>:消息的发起者，发送Message以及消息处理的回调实现，一个线程可以有多个Handler对象</li>
+<li><code>Looper</code>:消息的遍历者，从<code>MessageQueue</code>中循环取出Message进行处理，一个线程最多只有一个</li>
+<li><code>MessageQueue</code>:消息队列，存放了Handler发送的消息，供<code>Looper</code>循环取消息，一个线程最多只有一个</li>
+</ol>
+<ul>
+<li><p>Handler</p>
+<p>消息的处理者，负责将Message添加到消息队列以及对消息队列中的Message进行处理。</p>
+<ul>
+<li><strong>主线程</strong>创建一个<code>Handler</code>对象，重写<code>handleMessage()</code>方法</li>
+</ul>
+</li>
+<li><p>在子线程中创建一个<code>Message</code>对象，保存要传递的消息。通过<code>Handler</code>的<code>sendMessage()</code>方法发出消息</p>
+<ol>
+<li><code>Handler.sendMessage</code>: 把消息加入到主线程的<code>MessageQueue</code>中，主线程中的<code>Looper</code>从<code>MessageQueue</code>中取出消息，调用<code>Message.target.handleMessage</code>方法</li>
+<li><code>Handler.post</code>: 基于<code>Handler.sendMessage</code>，把消息加入到主线程的<code>MessageQueue</code>中，主线程中的<code>Looper</code>从<code>MessageQueue</code>中取出消息，<strong>调用<code>Message.callback.run</code>方法</strong></li>
+</ol>
+</li>
+<li><p>这条message被添加到<code>MessageQueue</code>中等待处理。<code>MessageQueue</code>： 消息队列，用来存放通过Handler发布的消息，按照先进先出执行。</p>
+</li>
+<li><p><code>Looper</code>(消息队列管家)：Looper发现有新消息到来时，就会处理这个消息。会调用<code>Looper.loop()</code>方法来</p>
+<ul>
+<li>一个线程最多只有一个<code>Looper</code>对象。当没有Looper对象时，去创建一个Looper</li>
+<li><strong>在Looper的构造方法里面，会创建消息队列<code>MessageQueue</code>，</strong>并让它供Looper持有，因为一个线程最多只有一个<code>Looper</code>对象，所以一个线程最多也只有一个消息队列。然后再把当前线程赋值给<code>mThread</code>。</li>
+</ul>
+<p><strong>创建Handler还是需要调用<code>Looper.prepare</code>的，我们平常在主线程不需要手动调用，是因为系统在启动App时，就帮我们调用了。并且还需要调用<code>Looper.loop</code>方法</strong>。</p>
+</li>
+</ul>
+<h3 id="使用Handler通信之前需要有以下三步"><a href="#使用Handler通信之前需要有以下三步" class="headerlink" title="使用Handler通信之前需要有以下三步"></a>使用Handler通信之前需要有以下三步</h3><ol>
+<li><p>调用<code>Looper.prepare()</code></p>
+<ul>
+<li>所以<code>Looper.prepare()</code>的作用主要有以下三点<ol>
+<li><strong>创建<code>Looper</code>对象 &amp; 存放在ThreadLocal变量中</strong></li>
+<li>创建<code>MessageQueue</code>对象，并让<code>Looper</code>对象持有（在Looper的构造方法里面，会创建消息队列<code>MessageQueue</code>，并让它供Looper持有）</li>
+<li>让<code>Looper</code>对象持有当前线程</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>创建<code>Handler</code>对象</p>
+<ul>
+<li>在Handler的构造方法里面：得到当前线程调用<code>sThreadLocal.set</code>保存的<code>Looper</code>对象，让<code>Handler</code>持有它。接下来就会判断得到的<code>Looper</code>对象是否为空，如果为空，就会抛出异常（<strong>得到当前线程的Looper对象，并判断是否为空</strong>）</li>
+<li>让创建的<code>Handler</code>对象持有<code>Looper</code>、<code>MessageQueue</code>、<code>Callback</code>的引用</li>
+<li>当创建<code>Handler</code>对象时，则通过 构造方法 自动关联当前线程的<code>Looper</code>对象 &amp; 对应的消息队列对象<code>（MessageQueue）</code>，从而 <strong>自动绑定了</strong> 实现创建<code>Handler</code>对象操作的<strong>线程</strong></li>
+</ul>
+</li>
+<li><p>调用<code>Looper.loop()</code></p>
+<ul>
+<li><strong>从当前线程的<code>MessageQueue</code>从不断取出Message，并调用其相关的回调方法。</strong></li>
+</ul>
+<ol>
+<li>判断了当前线程是否有<code>Looper</code>，然后得到当前线程的<code>MessageQueue</code></li>
+<li>(<strong>死循环</strong>)不断调用<code>MessageQueue</code>的<code>next</code>方法取出<code>MessageQueue</code>中的Message，注意，当<code>MessageQueue</code>中没有消息时，<code>next</code>方法会阻塞，导致当前线程挂起</li>
+<li>拿到<code>Message</code>以后，会调用它的target的<code>dispatchMessage</code>方法，这个target其实就是发送消息时用到的<code>Handler</code>。并调用其相关的回调方法（<strong>拿到Message之后，调用相关的回调方法</strong>）</li>
+</ol>
+</li>
+</ol>
+<h3 id="如何区分handler发送的信息"><a href="#如何区分handler发送的信息" class="headerlink" title="如何区分handler发送的信息"></a>如何区分<code>handler</code>发送的信息</h3><p>可以通过<code>msg.target</code>获取发送<code>msg</code>的<code>Handler</code>的信息。</p>
+<p>也可以通过<code>Message.obtain()</code>重载。</p>
+<h2 id="3-Android生命周期"><a href="#3-Android生命周期" class="headerlink" title="3. Android生命周期"></a>3. Android生命周期</h2><blockquote>
+<p>参考：<a href="https://developer.android.google.cn/guide">https://developer.android.google.cn/guide</a></p>
+</blockquote>
+<h3 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h3><p><code>onCreate()</code>、<code>onStart()</code>、<code>onResume()</code>、<code>onPause()</code>、<code>onStop()</code> 和 <code>onDestroy()</code></p>
+<p><img src="https://developer.android.google.cn/guide/components/images/activity_lifecycle.png?hl=zh-cn" alt="lifecircle"></p>
+<h3 id="Service生命周期"><a href="#Service生命周期" class="headerlink" title="Service生命周期"></a>Service生命周期</h3><ul>
+<li><p><code>onStartCommand()</code></p>
+<p>当另一个组件（如 Activity）请求启动服务时，系统会通过调用 <code>startService()</code> 来调用此方法。执行此方法时，服务即会启动并可在后台无限期运行。如果您实现此方法，则在服务工作完成后，您需负责通过调用 <code>stopSelf()</code> 或 <code>stopService()</code> 来停止服务。（如果您只想提供绑定，则无需实现此方法。）</p>
+</li>
+<li><p><code>onBind()</code></p>
+<p>当另一个组件想要与服务绑定（例如执行 RPC）时，系统会通过调用 <code>bindService()</code> 来调用此方法。在此方法的实现中，您必须通过返回 <code>IBinder</code> 提供一个接口，以供客户端用来与服务进行通信。请务必实现此方法；但是，如果您并不希望允许绑定，则应返回 null。</p>
+</li>
+<li><p><code>onCreate()</code></p>
+<p>首次创建服务时，系统会（在调用 <code>onStartCommand()</code> 或 <code>onBind()</code> 之前）调用此方法来执行一次性设置程序。如果服务已在运行，则不会调用此方法。</p>
+</li>
+<li><p><code>onDestroy()</code></p>
+<p>当不再使用服务且准备将其销毁时，系统会调用此方法。服务应通过实现此方法来清理任何资源，如线程、注册的侦听器、接收器等。这是服务接收的最后一个调用。</p>
+</li>
+</ul>
+<h2 id="4-Android持久化存储的方式"><a href="#4-Android持久化存储的方式" class="headerlink" title="4. Android持久化存储的方式"></a>4. Android持久化存储的方式</h2><blockquote>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_35008279/article/details/80783726">https://blog.csdn.net/qq_35008279/article/details/80783726</a></p>
+<p><a href="https://developer.android.com/training/data-storage/room">https://developer.android.com/training/data-storage/room</a></p>
+</blockquote>
+<h3 id="Shared-Preferences"><a href="#Shared-Preferences" class="headerlink" title="Shared Preferences"></a>Shared Preferences</h3><p>一个轻量级的存储类，特别适合用于保存软件配置参数，是用xml文件存放数据。</p>
+<p>文件存放在<code>/data/data/_package/shared_prefs</code>目录下</p>
+<p>Shared Preferences可以保存的数据类型有：<code>int</code>、<code>boolean</code>、<code>float</code>、<code>long</code>、<code>String</code>、<code>StringSet</code>。</p>
+<h3 id="Internal-Storage"><a href="#Internal-Storage" class="headerlink" title="Internal Storage"></a>Internal Storage</h3><p>通过文件的形式将数据保存到手机内部存储空间中，并且这些文件是私有的，其他程序无法访问。当卸载掉程序之后，这些文件也会被相应移除。</p>
+<p>文件存放在<code>/storage/emulated/0/Android/data/_package/</code>中</p>
+<h3 id="External-Storage"><a href="#External-Storage" class="headerlink" title="External Storage"></a>External Storage</h3><p>通过文件的形式存储在手机模拟SD card中，需要在清单中声明外部存储空间读写权限，并且需要请求权限。</p>
+<p>文件存放在<code>/sdcard &lt;-&gt; /storage/emulated/0/</code>中</p>
+<h3 id="SQLite-Databases"><a href="#SQLite-Databases" class="headerlink" title="SQLite Databases"></a>SQLite Databases</h3><p>Android内建轻量化数据库SQLite，推荐通过Android Room中间层对数据库进行操作。</p>
+<p>Room 包含三个主要组件：</p>
+<ul>
+<li><a href="https://developer.android.com/reference/kotlin/androidx/room/Database">数据库类</a>，用于保存数据库并作为应用持久性数据底层连接的主要访问点。</li>
+<li><a href="https://developer.android.com/training/data-storage/room/defining-data">数据实体</a>，用于表示应用的数据库中的表。</li>
+<li><a href="https://developer.android.com/training/data-storage/room/accessing-data">数据访问对象 (DAO)</a>，提供您的应用可用于查询、更新、插入和删除数据库中的数据的方法。</li>
+</ul>
+<p>数据库类为应用提供与该数据库关联的 DAO 的实例。反过来，应用可以使用 DAO 从数据库中检索数据，作为关联的数据实体对象的实例。此外，应用还可以使用定义的数据实体更新相应表中的行，或者创建新行供插入。下图说明了 Room 的不同组件之间的关系。</p>
+<p><img src="https://developer.android.google.cn/images/training/data-storage/room_architecture.png" alt="android room"></p>
+<h2 id="5-Android-Broadcast"><a href="#5-Android-Broadcast" class="headerlink" title="5. Android Broadcast"></a>5. Android Broadcast</h2><blockquote>
+<p>参考：<a href="https://developer.android.com/guide/components/broadcasts">https://developer.android.com/guide/components/broadcasts</a></p>
+</blockquote>
+<p>Android 应用与 Android 系统和其他 Android 应用之间可以相互收发广播消息，这与_发布-订阅_设计模式相似。这些广播会在所关注的事件发生时发送。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>系统广播</p>
+<p>系统会在发生各种系统事件时自动发送广播，例如当系统进入和退出飞行模式时。系统广播会被发送给所有同意接收相关事件的应用。</p>
+<p>广播消息本身会被封装在一个 <code>Intent</code> 对象中，该对象的操作字符串会标识所发生的事件。</p>
+</li>
+<li><p>自定义广播</p>
+</li>
+</ul>
+<h3 id="接收与发送广播"><a href="#接收与发送广播" class="headerlink" title="接收与发送广播"></a>接收与发送广播</h3><h4 id="接收广播"><a href="#接收广播" class="headerlink" title="接收广播"></a>接收广播</h4><ul>
+<li><p>清单声明的接收器</p>
+<p>如果您在清单中声明广播接收器，系统会在广播发出后启动您的应用（如果应用尚未运行）。</p>
+<blockquote>
+<p><strong>注意</strong>：如果您的应用以 API 级别 26 或更高级别的平台版本为目标，则不能使用清单为隐式广播（没有明确针对您的应用的广播）声明接收器，但一些<a href="https://developer.android.com/guide/components/broadcast-exceptions">不受此限制</a>的隐式广播除外。在大多数情况下，您可以使用<a href="https://developer.android.com/topic/performance/scheduling">调度作业</a>来代替。</p>
+</blockquote>
+<p>要在清单中声明广播接收器，请执行以下步骤：</p>
+<ol>
+<li><p>在应用清单中指定<code>&lt;receiver&gt;</code>元素。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">&quot;.MyBroadcastReceiver&quot;</span>  <span class="attr">android:exported</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.BOOT_COMPLETED&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.INPUT_METHOD_CHANGED&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span>    </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 <code>BroadcastReceiver</code> 子类并实现 <code>onReceive(Context, Intent)</code>。以下示例中的广播接收器会记录并显示广播的内容：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBroadcastReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;MyBroadcastReceiver&quot;</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        sb.append(<span class="string">&quot;Action: &quot;</span> + intent.getAction() + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        sb.append(<span class="string">&quot;URI: &quot;</span> + intent.toUri(Intent.URI_INTENT_SCHEME).toString() + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        String log = sb.toString();</span><br><span class="line">        Log.d(TAG, log);</span><br><span class="line">        Toast.makeText(context, log, Toast.LENGTH_LONG).show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>系统软件包管理器会在应用安装时注册接收器。然后，该接收器会成为应用的一个独立入口点，这意味着如果应用当前未运行，系统可以启动应用并发送广播。</p>
+<p>系统会创建新的 <code>BroadcastReceiver</code> 组件对象来处理它接收到的每个广播。此对象仅在调用 <code>onReceive(Context, Intent)</code> 期间有效。一旦从此方法返回代码，系统便会认为该组件不再活跃。</p>
+</li>
+</ol>
+</li>
+<li><p>上下文注册的接收器</p>
+<p>要使用上下文注册接收器，请执行以下步骤：</p>
+<ol>
+<li><p>创建 <code>BroadcastReceiver</code> 的实例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BroadcastReceiver br = <span class="keyword">new</span> MyBroadcastReceiver();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 <code>IntentFilter</code> 并调用 <code>registerReceiver(BroadcastReceiver, IntentFilter)</code> 来注册接收器：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IntentFilter filter = <span class="keyword">new</span> IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);</span><br><span class="line">filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);</span><br><span class="line"><span class="keyword">this</span>.registerReceiver(br, filter);</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意：</strong>要注册本地广播，请调用 <code>LocalBroadcastManager.registerReceiver(BroadcastReceiver, IntentFilter)</code>。</p>
+</blockquote>
+<p>只要注册上下文有效，上下文注册的接收器就会接收广播。例如，如果您在 <code>Activity</code> 上下文中注册，只要 Activity 没有被销毁，您就会收到广播。如果您在应用上下文中注册，只要应用在运行，您就会收到广播。</p>
+</li>
+<li><p>要停止接收广播，请调用 <code>unregisterReceiver(android.content.BroadcastReceiver)</code>。当您不再需要接收器或上下文不再有效时，请务必注销接收器。</p>
+<p>请注意注册和注销接收器的位置，比方说，如果您使用 Activity 上下文在 <code>onCreate(Bundle)</code> 中注册接收器，则应在 <code>onDestroy()</code> 中注销，以防接收器从 Activity 上下文中泄露出去。如果您在 <code>onResume()</code> 中注册接收器，则应在 <code>onPause()</code> 中注销，以防多次注册接收器（如果您不想在暂停时接收广播，这样可以减少不必要的系统开销）。请勿在 <code>onSaveInstanceState(Bundle)</code> 中注销，因为如果用户在历史记录堆栈中后退，则不会调用此方法。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="发送广播"><a href="#发送广播" class="headerlink" title="发送广播"></a>发送广播</h4><p>Android 为应用提供三种方式来发送广播：</p>
+<ul>
+<li><code>sendOrderedBroadcast(Intent, String)</code> 方法一次向一个接收器发送广播。当接收器逐个顺序执行时，接收器可以向下传递结果，也可以完全中止广播，使其不再传递给其他接收器。接收器的运行顺序可以通过匹配的 intent-filter 的 android:priority 属性来控制；具有相同优先级的接收器将按随机顺序运行。</li>
+<li><code>sendBroadcast(Intent)</code> 方法会按随机的顺序向所有接收器发送广播。这称为常规广播。这种方法效率更高，但也意味着接收器无法从其他接收器读取结果，无法传递从广播中收到的数据，也无法中止广播。</li>
+<li><code>LocalBroadcastManager.sendBroadcast</code> 方法会将广播发送给与发送器位于同一应用中的接收器。如果您不需要跨应用发送广播，请使用本地广播。这种实现方法的效率更高（无需进行进程间通信），而且您无需担心其他应用在收发您的广播时带来的任何安全问题。</li>
+</ul>
+<p>以下代码段展示了如何通过创建 Intent 并调用 <code>sendBroadcast(Intent)</code> 来发送广播：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setAction(<span class="string">&quot;com.example.broadcast.MY_NOTIFICATION&quot;</span>);</span><br><span class="line">intent.putExtra(<span class="string">&quot;data&quot;</span>,<span class="string">&quot;Notice me senpai!&quot;</span>);</span><br><span class="line">sendBroadcast(intent);</span><br></pre></td></tr></table></figure>
+
+<p>广播消息封装在 <code>Intent</code> 对象中。Intent 的操作字符串必须提供应用的 Java 软件包名称语法，并唯一标识广播事件。您可以使用 <code>putExtra(String, Bundle)</code> 向 intent 附加其他信息。您也可以对 intent 调用 <code>setPackage(String)</code>，将广播限定到同一组织中的一组应用。</p>
+<blockquote>
+<p><strong>注意</strong>：虽然 intent 既用于发送广播，也用于通过 <code>startActivity(Intent)</code> 启动 Activity，但这两种操作是完全无关的。广播接收器无法查看或捕获用于启动 Activity 的 intent；同样，当您广播 intent 时，也无法找到或启动 Activity。</p>
+</blockquote>
+<h2 id="6-Content-Provider"><a href="#6-Content-Provider" class="headerlink" title="6. Content Provider"></a>6. Content Provider</h2><blockquote>
+<p>参考：<a href="https://developer.android.com/guide/topics/providers/content-providers">https://developer.android.com/guide/topics/providers/content-providers</a></p>
+</blockquote>
+<p>内容提供程序管理对中央数据存储区的访问。提供程序是 Android 应用的一部分，通常提供自己的界面来处理数据。但是，内容提供程序主要目的是供其他应用使用，这些应用使用提供程序客户端对象进行访问。提供程序与提供程序客户端共同提供一致的标准数据界面，该界面还可处理进程间通信并保护数据访问的安全性。</p>
+<p>通常，您会在以下两种场景中使用内容提供程序：</p>
+<ul>
+<li><p>一种是通过实现代码<strong>访问其他应用中的现有内容提供程序</strong>；</p>
+</li>
+<li><p>另一种是在应用中<strong>创建新的内容提供程序</strong>，从而与其他应用<strong>共享数据</strong>。</p>
+</li>
+</ul>
+<h3 id="访问提供程序"><a href="#访问提供程序" class="headerlink" title="访问提供程序"></a>访问提供程序</h3><p>如需访问内容提供程序中的数据，您可以客户端的形式使用应用的 <code>Context</code> 中的 <code>ContentResolver</code> 对象与提供程序进行通信。<code>ContentResolver</code> 对象会与提供程序对象（即实现 <code>ContentProvider</code> 的类的实例）通信。提供程序对象从客户端接收数据请求、执行请求的操作并返回结果。此对象的某些方法可调用提供程序对象（<code>ContentProvider</code> 某个具体子类的实例）中的同名方法。<code>ContentResolver</code> 方法可提供持久性存储空间的基本“CRUD”（创建、检索、更新和删除）功能。</p>
+<h4 id="使用“存储访问框架”打开文件"><a href="#使用“存储访问框架”打开文件" class="headerlink" title="使用“存储访问框架”打开文件"></a>使用“存储访问框架”打开文件</h4><p>Android 4.4（API 级别 19）引入了存储访问框架 (SAF)。借助 SAF，用户可轻松浏览和打开各种文档、图片及其他文件，而不用管这些文件来自其首选文档存储提供程序中的哪一个。</p>
+<p>SAF 包含以下元素：</p>
+<ul>
+<li><strong>文档提供程序</strong> - 一种内容提供程序，可让存储服务（如 Google 云端硬盘）提供其管理的文件。文档提供程序以 <code>DocumentsProvider</code> 类的子类形式实现。文档提供程序的架构基于传统的文件层次结构，但其实际的数据存储方式由您决定。Android 平台包含若干内置的文档提供程序，如 Downloads、Images 和 Videos。</li>
+<li><strong>客户端应用</strong> - 一种定制化的应用，它会调用 <code>ACTION_CREATE_DOCUMENT</code>、<code>ACTION_OPEN_DOCUMENT</code> 和 <code>ACTION_OPEN_DOCUMENT_TREE</code> intent 操作并接收文档提供程序返回的文件。</li>
+<li><strong>选择器</strong> - 一种系统界面，可让用户访问所有文档提供程序内满足客户端应用搜索条件的文档。</li>
+</ul>
+<p>SAF 的核心是一个内容提供程序，它是 <code>DocumentsProvider</code> 类的一个子类。在文档提供程序内，数据结构采用传统的文件层次结构：</p>
+<p><img src="https://developer.android.google.cn/images/providers/storage_datamodel.png" alt="saf"></p>
+<h2 id="7-自定义View"><a href="#7-自定义View" class="headerlink" title="7. 自定义View"></a>7. 自定义View</h2><blockquote>
+<p>参考：</p>
+<p><a href="https://developer.android.google.cn/guide/topics/ui/custom-components">https://developer.android.google.cn/guide/topics/ui/custom-components</a></p>
+<p><a href="https://www.jianshu.com/p/705a6cb6bfee">https://www.jianshu.com/p/705a6cb6bfee</a></p>
+</blockquote>
+<h3 id="分类-1"><a href="#分类-1" class="headerlink" title="分类"></a>分类</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>完全自定义组件</td>
+<td>完全自定义的组件可用于创建外观完全如您所需的图形组件。</td>
+</tr>
+<tr>
+<td>复合组件</td>
+<td>这会将许多更原子的控件（或视图）整合到可被视为一件事的项的逻辑分组中</td>
+</tr>
+<tr>
+<td>继承系统<code>View</code>控件</td>
+<td>继承自<code>TextView</code>等系统控件，在系统控件的基础功能上进行扩展</td>
+</tr>
+<tr>
+<td>继承<code>View</code></td>
+<td>不复用系统控件逻辑，继承<code>View</code>进行功能定义</td>
+</tr>
+<tr>
+<td>继承系统<code>ViewGroup</code></td>
+<td>继承自<code>LinearLayout</code>等系统控件，在系统控件的基础功能上进行扩展</td>
+</tr>
+<tr>
+<td>继承<code>ViewViewGroup</code></td>
+<td>不复用系统控件逻辑，继承<code>ViewGroup</code>进行功能定义</td>
+</tr>
+</tbody></table>
+<h3 id="View绘制流程"><a href="#View绘制流程" class="headerlink" title="View绘制流程"></a>View绘制流程</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+<th>相关方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>measure()</code></td>
+<td>测量<code>View</code>的宽高</td>
+<td><code>measure()</code>,<code>setMeasuredDimension()</code>,<code>onMeasure()</code></td>
+</tr>
+<tr>
+<td><code>layout()</code></td>
+<td>计算当前<code>View</code>以及子<code>View</code>的位置</td>
+<td><code>layout()</code>,<code>onLayout()</code>,<code>setFrame()</code></td>
+</tr>
+<tr>
+<td><code>draw()</code></td>
+<td>视图的绘制工作</td>
+<td><code>draw()</code>,<code>onDraw()</code></td>
+</tr>
+</tbody></table>
+<h3 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h3><p>在Android坐标系中，以屏幕左上角作为原点，这个原点向右是X轴的正轴，向下是Y轴正轴。</p>
+<h3 id="View的构造函数"><a href="#View的构造函数" class="headerlink" title="View的构造函数"></a>View的构造函数</h3><p>无论是我们继承系统View还是直接继承View，都需要对构造函数进行重写，构造函数有多个，至少要重写其中一个才行。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在java代码里new的时候会用到</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在xml布局文件中使用时自动调用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestView</span><span class="params">(Context context, <span class="meta">@Nullable</span> AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> attrs</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> defStyleAttr</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestView</span><span class="params">(Context context, <span class="meta">@Nullable</span> AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 只有在API版本&gt;21时才会用到</span></span><br><span class="line"><span class="comment">     * 不会自动调用，如果有默认style时，在第二个构造函数中调用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> attrs</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> defStyleAttr</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> defStyleRes</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestView</span><span class="params">(Context context, <span class="meta">@Nullable</span> AttributeSet attrs, <span class="keyword">int</span> defStyleAttr, <span class="keyword">int</span> defStyleRes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr, defStyleRes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="8-Java同步方法转异步方法"><a href="#8-Java同步方法转异步方法" class="headerlink" title="8. Java同步方法转异步方法"></a>8. Java同步方法转异步方法</h2><blockquote>
+<p>参考：<a href="https://blog.csdn.net/weixin_38106322/article/details/104492086">https://blog.csdn.net/weixin_38106322/article/details/104492086</a></p>
+</blockquote>
+<p>使用<code>CachedThreadPool</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        executorService.execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;运行第&quot;</span> + number.incrementAndGet() + <span class="string">&quot;个线程，当前时间【&quot;</span> + sim.format(<span class="keyword">new</span> Date()) + <span class="string">&quot;】&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">6000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-synchnoized作用"><a href="#9-synchnoized作用" class="headerlink" title="9. synchnoized作用"></a>9. <code>synchnoized</code>作用</h2><blockquote>
+<p>参考：<a href="https://www.cnblogs.com/cg961107/p/10923114.html">https://www.cnblogs.com/cg961107/p/10923114.html</a></p>
+</blockquote>
+<p>同步方法支持一种简单的策略来防止线程干扰和内存一致性错误：如果一个对象对多个线程可见，则对该对象变量的所有读取或写入都是通过同步方法完成的。</p>
+<p>一句话总结出Synchronized的作用：</p>
+<ul>
+<li>能够保证在同一时刻最多只有一个线程执行该段代码，以达到保证并发安全的效果</li>
+</ul>
+<p>Synchronized的特点：</p>
+<ul>
+<li><p>synchronized是Java的关键字，被Java语言原生支持</p>
+</li>
+<li><p>是最基本的互斥同步手段</p>
+</li>
+</ul>
+<h3 id="synchronized的两个用法"><a href="#synchronized的两个用法" class="headerlink" title="synchronized的两个用法"></a>synchronized的两个用法</h3><p>对象锁：</p>
+<ul>
+<li>包含方法锁（默认锁对象为this当前实力对象），同步代码块锁（自己制定锁对象）</li>
+<li>代码块形式:手动指定锁对象</li>
+<li>方法锁形式:synchronized修饰普通方法,锁默认对象为this</li>
+</ul>
+<p>类锁：</p>
+<ul>
+<li><p>指sychronized修饰静态的方法或指锁为Class对象</p>
+</li>
+<li><p>概念:java类可能有有很多个对象,但是只有一个class对象</p>
+</li>
+<li><p>本质:所以所谓的类锁,不过是Class对象的锁而已</p>
+</li>
+<li><p>用法和效果:类锁只能在同一时刻被一个对象拥有</p>
+</li>
+<li><p>形式1:synchronized加载static方法上</p>
+</li>
+<li><p>形式2:synchronized(*.class)代码块</p>
+</li>
+</ul>
+<h3 id="多线程访问同步方法的7种情况"><a href="#多线程访问同步方法的7种情况" class="headerlink" title="多线程访问同步方法的7种情况"></a>多线程访问同步方法的7种情况</h3><p>1.两个线程同时访问一个对象的同步方法</p>
+<p>　　串行</p>
+<p>2.两个线程访问的是两个对象的同步方法</p>
+<p>　　锁对象不同,互不干扰,并行</p>
+<p>3.如果两个线程访问的是Synchronized的静态方法</p>
+<p>　　串行</p>
+<p>4.同时访问同步方法与非同步方法</p>
+<p>　　并行</p>
+<p>5.访问同一对象的不同的普通同步方法</p>
+<p>　　同一对象锁,串行</p>
+<p>6.同时访问静态synchronized和非静态synchronized方法</p>
+<p>　　锁不同,并行</p>
+<p>7.方法抛异常后,会释放锁吗</p>
+<p>　　如果一个线程在进入同步方法后抛出了异常,则另一个线程会立刻进入该同步方法</p>
+<h2 id="10-Java-抽象类和接口的区别"><a href="#10-Java-抽象类和接口的区别" class="headerlink" title="10. Java 抽象类和接口的区别"></a>10. Java 抽象类和接口的区别</h2><blockquote>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/94770324">https://zhuanlan.zhihu.com/p/94770324</a></p>
+</blockquote>
+<p>Java中接口和抽象类的定义语法分别为<code>interface</code>与<code>abstract</code>关键字。</p>
+<p><strong>抽象类</strong>：在Java中被<code>abstract</code>关键字修饰的类称为抽象类，被<code>abstract</code>关键字修饰的方法称为抽象方法，抽象方法只有方法的声明，没有方法体。抽象类的特点：</p>
+<ol>
+<li>抽象类不能被实例化只能被继承；</li>
+<li>包含抽象方法的一定是抽象类，但是抽象类不一定含有抽象方法；</li>
+<li>抽象类中的抽象方法的修饰符只能为public或者protected，默认为public；</li>
+<li>一个子类继承一个抽象类，则子类必须实现父类抽象方法，否则子类也必须定义为抽象类；</li>
+<li>抽象类可以包含属性、方法、构造方法，但是构造方法不能用于实例化，主要用途是被子类调用。</li>
+</ol>
+<p><strong>接口</strong>：Java中接口使用<code>interface</code>关键字修饰，特点为:</p>
+<ol>
+<li><p>接口可以包含变量、方法；变量被隐式指定为<code>public static final</code>，方法被隐式指定为<code>public abstract</code>（JDK1.8之前）；</p>
+</li>
+<li><p>接口支持多继承，即一个接口可以extends多个接口，间接的解决了Java中类的单继承问题；</p>
+</li>
+<li><p>一个类可以实现多个接口；</p>
+</li>
+<li><p>JDK1.8中对接口增加了新的特性：</p>
+<ol>
+<li>默认方法（default method）：JDK1.8允许给接口添加非抽象的方法实现，但必须使用<code>default</code>关键字修饰；定义了default的方法可以不被实现子类所实现，但只能被实现子类的对象调用；如果子类实现了多个接口，并且这些接口包含一样的默认方法，则子类必须重写默认方法；</li>
+<li>静态方法（static method）：JDK1.8中允许使用<code>static</code>关键字修饰一个方法，并提供实现，称为接口静态方法。接口静态方法只能通过接口调用（接口名.静态方法名）。</li>
+</ol>
+</li>
+</ol>
+<p><strong>相同点</strong></p>
+<ol>
+<li>都不能被实例化</li>
+<li>接口的实现类或抽象类的子类都只有实现了接口或抽象类中的方法后才能实例化。</li>
+</ol>
+<p><strong>不同点</strong></p>
+<ol>
+<li>接口只有定义，不能有方法的实现，java 1.8中可以定义<code>default</code>方法体，而抽象类可以有定义与实现，方法可在抽象类中实现。</li>
+<li>实现接口的关键字为<code>implements</code>，继承抽象类的关键字为<code>extends</code>。一个类可以实现多个接口，但一个类只能继承一个抽象类。所以，使用接口可以间接地实现多重继承。</li>
+<li>接口强调特定功能的实现，而抽象类强调所属关系。</li>
+<li>接口成员变量默认为<code>public static final</code>，必须赋初值，不能被修改；其所有的成员方法都是<code>public</code>、<code>abstract</code>的。抽象类中成员变量默认<code>default</code>，可在子类中被重新定义，也可被重新赋值；抽象方法被<code>abstract</code>修饰，不能被<code>private</code>、<code>static</code>、<code>synchronized</code>和<code>native</code>等修饰，必须以分号结尾，不带花括号。</li>
+</ol>
+<h2 id="11-equals和-的区别"><a href="#11-equals和-的区别" class="headerlink" title="11. equals和==的区别"></a>11. <code>equals</code>和<code>==</code>的区别</h2><blockquote>
+<p>参考：<a href="https://zhuanlan.zhihu.com/p/338350987">https://zhuanlan.zhihu.com/p/338350987</a></p>
+</blockquote>
+<ol>
+<li><p><code>equals()</code>：用来检测两个对象是否相等，即两个对象的内容是否相等。</p>
+</li>
+<li><p><code>==</code>：用于比较引用和比较基本数据类型时具有不同的功能</p>
+<ol>
+<li>基础数据类型：比较的是他们的值是否相等，比如两个int类型的变量，比较的是变量的值是否一样。</li>
+<li>引用数据类型：比较的是引用的地址是否相同，比如说新建了两个User对象，比较的是两个User的地址是否一样。</li>
+</ol>
+</li>
+</ol>
+<p><strong>对equals重新需要注意五点：</strong></p>
+<p>1、自反性：对任意引用值X，x.equals(x)的返回值一定为true；</p>
+<p>2、对称性：对于任何引用值x,y,当且仅当y.equals(x)返回值为true时，x.equals(y)的返回值一定为true；</p>
+<p>3、传递性：如果x.equals(y)=true, y.equals(z)=true,则x.equals(z)=true ；</p>
+<p>4、 一致性：如果参与比较的对象没任何改变，则对象比较的结果也不应该有任何改变；</p>
+<p>5、非空性：任何非空的引用值X，x.equals(null)的返回值一定为false 。</p>
+<h3 id="："><a href="#：" class="headerlink" title="==："></a>==：</h3><p><code>==</code> 比较的是变量(栈)内存中存放的对象的(堆)内存地址，用来判断两个对象的地址是否相同，即是否是指相同一个对象。比较的是真正意义上的指针操作。</p>
+<p>1、比较的是操作符两端的操作数是否是同一个对象。</p>
+<p>2、两边的操作数必须是同一类型的（可以是父子类之间）才能编译通过。</p>
+<p>3、比较的是地址，如果是具体的阿拉伯数字的比较，值相等则为<code>true</code>，如：</p>
+<p><code>int a=10</code> 与 <code>long b=10L</code> 与 <code>double c=10.0</code>都是相同的（为<code>true</code>），因为他们都指向地址为10的堆。</p>
+<h3 id="equals："><a href="#equals：" class="headerlink" title="equals："></a>equals：</h3><p><code>equals</code>用来比较的是两个对象的内容是否相等，由于所有的类都是继承自<code>java.lang.Object</code>类的，所以适用于所有对象，如果没有对该方法进行覆盖的话，调用的仍然是<code>Object</code>类中的方法，而<code>Object</code>中的<code>equals</code>方法返回的却是<code>==</code>的判断。</p>
+<p><code>String s=&quot;abce&quot;</code>是一种非常特殊的形式,和new 有本质的区别。它是java中唯一不需要<code>new</code>就可以产生对象的途径。</p>
+<p>以<code>String s=&quot;abce&quot;;</code>形式赋值在java中叫直接量,它是在常量池中而不是象<code>new</code>一样放在压缩堆中。这种形式的字符串，在JVM内部发生字符串拘留，即当声明这样的一个字符串后，JVM会在常量池中先查找有有没有一个值为<code>&quot;abcd&quot;</code>的对象。</p>
+<p>如果有，就会把它赋给当前引用.即原来那个引用和现在这个引用指点向了同一对象，如果没有，则在常量池中新创建一个<code>&quot;abcd&quot;</code>，下一次如果有<code>Strings1=&quot;abcd&quot;</code>又会将s1指向<code>&quot;abcd&quot;</code>这个对象，即以这形式声明的字符串，只要值相等，任何多个引用都指向同一对象。</p>
+<p>而<code>String s=new String(&quot;abcd&quot;)</code>和其它任何对象一样.每调用一次就产生一个对象，只要它们调用。</p>
+<p>也可以这么理解：”String str=”hello””先在内存中找是不是有<code>&quot;hello&quot;</code>这个对象，如果有，就让<code>str</code>指向那个<code>&quot;hello&quot;</code>。如果内存里没有<code>&quot;hello&quot;</code>，就创建一个新的对象保存<code>&quot;hello&quot;</code>。<code>String str=new String(&quot;hello&quot;)</code>就是不管内存里是不是已经有<code>&quot;hello&quot;</code>这个对象，都新建一个对象保存<code>&quot;hello&quot;</code>。</p>
+<h2 id="12-volatile和synchronized的区别"><a href="#12-volatile和synchronized的区别" class="headerlink" title="12. volatile和synchronized的区别"></a>12. volatile和synchronized的区别</h2><blockquote>
+<p>参考：<a href="https://blog.csdn.net/suifeng3051/article/details/52611233">https://blog.csdn.net/suifeng3051/article/details/52611233</a></p>
+</blockquote>
+<ol>
+<li><code>volatile</code>本质是在告诉JVM当前变量在寄存器（工作内存）中的值是不确定的，需要从主存中读取；</li>
+<li><code>synchronized</code>则是锁定当前变量，只有当前线程可以访问该变量，其他线程被阻塞住；</li>
+<li><code>volatile</code>仅能使用在变量级别；<code>synchronized</code>则可以使用在变量、方法、和类级别的；</li>
+<li><code>volatile</code>仅能实现变量的修改可见性，不能保证原子性；而<code>synchronized</code>则可以保证变量的修改可见性和原子性；</li>
+<li><code>volatile</code>不会造成线程的阻塞；<code>synchronized</code>可能会造成线程的阻塞；</li>
+<li><code>volatile</code>标记的变量不会被编译器优化；<code>synchronized</code>标记的变量可以被编译器优化。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Java</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使Vim中的空白字符可见</title>
     <url>/2022/04/make-vim-show-whitechars/</url>
     <content><![CDATA[<h1 id="使Vim中空白字符可见"><a href="#使Vim中空白字符可见" class="headerlink" title="使Vim中空白字符可见"></a>使Vim中空白字符可见</h1><blockquote>
@@ -447,8 +901,8 @@
         <category>Note</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>笔记</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -719,7 +1173,7 @@
 
 
 
-<h3 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a><code>main.py</code></h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># Author: Steven Yan</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time, os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> win32api, win32gui, win32con</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tempDir = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUrl</span>():</span></span><br><span class="line">    <span class="comment"># month0 = time.strftime(&quot;%Y%m&quot;,time.localtime())</span></span><br><span class="line">    <span class="comment"># today0 = time.strftime(&quot;%d&quot;,time.localtime())</span></span><br><span class="line">    <span class="comment"># myUrl = &quot;https://example.com/home/&quot;+month0+&quot;/&quot;+today0+&quot;.jpg&quot;</span></span><br><span class="line">    myUrl = <span class="string">&quot;http://example.com/home/bing.php&quot;</span></span><br><span class="line">    <span class="keyword">return</span> myUrl</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downloadPic</span>(<span class="params">picUrl</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Downloading picture...\n&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        req = requests.get(picUrl)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;DONT-MOVE-S-Wallpaper-Pic.jpg&quot;</span>,<span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> ccc:</span><br><span class="line">            ccc.write(req.content)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Picture saved at: &#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(tempDir + <span class="string">&quot;\\DONT-MOVE-S-Wallpaper-Pic.jpg&quot;</span>))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Can&#x27;t download Picture!\n&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Check your Internet access and try again.&quot;</span>)</span><br><span class="line">        goodBye()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">moveFile</span>(<span class="params">file,des</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(file):</span><br><span class="line">        <span class="built_in">print</span>(file + <span class="string">&quot; is not exist.&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;DON&#x27;T MOVE or DELETE picture file!!!&quot;</span>)</span><br><span class="line">        goodBye()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des):</span><br><span class="line">            os.makedirs(des)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            os.system(<span class="string">&quot;move /y &quot;</span>+file+<span class="string">&quot; &quot;</span>+des)</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convPic</span>(<span class="params">jpg,bmp</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        img = Image.<span class="built_in">open</span>(jpg)</span><br><span class="line">        img.save(bmp, <span class="string">&#x27;BMP&#x27;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Can&#x27;t convert picture.&quot;</span>)</span><br><span class="line">        goodBye()</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    os.remove(jpg)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The picture has been converted successfully.&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWallpaper</span>(<span class="params">picUri</span>):</span></span><br><span class="line">    key = win32api.RegOpenKeyEx(win32con.HKEY_CURRENT_USER, <span class="string">&quot;Control Panel\\Desktop&quot;</span>, <span class="number">0</span>, win32con.KEY_SET_VALUE)</span><br><span class="line">    win32api.RegSetValueEx(key, <span class="string">&quot;WallpaperStyle&quot;</span>, <span class="number">0</span>, win32con.REG_SZ, <span class="string">&quot;10&quot;</span>) </span><br><span class="line">    win32api.RegSetValueEx(key, <span class="string">&quot;TileWallpaper&quot;</span>, <span class="number">0</span>, win32con.REG_SZ, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">    win32gui.SystemParametersInfo(win32con.SPI_SETDESKWALLPAPER, picUri, <span class="number">1</span>+<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n  --&gt; TODAY Wallpaper has been set!!!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMe</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##########################################################&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##                 Website: RyzenX.com                ##&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##                     By Steven Yan                    ##&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##########################################################&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">goodBye</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n  Good Bye! Program will exit soon!\n&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-&gt; %s&quot;</span> % <span class="built_in">str</span>(<span class="number">3</span>-i))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.name == <span class="string">&quot;nt&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This Program only supports Windows&quot;</span>)</span><br><span class="line">        exit(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.system(<span class="string">&quot;mode con cols=60 lines=30&quot;</span>)</span><br><span class="line">        os.system(<span class="string">&quot;color 0e&quot;</span>)</span><br><span class="line">        os.system(<span class="string">&quot;title Daily Wallpaper from Bing.com&quot;</span>)</span><br><span class="line">        printMe()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nNow: %s \n&quot;</span> % time.ctime())</span><br><span class="line">    tempDir = os.getenv(<span class="string">&#x27;TEMP&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Your TEMP dir is: &quot;</span> + tempDir + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    downloadPic(getUrl())</span><br><span class="line">    moveFile(<span class="string">&quot;DONT-MOVE-S-Wallpaper-Pic.jpg&quot;</span>,tempDir)</span><br><span class="line">    convPic(tempDir + <span class="string">&quot;\\DONT-MOVE-S-Wallpaper-Pic.jpg&quot;</span>, tempDir + <span class="string">&quot;\\DONT-MOVE-S-Wallpaper-Pic.bmp&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    setWallpaper(tempDir + <span class="string">&quot;\\DONT-MOVE-S-Wallpaper-Pic.bmp&quot;</span>)</span><br><span class="line">    goodBye()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a><code>main.py</code></h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="comment"># Author: Steven Yan</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> win32api</span><br><span class="line"><span class="keyword">import</span> win32con</span><br><span class="line"><span class="keyword">import</span> win32gui</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getUrl</span>():</span></span><br><span class="line">    myUrl = <span class="string">&quot;https://stevenos.com/api/bing&quot;</span></span><br><span class="line">    <span class="keyword">return</span> myUrl</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downloadPic</span>(<span class="params">picUrl</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Downloading picture from StevenOS.com...\n&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        req = requests.get(picUrl)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;pyDesktopPic.jpg&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> ccc:</span><br><span class="line">            ccc.write(req.content)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Picture saved at TEMP dir.\n&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Can&#x27;t download Picture!\n&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Check your Internet access and try again.&quot;</span>)</span><br><span class="line">        goodBye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">moveFile</span>(<span class="params">file, des</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(file):</span><br><span class="line">        <span class="built_in">print</span>(file+<span class="string">&quot; is not exist&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Please contact me@StevenOS.com&quot;</span>)</span><br><span class="line">        goodBye()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(des):</span><br><span class="line">            os.makedirs(des)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            os.system(<span class="string">&quot;move /y &quot;</span>+file+<span class="string">&quot; &quot;</span>+des)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convPic</span>(<span class="params">jpg, bmp</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        img = Image.<span class="built_in">open</span>(jpg)</span><br><span class="line">        img.save(bmp, <span class="string">&#x27;BMP&#x27;</span>)</span><br><span class="line">        os.remove(jpg)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;The picture was converted successfully.&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setWallpaper</span>(<span class="params">picUri</span>):</span></span><br><span class="line">    key = win32api.RegOpenKeyEx(</span><br><span class="line">        win32con.HKEY_CURRENT_USER, <span class="string">&quot;Control Panel\\Desktop&quot;</span>, <span class="number">0</span>, win32con.KEY_SET_VALUE)</span><br><span class="line">    win32api.RegSetValueEx(key, <span class="string">&quot;WallpaperStyle&quot;</span>, <span class="number">0</span>, win32con.REG_SZ, <span class="string">&quot;2&quot;</span>)</span><br><span class="line">    win32api.RegSetValueEx(key, <span class="string">&quot;TileWallpaper&quot;</span>, <span class="number">0</span>, win32con.REG_SZ, <span class="string">&quot;0&quot;</span>)</span><br><span class="line">    win32gui.SystemParametersInfo(win32con.SPI_SETDESKWALLPAPER, picUri, <span class="number">1</span>+<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n-&gt;&gt;TODAY Wallpaper set!!!&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printMe</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##########################################################&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##                  Website: RyzenX.com                 ##&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##                     By Steven Yan                    ##&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;##########################################################&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">goodBye</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\nGood Bye! See you next time!\n&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;-&gt; %s&quot;</span> % <span class="built_in">str</span>(<span class="number">4</span>-i))</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.name == <span class="string">&quot;nt&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;This Program only supports Windows&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        os.system(<span class="string">&quot;mode con cols=60 lines=30&quot;</span>)</span><br><span class="line">        os.system(<span class="string">&quot;color 0e&quot;</span>)</span><br><span class="line">        os.system(<span class="string">&quot;title Daily Wallpaper Changer from StevenOS.com&quot;</span>)</span><br><span class="line">        printMe()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Now: %s \n&quot;</span> % time.ctime())</span><br><span class="line">    tempDir = os.getenv(<span class="string">&#x27;TEMP&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Your TEMP dir is: &quot;</span>+tempDir+<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Note: cleaning out &quot;</span>+tempDir+<span class="string">&quot; will delete the wallpaper file&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    downloadPic(getUrl())</span><br><span class="line">    moveFile(<span class="string">&quot;pyDesktopPic.jpg&quot;</span>, tempDir)</span><br><span class="line">    convPic(tempDir+<span class="string">&quot;\pyDesktopPic.jpg&quot;</span>, tempDir+<span class="string">&quot;\pyDesktopPic.bmp&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    setWallpaper(tempDir+<span class="string">&quot;\pyDesktopPic.bmp&quot;</span>)</span><br><span class="line">    goodBye()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -734,7 +1188,7 @@
 
 
 
-<h2 id="欢迎使用！"><a href="#欢迎使用！" class="headerlink" title="欢迎使用！"></a>欢迎使用！</h2><p><a href="https://github.com/Steven-nagisa-Y/S-Wallpaper">Steven-nagisa-Y/S-Wallpaper (github.com)</a></p>
+<h2 id="欢迎使用！"><a href="#欢迎使用！" class="headerlink" title="欢迎使用！"></a>欢迎使用！</h2><p><a href="https://github.com/Steven-nagisa-Y/S-Wallpaper">Steven-nagisa-Y/S-Wallpaper  (@github.com)</a></p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -2414,8 +2868,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>快充</tag>
         <tag>公众号文章</tag>
+        <tag>快充</tag>
       </tags>
   </entry>
   <entry>
@@ -2711,42 +3165,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python删除macOS产生的冗余文件</title>
-    <url>/2020/03/macOS-trashfile-cleaner.sync-conflict-20220223-210436-ASIL2XC/</url>
-    <content><![CDATA[<h1 id="利用Python删除磁盘中macOS产生的冗余文件"><a href="#利用Python删除磁盘中macOS产生的冗余文件" class="headerlink" title="利用Python删除磁盘中macOS产生的冗余文件"></a>利用Python删除磁盘中macOS产生的冗余文件</h1><blockquote>
-<p><strong>特别说明：</strong></p>
-<p>请不要在macOS下运行此脚本，因为这些文件对于macOS来说是可能必须的。</p>
-<p>使用此Python脚本或其中部分代码导致的个人文件被删除，本人概不负责。</p>
-<p>请确认你有足够的能力应对各种突发情况，再使用此代码。</p>
-</blockquote>
-<span id="more"></span>
-
-
-
-<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>由于我的U盘需要经常在各个系统之间拷贝、移动文件，所以其中难免会被创建很多在其他系统平台没用的文件。</p>
-<p>比如<code>Windows</code>下会创建<code>System Volume Information</code>目录</p>
-<p><code>Android</code>平台下会创建<code>.android_secure</code>目录</p>
-<p>相对于上面两个，<code>macOS</code>就比较难搞，不仅根目录下会有<code>.fseventsd  .Spotlight-V100  .Trashes</code>文件夹，各个目录下还会存放<code>.DS_Store</code>目录信息文件，最要命的还是每打开一个文件就会创建一个<code>._&lt;原文件名&gt;.&lt;原扩展名&gt;</code>的一个文件，有时候会误打开甚至把不智能的设备搞死机。</p>
-<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>利用正则表达式匹配文件目录中的<code>._</code>开头，以及<code>.DS_Store</code>文件，把它们移动到备份文件夹。</p>
-<p>备份的目的就是防止正则表达式匹配到同样以<code>._</code>开头的<strong>正 ♂ 常</strong>文件，需要手动确认后在一键删除。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># encoding:UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">currentPath = <span class="string">&quot;&quot;</span></span><br><span class="line">path = <span class="string">&quot;&quot;</span></span><br><span class="line">bk_path = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bye</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n        Bye!&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delAll</span>(<span class="params">m=<span class="number">0</span></span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;是否清空备份文件夹: &#123;&#125; ？(yes / no)&quot;</span>.<span class="built_in">format</span>(bk_path))</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">&#x27;nt&#x27;</span> <span class="keyword">and</span> m == <span class="number">0</span>:</span><br><span class="line">        os.system(<span class="string">&quot;explorer &#123;&#125;&quot;</span>.<span class="built_in">format</span>(bk_path))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s = <span class="built_in">input</span>(<span class="string">&quot;&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    <span class="keyword">if</span> (s.lower() <span class="keyword">in</span> [<span class="string">&#x27;yes&#x27;</span>, <span class="string">&#x27;y&#x27;</span>]):</span><br><span class="line">        <span class="keyword">for</span> fileList <span class="keyword">in</span> os.walk(bk_path):</span><br><span class="line">            <span class="keyword">for</span> name <span class="keyword">in</span> fileList[<span class="number">2</span>]:</span><br><span class="line">                os.remove(os.path.join(fileList[<span class="number">0</span>], name))</span><br><span class="line">            shutil.rmtree(bk_path)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(bk_path)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;删除成功！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">    bye()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clean</span>(<span class="params">path, bk_path</span>):</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Selected path: &quot;</span> + path)</span><br><span class="line">    <span class="keyword">for</span> dirpath, dirs, files <span class="keyword">in</span> os.walk(path):</span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">dir</span> <span class="keyword">in</span> dirs:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">dir</span>.lower() <span class="keyword">in</span> [<span class="string">&#x27;.fseventsd&#x27;</span>, <span class="string">&#x27;.spotlight-v100&#x27;</span>, <span class="string">&#x27;.trashes&#x27;</span>]:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, <span class="built_in">dir</span>)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span>)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span>,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + <span class="built_in">dir</span> + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">            matchObj1 = re.match(<span class="string">r&quot;^\._\S+&quot;</span>, file, re.I)</span><br><span class="line">            matchObj2 = re.match(<span class="string">r&quot;^\.DS_Store$&quot;</span>, file, re.I)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> matchObj1:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + file)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + file,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + file + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">            <span class="keyword">if</span> matchObj2:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                filePath = os.path.join(dirpath, file)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;* &#123;&#125; Found... &#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, filePath))</span><br><span class="line">                <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\&quot;</span> + file)):</span><br><span class="line">                    os.rename(bk_path + <span class="string">&quot;\\&quot;</span> + file,</span><br><span class="line">                              bk_path + <span class="string">&quot;\\&quot;</span> + file + <span class="built_in">str</span>(i))</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    shutil.move(filePath, bk_path)</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;\n* No trash file found!\n&quot;</span>)</span><br><span class="line">        delAll(m=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        delAll()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mkDir</span>(<span class="params">bk_path</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (os.path.exists(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)):</span><br><span class="line">        os.mkdir(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> (os.path.exists(bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;备份文件夹创建成功...&quot;</span> + bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">if</span> os.name == <span class="string">&#x27;nt&#x27;</span>:</span><br><span class="line">        os.system(<span class="string">&#x27;cls&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> os.name == <span class="string">&#x27;posix&#x27;</span>:</span><br><span class="line">        os.system(<span class="string">&#x27;clear&#x27;</span>)</span><br><span class="line">    currentPath = os.getcwd()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;==============================&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;请输入需要处理的目录，例如：C:\ &quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;输入 `this` 处理当前目录: &#123;&#125;&quot;</span>.<span class="built_in">format</span>(currentPath))</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        path = <span class="built_in">input</span>(<span class="string">&quot;=&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;备份文件夹目录：（不要在处理的目录下！）&quot;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        bk_path = <span class="built_in">input</span>(<span class="string">&quot;=&gt; &quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Abort.&quot;</span>)</span><br><span class="line">        exit()</span><br><span class="line">    mkDir(bk_path)</span><br><span class="line">    bk_path = bk_path + <span class="string">&quot;\\MacOS-trash-file-backup&quot;</span></span><br><span class="line">    <span class="keyword">if</span> (path.lower() == <span class="string">&quot;this&quot;</span>):</span><br><span class="line">        clean(currentPath, bk_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path = path + <span class="string">&quot;\\&quot;</span></span><br><span class="line">        clean(path, bk_path)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Github链接"><a href="#Github链接" class="headerlink" title="Github链接"></a>Github链接</h2><ul>
-<li><a href="https://github.com/Steven-nagisa-Y/macOS-trashfile-cleaner">Steven-nagisa-Y/macOS-trashfile-cleaner: Clean macOS trash files: ._xxx/.DS_Store, etc. (github.com)</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>essay</tag>
-        <tag>code</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>小米手环4 开箱</title>
     <url>/2020/03/Mi-band-4/</url>
     <content><![CDATA[<h1 id="小米手环-4-开箱"><a href="#小米手环-4-开箱" class="headerlink" title="小米手环 4 开箱"></a>小米手环 4 开箱</h1><blockquote>
@@ -2964,7 +3382,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;">&#105;&#x40;&#x74;&#121;&#112;&#x6f;&#x72;&#x61;&#x2e;&#105;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#64;&#116;&#121;&#x70;&#x6f;&#x72;&#97;&#x2e;&#105;&#111;">&#x69;&#64;&#116;&#121;&#x70;&#x6f;&#x72;&#97;&#x2e;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -3197,8 +3615,8 @@
         <category>Note</category>
       </categories>
       <tags>
-        <tag>essay</tag>
         <tag>Java</tag>
+        <tag>essay</tag>
         <tag>Java 复习</tag>
       </tags>
   </entry>
@@ -4336,8 +4754,8 @@
         <category>Note</category>
       </categories>
       <tags>
-        <tag>总结</tag>
         <tag>笔记</tag>
+        <tag>总结</tag>
         <tag>高等数学</tag>
       </tags>
   </entry>
