@@ -1489,8 +1489,8 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>后端</tag>
+        <tag>学习</tag>
         <tag>Golang</tag>
       </tags>
   </entry>
@@ -2868,8 +2868,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>公众号文章</tag>
         <tag>快充</tag>
+        <tag>公众号文章</tag>
       </tags>
   </entry>
   <entry>
@@ -3382,7 +3382,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#64;&#116;&#x79;&#112;&#x6f;&#114;&#97;&#46;&#105;&#111;">&#105;&#64;&#116;&#x79;&#112;&#x6f;&#114;&#97;&#46;&#105;&#111;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#x40;&#116;&#121;&#x70;&#111;&#114;&#x61;&#46;&#x69;&#111;">&#x69;&#x40;&#116;&#121;&#x70;&#111;&#114;&#x61;&#46;&#x69;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -4082,27 +4082,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【碎碎念】归途</title>
-    <url>/2020/01/2020-1-18/</url>
-    <content><![CDATA[<h2 id="归途"><a href="#归途" class="headerlink" title="归途"></a>归途</h2><span id="more"></span>
-
-<p>我从长江上游，不远千里来到武汉。如今，我坐在飞往我家乡的飞机上，回想着我这四个月以来客居他乡的点滴回忆。</p>
-<p><strong>武汉</strong>是一个我从来不曾想到，我会在这里上大学的城市。以前，我知道武汉、知道武昌起义、知道汉阳兵工厂，但我又不了解它。甚至它不曾被我列在我高考的目标地点的列表上。那天晚上高考放榜，曾经“一冲上交、二搏浙大、三保川大”的我，彻彻底底拜给了现实，成绩既在意料之外，也在情理之中。考前是我选学校，考后是学校选我，这一点没错。就这样，我恍惚了一周，把高考志愿一事交给了我妈，毕竟，我想去的学校，我都不可能去。最终我阴差阳错就受到了武汉理工大学的录取通知书，又阴差阳错地来到了武汉。从此，我不得不与武汉结缘。</p>
-<p>说来也巧，武汉，位于长江的中下游。我从长江上游而来，又到长江中下游，同饮长江水。现在，飞机窗外那蜿蜒曲折的长江水，无疑给了我几分思乡的惆怅。</p>
-<p><strong>武汉理工大学</strong>也是我不曾了解的学校，回忆这一学期的校园生活，我觉得，与我的理想大学生活差距很大。看过来自南湖新校区的宣传片，最终又来到余家头校区，这是一点也不<em>“大”</em>的<em>“大学”</em>；看着每天被安排得满满当当的课表，没有许多传说中的丰富有意义的社团活动，这是一点也不<em>“开放”</em>的大学；每天的早自习、晚自习、每科目的作业，这是像极了<em>”高中“</em>的大学；没有合得来的同学，大学室友也没有网络上大家分享的那样有趣，这是一个<em>”奇怪“</em>的大学。</p>
-<p>这一学期，我也很幸运：很幸运能加入物流信息宣传中心新媒体部门，也很幸运有机会加入吾理Token这样一个有意思的团队。在这里我学习了很多，收获了很多，结识了很多朋友。这样的经历又让我有了大学的感觉。</p>
-<p>回归<strong>旅途</strong>，梦回现实。窗外，透过白云，看到了家乡才会有的冬日阳光，又看见了那条牵系着我的长江。家，我终于又回来啦！远走他乡，才能彻底理解千百年来那种中国人的思乡情，无论我在家乡生活了多久，它还是那么让我着迷。</p>
-<p>终于，飞机平稳降落在这个据说是中国最危险的机场跑道之一的PZI机场，我的心似乎一下子从天上又回归家乡的土地。家乡不大，但足够容下我对它深切的爱。千里归乡不过一个时辰，但我在天空中已经完成了向武汉暂时道别，和与家乡相拥这一宏伟仪式。</p>
-]]></content>
-      <categories>
-        <category>essay</category>
-      </categories>
-      <tags>
-        <tag>回家</tag>
-        <tag>碎碎念</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高等数学上册 概念公式笔记</title>
     <url>/2020/01/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6-%E4%B8%8A/</url>
     <content><![CDATA[<h1 id="高等数学（上）"><a href="#高等数学（上）" class="headerlink" title="高等数学（上）"></a>高等数学（上）</h1><p><em>建议使用大内存高清宽屏设备阅读</em><br>本笔记采用Markdown+$\LaTeX$编写，需要在页面上实时渲染，且文件较大。<br><strong>如果卡顿请<a href="https://url.ryzenx.com/html/Higher-education-math-one.html">&gt;点击这里&lt;</a>浏览已渲染好的页面</strong></p>
@@ -4761,16 +4740,129 @@
   </entry>
   <entry>
     <title>About</title>
-    <url>/2020/01/about/</url>
+    <url>/2020/01/&amp;about/</url>
     <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><hr>
-<h3 id="社交链接："><a href="#社交链接：" class="headerlink" title="社交链接："></a>社交链接：</h3><ul>
+<h2 id="社交链接："><a href="#社交链接：" class="headerlink" title="社交链接："></a>社交链接：</h2><ul>
 <li><a href="https://github.com/Steven-nagisa-Y">Github</a></li>
 <li><a href="https://twitter.com/Steven_nagisa">Twitter</a></li>
 <li><a href="https://weibo.com/stevennagisa">微博</a></li>
 <li><a href="mailto:yjz.dev@outlook.com">E-mail</a></li>
 </ul>
-<p><img src="https://github-readme-stats.vercel.app/api?username=Steven-nagisa-Y&show_icons=true&theme=radical" alt="GitHub stats"></p>
 <span id="more"></span>
+
+<h2 id="Hi-there-This-is-Steven👋"><a href="#Hi-there-This-is-Steven👋" class="headerlink" title="Hi there! This is Steven👋"></a>Hi there! This is Steven👋</h2><p>I love coding. Intent to be a Special Person.</p>
+<p>My major learning fields are: Frontend(Web and mini-App), O&amp;M deployment, Client side(Android), Script(Python and JavaScript)</p>
+<h3 id="Here-are-some-ideas-to-get-you-started"><a href="#Here-are-some-ideas-to-get-you-started" class="headerlink" title="Here are some ideas to get you started:"></a>Here are some ideas to get you started:</h3><ul>
+<li>🌱 I’m currently learning …<strong>Frontend</strong></li>
+<li>👯 I’m looking to collaborate on …<strong>Special Person</strong></li>
+<li>🤔 I’m looking for help with …<strong>System underlying principle</strong></li>
+<li>💬 Ask me about …<strong>Anything</strong> (but not guaranteed to reply…)</li>
+<li>📫 How to reach me: …<a href="mailto:i@gms.icu">E-mail</a></li>
+<li>😄 Pronouns: …<strong>小渚w</strong></li>
+<li>⚡ Fun fact: …<strong>I love beautiful fonts!!!</strong></li>
+</ul>
+<h3 id="My-Sites"><a href="#My-Sites" class="headerlink" title="My Sites"></a>My Sites</h3><ul>
+<li>Personal Blog at <a href="https://ryzenx.com">RyzenX</a></li>
+<li>Static Pages at <a href="https://stevenos.com">StevenOS</a></li>
+<li>Open Source Project at <a href="http://gms.icu">GMS.icu</a></li>
+</ul>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3>  <div style="display:flex;justify-content:space-between;">
+    <div style="display:flex;width:45%;">
+      <ul style="width: 100%;">
+        <li style="line-height:2rem;width:100%;font-size:1.1rem;font-family:monospace;">Languages<br />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"
+            alt="javascript" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"
+            alt="typescript" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png"
+            alt="python" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"
+            alt="html" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"
+            alt="css" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/php/php.png"
+            alt="php" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/java/java.png"
+            alt="java" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/rust/rust.png"
+            alt="rust" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/go/go.png"
+            alt="go" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/yaml/yaml.png"
+            alt="yaml" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/json/json.png"
+            alt="json" />
+        </li>
+        <li style="line-height:2rem;width:100%;font-size:1.1rem;font-family:monospace;">Working on<br />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/macos/macos.png"
+            alt="macos" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/windows/windows.png"
+            alt="windows" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png"
+            alt="linux" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/android/android.png"
+            alt="android" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png"
+            alt="docker" />
+        </li>
+        <li style="line-height:2rem;width:100%;font-size:1.1rem;font-family:monospace;">Tools<br />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png"
+            alt="visual-studio-code" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"
+            alt="git" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/npm/npm.png"
+            alt="npm" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/bf101b8b748365dbfccbb8ef4a1cf6832795830e/topics/yarn/yarn.png"
+            alt="yarn" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"
+            alt="nodejs" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/361e2821e2dea67711cde99c9c40ed357061cf27/topics/deno/deno.png"
+            alt="deno" />
+        </li>
+        <li style="line-height:2rem;width:100%;font-size:1.1rem;font-family:monospace;">Frameworks<br />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"
+            alt="vue" />
+          <img height="30" style="height:30px;display:inline-block;"
+            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"
+            alt="react" />
+          <img height="30" style="height:30px;display:inline-block;" src="https://vitejs.dev/logo.svg" alt="vite" />
+        </li>
+      </ul>
+    </div>
+    <div style="display:flex;flex-direction:column;width:45%;">
+      <img align="right" width="450"
+        src="https://github-readme-stats.vercel.app/api?username=Steven-nagisa-Y&show_icons=true&theme=radical"
+        alt="GitHub stats" />
+      <img align="right" width="450"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=Steven-nagisa-Y&layout=compact&hide=makefile&langs_count=10"
+        alt="Top Langs" />
+    </div>
+  </div>
+
+
 
 <h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><h3 id="称呼"><a href="#称呼" class="headerlink" title="称呼"></a>称呼</h3><ul>
 <li><strong>小渚w</strong>  (cn)</li>
@@ -4778,36 +4870,6 @@
 <li><strong>なぎさ</strong>  (jp)</li>
 </ul>
 <h3 id="年龄"><a href="#年龄" class="headerlink" title="年龄"></a>年龄</h3><p><code>$&#123;this_year&#125; - 2000</code></p>
-<h3 id="会一点…"><a href="#会一点…" class="headerlink" title="会一点…"></a>会一点…</h3><ul>
-<li>多媒体技术<ul>
-<li>视频剪辑 - Premier</li>
-<li>音频处理 - Cool Edit Pro</li>
-<li>图像处理 - Photoshop</li>
-</ul>
-</li>
-<li>编程技术<ul>
-<li>C/C++</li>
-<li>Java</li>
-<li>Python</li>
-<li>PHP</li>
-<li>Golang</li>
-<li>VBScript</li>
-<li>JavaScript</li>
-<li>TypeScript</li>
-<li>Lua</li>
-<li>Rust</li>
-<li>$LaTeX$</li>
-</ul>
-</li>
-<li>摄影技术<ul>
-<li>手机摄影，随便拍拍</li>
-</ul>
-</li>
-<li>搞 机<ul>
-<li>可能这几年用过的电子产品得有几十上百台了吧…</li>
-</ul>
-</li>
-</ul>
 <h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><ul>
 <li>使命召唤系列</li>
 <li>战地系列</li>
@@ -4846,12 +4908,12 @@
         <category>About</category>
       </categories>
       <tags>
-        <tag>about</tag>
+        <tag>About</tag>
       </tags>
   </entry>
   <entry>
-    <title>本站链接及友链</title>
-    <url>/2020/01/link/</url>
+    <title>Links</title>
+    <url>/2020/01/&amp;links/</url>
     <content><![CDATA[<h1 id="本站链接及友链"><a href="#本站链接及友链" class="headerlink" title="本站链接及友链"></a>本站链接及友链</h1><blockquote>
 <p>更新时间：2021-12-02</p>
 </blockquote>
@@ -4864,30 +4926,19 @@
 <li><a href="http://stevenos.com">stevenos.com</a></li>
 </ul>
 </li>
-<li><p>搜索+链接</p>
-<ul>
-<li><a href="https://s.ryzenx.com">s.ryzenx.com</a></li>
-<li><a href="http://stevenos.com/home">stevenos.com/home</a></li>
-</ul>
-</li>
 <li><p>图床 OSS</p>
 <ul>
 <li><a href="https://ryzenx.oss-accelerate.aliyuncs.com">ryzenx.oss-accelerate.aliyuncs.com</a></li>
 </ul>
 </li>
-<li><p>链接转发和保存（在开发）</p>
-<ul>
-<li><a href="http://url.ryzenx.com">url.ryzenx.com</a></li>
-</ul>
-</li>
-<li><p>下载站</p>
-<ul>
-<li><a href="https://dl.ryzenx.com">dl.ryzenx.com</a></li>
-</ul>
-</li>
 <li><p>后端 api 接口</p>
 <ul>
-<li><a href="https://api.ryzenx.com">api.ryzenx.com</a></li>
+<li><a href="https://stevenapis.xyz">stevenapis.xyz</a></li>
+</ul>
+</li>
+<li><p>文件分享</p>
+<ul>
+<li><a href="https://share.stevenos.com">share.stevenos.com</a></li>
 </ul>
 </li>
 <li><p>开源项目</p>
@@ -4908,7 +4959,7 @@
         <category>About</category>
       </categories>
       <tags>
-        <tag>about</tag>
+        <tag>Links</tag>
       </tags>
   </entry>
   <entry>
