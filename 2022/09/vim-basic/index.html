@@ -6,11 +6,11 @@
    
   <meta name="keywords" content="博客,技术" />
    
-  <meta name="description" content="渚：水中的小块陆地" />
+  <meta name="description" content="Vim 常用按键" />
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Magisk安装步骤 ::  小渚w的博客小站
+    Vim 常用按键 ::  小渚w的博客小站
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -49,7 +49,7 @@ ga('send', 'pageview');
     <main class="content">
       <section class="outer">
   
-<article id="post-Install-magisk" class="article article-type-post" itemscope
+<article id="post-vim-basic" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -57,7 +57,7 @@ ga('send', 'pageview');
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Magisk安装步骤
+  Vim 常用按键
 </h1>
   
 
@@ -66,8 +66,8 @@ ga('send', 'pageview');
 
     
     <div class="article-meta">
-      <a href="/2022/02/Install-magisk/" class="article-date">
-  <time datetime="2022-02-27T08:12:47.000Z" itemprop="datePublished">2022-02-27</time>
+      <a href="/2022/09/vim-basic/" class="article-date">
+  <time datetime="2022-09-26T12:53:12.000Z" itemprop="datePublished">2022-09-26</time>
 </a>
       
   <div class="article-category">
@@ -81,7 +81,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k字</span>
+            <span class="post-count">252字</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@ ga('send', 'pageview');
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4分钟</span>
+            <span class="post-count">1分钟</span>
         </span>
     </span>
 </div>
@@ -117,71 +117,179 @@ ga('send', 'pageview');
       
 
       
-      <h1 id="Magisk-安装步骤简述"><a href="#Magisk-安装步骤简述" class="headerlink" title="Magisk 安装步骤简述"></a>Magisk 安装步骤简述</h1><blockquote>
-<p>Magisk is for <em>The Magic Mask for Android</em></p>
-<p>Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.</p>
+      <h1 id="Vim-常用按键备忘"><a href="#Vim-常用按键备忘" class="headerlink" title="Vim 常用按键备忘"></a>Vim 常用按键备忘</h1><blockquote>
+<p>Get a fully random sequence:</p>
+<p>​    Make a novice exit <em>Vim</em></p>
+<p>参考： <a target="_blank" rel="noopener" href="https://b23.tv/BV13t4y1t7Wg">https://b23.tv/BV13t4y1t7Wg</a></p>
 </blockquote>
 <span id="more"></span>
 
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>在 Android 系统还不成熟的时候，<em>root</em> Android 系统获得系统最高用户权限，从而修改系统达到快捷操作个性化等目的。</p>
-<p>虽然 Android 系统已经来到了 <strong>Android 12</strong>（截至本文最后修改时间，<strong>Android 13 beta</strong>已经推出），各种之前需要 <em>root</em> 系统才能进行的操作已经被内置在了系统功能中。但是，搞机不息，折腾不止，<em>Magisk</em> 的多种功能和“模块”也让 Android 系统变得更加自由。</p>
-<h2 id="2-第一步：备份数据"><a href="#2-第一步：备份数据" class="headerlink" title="2. 第一步：备份数据"></a>2. 第一步：备份数据</h2><p><strong>！！！重中之重</strong></p>
-<p>下列操作将涉及<strong>重置系统</strong>，提前备份手机中所有数据。</p>
-<h2 id="3-第二步：解锁-Bootloader"><a href="#3-第二步：解锁-Bootloader" class="headerlink" title="3. 第二步：解锁 Bootloader"></a>3. 第二步：解锁 Bootloader</h2><blockquote>
-<p>Bootloader 在类似于 Windows 电脑中的“安全启动”，是系统启动引导的安全空间。以下简称<strong>BL</strong></p>
-<p>主要的功能是防止恶意程序修改系统引导、破坏系统文件、盗取存储数据。同时防止被加密的手机通过“刷机”获取存储中的资料。</p>
-</blockquote>
-<p>目前，不是所有品牌的手机都能自由解锁BL，因为很多手机厂商并不希望你安装其他系统版本、不希望你 <em>root</em> 手机后卸载系统的广告应用。</p>
-<p>目前已知可以比较方便解锁BL的手机厂商有：</p>
-<ul>
-<li>小米 (MIUI)：绑定小米账号7天-30天即可解锁</li>
-<li>三星 (OneUI)：熔断式安全锁，解锁后不可恢复锁定状态，安全功能不可用</li>
-<li>联想</li>
-<li>一加 (H2OS)</li>
-<li>HTC</li>
-<li>Sony</li>
-<li>Google</li>
+<h2 id="Vim-三种模式"><a href="#Vim-三种模式" class="headerlink" title="Vim 三种模式"></a>Vim 三种模式</h2><ul>
+<li>NORMAL</li>
+<li>INSERT</li>
+<li>COMMAND</li>
 </ul>
-<p>解锁方法可自行搜索<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; unlock bootloader</code></p>
-<p><strong>解锁BL会清除所有数据！！！</strong></p>
-<h2 id="4-第三步：获取最新安装包"><a href="#4-第三步：获取最新安装包" class="headerlink" title="4. 第三步：获取最新安装包"></a>4. 第三步：获取最新安装包</h2><p>可通过两种方法获取系统安装包：</p>
-<ul>
-<li><strong>官网下载</strong>，搜索：<code>&#123;brand&#125;&#123;model&#125;&#123;system version&#125; system image</code></li>
-<li><strong>OTA升级</strong></li>
-</ul>
-<p>获取系统安装包完成后，先在手机上安装一下最新系统，并进行初始化设置。如果不想更新系统，则需要下载到当前对应系统版本的安装包。</p>
-<p>在<a target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">Github上下载Magisk</a>，在手机上直接安装。</p>
-<h2 id="5-第四步：解包并提取"><a href="#5-第四步：解包并提取" class="headerlink" title="5. 第四步：解包并提取"></a>5. 第四步：解包并提取</h2><p>对下载的系统安装包进行解压，并提取<code>boot.img</code>。如果为加密系统安装包，即仅包含<code>payload.bin</code>，则按照<a target="_blank" rel="noopener" href="https://magiskcn.com/payload-boot">这个教程解包</a><code>payload.bin</code></p>
-<p>将提取到的<code>boot.img</code>保存到容易找到的手机目录，例如手机的“下载文件夹”<code>./Download/</code></p>
-<h2 id="6-第五步：将Magisk注入"><a href="#6-第五步：将Magisk注入" class="headerlink" title="6. 第五步：将Magisk注入"></a>6. 第五步：将Magisk注入</h2><p>打开手机上安装的<strong>Magisk</strong> App，按照下图操作：</p>
-<p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-3.jpg" alt="Magisk安装教程插图1"></p>
-<h2 id="7-第六步：刷入注入完成的boot-img"><a href="#7-第六步：刷入注入完成的boot-img" class="headerlink" title="7. 第六步：刷入注入完成的boot.img"></a>7. 第六步：刷入注入完成的boot.img</h2><p>将<strong>Magisk</strong>注入完成的<code>magisk_patched-*****.img</code>拷贝到电脑，需要 <code>adb</code> 和  <code>fastboot</code> 工具。</p>
-<p>将手机关机，同时按住<strong>电源</strong> <strong>音量减</strong>，直到手机出现画面显示<strong>Bootloader</strong>字样。将手机连接到电脑。</p>
-<p>打开电脑的“终端”，例如 Windows 系统中的 <em>PowerShell</em> 窗口，或者 macOS 中的 <em>Terminal.app</em></p>
-<p>切换到 <code>adb</code> 和  <code>fastboot</code> 目录，输入<code>fastboot devices</code>，返回当前连接的设备(1个)表示连接成功。</p>
-<p>确认连接成功后，输入：<code>fastboot flash boot /path/to/magisk_patched-*****.img</code>，并确认</p>
-<p>如果显示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sending ‘boot’ (131072 KB) OKAY [ 3.123s]</span><br><span class="line">Writing ‘boot’ OKAY [ 0.397s]</span><br><span class="line">Finished. Total time: 4.645s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line"> A[INSERT]</span><br><span class="line"> B[NORMAL]</span><br><span class="line"> C[CMD]</span><br><span class="line"> B --I--&gt; A</span><br><span class="line"> B --:--&gt; C</span><br><span class="line"> A --esc--&gt; B</span><br><span class="line"> C --esc--&gt; B</span><br></pre></td></tr></table></figure>
 
-<p>代表你的手机为单系统引导分区，且已经执行成功。</p>
-<p>如果显示：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Sending ‘boota’</span><br><span class="line">Sending ‘bootb’</span><br></pre></td></tr></table></figure>
 
-<p>表示你的手机为双系统引导分区。</p>
-<p>如果没有显示<code>OKAY</code> 和 <code>Finished</code>，表示执行失败。</p>
-<blockquote>
-<p>这里有个坑</p>
-</blockquote>
-<p>这里仅需要运行<code>fastboot flash boot XXX.img</code>表示把<code>XXX.img</code>刷入<code>boot</code>分区，<strong>fastboot</strong>会自动找到下次启动的分区，但是在个别机型上，<strong>A/B</strong>分区并不是<code>boota</code>和<code>bootb</code>，而是<code>boot_a</code>和<code>boot_b</code>。如果输入上述命令执行失败，提示未找到<code>boota</code>和<code>bootb</code>分区，则手动修改为<code>boot_a</code>和<code>boot_b</code>，但注意与提示对应。</p>
-<h2 id="8-第七步：重启手机"><a href="#8-第七步：重启手机" class="headerlink" title="8. 第七步：重启手机"></a>8. 第七步：重启手机</h2><p>断开手机与电脑的连接。可通过长按按键“电源”重启手机或者输入<code>fastboot reboot</code>重启。</p>
-<p>重启后打开 <strong>Magisk</strong> App，如果显示（右上角有个刷新/重启按钮）：</p>
-<p><img src="https://magiskcn.com/wp-content/uploads/2021/11/eafbece1016a6af-4.jpg" alt="Magisk安装教程插图5"></p>
-<p>则表示安装成功。</p>
-<br />
 
-<blockquote>
-<p>参考：<a target="_blank" rel="noopener" href="https://magiskcn.com/">https://magiskcn.com/</a></p>
-</blockquote>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><strong>NORMAL</strong> MODE</p>
+<table>
+<thead>
+<tr>
+<th align="center">下</th>
+<th align="center">上</th>
+<th align="center">左</th>
+<th align="center">右</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>j</code></td>
+<td align="center"><code>k</code></td>
+<td align="center"><code>h</code></td>
+<td align="center"><code>l</code></td>
+</tr>
+<tr>
+<td align="center">可视下</td>
+<td align="center">可视上</td>
+<td align="center">行首</td>
+<td align="center">行尾</td>
+</tr>
+<tr>
+<td align="center"><code>gj</code></td>
+<td align="center"><code>gk</code></td>
+<td align="center"><code>0</code></td>
+<td align="center"><code>$</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>下一个单词开头</th>
+<th>上一个单词开头</th>
+<th>下一个单词结尾</th>
+<th>上一个单词结尾</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>w</code></td>
+<td><code>b</code></td>
+<td><code>e</code></td>
+<td><code>ge</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">插入</th>
+<th align="center">追加</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>i</code> - insert</td>
+<td align="center"><code>a</code> - append</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">新增下一行</th>
+<th align="center">新增上一行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>o</code> - open a new line</td>
+<td align="center"><code>O</code> - Open</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">移动到最后一行</th>
+<th align="center">移动到第一行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>G</code> - Ground</td>
+<td align="center"><code>gg</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">按行跳跃</th>
+<th align="center">相对行跳跃</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>nj</code>  <code>nk</code>  <code>nG</code> <code>:n</code></td>
+<td align="center"><code>set relativenumber</code></td>
+</tr>
+</tbody></table>
+<h2 id="编辑功能"><a href="#编辑功能" class="headerlink" title="编辑功能"></a>编辑功能</h2><table>
+<thead>
+<tr>
+<th align="center">复制一行</th>
+<th align="center">粘贴</th>
+<th align="center">删除一行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>yy</code></td>
+<td align="center"><code>np</code> - n for times</td>
+<td align="center"><code>dd</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">重复上一次操作</th>
+<th align="center">撤回</th>
+<th align="center">重做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>.</code></td>
+<td align="center"><code>u</code> - undo</td>
+<td align="center"><code>Ctrl - r</code></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">删除单词</th>
+<th align="center">替换单词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>dw</code> - delete a word</td>
+<td align="center"><code>cw</code> - change a word</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">复制单词</th>
+<th align="center">删除括号内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>yw</code></td>
+<td align="center"><code>ci&#123;([</code> - change in ..</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">可视化块选择</th>
+<th align="center">可视化行选择</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Ctrl - v</code></td>
+<td align="center"><code>V</code>  (<code>Shift - V</code>)</td>
+</tr>
+</tbody></table>
 
       
       <!-- reward -->
@@ -195,18 +303,6 @@ ga('send', 'pageview');
     
       <!-- copyright -->
       
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong s>
-                本博客采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
-                target="_blank">Apache License 2.0</a> 许可协议。<br />转载请注明出处：
-                https://ryzenx.com/2022/02/Install-magisk/
-            </li>
-          </ul>
-        </div>
-        
     <footer class="article-footer">
       
           
@@ -252,14 +348,14 @@ ga('send', 'pageview');
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2022/02/Install-magisk/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ryzenx.com/2022/09/vim-basic/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BF%83%E5%BE%97/" rel="tag">心得</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%A9%E6%9C%BA/" rel="tag">玩机</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/" rel="tag">Vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
 
     </footer>
@@ -270,19 +366,10 @@ ga('send', 'pageview');
   
   <nav class="article-nav">
     
-      <a href="/2022/03/JS-questions-2203/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            JavaScript 基础问题 2203
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/01/JS-ES6/" class="article-nav-link">
+      <a href="/2022/09/Front-end-questions-2209/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">ECMAScript 6+标准学习</div>
+        <div class="article-nav-title">前端基础问题 2209</div>
       </a>
     
   </nav>

@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Android 基础问题 ::  小渚w的博客小站
+    Android 基础问题 2204 ::  小渚w的博客小站
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -57,7 +57,7 @@ ga('send', 'pageview');
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Android 基础问题
+  Android 基础问题 2204
 </h1>
   
 
@@ -132,8 +132,8 @@ ga('send', 'pageview');
 <p>生命周期钩子<code>onCreate</code>、<code>onStart</code>、<code>onResume</code>都会被调用。</p>
 </li>
 <li><p><code>SingleTop</code></p>
-<p>栈顶复用启动模式，当栈顶的Activity再次创建时，会直接服用栈顶的实例，不会创建新的实例。如果创建的Activity不在栈顶，将会如同<code>Standard</code>模式一样创建新的实例。</p>
-<p>若栈顶Activity被服用，生命周期钩子<code>onCreate</code>、<code>onStart</code>不会被系统调用，由于它并没有发生改变，可是一个新的方法 <code>onNewIntent</code>会被回调。</p>
+<p>栈顶复用启动模式，当栈顶的Activity再次创建时，会直接复用栈顶的实例，不会创建新的实例。如果创建的Activity不在栈顶，将会如同<code>Standard</code>模式一样创建新的实例。</p>
+<p>若栈顶Activity被复用，生命周期钩子<code>onCreate</code>、<code>onStart</code>不会被系统调用，由于它并没有发生改变，可是一个新的方法 <code>onNewIntent</code>会被回调。</p>
 </li>
 <li><p><code>SingleTask</code></p>
 <p>栈内复用启动模式，如果栈内已有的Activity被再次创建时，将销毁该Activity栈之上的所有实例，使该Activity实例成为栈顶。</p>
@@ -167,7 +167,7 @@ ga('send', 'pageview');
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/592fb6bb69fa">https://www.jianshu.com/p/592fb6bb69fa</a></p>
 </blockquote>
 <p>Handler机制主要是用作线程间通信，尤其是主线程和子线程之间的通信。</p>
-<h3 id="Handler-涉及的对象"><a href="#Handler-涉及的对象" class="headerlink" title="Handler 涉及的对象"></a>Handler 涉及的对象</h3><p>Handler机制里面涉及到四个对象：<code>Handler</code>，<code>message</code>、<code>MessageQueue</code>、<code>Looper</code></p>
+<h3 id="Handler-涉及的对象"><a href="#Handler-涉及的对象" class="headerlink" title="Handler 涉及的对象"></a>Handler 涉及的对象</h3><p>Handler机制里面涉及到四个对象：<code>Handler</code>，<code>Message</code>、<code>MessageQueue</code>、<code>Looper</code></p>
 <ol>
 <li><code>Message</code>:信息的携带者，持有了Handler，存在<code>MessageQueue</code>中，一个线程可以有多个</li>
 <li><code>Hanlder</code>:消息的发起者，发送Message以及消息处理的回调实现，一个线程可以有多个Handler对象</li>
@@ -253,10 +253,10 @@ ga('send', 'pageview');
 <p><a target="_blank" rel="noopener" href="https://developer.android.com/training/data-storage/room">https://developer.android.com/training/data-storage/room</a></p>
 </blockquote>
 <h3 id="Shared-Preferences"><a href="#Shared-Preferences" class="headerlink" title="Shared Preferences"></a>Shared Preferences</h3><p>一个轻量级的存储类，特别适合用于保存软件配置参数，是用xml文件存放数据。</p>
-<p>文件存放在<code>/data/data/_package/shared_prefs</code>目录下</p>
+<p>文件存放在<code>/data/data/&lt;package&gt;/shared_prefs</code>目录下</p>
 <p>Shared Preferences可以保存的数据类型有：<code>int</code>、<code>boolean</code>、<code>float</code>、<code>long</code>、<code>String</code>、<code>StringSet</code>。</p>
 <h3 id="Internal-Storage"><a href="#Internal-Storage" class="headerlink" title="Internal Storage"></a>Internal Storage</h3><p>通过文件的形式将数据保存到手机内部存储空间中，并且这些文件是私有的，其他程序无法访问。当卸载掉程序之后，这些文件也会被相应移除。</p>
-<p>文件存放在<code>/storage/emulated/0/Android/data/_package/</code>中</p>
+<p>文件存放在<code>/storage/emulated/0/Android/data/&lt;package&gt;/</code>中</p>
 <h3 id="External-Storage"><a href="#External-Storage" class="headerlink" title="External Storage"></a>External Storage</h3><p>通过文件的形式存储在手机模拟SD card中，需要在清单中声明外部存储空间读写权限，并且需要请求权限。</p>
 <p>文件存放在<code>/sdcard &lt;-&gt; /storage/emulated/0/</code>中</p>
 <h3 id="SQLite-Databases"><a href="#SQLite-Databases" class="headerlink" title="SQLite Databases"></a>SQLite Databases</h3><p>Android内建轻量化数据库SQLite，推荐通过Android Room中间层对数据库进行操作。</p>
@@ -645,6 +645,15 @@ ga('send', 'pageview');
   
   
   <nav class="article-nav">
+    
+      <a href="/2022/09/Front-end-questions-2209/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            前端基础问题 2209
+          
+        </div>
+      </a>
     
     
       <a href="/2022/04/make-vim-show-whitechars/" class="article-nav-link">
