@@ -302,9 +302,9 @@
 </li>
 </ul>
 <h2 id="3-语义化标签"><a href="#3-语义化标签" class="headerlink" title="3. 语义化标签"></a>3. 语义化标签</h2><p>语义元素对浏览器和开发者都清楚地描述了其含义。</p>
-<p>非语义元素的例子。<div>和<span>–对其内容一无所知。</p>
-<p>语义元素的例子。<form>, <table>, and <article> - 清楚地定义了其内容。</p>
-<h3 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>      <span class="comment">&lt;!--：页面主体内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hn</span>&gt;</span>         <span class="comment">&lt;!--：h1~h6，分级标题，&lt;h1&gt; 与 &lt;title&gt; 协调有利于搜索引擎优化。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>         <span class="comment">&lt;!--：无序列表。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>         <span class="comment">&lt;!--：有序列表。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>     <span class="comment">&lt;!--：页眉通常包括网站标志、主导航、全站链接以及搜索框。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>        <span class="comment">&lt;!--：标记导航，仅对文档中重要的链接群使用。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span>       <span class="comment">&lt;!--：页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>    <span class="comment">&lt;!--：定义外部的内容，其中的内容独立于文档的其余部分。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>    <span class="comment">&lt;!--：定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span>      <span class="comment">&lt;!--：定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>     <span class="comment">&lt;!--：页脚，只有当父级是body时，才是整个页面的页脚。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">small</span>&gt;</span>      <span class="comment">&lt;!--：呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>     <span class="comment">&lt;!--：和 em 标签一样，用于强调文本，但它强调的程度更强一些。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>         <span class="comment">&lt;!--：将其中的文本表示为强调的内容，表现为斜体。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mark</span>&gt;</span>       <span class="comment">&lt;!--：使用黄色突出显示部分文本。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span>     <span class="comment">&lt;!--：规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figcaption</span>&gt;</span> <span class="comment">&lt;!--：定义 figure 元素的标题，应该被置于 figure 元素的第一个或最后一个子元素的位置。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cite</span>&gt;</span>       <span class="comment">&lt;!--：表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquoto</span>&gt;</span> <span class="comment">&lt;!--：定义块引用，块引用拥有它们自己的空间。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">q</span>&gt;</span>          <span class="comment">&lt;!--：短的引述（跨浏览器问题，尽量避免使用）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span>&gt;</span>       <span class="comment">&lt;!--：datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">abbr</span>&gt;</span>       <span class="comment">&lt;!--：简称或缩写。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dfn</span>&gt;</span>        <span class="comment">&lt;!--：定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span>    <span class="comment">&lt;!--：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">del</span>&gt;</span>        <span class="comment">&lt;!--：移除的内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ins</span>&gt;</span>        <span class="comment">&lt;!--：添加的内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">code</span>&gt;</span>       <span class="comment">&lt;!--：标记代码。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meter</span>&gt;</span>      <span class="comment">&lt;!--：定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">progress</span>&gt;</span>   <span class="comment">&lt;!--：定义运行中的进度（进程）。--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>非语义元素的例子。<code>&lt;div&gt;</code>和<code>&lt;span&gt;</code>–对其内容一无所知。</p>
+<p>语义元素的例子。<code>&lt;form&gt;</code>, <code>&lt;table&gt;</code>, and <code>&lt;article&gt;</code> - 清楚地定义了其内容。</p>
+<h3 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>      <span class="comment">&lt;!--：页面主体内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hn</span>&gt;</span>         <span class="comment">&lt;!--：h1~h6，分级标题，&lt;h1&gt; 与 &lt;title&gt; 协调有利于搜索引擎优化。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span>         <span class="comment">&lt;!--：无序列表。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span>         <span class="comment">&lt;!--：有序列表。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>     <span class="comment">&lt;!--：页眉通常包括网站标志、主导航、全站链接以及搜索框。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>        <span class="comment">&lt;!--：标记导航，仅对文档中重要的链接群使用。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span>       <span class="comment">&lt;!--：页面主要内容，一个页面只能使用一次。如果是web应用，则包围其主要功能。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>    <span class="comment">&lt;!--：定义外部的内容，其中的内容独立于文档的其余部分。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>    <span class="comment">&lt;!--：定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span>      <span class="comment">&lt;!--：定义其所处内容之外的内容。如侧栏、文章的一组链接、广告、友情链接、相关产品列表等。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>     <span class="comment">&lt;!--：页脚，只有当父级是body时，才是整个页面的页脚。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">small</span>&gt;</span>      <span class="comment">&lt;!--：呈现小号字体效果，指定细则，输入免责声明、注解、署名、版权。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>     <span class="comment">&lt;!--：和 em 标签一样，用于强调文本，但它强调的程度更强一些。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>         <span class="comment">&lt;!--：将其中的文本表示为强调的内容，表现为斜体。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mark</span>&gt;</span>       <span class="comment">&lt;!--：使用黄色突出显示部分文本。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span>     <span class="comment">&lt;!--：规定独立的流内容（图像、图表、照片、代码等等）（默认有40px左右margin）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figcaption</span>&gt;</span> <span class="comment">&lt;!--：定义 figure 元素的标题，应该被置于 figure 元素的第一个或最后一个子元素的位置。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cite</span>&gt;</span>       <span class="comment">&lt;!--：表示所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">blockquoto</span>&gt;</span> <span class="comment">&lt;!--：定义块引用，块引用拥有它们自己的空间。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">q</span>&gt;</span>          <span class="comment">&lt;!--：短的引述（跨浏览器问题，尽量避免使用）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">time</span>&gt;</span>       <span class="comment">&lt;!--：datetime属性遵循特定格式，如果忽略此属性，文本内容必须是合法的日期或者时间格式。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">abbr</span>&gt;</span>       <span class="comment">&lt;!--：简称或缩写。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dfn</span>&gt;</span>        <span class="comment">&lt;!--：定义术语元素，与定义必须紧挨着，可以在描述列表dl元素中使用。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span>    <span class="comment">&lt;!--：作者、相关人士或组织的联系信息（电子邮件地址、指向联系信息页的链接）。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">del</span>&gt;</span>        <span class="comment">&lt;!--：移除的内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ins</span>&gt;</span>        <span class="comment">&lt;!--：添加的内容。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">code</span>&gt;</span>       <span class="comment">&lt;!--：标记代码。--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meter</span>&gt;</span>      <span class="comment">&lt;!--：定义已知范围或分数值内的标量测量。（Internet Explorer 不支持 meter 标签）--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">progress</span>&gt;</span>   <span class="comment">&lt;!--：定义运行中的进度（进程）。--&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -4555,8 +4555,8 @@
       </categories>
       <tags>
         <tag>技术</tag>
-        <tag>快充</tag>
         <tag>公众号文章</tag>
+        <tag>快充</tag>
       </tags>
   </entry>
   <entry>
@@ -5069,7 +5069,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#x40;&#116;&#121;&#112;&#111;&#114;&#x61;&#x2e;&#x69;&#x6f;">&#105;&#x40;&#116;&#121;&#112;&#111;&#114;&#x61;&#x2e;&#x69;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#64;&#x74;&#x79;&#x70;&#x6f;&#114;&#97;&#46;&#105;&#111;">&#105;&#64;&#x74;&#x79;&#x70;&#x6f;&#114;&#97;&#46;&#105;&#111;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -5772,11 +5772,15 @@
     <title>About</title>
     <url>/2020/01/&amp;about/</url>
     <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><hr>
-<h2 id="社交链接："><a href="#社交链接：" class="headerlink" title="社交链接："></a>社交链接：</h2><ul>
-<li><a href="https://github.com/Steven-nagisa-Y">Github</a></li>
-<li><a href="https://twitter.com/Steven_nagisa">Twitter</a></li>
-<li><a href="https://weibo.com/stevennagisa">微博</a></li>
-<li><a href="mailto:yjz.dev@outlook.com">E-mail</a></li>
+<ul>
+<li><p><a href="https://steven.run">简历 | Resume</a></p>
+</li>
+<li><p><a href="https://github.com/Steven-nagisa-Y">Github</a></p>
+</li>
+<li><p><a href="https://weibo.com/stevennagisa">微博 | Weibo</a></p>
+</li>
+<li><p><a href="mailto:me@steven.run">E-mail</a></p>
+</li>
 </ul>
 <span id="more"></span>
 
@@ -5793,10 +5797,11 @@
 </ul>
 <h3 id="My-Sites"><a href="#My-Sites" class="headerlink" title="My Sites"></a>My Sites</h3><ul>
 <li>Personal Blog at <a href="https://ryzenx.com">RyzenX</a></li>
+<li>My Resume at <a href="https://steven.run">Steven.Run</a></li>
 <li>Static Pages at <a href="https://stevenos.com">StevenOS</a></li>
-<li>Open Source Project at <a href="http://gms.icu">GMS.icu</a></li>
+<li>API service site at <a href="https://stevenapis.xyz">StevenAPIs</a></li>
 </ul>
-<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3>  <div style="display:flex;justify-content:space-between;">
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3>  <div style="display:flex;justify-content:space-between;font-family:ui-monospace,Menlo,Consolas,monospace;">
     <div style="display:flex;width:45%;">
       <ul style="width: 100%;">
         <li style="line-height:2rem;width:100%;font-size:1.1rem;font-family:monospace;">Languages<br />
@@ -5894,6 +5899,7 @@
 
 
 
+
 <h2 id="个人简介"><a href="#个人简介" class="headerlink" title="个人简介"></a>个人简介</h2><h3 id="称呼"><a href="#称呼" class="headerlink" title="称呼"></a>称呼</h3><ul>
 <li><strong>小渚w</strong>  (cn)</li>
 <li><strong>Steven Yan</strong>  (en)</li>
@@ -5924,8 +5930,18 @@
 <li>诺粉</li>
 <li>锤粉</li>
 <li>技术至上</li>
-<li>做人的底线是不能影响别人</li>
-<li>反海🐶联盟第一人</li>
+</ul>
+<h3 id="信条"><a href="#信条" class="headerlink" title="信条"></a>信条</h3><ul>
+<li><p>反思使人进步，总结使人提高</p>
+</li>
+<li><p>做人的底线是不能影响别人</p>
+</li>
+<li><p>一个人的命运，当然要靠自我奋斗，但是也要考虑到历史的进程</p>
+</li>
+<li><p>闷声大发财</p>
+</li>
+<li><p>事物的发展不是直线前进，而是螺旋式上升的</p>
+</li>
 </ul>
 <h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul>
 <li>有看电视剧的习惯吗？<ul>
