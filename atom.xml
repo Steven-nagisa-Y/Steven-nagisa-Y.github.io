@@ -118,9 +118,9 @@
       <category term="Note" scheme="https://ryzenx.com/categories/note/"/>
     
     
-      <category term="Linux" scheme="https://ryzenx.com/tags/linux/"/>
-    
       <category term="Vim" scheme="https://ryzenx.com/tags/vim/"/>
+    
+      <category term="Linux" scheme="https://ryzenx.com/tags/linux/"/>
     
   </entry>
   
