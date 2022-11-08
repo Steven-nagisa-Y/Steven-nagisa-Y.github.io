@@ -52,8 +52,9 @@
         <category>技术</category>
       </categories>
       <tags>
+        <tag>笔记</tag>
         <tag>前端</tag>
-        <tag>浏览器扩展 - TypeScript</tag>
+        <tag>浏览器扩展</tag>
       </tags>
   </entry>
   <entry>
@@ -987,8 +988,8 @@
         <category>Note</category>
       </categories>
       <tags>
-        <tag>Vim</tag>
         <tag>Linux</tag>
+        <tag>Vim</tag>
       </tags>
   </entry>
   <entry>
@@ -5125,7 +5126,7 @@
 
 <p>In Typora, clicking the link will expand it for editing, and command+click will open the hyperlink in your web browser.</p>
 <h3 id="URLs"><a href="#URLs" class="headerlink" title="URLs"></a>URLs</h3><p>Typora allows you to insert URLs as links, wrapped by <code>&lt;</code>brackets<code>&gt;</code>.</p>
-<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#105;&#64;&#116;&#x79;&#x70;&#111;&#114;&#97;&#x2e;&#105;&#x6f;">&#105;&#64;&#116;&#x79;&#x70;&#111;&#114;&#97;&#x2e;&#105;&#x6f;</a>.</p>
+<p><code>&lt;i@typora.io&gt;</code> becomes <a href="mailto:&#x69;&#64;&#116;&#x79;&#112;&#x6f;&#114;&#x61;&#46;&#105;&#x6f;">&#x69;&#64;&#116;&#x79;&#112;&#x6f;&#114;&#x61;&#46;&#105;&#x6f;</a>.</p>
 <p>Typora will also automatically link standard URLs. e.g: <a href="http://www.google.com">www.google.com</a>.</p>
 <h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><p>Images have similar syntax as links, but they require an additional <code>!</code> char before the start of the link. The syntax for inserting an image looks like this:</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg</span>)</span><br><span class="line"></span><br><span class="line">![<span class="string">Alt text</span>](<span class="link">/path/to/img.jpg &quot;Optional title&quot;</span>)</span><br></pre></td></tr></table></figure>
@@ -5677,8 +5678,8 @@
         <category>Note</category>
       </categories>
       <tags>
-        <tag>docker</tag>
         <tag>技术</tag>
+        <tag>docker</tag>
         <tag>总结</tag>
       </tags>
   </entry>
@@ -5830,7 +5831,6 @@
     <content><![CDATA[<h1 id="你好！这里是小渚w"><a href="#你好！这里是小渚w" class="headerlink" title="你好！这里是小渚w"></a>你好！这里是小渚w</h1><ul>
 <li><a href="https://github.com/Steven-nagisa-Y">Github</a></li>
 <li><a href="https://weibo.com/stevennagisa">微博 | Weibo</a></li>
-<li><a href="https://twitter.com/Steven_nagisa">Twitter</a></li>
 <li><a href="mailto:me@steven.run">E-mail</a></li>
 </ul>
 <span id="more"></span>
@@ -5848,9 +5848,9 @@
 </ul>
 <h3 id="My-Sites"><a href="#My-Sites" class="headerlink" title="My Sites"></a>My Sites</h3><ul>
 <li>Personal Blog at <a href="https://ryzenx.com">RyzenX</a></li>
-<li><del>My Resume</del></li>
 <li>Static Pages at <a href="https://stevenos.com">StevenOS</a></li>
-<li>API service site at <a href="https://stevenapis.xyz">StevenAPIs</a></li>
+<li><del>API service site</del></li>
+<li><del>My Resume</del></li>
 </ul>
 <h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3>  <div style="display:flex;justify-content:space-between;font-family:ui-monospace,Menlo,Consolas,monospace;">
     <div style="display:flex;width:45%;">
@@ -5956,21 +5956,19 @@
 <li><strong>Steven Yan</strong>  (en)</li>
 <li><strong>なぎさ</strong>  (jp)</li>
 </ul>
-<h3 id="年龄"><a href="#年龄" class="headerlink" title="年龄"></a>年龄</h3><p><code>$&#123;this_year&#125; - 2000</code></p>
 <h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><ul>
 <li>使命召唤系列</li>
 <li>战地系列</li>
-<li>绝地求生系列</li>
 <li>GTA系列</li>
-<li>还有各种优秀的单机大作</li>
+<li>Cyberpunk 2077</li>
+<li>还有各种优秀的3A大作</li>
 </ul>
 <h3 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h3><ul>
 <li>小裙子！</li>
 <li>听音乐</li>
-<li>看YouTube</li>
+<li>看YouTube视频</li>
 <li>写代码</li>
 <li>Van 游戏（其实很少玩）</li>
-<li>学不会的前端设计</li>
 <li>体验新鲜的科技数码产品</li>
 </ul>
 <h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><ul>
@@ -5980,7 +5978,8 @@
 <li>软粉</li>
 <li>诺粉</li>
 <li>锤粉</li>
-<li>技术至上</li>
+<li>👓蛤</li>
+<li>唯物辩证法</li>
 </ul>
 <h3 id="信条"><a href="#信条" class="headerlink" title="信条"></a>信条</h3><ul>
 <li><p>反思使人进步，总结使人提高</p>
@@ -5991,7 +5990,7 @@
 </li>
 <li><p>闷声大发财</p>
 </li>
-<li><p>事物的发展不是直线前进，而是螺旋式上升的</p>
+<li><p>事物的发展不是直线前进，而是波浪式前进和螺旋式上升的</p>
 </li>
 </ul>
 <h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul>
@@ -6017,7 +6016,7 @@
 <span id="more"></span>
 
 <h2 id="本站链接及功能："><a href="#本站链接及功能：" class="headerlink" title="本站链接及功能："></a>本站链接及功能：</h2><ul>
-<li><strong>博客主站</strong><ul>
+<li><strong>主站</strong><ul>
 <li><a href="https://ryzenx.com">ryzenx.com</a></li>
 <li><a href="http://stevenos.com">stevenos.com</a></li>
 </ul>
